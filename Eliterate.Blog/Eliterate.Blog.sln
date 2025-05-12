@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eliterate.Blog", "Eliterate.Blog\Eliterate.Blog\Eliterate.Blog.csproj", "{1A60119D-CC0B-413A-A0F5-2A3BF260B820}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eliterate.Blog.Client", "Eliterate.Blog\Eliterate.Blog.Client\Eliterate.Blog.Client.csproj", "{DD8E1DC9-C152-445F-9E09-EDDC8554BBE6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A60119D-CC0B-413A-A0F5-2A3BF260B820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A60119D-CC0B-413A-A0F5-2A3BF260B820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A60119D-CC0B-413A-A0F5-2A3BF260B820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A60119D-CC0B-413A-A0F5-2A3BF260B820}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD8E1DC9-C152-445F-9E09-EDDC8554BBE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD8E1DC9-C152-445F-9E09-EDDC8554BBE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD8E1DC9-C152-445F-9E09-EDDC8554BBE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD8E1DC9-C152-445F-9E09-EDDC8554BBE6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
