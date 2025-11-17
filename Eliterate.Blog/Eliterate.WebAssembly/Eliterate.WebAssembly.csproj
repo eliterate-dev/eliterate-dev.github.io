@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\posts\2025-11-17.json" />
+    <Content Remove="wwwroot\posts\Post_1.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\posts\2025-11-17.json" />
+    <None Include="wwwroot\posts\Post_1.json" />
   </ItemGroup>
 
 </Project>

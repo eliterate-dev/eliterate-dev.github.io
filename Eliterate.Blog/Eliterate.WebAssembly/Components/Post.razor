@@ -1,27 +1,34 @@
 ﻿<div class="card post">
     <div class="card-header">
-        <h2>@Data.Title.ToString()</h2>
+        <h2>@PostNumber - @Title</h2>
+        <small class="">@Posted.ToString("dd/MM/yy")</small>
     </div>
     <div class="card-body">
-        <small>@Data.Posted.ToString("dd/MM/yy")</small>
         <p class="card-text">
-            @Data.Text.ToString()
+            @Text
         </p>
     </div>
     <div class="card-footer">
-        @foreach (var tag in Data.Tags)
+        @foreach (var tag in Tags)
         {
-            if (!string.IsNullOrWhiteSpace(tag))
+            if (string.IsNullOrWhiteSpace(tag))
             {
-                <div class="d-inline-block rounded-pill">@tag.ToString()</div>
+                continue;
             }
+            <div class="d-inline-block rounded-pill">@tag</div>
         }
     </div>
 </div>
 
-@code
-{
+@code {
     [Parameter]
-    public BlogPost Data { get; set; }
-
+    public required int PostNumber { get; set; }
+    [Parameter]
+    public required string Title { get; set; }
+    [Parameter]
+    public required string[] Tags { get; set; }
+    [Parameter]
+    public required DateTime Posted { get; set; }
+    [Parameter]
+    public required string Text { get; set; }
 }
