@@ -1,7 +1,27 @@
 ﻿@page "/"
+@inject HttpClient Http
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Eliterate - Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Hi!</h1>
 
-Welcome to your new app.
+@foreach (var post in Posts)
+{
+    <Post Data="post"></Post>
+}
+
+@code
+{
+    public List<BlogPost> Posts { get; set; } = [];
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine("Entering on init function");
+
+        // var files = Directory.GetFiles($"posts", "*.json");
+        var post = await Http.GetFromJsonAsync<BlogPost>("posts/2025-11-17.json");
+        Console.WriteLine(post.Title);
+        Console.WriteLine(post.Text);
+        Posts.Add(post);
+        Posts = Posts.OrderByDescending(p => p.Posted).ToList();
+    }
+}
