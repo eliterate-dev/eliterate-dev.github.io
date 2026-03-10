@@ -1,5 +1,7 @@
-﻿@page "/"
+﻿@page "/posts/{id:int}"
 @inject HttpClient Http
+
+<PageTitle>Eliterate - @BlogPost.Metadata.PostNumber - @BlogPost.Metadata.Title</PageTitle>
 
 <div class="card post">
     <div class="card-header">
@@ -24,6 +26,8 @@
 </div>
 
 @code {
+    [Parameter]
+    public int Id { get; set; }
     public BlogPost BlogPost { get; set; } = new();
 
     protected override async Task OnInitializedAsync()
@@ -34,7 +38,7 @@
         var posts = new List<BlogPost>();
         foreach (var item in metadata)
         {
-            if (item is null || item.Id != 0 || !item.IsActive)
+            if (item is null || item.Id != Id || !item.IsActive)
                 continue;
             var markdown = await Http.GetStringAsync(item.ContentUrl);
             if (markdown is null)

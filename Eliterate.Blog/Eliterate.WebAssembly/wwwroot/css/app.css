@@ -57,9 +57,10 @@
 }
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Arial, sans-serif;
     background: var(--color-background);
     color: var(--color-foreground);
+    min-width: 400px;
 }
 
 h1:focus {
@@ -68,6 +69,7 @@ h1:focus {
 
 a, .btn-link {
     color: var(--color-primary);
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -174,24 +176,28 @@ code {
     text-align: start;
 }
 
+.grid-container {
+    display: grid;
+    grid: auto-flow dense;
+    grid-template-columns: 1fr min-content;
+}
+
 .card {
     background-color: var(--color-contrast-0);
     color: var(--color-foreground);
     border: solid 3px var(--color-contrast-3);
     border-radius: 0.5rem;
+    margin-bottom: 0.25rem;
 }
-.card-header {
-    padding-top: 0.125rem;
-    padding-bottom: 0.125rem;
+.card-header, .card-body, .card-footer {
+    padding: 0.125rem 0.5rem;
 }
 .card-body {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     background-color: var(--color-background);
 }
 .card-footer {
-    padding-top: 0.125rem;
-    padding-bottom: 0.125rem;
     font-size: 0.75rem;
 }
 .rounded-pill {

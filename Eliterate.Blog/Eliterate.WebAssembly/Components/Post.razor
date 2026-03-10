@@ -1,34 +1,40 @@
-﻿<div class="card post">
+﻿@inject NavigationManager NavigationManager
+
+<div class="card post">
     <div class="card-header">
-        <h2>@PostNumber - @Title</h2>
-        <small class="">@Posted.ToString("dd/MM/yy")</small>
+        <div class="grid-container">
+            <a @onclick="GoToPost"><h1>@Metadata.Title</h1></a>
+            <div><span class="float-end">@Metadata.PostNumber</span></div>
+        </div>
     </div>
     <div class="card-body">
         <p class="card-text">
-            @Text
+            @Metadata.Description
         </p>
     </div>
     <div class="card-footer">
-        @foreach (var tag in Tags)
-        {
-            if (string.IsNullOrWhiteSpace(tag))
-            {
-                continue;
-            }
-            <div class="d-inline-block rounded-pill">@tag</div>
-        }
+        <div class="grid-container">
+            <div>
+                @foreach (var tag in Metadata.Tags)
+                {
+                    if (string.IsNullOrWhiteSpace(tag))
+                    {
+                        continue;
+                    }
+                    <div class="d-inline-block rounded-pill">@tag</div>
+                }
+            </div>
+            <div><small class="">@Metadata.Posted.ToString("dd/MM/yy")</small></div>
+        </div>
     </div>
 </div>
 
 @code {
     [Parameter]
-    public required int PostNumber { get; set; }
-    [Parameter]
-    public required string Title { get; set; }
-    [Parameter]
-    public required string[] Tags { get; set; }
-    [Parameter]
-    public required DateTime Posted { get; set; }
-    [Parameter]
-    public required string Text { get; set; }
+    public PostMetadata Metadata { get; set; } = new();
+
+    void GoToPost()
+    {
+        NavigationManager.NavigateTo($"posts/{Metadata.Id}");
+    }
 }

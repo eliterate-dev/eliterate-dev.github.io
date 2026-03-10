@@ -1,0 +1,32 @@
+﻿@page "/posts"
+@inject HttpClient Http
+
+<PageTitle>Eliterate - Posts</PageTitle>
+
+@foreach (var post in Posts)
+{
+    if (post is null)
+        continue;
+    <Post Metadata="post"></Post>
+}
+
+@code
+{
+    public List<PostMetadata> Posts { get; set; } = [];
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine("Entering on init function");
+
+        var metadata = await Http.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/posts.json");
+        if (metadata is null)
+            return;
+        foreach (var item in metadata)
+        {
+            if (item is null || !item.IsActive || !item.ShowInList)
+                continue;
+            Posts.Add(item);
+
+        }
+        Posts = Posts.OrderByDescending(p => p.Posted).ToList();
+    }
+}

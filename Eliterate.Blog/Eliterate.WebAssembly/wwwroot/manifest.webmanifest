@@ -1,6 +1,6 @@
 {
   "name": "Eliterate.WebAssembly",
-  "short_name": "Eliterate.WebAssembly",
+  "short_name": "Eliterate",
   "id": "./",
   "start_url": "./",
   "display": "standalone",
