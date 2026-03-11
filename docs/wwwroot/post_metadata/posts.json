@@ -1,0 +1,33 @@
+﻿[
+	{
+		"Id": 0,
+		"PostNumber": 0,
+		"Title": "About",
+		"Description": "I guess I'm doing a blog now",
+		"Tags": [
+			"Welcome",
+			"Explanations",
+			"Why not?"
+		],
+		"Posted": "2026-03-10",
+		"LastEdited": "2026-03-10",
+		"ContentUrl": "posts/About.md",
+		"IsActive": true,
+		"ShowInList": false
+	},
+	{
+		"Id": 1,
+		"PostNumber": 1,
+		"Title": "I'm a blog now",
+		"Description": "I'm a blog now",
+		"Tags": [
+			"Daily",
+			"Rambling"
+		],
+		"Posted": "2025-11-17",
+		"LastEdited": "2025-11-17",
+		"ContentUrl": "posts/Post_1.md",
+		"IsActive": true,
+		"ShowInList": true
+	}
+]
