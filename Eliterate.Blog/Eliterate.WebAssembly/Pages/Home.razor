@@ -5,7 +5,7 @@
     <div class="card-header">
         <div class="grid-container">
             <h2>@BlogPost.Metadata.Title</h2>
-            <small class="">@BlogPost.Metadata.Posted.ToString("dd/MM/yy")</small>
+            <small class="">@BlogPost.Metadata.LastEdited.ToString("dd/MM/yy")</small>
         </div>
         @foreach (var tag in BlogPost.Metadata.Tags)
         {
