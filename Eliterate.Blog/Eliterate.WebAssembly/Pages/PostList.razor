@@ -1,5 +1,5 @@
 ﻿@page "/posts"
-@inject HttpClient Http
+@inject IContentService ContentService
 
 <PageTitle>Eliterate - Posts</PageTitle>
 
@@ -7,26 +7,14 @@
 {
     if (post is null)
         continue;
-    <Post Metadata="post"></Post>
+    <Metadata Model="post"></Metadata>
 }
 
 @code
 {
-    public List<PostMetadata> Posts { get; set; } = [];
+    public IEnumerable<PostMetadata> Posts { get; set; } = [];
     protected override async Task OnInitializedAsync()
     {
-        Console.WriteLine("Entering on init function");
-
-        var metadata = await Http.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/posts.json");
-        if (metadata is null)
-            return;
-        foreach (var item in metadata)
-        {
-            if (item is null || !item.IsActive || !item.ShowInList)
-                continue;
-            Posts.Add(item);
-
-        }
-        Posts = Posts.OrderByDescending(p => p.Posted).ToList();
+        Posts = await ContentService.GetMetadata();
     }
 }

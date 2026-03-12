@@ -1,40 +1,29 @@
-﻿@inject NavigationManager NavigationManager
+﻿@inject HttpClient Http
 
 <div class="card post">
     <div class="card-header">
-        <div class="grid-container">
-            <a @onclick="GoToPost"><h1>@Metadata.Title</h1></a>
-            <div><span class="float-end">@Metadata.PostNumber</span></div>
+        <div class="grid-container-dash-dot">
+            <h2>@Model.Metadata.Title</h2>
+            <small class="date">@Date.ToString("yyyy/MM/dd")</small>
         </div>
+        @foreach (var tag in Model.Metadata.Tags)
+        {
+            if (string.IsNullOrWhiteSpace(tag))
+                continue;
+            <div class="d-inline-block rounded-pill">@tag</div>
+        }
     </div>
     <div class="card-body">
         <p class="card-text">
-            @Metadata.Description
+            @((MarkupString)Model.Text)
         </p>
     </div>
     <div class="card-footer">
-        <div class="grid-container">
-            <div>
-                @foreach (var tag in Metadata.Tags)
-                {
-                    if (string.IsNullOrWhiteSpace(tag))
-                    {
-                        continue;
-                    }
-                    <div class="d-inline-block rounded-pill">@tag</div>
-                }
-            </div>
-            <div><small class="">@Metadata.Posted.ToString("dd/MM/yy")</small></div>
-        </div>
     </div>
 </div>
 
 @code {
     [Parameter]
-    public PostMetadata Metadata { get; set; } = new();
-
-    void GoToPost()
-    {
-        NavigationManager.NavigateTo($"posts/{Metadata.Id}");
-    }
+    public BlogPost Model { get; set; } = new();
+    public DateTime Date => Model.Metadata.LastEdited ?? Model.Metadata.Posted;
 }

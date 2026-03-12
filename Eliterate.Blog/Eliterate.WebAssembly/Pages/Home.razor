@@ -1,46 +1,15 @@
 ﻿@page "/"
-@inject HttpClient Http
+@inject IContentService ContentService
 
-<div class="card post">
-    <div class="card-header">
-        <div class="grid-container">
-            <h2>@BlogPost.Metadata.Title</h2>
-            <small class="">@BlogPost.Metadata.LastEdited.ToString("dd/MM/yy")</small>
-        </div>
-        @foreach (var tag in BlogPost.Metadata.Tags)
-        {
-            if (string.IsNullOrWhiteSpace(tag))
-                continue;
-            <div class="d-inline-block rounded-pill">@tag</div>
-        }
-    </div>
-    <div class="card-body">
-        <p class="card-text">
-            @((MarkupString)BlogPost.Text)
-        </p>
-    </div>
-    <div class="card-footer">
-    </div>
-</div>
+<PageTitle>Eliterate - @About.Metadata.PostNumber - @About.Metadata.Title</PageTitle>
+
+<Post Model="About"></Post>
 
 @code {
-    public BlogPost BlogPost { get; set; } = new();
+    public BlogPost About { get; set; } = new();
 
     protected override async Task OnInitializedAsync()
     {
-        var metadata = await Http.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/posts.json");
-        if (metadata is null)
-            return;
-        var posts = new List<BlogPost>();
-        foreach (var item in metadata)
-        {
-            if (item is null || item.Id != 0 || !item.IsActive)
-                continue;
-            var markdown = await Http.GetStringAsync(item.ContentUrl);
-            if (markdown is null)
-                continue;
-            BlogPost = new BlogPost { Metadata = item, Text = Markdig.Markdown.ToHtml(markdown) };
-            break;
-        }
+        About = await ContentService.GetPost(0) ?? new();
     }
 }

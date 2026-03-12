@@ -17,6 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Components\_PostDetail.razor" />
     <Content Remove="wwwroot\posts\posts.json" />
   </ItemGroup>
 
@@ -35,6 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Components\_PostDetail.razor" />
     <None Include="wwwroot\post_metadata\posts.json" />
   </ItemGroup>
 

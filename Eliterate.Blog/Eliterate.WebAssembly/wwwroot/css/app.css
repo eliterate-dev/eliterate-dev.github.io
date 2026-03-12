@@ -8,17 +8,13 @@
     --color-secondary-h: 204;
     --color-secondary-s: 100%;
     --color-secondary-l: 40%;
-    --color-lighten-percentage: 10%;
+    --color-lighten-percentage: 5%;
     --color-darken-percentage: 15%;
     --color-tone-percentage: 40%;
     --color-primary: hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
     --color-primary-shade: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) - var(--color-lighten-percentage)));
     --color-primary-tint: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) + var(--color-darken-percentage)));
     --color-primary-tone: hsl(var(--color-primary-h), calc(var(--color-primary-s) - var(--color-tone-percentage)), var(--color-primary-l));
-    --color-secondary: hsl(var(--color-secondary-h), var(--color-secondary-s), var(--color-secondary-l));
-    --color-secondary-shade: hsl(var(--color-secondary-h), var(--color-secondary-s), calc(var(--color-secondary-l) - var(--color-lighten-percentage)));
-    --color-secondary-tint: hsl(var(--color-secondary-h), var(--color-secondary-s), calc(var(--color-secondary-l) + var(--color-darken-percentage)));
-    --color-secondary-tone: hsl(var(--color-secondary-h), calc(var(--color-secondary-s) - var(--color-tone-percentage) - 20%), var(--color-secondary-l));
     --color-contrast-0: #000;
     --color-contrast-1: #222;
     --color-contrast-2: #333;
@@ -37,15 +33,15 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        --color-primary-l: 40%;
-        --color-primary: hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
+        --color-primary-l: 60%;
         --color-foreground: #111;
         --color-foreground-muted: #444;
-        --color-background: #ddd;
-        --color-lighten-percentage: 30%;
-        --color-darken-percentage: 10%;
+        --color-background: #eee;
+        --color-lighten-percentage: 5%;
+        --color-darken-percentage: 20%;
         --color-tone-percentage: 50%;
-        --color-contrast-0: #eee;
+        --color-primary: hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
+        --color-contrast-0: #ddd;
         --color-contrast-1: #ccc;
         --color-contrast-2: #bbb;
         --color-contrast-3: #aaa;
@@ -61,43 +57,59 @@ html, body {
     background: var(--color-background);
     color: var(--color-foreground);
     min-width: 400px;
+    margin: 0;
+    font-size: 16px;
 }
 
-h1, h2, h3, h4 {
+h1 {
+    font-size: 1.625rem;
+    text-decoration: underline overline;
+}
+h2 {
+    font-size: 1.5rem;
+}
+h3 {
+    font-size: 1.25rem;
+}
+h4 {
+    font-size: 1.125rem;
+}
+h4 {
+    font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5 {
     text-transform: capitalize;
     font-weight: bold;
-    margin-bottom: 0;
+    margin: 0.25rem 0;
 }
 
-h1:focus {
-    outline: none;
+small {
+    font-size: 0.875rem;
 }
 
 p {
-    margin-bottom: 0.5rem;
+    margin: 0.5rem 0 0 0;
 }
 
-a, .btn-link {
-    color: var(--color-primary);
-    cursor: pointer;
+button {
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-primary-shade);
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
 }
 
-.btn-primary {
-    color: var(--color-foreground);
-    background-color: var(--color-background);
-    border-color: var(--color-contrast-1);
+a, button {
+    color: inherit;
+    text-decoration: none;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem var(--color-contrast-0), 0 0 0 0.25rem var(--color-shadow);
-}
+    a:hover, button:hover {
+        cursor: pointer;
+    }
 
 .content {
-    padding-top: 1rem;
-}
-
-.valid.modified:not([type=checkbox]) {
-    outline: 1px solid var(--color-contrast-0);
+    padding: 0.25rem;
 }
 
 .invalid {
@@ -109,8 +121,6 @@ a, .btn-link {
 }
 
 #blazor-error-ui {
-    color-scheme: light only;
-    background: lightyellow;
     bottom: 0;
     box-shadow: 0 -1px 2px var(--color-shadow);
     box-sizing: border-box;
@@ -177,16 +187,20 @@ code {
     color: var(--color-foreground-muted);
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-    color: var(--bs-secondary-color);
-    text-align: end;
+.collapse {
+    display: collapse;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-    text-align: start;
+.date {
+    margin: 0.25rem 0;
 }
 
 .grid-container {
+    display: grid;
+    grid: auto-flow dense;
+}
+
+.grid-container-dash-dot {
     display: grid;
     grid: auto-flow dense;
     grid-template-columns: 1fr min-content;
@@ -194,7 +208,6 @@ code {
 
 .card {
     background-color: var(--color-contrast-0);
-    color: var(--color-foreground);
     border: solid 3px var(--color-contrast-3);
     border-radius: 0.5rem;
     margin-bottom: 0.25rem;
@@ -203,16 +216,22 @@ code {
     padding: 0.125rem 0.5rem;
 }
 .card-body {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
+    padding: 0.25rem 0.5rem;
     background-color: var(--color-background);
+}
+.card-text {
+    padding: 0;
+    margin: 0;
 }
 .card-footer {
     font-size: 0.75rem;
+    padding: 0;
 }
 .rounded-pill {
+    display: inline-block;
     padding: 0.125rem 0.5rem;
     margin-right: 0.25rem;
     background-color: var(--color-background);
     border: solid 2px var(--color-contrast-2);
+    border-radius: 0.5rem;
 }
