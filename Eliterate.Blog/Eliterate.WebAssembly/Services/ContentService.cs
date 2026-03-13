@@ -5,6 +5,7 @@ namespace Eliterate.WebAssembly;
 public interface IContentService
 {
     Task<IEnumerable<PostMetadata>> GetMetadata();
+    Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tag);
     Task<BlogPost?> GetPost(int id);
 }
 
@@ -41,5 +42,20 @@ public class ContentService(HttpClient client) : IContentService
             return new BlogPost { Metadata = item, Text = Markdig.Markdown.ToHtml(markdown) };
         }
         return null;
+    }
+
+    public async Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tagId)
+    {
+        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/posts.json");
+        if (metadata is null)
+            return [];
+        var posts = new List<PostMetadata>();
+        foreach (var item in metadata)
+        {
+            if (item is null || !item.IsActive || !item.Tags.Any(t => t.Id == tagId))
+                continue;
+            posts.Add(item);
+        }
+        return [.. posts.OrderByDescending(p => p.Posted)];
     }
 }

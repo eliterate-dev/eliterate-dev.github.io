@@ -1,0 +1,14 @@
+﻿@inject NavigationManager NavigationManager
+
+<a class="tag" style="background-color:hsl(@color)" @onclick="GoToTag">@Model.Name</a>
+
+@code {
+    [Parameter]
+    public required PostTag Model { get; set; }
+    private string color => $"{Model.Name.Sum(c => c) % 360}, 100%, 80%";
+
+    void GoToTag()
+    {
+        NavigationManager.NavigateTo($"posts/tag/{Model.Id}");
+    }
+}

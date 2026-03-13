@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Codespirals.Base.Shared" Version="1.0.236.26072" />
     <PackageReference Include="Markdig" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.3" PrivateAssets="all" />
@@ -32,11 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Components\_PostDetail.razor" />
     <None Include="wwwroot\post_metadata\posts.json" />
   </ItemGroup>
 

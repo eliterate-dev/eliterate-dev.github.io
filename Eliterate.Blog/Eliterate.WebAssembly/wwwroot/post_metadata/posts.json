@@ -5,9 +5,15 @@
 		"Title": "About",
 		"Description": "Because \"diary\" sounds embarrassing.",
 		"Tags": [
-			"Welcome",
-			"Explanations",
-			"Why not?"
+			{
+				"Name": "Welcome"
+			},
+			{
+				"Name": "Explanations"
+			},
+			{
+				"Name": "Why not?"
+			}
 		],
 		"Posted": "2026-03-10",
 		"LastEdited": "2026-03-11",
@@ -21,8 +27,12 @@
 		"Title": "I'm doing a blog now",
 		"Description": "So many thoughts, so little time.",
 		"Tags": [
-			"Daily",
-			"Rambling"
+			{
+				"Name": "Daily"
+			},
+			{
+				"Name": "Ramblings"
+			}
 		],
 		"Posted": "2025-11-17",
 		"LastEdited": "2025-11-17",

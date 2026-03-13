@@ -1,0 +1,22 @@
+﻿@page "/posts/tag/{id}"
+@inject IContentService ContentService
+
+<PageTitle>Eliterate - Posts</PageTitle>
+
+@foreach (var post in Posts)
+{
+    if (post is null)
+        continue;
+    <Metadata Model="post"></Metadata>
+}
+
+@code
+{
+    [Parameter]
+    public string Id { get; set; } = string.Empty;
+    public IEnumerable<PostMetadata> Posts { get; set; } = [];
+    protected override async Task OnInitializedAsync()
+    {
+        Posts = await ContentService.GetMetadataByTag(Id);
+    }
+}

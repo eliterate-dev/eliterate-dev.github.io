@@ -1,9 +1,20 @@
 ﻿@inject NavigationManager NavigationManager
 
+<div class="grid-container-tags">
+    <div>
+
+    </div>
+    @foreach (var tag in Model.Tags)
+    {
+        if (string.IsNullOrWhiteSpace(tag?.Name))
+            continue;
+        <Tag Model="@tag"></Tag>
+    }
+</div>
 <div class="card post">
     <div class="card-header">
         <div class="grid-container-dash-dot">
-            <a @onclick="GoToPost"><h2>@Model.Title</h2></a>
+            <a @onclick="GoToPost"><h2 class="card-title">@Model.Title</h2></a>
             <div><span class="float-end">@Model.PostNumber</span></div>
         </div>
     </div>
@@ -15,12 +26,7 @@
     <div class="card-footer">
         <div class="grid-container-dash-dot">
             <div>
-                @foreach (var tag in Model.Tags)
-                {
-                    if (string.IsNullOrWhiteSpace(tag))
-                        continue;
-                    <div class="d-inline-block rounded-pill">@tag</div>
-                }
+
             </div>
             <div><small class="date">@Model.Posted.ToString("yyyy/MM/dd")</small></div>
         </div>

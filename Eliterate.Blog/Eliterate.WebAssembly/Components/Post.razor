@@ -1,17 +1,21 @@
 ﻿@inject HttpClient Http
 
+<div class="grid-container-tags">
+    <div>
+    </div>
+    @foreach (var tag in Model.Metadata.Tags)
+    {
+        if (string.IsNullOrWhiteSpace(tag?.Name))
+            continue;
+        <Tag Model="@tag"></Tag>
+    }
+</div>
 <div class="card post">
     <div class="card-header">
         <div class="grid-container-dash-dot">
-            <h2>@Model.Metadata.Title</h2>
+            <h2 class="card-title">@Model.Metadata.Title</h2>
             <small class="date">@Date.ToString("yyyy/MM/dd")</small>
         </div>
-        @foreach (var tag in Model.Metadata.Tags)
-        {
-            if (string.IsNullOrWhiteSpace(tag))
-                continue;
-            <div class="d-inline-block rounded-pill">@tag</div>
-        }
     </div>
     <div class="card-body">
         <p class="card-text">
