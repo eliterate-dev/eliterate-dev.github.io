@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Json;
+﻿using Codespirals.Base.Extensions;
+using System.Net.Http.Json;
 
 namespace Eliterate.WebAssembly;
 
@@ -52,7 +53,7 @@ public class ContentService(HttpClient client) : IContentService
         var posts = new List<PostMetadata>();
         foreach (var item in metadata)
         {
-            if (item is null || !item.IsActive || !item.Tags.Any(t => t.Id == tagId))
+            if (item is null || !item.IsActive || !item.Tags.Any(t => t.ToLowerInvariant().MakeUrlSafe('_').Trim('_') == tagId))
                 continue;
             posts.Add(item);
         }

@@ -1,14 +1,18 @@
-﻿@inject NavigationManager NavigationManager
+﻿@using Codespirals.Base.Extensions
+@inject NavigationManager NavigationManager
 
-<a class="tag" style="background-color:hsl(@color)" @onclick="GoToTag">@Model.Name</a>
+<a class="@Classes" style="background-color:hsl(@color)" @onclick="GoToTag">@Name</a>
 
 @code {
     [Parameter]
-    public required PostTag Model { get; set; }
-    private string color => $"{Model.Name.Sum(c => c) % 360}, 100%, 80%";
+    public required string Name { get; set; }
+    [Parameter]
+    public string Classes { get; set; } = "";
+    private string color => $"{Name.Sum(c => c) % 360}, 100%, 80%";
 
     void GoToTag()
     {
-        NavigationManager.NavigateTo($"posts/tag/{Model.Id}");
+        var id = Name.ToLowerInvariant().MakeUrlSafe('_').Trim('_');
+        NavigationManager.NavigateTo($"posts/tag/{id}");
     }
 }

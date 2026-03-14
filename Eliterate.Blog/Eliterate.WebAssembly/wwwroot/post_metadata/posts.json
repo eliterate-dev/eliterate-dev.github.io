@@ -4,17 +4,7 @@
 		"PostNumber": 0,
 		"Title": "About",
 		"Description": "Because \"diary\" sounds embarrassing.",
-		"Tags": [
-			{
-				"Name": "Welcome"
-			},
-			{
-				"Name": "Explanations"
-			},
-			{
-				"Name": "Why not?"
-			}
-		],
+		"Tags": [ "Welcome", "Explanations", "Why not?" ],
 		"Posted": "2026-03-10",
 		"LastEdited": "2026-03-11",
 		"ContentUrl": "posts/About.md",
@@ -26,14 +16,7 @@
 		"PostNumber": 1,
 		"Title": "I'm doing a blog now",
 		"Description": "So many thoughts, so little time.",
-		"Tags": [
-			{
-				"Name": "Daily"
-			},
-			{
-				"Name": "Ramblings"
-			}
-		],
+		"Tags": [ "Testing", "Rambling", "Why not?" ],
 		"Posted": "2025-11-17",
 		"LastEdited": "2025-11-17",
 		"ContentUrl": "posts/Post_1.md",
