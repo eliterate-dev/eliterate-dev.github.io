@@ -1,7 +1,7 @@
 ﻿@page "/"
 @inject IContentService ContentService
 
-<PageTitle>Eliterate - @About.Metadata.PostNumber - @About.Metadata.Title</PageTitle>
+<PageTitle>Eliterate</PageTitle>
 
 <PostPage Model="About"></PostPage>
 
@@ -10,6 +10,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        About = await ContentService.GetPost(0) ?? new();
+        About = await ContentService.GetPost("about") ?? new();
     }
 }

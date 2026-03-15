@@ -4,12 +4,19 @@
 
 <div id="credit">
     <h2>Credit</h2>
-    <ul>
-        <li>Most stuff - Me (Eliterate)</li>
-        <li>The cool textures - <a href="https://www.transparenttextures.com/">Transparent textures</a></li>
-    </ul>
+    <table>
+        <tr>
+            <td>Content and design</td>
+            <td><a href="https://github.com/eliterate-dev" target="_blank">Eliterate ↗</a></td>
+        </tr>
+        <tr>
+            <td>The cool textures</td>
+            <td><a href="https://www.transparenttextures.com/" target="_blank">Transparent textures ↗</a></td>
+        </tr>
+    </table>
+    <div class="bottom-right">&copy @Year Eliterate</div>
 </div>
 
 @code {
-
+    public int Year => DateTime.UtcNow.Year;
 }

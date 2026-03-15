@@ -1,13 +1,13 @@
-﻿@page "/posts/{id:int}"
+﻿@page "/posts/{id}"
 @inject IContentService ContentService
 
-<PageTitle>Eliterate - @Model.Metadata.PostNumber - @Model.Metadata.Title</PageTitle>
+<PageTitle>Eliterate - @Model.Metadata.Title</PageTitle>
 
 <PostPage Model="Model"></PostPage>
 
 @code {
     [Parameter]
-    public int Id { get; set; }
+    public string Id { get; set; } = "";
     public BlogPost Model { get; set; } = new();
 
     protected override async Task OnInitializedAsync()

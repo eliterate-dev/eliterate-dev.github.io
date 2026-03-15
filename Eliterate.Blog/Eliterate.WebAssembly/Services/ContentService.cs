@@ -7,7 +7,7 @@ public interface IContentService
 {
     Task<IEnumerable<PostMetadata>> GetMetadata();
     Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tag);
-    Task<BlogPost?> GetPost(int id);
+    Task<BlogPost?> GetPost(string title);
 }
 
 public class ContentService(HttpClient client) : IContentService
@@ -28,22 +28,6 @@ public class ContentService(HttpClient client) : IContentService
         }
         return [.. posts.OrderByDescending(p => p.Posted)];
     }
-    public async Task<BlogPost?> GetPost(int id)
-    {
-        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/posts.json");
-        if (metadata is null)
-            return null;
-        foreach (var item in metadata)
-        {
-            if (item is null || !item.IsActive || item.Id != id)
-                continue;
-            var markdown = await _client.GetStringAsync(item.ContentUrl);
-            if (markdown is null)
-                continue;
-            return new BlogPost { Metadata = item, Text = Markdig.Markdown.ToHtml(markdown) };
-        }
-        return null;
-    }
 
     public async Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tagId)
     {
@@ -58,5 +42,22 @@ public class ContentService(HttpClient client) : IContentService
             posts.Add(item);
         }
         return [.. posts.OrderByDescending(p => p.Posted)];
+    }
+
+    public async Task<BlogPost?> GetPost(string title)
+    {
+        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/posts.json");
+        if (metadata is null)
+            return null;
+        foreach (var item in metadata)
+        {
+            if (item is null || !item.IsActive || item.Id != title)
+                continue;
+            var markdown = await _client.GetStringAsync(item.ContentUrl);
+            if (markdown is null)
+                continue;
+            return new BlogPost { Metadata = item, Text = Markdig.Markdown.ToHtml(markdown) };
+        }
+        return null;
     }
 }

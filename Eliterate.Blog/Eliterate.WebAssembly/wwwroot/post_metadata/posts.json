@@ -1,7 +1,5 @@
 ﻿[
 	{
-		"Id": 0,
-		"PostNumber": 0,
 		"Title": "About",
 		"Description": "Because \"diary\" sounds embarrassing.",
 		"Tags": [ "Welcome", "Explanations", "Why not?" ],
@@ -12,8 +10,6 @@
 		"ShowInList": false
 	},
 	{
-		"Id": 1,
-		"PostNumber": 1,
 		"Title": "I'm doing a blog now",
 		"Description": "So many thoughts, so little time.",
 		"Tags": [ "Testing", "Rambling", "Why not?" ],

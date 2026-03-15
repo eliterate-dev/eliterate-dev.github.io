@@ -36,10 +36,6 @@
         margin-top: 0.5rem;
     }
 
-    .nav-item:last-of-type {
-        margin-bottom: 0.5rem;
-    }
-
     .nav-item ::deep a {
         background-color: var(--color-primary);
         border: solid 2px var(--color-primary-shade);
@@ -64,19 +60,18 @@
 
 .plaque {
     color: var(--color-foreground);
-    bottom: 0;
-    margin: auto 0.5rem;
+    width: 100%;
 }
     .plaque a {
         display: flex;
-        margin: 0.25rem auto;
+        margin: 0.75rem auto;
         font-size: 0.75rem;
         background-color: silver;
         color: black;
         width: max-content;
         padding: 0 0.125rem;
         border-radius: 0.25rem;
-        border: ridge 2px silver;
+        border: outset 2px silver;
     }
         .plaque a:hover {
             background-color: lightgrey;
