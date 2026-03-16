@@ -28,18 +28,23 @@
     padding-top: 0.5rem;
 }
 
-.nav-item {
-    margin: 0.25rem 0.5rem;
+.nav {
+    margin-top: 0.5rem;
 }
 
-    .nav-item:first-of-type {
-        margin-top: 0.5rem;
+    .nav table {
+        margin: 0 auto;
+    }
+
+.nav-item {
+    margin: 0.25rem 0.5rem;
+    width: max-content;
+}
+    .nav-item td {
+        white-space: nowrap;
     }
 
     .nav-item ::deep a {
-        background-color: var(--color-primary);
-        border: solid 2px var(--color-primary-shade);
-        border-radius: 0.5rem;
         padding: 0.25rem 0.5rem;
         height: min-content;
         display: flex;
@@ -47,15 +52,11 @@
     }
 
         .nav-item ::deep a.active {
-            background-color: var(--color-primary);
-            color: var(--color-foreground);
-            border-color: var(--color-primary-tint);
+            text-decoration:underline;
         }
 
         .nav-item ::deep a:hover {
-            color: var(--color-foreground);
-            background-color: var(--color-primary-tint);
-            border-color: var(--color-primary);
+            color: var(--color-primary);
         }
 
 .plaque {

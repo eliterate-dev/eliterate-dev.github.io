@@ -11,9 +11,10 @@ main {
 }
 
 .sidebar {
+    height: auto;
     width: 100vw;
-    background-color: var(--color-contrast-0);
-    background-image: url(../images/textures/dark-leather.png);
+    background-color: var(--color-contrast-2);
+    background-image: url(../images/textures/light-paper-fibers.png);
     overflow: hidden;
 }
 
@@ -23,6 +24,7 @@ main {
     }
 
     .sidebar {
+        min-height: 100vh;
         width: min-content;
         position: sticky;
     }

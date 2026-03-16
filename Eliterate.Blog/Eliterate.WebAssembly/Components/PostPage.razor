@@ -1,31 +1,52 @@
 ﻿@inject HttpClient Http
 
-<div class="book-tags">
-    @foreach (var tag in Model.Metadata.Tags)
-    {
-        if (string.IsNullOrWhiteSpace(tag))
-            continue;
-        <Tag Name="@tag" Classes="book-tag"></Tag>
-    }
-</div>
-<div class="book">
-    <div class="book-page">
-        <div class="book-page-header">
-            <div class="grid-container-dash-dot">
-                <h2 class="book-page-title">@Model.Metadata.Title</h2>
-                <small class="date">@Date.ToString("yyyy/MM/dd")</small>
+@if (Model is null)
+{
+    <div class="book">
+        <div class="book-page">
+            <div class="book-page-header">
+                <div class="grid-container-dash-dot">
+                    <h2 class="book-page-title"></h2>
+                    <small class="date"></small>
+                </div>
+            </div>
+            <div class="book-page-body">
+                <div class="book-page-text">
+
+                </div>
             </div>
         </div>
-        <div class="book-page-body">
-            <p class="book-page-text">
-                @((MarkupString)Model.Text)
-            </p>
+    </div>
+}
+else
+{
+    <div class="book-tags">
+        @foreach (var tag in Model.Metadata.Tags)
+        {
+            if (string.IsNullOrWhiteSpace(tag))
+                continue;
+            <Tag Name="@tag" Classes="book-tag"></Tag>
+        }
+    </div>
+    <div class="book">
+        <div class="book-page">
+            <div class="book-page-header">
+                <div class="grid-container-dash-dot">
+                    <h2 class="book-page-title">@Model.Metadata.Title</h2>
+                    <Date Model="Model.Metadata"></Date>
+                </div>
+            </div>
+            <div class="book-page-body">
+                <div class="book-page-text">
+                    @((MarkupString)Model.Text)
+                </div>
+            </div>
         </div>
     </div>
-</div>
+}
 
 @code {
     [Parameter]
-    public BlogPost Model { get; set; } = new();
-    public DateTime Date => Model.Metadata.LastEdited ?? Model.Metadata.Posted;
+    public BlogPost? Model { get; set; }
+    public DateTime Date => Model?.Metadata.Edited ?? Model?.Metadata.Created ?? DateTime.UtcNow;
 }

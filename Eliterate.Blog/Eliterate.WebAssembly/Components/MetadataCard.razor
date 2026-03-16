@@ -1,35 +1,45 @@
 ﻿@inject NavigationManager NavigationManager
 
-<div class="card post">
-    <div class="card-header">
-        <div class="grid-container-dash-dot">
-            <a @onclick="GoToPost"><h2 class="card-title">@Model.Title</h2></a>
-            <div><small class="date">@Model.Posted.ToString("yyyy/MM/dd")</small></div>
+@if (Model is null)
+{
+    
+}
+else
+{
+    <div class="card post" style="rotate:@(rotate)deg;z-index:@ZIndex">
+        <div class="card-header">
+            <div class="grid-container-dash-dot">
+                <a @onclick="GoToPost"><h2 class="card-title">@Model.Title</h2></a>
+                <Date Model="Model" Replace="true"></Date>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                @Model.Description
+            </p>
+        </div>
+        <div class="card-footer">
+            <div class="card-tags">
+                @foreach (var tag in Model.Tags)
+                {
+                    if (string.IsNullOrWhiteSpace(tag))
+                        continue;
+                    <Tag Name="@tag" Classes="card-tag"></Tag>
+                }
+            </div>
         </div>
     </div>
-    <div class="card-body">
-        <p class="card-text">
-            @Model.Description
-        </p>
-    </div>
-    <div class="card-footer">
-        <div class="card-tags">
-            @foreach (var tag in Model.Tags)
-            {
-                if (string.IsNullOrWhiteSpace(tag))
-                    continue;
-                <Tag Name="@tag" Classes="card-tag askew"></Tag>
-            }
-        </div>
-    </div>
-</div>
+}
 
 @code {
     [Parameter]
-    public PostMetadata Model { get; set; } = new();
+    public PostMetadata? Model { get; set; }
+    [Parameter]
+    public int ZIndex { get; set; }
+        private double rotate = Random.Shared.Next(-80, 80) / 100d;
 
     void GoToPost()
     {
-        NavigationManager.NavigateTo($"posts/{Model.Id}");
+        NavigationManager.NavigateTo($"posts/{Model?.Id}");
     }
 }

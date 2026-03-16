@@ -1,17 +1,17 @@
 ﻿@page "/posts/{id}"
 @inject IContentService ContentService
 
-<PageTitle>Eliterate - @Model.Metadata.Title</PageTitle>
+<PageTitle>Eliterate - @(Model?.Metadata.Title ?? "Empty page")</PageTitle>
 
 <PostPage Model="Model"></PostPage>
 
 @code {
     [Parameter]
     public string Id { get; set; } = "";
-    public BlogPost Model { get; set; } = new();
+    public BlogPost? Model { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        Model = await ContentService.GetPost(Id) ?? new();
+        Model = await ContentService.GetPost(Id);
     }
 }

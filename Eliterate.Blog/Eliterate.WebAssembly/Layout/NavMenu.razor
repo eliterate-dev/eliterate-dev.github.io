@@ -11,16 +11,23 @@
 
 <div class="@NavMenuCssClass nav-scrollable">
     <nav class="nav flex-column">
-        <div class="nav-item">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span><h2>Home</h2>
-            </NavLink>
-        </div>
-        <div class="nav-item">
-            <NavLink class="nav-link" href="posts" Match="NavLinkMatch.All">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span><h2>Posts</h2>
-            </NavLink>
-        </div>
+        <table>
+            <tr class="nav-item">
+                <th class="center" colspan="2">Contents:</th>
+            </tr>
+            <tr class="nav-item">
+                <td>Chapter 1:</td>
+                <td>
+                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">Home</NavLink>
+                </td>
+            </tr>
+            <tr class="nav-item">
+                <td>Chapter 2:</td>
+                <td>
+                    <NavLink class="nav-link" href="posts" Match="NavLinkMatch.All">Posts</NavLink>
+                </td>
+            </tr>
+        </table>
         <div class="plaque">
             <a href="/credit">Credit</a>
         </div>

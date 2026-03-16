@@ -3,8 +3,8 @@
 		"Title": "About",
 		"Description": "Because \"diary\" sounds embarrassing.",
 		"Tags": [ "Welcome", "Explanations", "Why not?" ],
-		"Posted": "2026-03-10",
-		"LastEdited": "2026-03-11",
+		"Created": "2026-03-10",
+		"Edited": "2026-03-16",
 		"ContentUrl": "posts/About.md",
 		"IsActive": true,
 		"ShowInList": false
@@ -13,8 +13,7 @@
 		"Title": "I'm doing a blog now",
 		"Description": "So many thoughts, so little time.",
 		"Tags": [ "Testing", "Rambling", "Why not?" ],
-		"Posted": "2025-11-17",
-		"LastEdited": "2025-11-17",
+		"Created": "2025-11-17",
 		"ContentUrl": "posts/Post_1.md",
 		"IsActive": true,
 		"ShowInList": true

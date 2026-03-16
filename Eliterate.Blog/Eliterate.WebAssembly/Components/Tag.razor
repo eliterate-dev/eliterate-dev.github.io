@@ -1,5 +1,4 @@
-﻿@using Codespirals.Base.Extensions
-@inject NavigationManager NavigationManager
+﻿@inject NavigationManager NavigationManager
 
 <a class="@Classes" style="background-color:hsl(@color)" @onclick="GoToTag">@Name</a>
 
@@ -12,7 +11,7 @@
 
     void GoToTag()
     {
-        var id = Name.ToLowerInvariant().MakeUrlSafe('_').Trim('_');
+        var id = Name.ToUrlSafeString();
         NavigationManager.NavigateTo($"posts/tag/{id}");
     }
 }

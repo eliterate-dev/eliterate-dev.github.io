@@ -1,15 +1,15 @@
-﻿using Codespirals.Base.Extensions;
+﻿using Codespirals.Base;
 
 namespace Eliterate.WebAssembly;
 
-public class PostMetadata
+public class PostMetadata : ICreatable, IEditable, IPostMetadata
 {
-    public string Id => Title.MakeUrlSafe('_').ToLowerInvariant().Trim('_');
+    public string Id => Title.ToUrlSafeString();
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public string[] Tags { get; set; } = [];
-    public DateTime Posted { get; set; } = DateTime.UtcNow;
-    public DateTime? LastEdited { get; set; }
+    public DateTime Created { get; set; } = DateTime.UtcNow;
+    public DateTime? Edited { get; set; }
     public string ContentUrl { get; set; } = string.Empty;
     public bool IsActive { get; set; } = true;
     public bool ShowInList { get; set; } = true;

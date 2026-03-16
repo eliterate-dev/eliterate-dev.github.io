@@ -1,0 +1,30 @@
+﻿@if (Model is null)
+{
+    
+}
+else if (Model.Edited is null)
+{
+    <div class="date">@Model.Created.ToString("yyyy/MM/dd")</div>
+}
+else if (Replace)
+{
+    <div class="date">@(((DateTime)Model.Edited).ToString("yyyy/MM/dd"))</div>
+}
+else
+{
+    <table class="date">
+        <tr>
+            <td style="text-decoration:line-through;">@Model.Created.ToString("yyyy/MM/dd")</td>
+        </tr>
+        <tr>
+            <td>@Model.Created.ToString("yyyy/MM/dd")</td>
+        </tr>
+    </table>
+}
+
+@code {
+    [Parameter]
+    public IHasCreateAndEditDate? Model { get; set; }
+    [Parameter]
+    public bool Replace { get; set; }
+}

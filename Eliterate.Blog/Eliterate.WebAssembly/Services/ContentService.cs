@@ -26,7 +26,7 @@ public class ContentService(HttpClient client) : IContentService
                 continue;
             posts.Add(item);
         }
-        return [.. posts.OrderByDescending(p => p.Posted)];
+        return [.. posts.OrderByDescending(p => p.Edited is null ? p.Created : p.Edited)];
     }
 
     public async Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tagId)
@@ -41,7 +41,7 @@ public class ContentService(HttpClient client) : IContentService
                 continue;
             posts.Add(item);
         }
-        return [.. posts.OrderByDescending(p => p.Posted)];
+        return [.. posts.OrderByDescending(p => p.Edited is null ? p.Created : p.Edited)];
     }
 
     public async Task<BlogPost?> GetPost(string title)

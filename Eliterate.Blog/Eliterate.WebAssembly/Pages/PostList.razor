@@ -5,16 +5,16 @@
 
 @foreach (var post in Posts)
 {
-    if (post is null)
-        continue;
-    <MetadataCard Model="post"></MetadataCard>
+    <MetadataCard Model="post" ZIndex="PostCount--"></MetadataCard>
 }
 
 @code
 {
     public IEnumerable<PostMetadata> Posts { get; set; } = [];
+    public int PostCount { get; set; }
     protected override async Task OnInitializedAsync()
     {
         Posts = await ContentService.GetMetadata();
+        PostCount = Posts.Count(p => p.ShowInList);
     }
 }

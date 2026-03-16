@@ -58,16 +58,16 @@ h1 {
     text-decoration: underline overline;
 }
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.625rem;
 }
 h3 {
+    font-size: 1.5rem;
+}
+h4 {
     font-size: 1.25rem;
 }
 h4 {
     font-size: 1.125rem;
-}
-h4 {
-    font-size: 1rem;
 }
 
 h1, h2, h3, h4, h5 {
@@ -184,7 +184,8 @@ code {
 }
 
 .date {
-    margin: 0.25rem 0.375rem;
+    margin: 0 0.375rem;
+    font-size: 0.75rem;
     font-family: 'Brush Script MT', cursive;
 }
 
@@ -195,7 +196,6 @@ code {
 
 .grid-container-dash-dot {
     display: grid;
-    grid: auto-flow dense;
     grid-template-columns: 1fr min-content;
 }
 
@@ -222,6 +222,7 @@ code {
 }
 .book-page-title {
     padding: 0 0.875rem;
+    margin: auto 0;
 }
 .book-page-body {
     padding: 0.125rem 0.5rem;
@@ -259,21 +260,14 @@ code {
 
 .card {
     margin: 0 1rem 0.5rem 0.5rem;
+    position: relative;
     padding: 0;
+    border: solid 1px var(--color-contrast-2);
     border-radius: 0.125rem;
     margin-bottom: 0.5rem;
     background-color: var(--color-contrast-1);
     background-image: url(../images/textures/notebook.png);
-    rotate: 0.3deg;
     box-shadow: 2px 2px var(--color-shadow);
-}
-
-.card:nth-of-type(2) {
-    rotate: -0.4deg;
-}
-
-.card:nth-of-type(3) {
-    rotate: 0.1deg;
 }
 
 .card-header {
@@ -351,4 +345,8 @@ code {
     position: absolute;
     bottom: 1.5rem;
     right: 1.5rem;
+}
+
+.center {
+    text-align: center;
 }
