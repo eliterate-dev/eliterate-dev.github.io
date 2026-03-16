@@ -30,6 +30,7 @@
 
 .nav {
     margin-top: 0.5rem;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 
     .nav table {
@@ -37,12 +38,9 @@
     }
 
 .nav-item {
-    margin: 0.25rem 0.5rem;
+    margin: 0.25rem auto;
     width: max-content;
 }
-    .nav-item td {
-        white-space: nowrap;
-    }
 
     .nav-item ::deep a {
         padding: 0.25rem 0.5rem;
@@ -53,29 +51,6 @@
 
         .nav-item ::deep a.active {
             text-decoration:underline;
-        }
-
-        .nav-item ::deep a:hover {
-            color: var(--color-primary);
-        }
-
-.plaque {
-    color: var(--color-foreground);
-    width: 100%;
-}
-    .plaque a {
-        display: flex;
-        margin: 0.75rem auto;
-        font-size: 0.75rem;
-        background-color: silver;
-        color: black;
-        width: max-content;
-        padding: 0 0.125rem;
-        border-radius: 0.25rem;
-        border: outset 2px silver;
-    }
-        .plaque a:hover {
-            background-color: lightgrey;
         }
 
 .bi {

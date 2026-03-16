@@ -15,7 +15,7 @@
     [Parameter]
     public string Id { get; set; } = string.Empty;
     public IEnumerable<PostMetadata> Posts { get; set; } = [];
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
         Posts = await ContentService.GetMetadataByTag(Id);
     }

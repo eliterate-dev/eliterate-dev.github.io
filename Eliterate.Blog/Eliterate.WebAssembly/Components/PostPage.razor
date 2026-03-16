@@ -7,12 +7,12 @@
             <div class="book-page-header">
                 <div class="grid-container-dash-dot">
                     <h2 class="book-page-title"></h2>
-                    <small class="date"></small>
+                    <small>404</small>
                 </div>
             </div>
             <div class="book-page-body">
                 <div class="book-page-text">
-
+                    
                 </div>
             </div>
         </div>
@@ -25,19 +25,19 @@ else
         {
             if (string.IsNullOrWhiteSpace(tag))
                 continue;
-            <Tag Name="@tag" Classes="book-tag"></Tag>
+            <Tag Name="@tag" Classes="book-tag" TabIndex="3"></Tag>
         }
     </div>
     <div class="book">
         <div class="book-page">
             <div class="book-page-header">
                 <div class="grid-container-dash-dot">
-                    <h2 class="book-page-title">@Model.Metadata.Title</h2>
+                    <h2 class="book-page-title" tabindex="2">@Model.Metadata.Title</h2>
                     <Date Model="Model.Metadata"></Date>
                 </div>
             </div>
             <div class="book-page-body">
-                <div class="book-page-text">
+                <div class="book-page-text" tabindex="2">
                     @((MarkupString)Model.Text)
                 </div>
             </div>

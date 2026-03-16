@@ -1,6 +1,6 @@
 ﻿<div class="navbar">
     <div class="grid-container-dash-dot">
-        <a class="navbar-brand" href=""><h1>Eliterate</h1></a>
+        <h1 class="navbar-brand"><a class="initial-focus" href="" tabindex="1">Eliterate</a></h1>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <div class="line"></div>
             <div class="line"></div>
@@ -11,25 +11,17 @@
 
 <div class="@NavMenuCssClass nav-scrollable">
     <nav class="nav flex-column">
-        <table>
-            <tr class="nav-item">
-                <th class="center" colspan="2">Contents:</th>
-            </tr>
-            <tr class="nav-item">
-                <td>Chapter 1:</td>
-                <td>
-                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">Home</NavLink>
-                </td>
-            </tr>
-            <tr class="nav-item">
-                <td>Chapter 2:</td>
-                <td>
-                    <NavLink class="nav-link" href="posts" Match="NavLinkMatch.All">Posts</NavLink>
-                </td>
-            </tr>
-        </table>
-        <div class="plaque">
-            <a href="/credit">Credit</a>
+        <div class="center">
+            Contents:
+        </div>
+        <div class="nav-item">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All" tabindex="1">@($"{"Home".PadRight(20, '.')}{"1".PadLeft(3, '.')}")</NavLink>
+        </div>
+        <div class="nav-item">
+            <NavLink class="nav-link" href="posts" Match="NavLinkMatch.All" tabindex="1">@($"{"Post".PadRight(20, '.')}{"12".PadLeft(3, '.')}")</NavLink>
+        </div>
+        <div class="nav-item">
+            <NavLink class="nav-link" href="credit" Match="NavLinkMatch.All" tabindex="1">@($"{"Credit".PadRight(20, '.')}{"42".ToString().PadLeft(3, '.')}")</NavLink>
         </div>
     </nav>
 </div>

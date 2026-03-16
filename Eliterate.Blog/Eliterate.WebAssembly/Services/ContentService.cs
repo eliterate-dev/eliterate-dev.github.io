@@ -37,7 +37,7 @@ public class ContentService(HttpClient client) : IContentService
         var posts = new List<PostMetadata>();
         foreach (var item in metadata)
         {
-            if (item is null || !item.IsActive || !item.Tags.Any(t => t.ToLowerInvariant().MakeUrlSafe('_').Trim('_') == tagId))
+            if (item is null || !item.IsActive || !item.Tags.Any(t => t.ToUrlSafeString() == tagId))
                 continue;
             posts.Add(item);
         }

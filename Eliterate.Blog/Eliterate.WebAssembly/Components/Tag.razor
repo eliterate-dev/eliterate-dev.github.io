@@ -1,12 +1,14 @@
 ﻿@inject NavigationManager NavigationManager
 
-<a class="@Classes" style="background-color:hsl(@color)" @onclick="GoToTag">@Name</a>
+<a class="@Classes" style="background-color:hsl(@color)" @onclick="GoToTag" tabindex="@TabIndex">@Name</a>
 
 @code {
     [Parameter]
     public required string Name { get; set; }
     [Parameter]
     public string Classes { get; set; } = "";
+    [Parameter]
+    public int TabIndex { get; set; } = 2;
     private string color => $"{Name.Sum(c => c) % 360}, 100%, 80%";
 
     void GoToTag()

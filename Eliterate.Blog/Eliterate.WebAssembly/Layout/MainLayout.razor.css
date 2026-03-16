@@ -13,8 +13,8 @@ main {
 .sidebar {
     height: auto;
     width: 100vw;
-    background-color: var(--color-contrast-2);
-    background-image: url(../images/textures/light-paper-fibers.png);
+    background-color: var(--color-contrast-0);
+    background-image: url(../images/textures/cardboard-flat.png);
     overflow: hidden;
 }
 
