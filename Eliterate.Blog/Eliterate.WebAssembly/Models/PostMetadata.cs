@@ -13,4 +13,6 @@ public class PostMetadata : ICreatable, IEditable, IPostMetadata
     public string ContentUrl { get; set; } = string.Empty;
     public bool IsActive { get; set; } = true;
     public bool ShowInList { get; set; } = true;
+
+    public decimal GetRotationFromTitle(int limit) => Title.GetRotationFromString(limit);
 }

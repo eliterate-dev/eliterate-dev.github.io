@@ -1,18 +1,28 @@
 ﻿[
 	{
-		"Title": "About",
-		"Description": "Because \"diary\" sounds embarrassing.",
-		"Tags": [ "Welcome", "Explanations", "Why not?" ],
-		"Created": "2026-03-10",
-		"Edited": "2026-03-16",
-		"ContentUrl": "posts/About.md",
+		"Title": "Introduction",
+		"Description": "We're all looking for the guy who did this.",
+		"Tags": [ "Welcome", "Introductions" ],
+		"Created": "2026-03-17",
+		"Edited": "2026-03-17",
+		"ContentUrl": "posts/Introduction.md",
 		"IsActive": true,
 		"ShowInList": false
 	},
 	{
+		"Title": "About",
+		"Description": "Because \"diary\" sounds embarrassing.",
+		"Tags": [ "Welcome", "Explanations", "Why not?" ],
+		"Created": "2026-03-10",
+		"Edited": "2026-03-17",
+		"ContentUrl": "posts/About.md",
+		"IsActive": true,
+		"ShowInList": true
+	},
+	{
 		"Title": "I'm doing a blog now",
 		"Description": "So many thoughts, so little time.",
-		"Tags": [ "Testing", "Rambling", "Why not?" ],
+		"Tags": [ "Testing", "Why not?" ],
 		"Created": "2025-11-17",
 		"ContentUrl": "posts/Post_1.md",
 		"IsActive": true,

@@ -3,13 +3,42 @@
 
 <PageTitle>Eliterate</PageTitle>
 
-<PostPage Model="About"></PostPage>
+<div id="book-front" class="book book-cover">
+    <h2>Eliterate</h2>
+    <p class="center">Ramblings of a code monkey</p>
+    <Sticker Emoji="🔋" Right="20" Top="4.5m" Rotate="-15"></Sticker>
+    <Sticker Emoji="💻" Right="4" Top="26" Rotate="10"></Sticker>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="grid-container-dash-dot">
+                <h3 class="card-title" tabindex="2">@Model.Metadata.Title</h3>
+                <Date Model="Model.Metadata" Replace="true"></Date>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="card-text" tabindex="2">
+                @((MarkupString)Model.Text)
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="card-tags">
+                @foreach (var tag in Model.Metadata.Tags)
+                {
+                    if (string.IsNullOrWhiteSpace(tag))
+                        continue;
+                    <Tag Name="@tag" Classes="card-tag"></Tag>
+                }
+            </div>
+        </div>
+    </div>
+</div>
 
 @code {
-    public BlogPost About { get; set; } = new();
+    public BlogPost Model { get; set; } = new();
 
     protected override async Task OnInitializedAsync()
     {
-        About = await ContentService.GetPost("about") ?? new();
+        Model = await ContentService.GetPost("introduction") ?? new();
     }
 }

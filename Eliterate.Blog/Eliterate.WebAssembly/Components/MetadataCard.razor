@@ -6,12 +6,13 @@
 }
 else
 {
-    <div class="card post" style="rotate:@(rotate)deg;z-index:@ZIndex">
+    <div class="card" style="rotate:@(rotate/10m)deg;z-index:@ZIndex;">
         <div class="card-header">
             <div class="grid-container-dash-dot">
                 <h2 class="card-title"><a @onclick="GoToPost" tabindex="2">@Model.Title</a></h2>
                 <Date Model="Model" Replace="true"></Date>
             </div>
+            <Sticker Emoji="@emoji" Top="3" Right="1.5m" Rotate="@(rotate)" Scale="2"></Sticker>
         </div>
         <div class="card-body">
             <div class="card-text" tabindex="2">
@@ -24,7 +25,7 @@ else
                 {
                     if (string.IsNullOrWhiteSpace(tag))
                         continue;
-                    <Tag Name="@tag" Classes="card-tag"></Tag>
+                    <Tag Name="@tag" Classes="card-tag" Rotate="@(tag.GetRotationFromString(3))"></Tag>
                 }
             </div>
         </div>
@@ -36,7 +37,8 @@ else
     public PostMetadata? Model { get; set; }
     [Parameter]
     public int ZIndex { get; set; }
-        private double rotate = Random.Shared.Next(-80, 80) / 100d;
+    private decimal rotate => Model?.GetRotationFromTitle(20) ?? 0;
+    private string emoji => EmojiStickerHelper.GetRandomEmojiBasedOnString(Model?.Title);
 
     void GoToPost()
     {

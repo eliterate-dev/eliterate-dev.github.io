@@ -2,7 +2,7 @@
 
 <PageTitle>Eliterate - Credit</PageTitle>
 
-<div id="credit">
+<div id="book-back" class="book book-cover">
     <h2>Credit</h2>
     <table>
         <tr>
@@ -14,9 +14,7 @@
             <td><a href="https://www.transparenttextures.com/" target="_blank" tabindex="2">Transparent textures ↗</a></td>
         </tr>
     </table>
-    <div class="bottom-right">&copy @Year Eliterate</div>
+    <Sticker Emoji="🦋" Right="4" Top="3" Rotate="20"></Sticker>
+    <Sticker Emoji="☠" Right="16" Top="25" Rotate="-23"></Sticker>
+    <div class="bottom-right">&copy @DateTime.UtcNow.Year Eliterate</div>
 </div>
-
-@code {
-    public int Year => DateTime.UtcNow.Year;
-}

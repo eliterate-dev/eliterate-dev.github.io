@@ -2,43 +2,32 @@
 
 @if (Model is null)
 {
-    <div class="book">
-        <div class="book-page">
-            <div class="book-page-header">
-                <div class="grid-container-dash-dot">
-                    <h2 class="book-page-title"></h2>
-                    <small>404</small>
-                </div>
-            </div>
-            <div class="book-page-body">
-                <div class="book-page-text">
-                    
-                </div>
-            </div>
-        </div>
-    </div>
+    <PageNotFound></PageNotFound>
 }
 else
 {
-    <div class="book-tags">
-        @foreach (var tag in Model.Metadata.Tags)
-        {
-            if (string.IsNullOrWhiteSpace(tag))
-                continue;
-            <Tag Name="@tag" Classes="book-tag" TabIndex="3"></Tag>
-        }
-    </div>
     <div class="book">
-        <div class="book-page">
-            <div class="book-page-header">
-                <div class="grid-container-dash-dot">
-                    <h2 class="book-page-title" tabindex="2">@Model.Metadata.Title</h2>
-                    <Date Model="Model.Metadata"></Date>
+        <div class="book-tags">
+            @foreach (var tag in Model.Metadata.Tags)
+            {
+                if (string.IsNullOrWhiteSpace(tag))
+                    continue;
+                <Tag Name="@tag" Classes="book-tag" TabIndex="3"></Tag>
+            }
+        </div>
+        <div class="book-cover">
+            <div class="book-page">
+                <div class="book-page-header">
+                    <div class="grid-container-dash-dot">
+                        <h2 class="book-page-title" tabindex="2">@Model.Metadata.Title</h2>
+                        <Date Model="Model.Metadata"></Date>
+                    </div>
+                    <Sticker Emoji="@emoji" Top="4.5m" Right="7" Rotate="@(rotate)"></Sticker>
                 </div>
-            </div>
-            <div class="book-page-body">
-                <div class="book-page-text" tabindex="2">
-                    @((MarkupString)Model.Text)
+                <div class="book-page-body">
+                    <div class="book-page-text" tabindex="2">
+                        @((MarkupString)Model.Text)
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,4 +38,7 @@ else
     [Parameter]
     public BlogPost? Model { get; set; }
     public DateTime Date => Model?.Metadata.Edited ?? Model?.Metadata.Created ?? DateTime.UtcNow;
+
+    private decimal rotate => Model?.Metadata.GetRotationFromTitle(20) ?? 0;
+    private string emoji => EmojiStickerHelper.GetRandomEmojiBasedOnString(Model?.Metadata.Title);
 }

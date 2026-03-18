@@ -13,8 +13,7 @@ main {
 .sidebar {
     height: auto;
     width: 100vw;
-    background-color: var(--color-contrast-0);
-    background-image: url(../images/textures/cardboard-flat.png);
+    background-color: var(--color-background);
     overflow: hidden;
 }
 

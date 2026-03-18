@@ -1,6 +1,6 @@
 ﻿@inject NavigationManager NavigationManager
 
-<a class="@Classes" style="background-color:hsl(@color)" @onclick="GoToTag" tabindex="@TabIndex">@Name</a>
+<a class="@Classes" href="posts/tags/@id" style="background-color:hsl(@color);rotate:@(Rotate)deg;" tabindex="@TabIndex">@Name</a>
 
 @code {
     [Parameter]
@@ -9,11 +9,8 @@
     public string Classes { get; set; } = "";
     [Parameter]
     public int TabIndex { get; set; } = 2;
-    private string color => $"{Name.Sum(c => c) % 360}, 100%, 80%";
-
-    void GoToTag()
-    {
-        var id = Name.ToUrlSafeString();
-        NavigationManager.NavigateTo($"posts/tag/{id}");
-    }
+    [Parameter]
+    public decimal Rotate { get; set; }
+    private string color => $"{Name.GetIntFromString(360)}, 100%, 80%";
+    private string id => Name.ToUrlSafeString();
 }
