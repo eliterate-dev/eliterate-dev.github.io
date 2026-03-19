@@ -38,7 +38,7 @@ else
     [Parameter]
     public int ZIndex { get; set; }
     private decimal rotate => Model?.GetRotationFromTitle(20) ?? 0;
-    private string emoji => EmojiStickerHelper.GetRandomEmojiBasedOnString(Model?.Title);
+    private string emoji => RandomStringHelper.GetRandomEmojiBasedOnString(Model?.Title);
 
     void GoToPost()
     {

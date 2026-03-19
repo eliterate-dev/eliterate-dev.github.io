@@ -5,7 +5,7 @@
 
 <div id="book-front" class="book book-cover">
     <h2 class="center">Eliterate</h2>
-    <p class="center">Ramblings of a code monkey</p>
+    <p class="center">@tagline</p>
     <Sticker Emoji="🔋" Right="20" Top="2.5m" Rotate="-15"></Sticker>
     <Sticker Emoji="💻" Right="4" Top="26" Rotate="10"></Sticker>
 
@@ -36,6 +36,7 @@
 
 @code {
     public BlogPost Model { get; set; } = new();
+    private string tagline => RandomStringHelper.GetRandomTagline();
 
     protected override async Task OnInitializedAsync()
     {

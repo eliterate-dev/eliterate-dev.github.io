@@ -39,5 +39,5 @@ else
     public BlogPost? Model { get; set; }
     public DateTime Date => Model?.Metadata.Edited ?? Model?.Metadata.Created ?? DateTime.UtcNow;
 
-    private string emoji => EmojiStickerHelper.GetRandomEmojiBasedOnString(Model?.Metadata.Title);
+    private string emoji => RandomStringHelper.GetRandomEmojiBasedOnString(Model?.Metadata.Title);
 }
