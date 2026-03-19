@@ -20,6 +20,8 @@
 	--color-contrast-2: #333;
 	--color-contrast-3: #444;
 	--color-shadow: #050505;
+	--sticker-outline: 1px 0px white, -1px 0px white, 0px -1px white, 0px 1px white;
+	--sticker-outline-filter: drop-shadow(1px 0px white) drop-shadow(-1px 0px white) drop-shadow(0px -1px white) drop-shadow(0px 1px white) drop-shadow(1px 1px var(--color-shadow));
 }
 
 @media (prefers-color-scheme: light) {
@@ -204,11 +206,13 @@ code {
 	font-size: 3rem;
 	line-height: 1;
 	z-index: 10;
-	filter: drop-shadow(2px 0px white) drop-shadow(-2px 0px white) drop-shadow(0px -2px white) drop-shadow(0px 2px white);
+	text-shadow: var(--sticker-outline);
+	filter: var(--sticker-outline-filter);
 }
 
 .date {
 	margin: 0 0.375rem;
+	padding: 0.25rem 0;
 	font-size: 0.75rem;
 	font-family: 'Brush Script MT', cursive;
 }
@@ -224,8 +228,8 @@ code {
 }
 
 .book-cover {
-	border: solid 2px black;
-	background-color: black;
+	border: solid 2px #170500;
+	background-color: #170500;
 	background-image: url(../images/textures/dark-leather.png);
 	border-radius: 0 0.5rem 0.5rem 0;
 }
@@ -361,13 +365,13 @@ code {
 
 .card-tag {
 	padding: 0.25rem;
-	border: solid 2px white;
 	border-radius: 0.25rem;
 	margin: 0.5rem 0.5rem 0.5rem 0;
 	width: max-content;
 	display: inline-block;
 	color: black;
-	rotate: 1deg;
+	border: solid 2px white;
+	filter: var(--sticker-outline-filter);
 }
 
 	.card-tag:hover {
@@ -383,13 +387,12 @@ code {
 	min-width: 20rem;
 	rotate: 2deg;
 	border-top: none;
-	border-left: none;
-	border-radius: 0.25rem 0.75rem 0.75rem 0.75rem;
-	box-shadow: -5px -5px inset darkgrey;
+	border-radius: 0.25rem 0.75rem 0.25rem 0.75rem;
+	box-shadow: -4px -4px inset darkgrey, 1px 2px 2px #111;
 }
 	#book-front .card {
 		margin: 2rem -2rem 0 1rem;
-		box-shadow: 5px 2px black;
+		box-shadow: 5px 1px black;
 		rotate: -3deg;
 		z-index: 15;
 	}
@@ -403,9 +406,8 @@ code {
 	min-width: 20rem;
 	rotate: -2deg;
 	border-top: none;
-	border-right: none;
-	border-radius: 0.75rem 0.25rem 0.75rem 0.75rem;
-	box-shadow: 5px -5px inset darkgrey, 3px 2px #303030;
+	border-radius: 0.75rem 0.25rem 0.75rem 0.25rem;
+	box-shadow: 4px -4px inset darkgrey, 1px 2px 2px #111;
 }
 
 	#book-back td {

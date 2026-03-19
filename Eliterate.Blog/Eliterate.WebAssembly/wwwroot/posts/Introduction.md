@@ -1,4 +1,4 @@
-<div class="sticker" style="rotate:4deg;">🇨🇭</div>
+<div class="sticker" style="rotate:3deg;">🇨🇭</div>
 
 ### Welcome!
 
