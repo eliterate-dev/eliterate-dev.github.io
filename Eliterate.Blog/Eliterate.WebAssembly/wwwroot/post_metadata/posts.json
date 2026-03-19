@@ -7,25 +7,28 @@
 		"Edited": "2026-03-17",
 		"ContentUrl": "posts/Introduction.md",
 		"IsActive": true,
-		"ShowInList": false
+		"ShowInList": false,
+		"EstimatedReadTimeInMinutes": 1
 	},
 	{
 		"Title": "About",
-		"Description": "Because \"diary\" sounds embarrassing.",
+		"Description": "How and mostly why this site exists.",
 		"Tags": [ "Welcome", "Explanations", "Why not?" ],
 		"Created": "2026-03-10",
-		"Edited": "2026-03-17",
+		"Edited": "2026-03-18",
 		"ContentUrl": "posts/About.md",
 		"IsActive": true,
-		"ShowInList": true
+		"ShowInList": true,
+		"EstimatedReadTimeInMinutes": 15
 	},
 	{
 		"Title": "I'm doing a blog now",
-		"Description": "So many thoughts, so little time.",
+		"Description": "Because \"diary\" sounds embarrassing.",
 		"Tags": [ "Testing", "Why not?" ],
 		"Created": "2025-11-17",
 		"ContentUrl": "posts/Post_1.md",
 		"IsActive": true,
-		"ShowInList": true
+		"ShowInList": true,
+		"EstimatedReadTimeInMinutes": 3
 	}
 ]

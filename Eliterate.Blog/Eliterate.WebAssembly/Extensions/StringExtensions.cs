@@ -8,7 +8,7 @@ public static class StringExtensions
         => value.MakeUrlSafe('_').Trim('_').ToLowerInvariant();
 
     public static decimal GetRotationFromString(this string? value, int limit)
-        => value is not null ? (value.Sum(c => c) / limit * 2.5m % limit) - (limit >> 1) : Random.Shared.Next(limit);
+        => value is not null ? (value.Sum(c => c) / limit * 1.7m % limit) - (limit / 2m) : Random.Shared.Next(limit);
     public static int GetIntFromString(this string? value, int limit)
         => value is not null ? value.Sum(c => c) % limit : Random.Shared.Next(limit);
 }

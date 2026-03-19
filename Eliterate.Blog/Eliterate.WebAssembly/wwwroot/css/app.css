@@ -70,13 +70,13 @@ h4 {
 	font-size: 1.25rem;
 }
 
-h4 {
+h5 {
 	font-size: 1.125rem;
 }
 
 h1, h2, h3, h4, h5 {
 	font-weight: bold;
-	margin: 0 0 0.25rem 0;
+	margin: 0.25rem 0;
 }
 
 small {
@@ -187,8 +187,10 @@ td {
 	}
 
 code {
+	padding: 0.125rem 0.25rem;
 	background-color: var(--color-contrast-0);
 	color: var(--color-foreground-muted);
+	border-radius: 0.25rem;
 }
 
 .collapse {
@@ -222,16 +224,10 @@ code {
 }
 
 .book-cover {
-	color: white;
 	border: solid 2px black;
 	background-color: black;
 	background-image: url(../images/textures/dark-leather.png);
 	border-radius: 0 0.5rem 0.5rem 0;
-}
-
-.book-cover h2 {
-	font-size: 2rem;
-	text-align: center;
 }
 
 .book {
@@ -242,7 +238,7 @@ code {
 }
 
 .book-page {
-	margin: 0.25rem 0.25rem 0.25rem 0;
+	margin: 0.125rem 0.25rem 0.25rem 0;
 	border: double 3px darkgrey;
 	border-left: none;
 	border-top: none;
@@ -266,18 +262,33 @@ code {
 }
 
 .book-page-text {
-	padding: 0.125rem 0.375rem;
+	max-height: 80vh;
+	overflow: scroll;
+	padding: 0.125rem 0.75rem 0.125rem 0.5rem;
 	margin: 0;
 	background-color: var(--color-background);
 	background-image: url(../images/textures/notebook-dark.png);
 	border-radius: 0.25rem;
+	text-align: justify;
 }
+	.book-page-text a {
+		color: var(--color-primary);
+	}
+	.book-page-text h4 {
+		margin-top: 1rem;
+	}
+	.book-page-text .sticker {
+		position: relative;
+		float: right;
+		margin: -0.25rem 0.25rem;
+		z-index: 9;
+	}
 
 .book-tags {
 	width: max-content;
 	margin-right: 1rem;
 	margin-left: auto;
-	margin-bottom: 1.58rem;
+	margin-bottom: 1.75rem;
 	height: 0;
 }
 
@@ -288,7 +299,7 @@ code {
 	margin: 0.5rem 0.75rem 0 0;
 	color: black;
 	background-image: url(../images/textures/cream-paper.png);
-	border-radius: 0.25rem 0.25rem 0 0;
+	border-radius: 0.125rem 0.125rem 0 0;
 	box-shadow: 2px -1px var(--color-shadow), 2px 0px var(--color-shadow);
 }
 
@@ -299,6 +310,7 @@ code {
 	}
 
 .card {
+	color: var(--color-foreground);
 	margin: 0 1rem 0.5rem 0.5rem;
 	position: relative;
 	padding: 0;
@@ -313,7 +325,7 @@ code {
 .card-header {
 	padding: 0;
 	background-color: var(--color-contrast-1);
-	border-bottom: solid 1px var(--color-contrast-0);
+	border-bottom: solid 1px var(--color-foreground);
 	background-image: url(../images/textures/light-paper-fibers.png);
 }
 
@@ -331,6 +343,12 @@ code {
 	margin: 0;
 	border-radius: 0.25rem;
 }
+	.card-text .sticker {
+		position: relative;
+		float: right;
+		margin: -0.25rem 0.25rem;
+		z-index: 9;
+	}
 
 .card-footer {
 	margin-top: auto;
@@ -357,6 +375,7 @@ code {
 	}
 
 #book-front {
+	color: white;
 	width: 22rem;
 	margin: 1rem auto;
 	padding: 3rem 0.5rem;
@@ -365,7 +384,7 @@ code {
 	rotate: 2deg;
 	border-top: none;
 	border-left: none;
-	border-radius: 0.25rem 0.5rem 0.75rem 0.75rem;
+	border-radius: 0.25rem 0.75rem 0.75rem 0.75rem;
 	box-shadow: -5px -5px inset darkgrey;
 }
 	#book-front .card {
@@ -376,6 +395,7 @@ code {
 	}
 
 #book-back {
+	color: white;
 	width: max-content;
 	margin: 1rem auto;
 	padding: 3rem 1.5rem;
@@ -384,7 +404,7 @@ code {
 	rotate: -2deg;
 	border-top: none;
 	border-right: none;
-	border-radius: 0.5rem 0.25rem 0.75rem 0.75rem;
+	border-radius: 0.75rem 0.25rem 0.75rem 0.75rem;
 	box-shadow: 5px -5px inset darkgrey, 3px 2px #303030;
 }
 

@@ -17,7 +17,7 @@ else
             <td style="text-decoration:line-through;">@Model.Created.ToString("yyyy/MM/dd")</td>
         </tr>
         <tr>
-            <td>@Model.Created.ToString("yyyy/MM/dd")</td>
+            <td>@(((DateTime)Model.Edited).ToString("yyyy/MM/dd"))</td>
         </tr>
     </table>
 }

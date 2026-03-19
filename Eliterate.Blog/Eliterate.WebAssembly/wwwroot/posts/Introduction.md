@@ -1,6 +1,8 @@
+<div class="sticker" style="rotate:4deg;">🇨🇭</div>
+
 ### Welcome!
 
-I'm Eli. I'm a software developer from Switzerland 🇨🇭.
+I'm Eli. I'm a software developer from Switzerland.
 
 I do full stack development, though I'm much better at backend stuff.
 

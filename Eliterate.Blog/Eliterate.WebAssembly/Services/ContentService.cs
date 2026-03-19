@@ -8,6 +8,7 @@ public interface IContentService
     Task<IEnumerable<PostMetadata>> GetMetadata();
     Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tag);
     Task<BlogPost?> GetPost(string title);
+    Task<int> GetPostCount();
 }
 
 public class ContentService(HttpClient client) : IContentService
@@ -59,5 +60,12 @@ public class ContentService(HttpClient client) : IContentService
             return new BlogPost { Metadata = item, Text = Markdig.Markdown.ToHtml(markdown) };
         }
         return null;
+    }
+    public async Task<int> GetPostCount()
+    {
+        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/posts.json");
+        if (metadata is null)
+            return 0;
+        return metadata.Count();
     }
 }
