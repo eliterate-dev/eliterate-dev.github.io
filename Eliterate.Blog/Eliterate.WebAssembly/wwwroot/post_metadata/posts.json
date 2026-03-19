@@ -11,6 +11,17 @@
 		"EstimatedReadTimeInMinutes": 1
 	},
 	{
+		"Title": "Who am I?",
+		"Description": "A bit more about me. Also pictures of my cat.",
+		"Tags": [ "Introductions", "CV-ish" ],
+		"Created": "2026-03-19",
+		"Edited": "2026-03-19",
+		"ContentUrl": "posts/Eliterate.md",
+		"IsActive": true,
+		"ShowInList": true,
+		"EstimatedReadTimeInMinutes": 5
+	},
+	{
 		"Title": "About",
 		"Description": "How and mostly why this site exists.",
 		"Tags": [ "Welcome", "Explanations", "Why not?" ],
@@ -27,6 +38,16 @@
 		"Tags": [ "Testing", "Why not?" ],
 		"Created": "2025-11-17",
 		"ContentUrl": "posts/Post_1.md",
+		"IsActive": true,
+		"ShowInList": true,
+		"EstimatedReadTimeInMinutes": 3
+	},
+	{
+		"Title": "AI Use",
+		"Description": "Grok is this true?",
+		"Tags": [ "AI", "Explanations" ],
+		"Created": "2025-11-19",
+		"ContentUrl": "posts/AiStatement.md",
 		"IsActive": true,
 		"ShowInList": true,
 		"EstimatedReadTimeInMinutes": 3

@@ -10,7 +10,6 @@ But I also wanted to write it in C# / .Net, because it wasn't a big enough proje
 
 So I wrote an overly complicated Blazor / WASM app to write a blog to.
 
-
 <div class="sticker" style="rotate:-12deg;margin-right:4rem;">🛠</div>
 
 As one does.

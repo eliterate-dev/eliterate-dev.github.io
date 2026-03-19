@@ -2,7 +2,7 @@
 
 <div class="navbar">
     <div class="grid-container-dash-dot">
-        <h1 class="navbar-brand"><a class="initial-focus" href="" tabindex="1">Eliterate</a></h1>
+        <h1 class="navbar-brand"><a href="" tabindex="1">Eliterate</a></h1>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <div class="line"></div>
             <div class="line"></div>
@@ -17,13 +17,16 @@
             Contents:
         </div>
         <div class="nav-item">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All" tabindex="1">@($"{"Introduction".PadRight(20, '.')}{"0".PadLeft(5, '.')}")</NavLink>
+            <NavLink class="nav-link initial-focus" href="posts" Match="NavLinkMatch.All" tabindex="1">@($"{"Posts".PadRight(20, '.')}{"0".PadLeft(5, '.')}")</NavLink>
         </div>
         <div class="nav-item">
-            <NavLink class="nav-link" href="posts/about" Match="NavLinkMatch.All" tabindex="1">@($"{"About".PadRight(20, '.')}{"1".PadLeft(5, '.')}")</NavLink>
+            <NavLink class="nav-link" href="posts/who_am_i" Match="NavLinkMatch.All" tabindex="1">@($"{"Introduction".PadRight(20, '.')}{"1".PadLeft(5, '.')}")</NavLink>
         </div>
         <div class="nav-item">
-            <NavLink class="nav-link" href="posts" Match="NavLinkMatch.All" tabindex="1">@($"{"Posts".PadRight(20, '.')}{"2".PadLeft(5, '.')}")</NavLink>
+            <NavLink class="nav-link" href="posts/about" Match="NavLinkMatch.All" tabindex="1">@($"{"About".PadRight(20, '.')}{"2".PadLeft(5, '.')}")</NavLink>
+        </div>
+        <div class="nav-item">
+            <NavLink class="nav-link" href="posts/ai_statement" Match="NavLinkMatch.All" tabindex="1">@($"{"AI Statement".PadRight(20, '.')}{$"{posts-1}".PadLeft(5, '.')}")</NavLink>
         </div>
         <div class="nav-item">
             <NavLink class="nav-link" href="credit" Match="NavLinkMatch.All" tabindex="1">@($"{"Credits".PadRight(20, '.')}{$"{posts}".ToString().PadLeft(5, '.')}")</NavLink>

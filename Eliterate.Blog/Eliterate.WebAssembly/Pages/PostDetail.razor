@@ -10,7 +10,7 @@
     public string Id { get; set; } = "";
     public BlogPost? Model { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
         Model = await ContentService.GetPost(Id);
     }

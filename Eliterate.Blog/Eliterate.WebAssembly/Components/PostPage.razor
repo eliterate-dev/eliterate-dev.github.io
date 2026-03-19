@@ -22,8 +22,8 @@ else
                         <h2 class="book-page-title" tabindex="2">@Model.Metadata.Title</h2>
                         <Date Model="Model.Metadata"></Date>
                     </div>
-                    <Sticker Emoji="@emoji" Top="4" Right="7" Rotate="@(Model?.Metadata.GetRotationFromTitle(20) ?? 0)"></Sticker>
                 </div>
+                <Sticker Emoji="@emoji" Top="2" Right="7" Rotate="@(Model?.Metadata.GetRotationFromTitle(20) ?? 0)"></Sticker>
                 <div class="book-page-body">
                     <div class="book-page-text" tabindex="2">
                         @((MarkupString)(Model?.Text ?? "Text not found."))
