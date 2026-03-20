@@ -43,13 +43,13 @@
 		"EstimatedReadTimeInMinutes": 3
 	},
 	{
-		"Title": "AI Use",
+		"Title": "On AI",
 		"Description": "Grok is this true?",
 		"Tags": [ "AI", "Explanations" ],
 		"Created": "2025-11-19",
 		"ContentUrl": "posts/AiStatement.md",
 		"IsActive": true,
 		"ShowInList": true,
-		"EstimatedReadTimeInMinutes": 5
+		"EstimatedReadTimeInMinutes": 10
 	}
 ]

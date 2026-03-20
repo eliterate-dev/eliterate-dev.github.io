@@ -20,9 +20,9 @@ I spend a lot of my free time working on my own projects. Most of them are softw
 
 My big one at the moment is a platform to present your own projects and find people to help you do them - because I needed something like that, so I'm making it.
 
-##### Hardware
-
 <div class="sticker" style="rotate:-12deg;">✨</div>
+
+##### Hardware
 
 Sometimes I like to dabble with microprocessors and IoT stuff too. I've worked with Arduinos and I've done a lot of stuff with various forms of Raspberry Pis, from Pi-holes to hosting Minecraft servers and Discord bots.
 
@@ -66,7 +66,7 @@ It's bloody hilarious every time. She hates it.
 
 ##### Music
 
-<div class="polaroid" style="rotate:-2deg;"><img alt="A concert " src="../images/pictures/cat_on_tower.jpg"></img>BOTAR 2023</div>
+<div class="polaroid" style="rotate:-2deg;"><img alt="A concert " src="../images/pictures/botar.jpg"></img>BOTAR 2023</div>
 
 My taste in music is weird. I listen to a lot of different genres mixed together.
 
@@ -74,8 +74,9 @@ I have a special fondness for Ska. I know it ain't hip, but I am a sucker for a 
 
 Streetlight Manifesto is the GOAT. I'm so hyped for the new album that will be released shortly after the heat death of the universe.
 
-Other favourites include anything by Conor Oberst, John Darnielle, Patrick Schneeweis, Theo Hilton, Jesse Sendejas or April Hartman, as well as Gorillaz, Dawes 
+Other favourites include anything by Conor Oberst, John Darnielle, Patrick Schneeweis, Theo Hilton, Jesse Sendejas or April Hartman, as well as Gorillaz, Dawes and many others.
 
 ##### Learning
 
 Saying "learning is a hobby of mine" sounds weird, but it's true.
+
