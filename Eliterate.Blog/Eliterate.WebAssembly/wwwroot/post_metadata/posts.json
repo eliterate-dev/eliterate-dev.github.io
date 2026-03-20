@@ -19,7 +19,7 @@
 		"ContentUrl": "posts/Eliterate.md",
 		"IsActive": true,
 		"ShowInList": true,
-		"EstimatedReadTimeInMinutes": 5
+		"EstimatedReadTimeInMinutes": 15
 	},
 	{
 		"Title": "About",
@@ -50,6 +50,6 @@
 		"ContentUrl": "posts/AiStatement.md",
 		"IsActive": true,
 		"ShowInList": true,
-		"EstimatedReadTimeInMinutes": 3
+		"EstimatedReadTimeInMinutes": 5
 	}
 ]
