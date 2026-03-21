@@ -9,6 +9,9 @@ public interface IContentService
     Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tag);
     Task<BlogPost?> GetPost(string title);
     Task<int> GetPostCount();
+    Task<string> GetRandomTagline();
+    Task<IEnumerable<LinkItem>> GetNavItems();
+    Task<IEnumerable<LinkItem>> GetCredits();
 }
 
 public class ContentService(HttpClient client) : IContentService
@@ -67,5 +70,26 @@ public class ContentService(HttpClient client) : IContentService
         if (metadata is null)
             return 0;
         return metadata.Count();
+    }
+    public async Task<string> GetRandomTagline()
+    {
+        var taglines = await _client.GetFromJsonAsync<IEnumerable<string>>($"resources/taglines.json");
+        if (taglines is null)
+            return "404 Tagline not found";
+        return taglines.ElementAt(Random.Shared.Next(taglines.Count()));
+    }
+    public async Task<IEnumerable<LinkItem>> GetNavItems()
+    {
+        var navItems = await _client.GetFromJsonAsync<IEnumerable<LinkItem>>($"resources/navlinks.json");
+        if (navItems is null)
+            return [];
+        return navItems;
+    }
+    public async Task<IEnumerable<LinkItem>> GetCredits()
+    {
+        var credits = await _client.GetFromJsonAsync<IEnumerable<LinkItem>>($"resources/credits.json");
+        if (credits is null)
+            return [];
+        return credits;
     }
 }

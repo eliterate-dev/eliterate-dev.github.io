@@ -1,6 +1,4 @@
-<div class="sticker" style="rotate:3deg;">🇨🇭</div>
-
-### Welcome!
+<div class="sticker" style="rotate:3deg;" role="presentation">🇨🇭</div>
 
 I'm Eli. I'm a software developer from Switzerland.
 

@@ -74,7 +74,7 @@ h5 {
 h1, h2, h3, h4, h5 {
 	font-weight: bold;
 	margin: 0.25rem 0;
-	display: inline-block;
+	display: block;
 }
 
 small {
@@ -99,7 +99,7 @@ a, button {
 	a:hover, button:hover, a:focus-visible, button:focus-visible {
 		cursor: pointer;
 		color: var(--color-primary);
-		text-shadow: 1px 1px var(--color-background), -1px 1px var(--color-background), 1px -1px var(--color-background), -1px -1px var(--color-background);
+		text-shadow: 1px 0px 1px var(--color-background), -1px 0px 1px var(--color-background), 0px 1px 1px var(--color-background), 0px -1px 1px var(--color-background);
 	}
 
 table {
@@ -196,7 +196,6 @@ code {
 }
 
 .sticker {
-	color: black;
 	margin: -1.5rem;
 	font-size: 2rem;
 	line-height: 1;
@@ -386,6 +385,11 @@ code {
 	color: black;
 	border: solid 2px white;
 	filter: var(--sticker-outline-filter);
+}
+a.card-tag:hover, a.card-tag:focus-visible {
+	color: black;
+	text-shadow: none;
+	border-color: black;
 }
 
 .read-time {

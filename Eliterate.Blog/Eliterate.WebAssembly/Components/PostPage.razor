@@ -12,22 +12,22 @@ else
             {
                 if (string.IsNullOrWhiteSpace(tag))
                     continue;
-                <Tag Name="@tag" Classes="book-tag" TabIndex="3"></Tag>
+                <Tag Name="@tag" Classes="book-tag"></Tag>
             }
         </div>
         <div class="book-cover">
             <div class="book-page">
                 <div class="book-page-header">
                     <div class="grid-container-dash-dot">
-                        <h2 class="book-page-title" tabindex="2">@Model.Metadata.Title</h2>
+                        <h2 class="book-page-title" tabindex="0" role="heading">@Model.Metadata.Title</h2>
                         <Date Model="Model.Metadata"></Date>
                     </div>
                 </div>
-                <Sticker Emoji="@emoji" Top="2" Right="7" Rotate="@(Model?.Metadata.GetRotationFromTitle(20) ?? 0)"></Sticker>
+                <Sticker Emoji="@Model.Metadata.StickerEmoji" Top="2" Right="7" Rotate="@(Model?.Metadata.GetRotationFromTitle(20) ?? 0)"></Sticker>
                 <div class="book-page-body">
-                    <div class="book-page-text" tabindex="2">
+                    <article class="book-page-text" tabindex="0">
                         @((MarkupString)(Model?.Text ?? "Text not found."))
-                    </div>
+                    </article>
                 </div>
             </div>
         </div>
@@ -38,6 +38,4 @@ else
     [Parameter]
     public BlogPost? Model { get; set; }
     public DateTime Date => Model?.Metadata.Edited ?? Model?.Metadata.Created ?? DateTime.UtcNow;
-
-    private string emoji => RandomStringHelper.GetRandomEmojiBasedOnString(Model?.Metadata.Title);
 }

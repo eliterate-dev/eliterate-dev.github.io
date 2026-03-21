@@ -10,7 +10,7 @@ But I also wanted to write it in C# / .Net, because it wasn't a big enough proje
 
 So I wrote an overly complicated Blazor / WASM app to write a blog to.
 
-<div class="sticker" style="rotate:-12deg;margin-right:4rem;">🛠</div>
+<div class="sticker" style="rotate:-12deg;margin-right:4rem;" role="presentation">🛠</div>
 
 As one does.
 
@@ -31,7 +31,7 @@ As posts are static files, they're easy to change and reload - however the small
 
 #### Styling & Design
 
-Although I have some <a href="https://getbootstrap.com/" tabindex="2">Bootstrap</a> experience, I decided against using it for this project.
+Although I have some <a href="https://getbootstrap.com/">Bootstrap</a> experience, I decided against using it for this project.
 
 CSS has become quite powerful over the decades, and far too many of us still don't utilize it to the fullest extent.
 
@@ -39,7 +39,7 @@ So to not use any framework as a crutch, I'm writing all the CSS for this projec
 
 Since I have decided on the name "Eliterate", I chose to go with a book theme for the site. 
 
-<div class="sticker" style="rotate:9deg;margin-right:3rem;">📓</div>
+<div class="sticker" style="rotate:9deg;margin-right:3rem;" role="presentation">📓</div>
 
 ##### Navigation
 
@@ -59,13 +59,13 @@ However to make sure it really looks good, I also had to use a monospace font, o
 
 ##### Posts (Pages)
 
-<div class="sticker" style="rotate:-8deg;">📝</div>
+<div class="sticker" style="rotate:-8deg;" role="presentation">📝</div>
 
 In keeping with the book theme, every blog post is going to be its own "page" of the book.
 
 Apart from the small styling on the borders there isn't much complicated about pages.
 
-A service I've built gets the .md file containing the post data, after which I use <a href="https://github.com/xoofx/markdig" tabindex="2">Markdig</a>, a common C# Markdown library to convert the markdown into HTML code.
+A service I've built gets the .md file containing the post data, after which I use <a href="https://github.com/xoofx/markdig">Markdig</a>, a common C# Markdown library to convert the markdown into HTML code.
 
 ##### Tags
 
@@ -73,7 +73,7 @@ At first I simply styled them as stickers (like they still exist on the "cards" 
 
 They did not have any functionality yet at that point, and I thought I'd use them more as a gag (like the "Why not?" tag at the top of this page).
 
-<div class="sticker" style="rotate:14deg;">📎</div>
+<div class="sticker" style="rotate:14deg;" role="presentation">📎</div>
 
 I quickly decided however, that they would make for a good way to filter posts a bit. Not that there were any posts to filter yet, but I do suffer from premature optimization.
 

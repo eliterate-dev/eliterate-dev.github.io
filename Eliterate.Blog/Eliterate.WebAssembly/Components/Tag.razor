@@ -1,14 +1,10 @@
-﻿@inject NavigationManager NavigationManager
-
-<a class="@Classes" href="posts/tags/@id" style="background-color:hsl(@color);rotate:@(Rotate)deg;" tabindex="@TabIndex">@Name</a>
+﻿<a class="@Classes" href="posts/tags/@id" style="background-color:hsl(@color);rotate:@(Rotate)deg;" tabindex="0">@Name</a>
 
 @code {
     [Parameter]
     public required string Name { get; set; }
     [Parameter]
     public string Classes { get; set; } = "";
-    [Parameter]
-    public int TabIndex { get; set; } = 2;
     [Parameter]
     public decimal Rotate { get; set; }
     private string color => $"{Name.GetIntFromString(360)}, 100%, 80%";

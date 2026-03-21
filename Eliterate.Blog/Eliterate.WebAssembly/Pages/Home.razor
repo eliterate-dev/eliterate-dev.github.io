@@ -7,17 +7,18 @@
     <h2 class="center">Eliterate</h2>
     <p class="center">@tagline</p>
     <Sticker Emoji="🔋" Right="20" Top="2.5m" Rotate="-15"></Sticker>
-    <Sticker Emoji="💻" Right="4" Top="26" Rotate="10"></Sticker>
+    <Sticker Emoji="💻" Right="4" Top="26" Rotate="10" Scale="4"></Sticker>
+    <Sticker Emoji="🎮" Right="17" Top="24" Rotate="-9" Scale="4"></Sticker>
 
     <div class="card">
         <div class="card-header">
             <div class="grid-container-dash-dot">
-                <h2 class="card-title" tabindex="2">@Model.Metadata.Title</h2>
+                <h2 class="card-title" tabindex="0" role="heading">@Model.Metadata.Title</h2>
                 <Date Model="Model.Metadata" Replace="true"></Date>
             </div>
         </div>
         <div class="card-body">
-            <div class="card-text" tabindex="2">
+            <div class="card-text" tabindex="0" role="document">
                 @((MarkupString)Model.Text)
             </div>
         </div>
@@ -36,10 +37,11 @@
 
 @code {
     public BlogPost Model { get; set; } = new();
-    private string tagline => RandomStringHelper.GetRandomTagline();
+    private string tagline = "";
 
     protected override async Task OnInitializedAsync()
     {
-        Model = await ContentService.GetPost("introduction") ?? new();
+        tagline = await ContentService.GetRandomTagline();
+        Model = await ContentService.GetPost("welcome") ?? new();
     }
 }

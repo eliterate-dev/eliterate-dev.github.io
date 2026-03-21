@@ -9,13 +9,13 @@ else
     <div class="card" style="rotate:@(rotate/10m)deg;z-index:@ZIndex;">
         <div class="card-header">
             <div class="grid-container-dash-dot">
-                <h2 class="card-title"><a @onclick="GoToPost" tabindex="2">@Model.Title</a></h2>
+                <h2 class="card-title"><a @onclick="GoToPost" tabindex="0" role="heading">@Model.Title</a></h2>
                 <Date Model="Model" Replace="true"></Date>
             </div>
-            <Sticker Emoji="@emoji" Top="3" Right="2" Rotate="@(rotate)" Scale="2"></Sticker>
+            <Sticker Emoji="@Model.StickerEmoji" Top="3" Right="2" Rotate="@(rotate)" Scale="2"></Sticker>
         </div>
         <div class="card-body">
-            <div class="card-text" tabindex="2">
+            <div class="card-text" tabindex="0" role="document">
                 @Model.Description
             </div>
         </div>
@@ -39,7 +39,6 @@ else
     [Parameter]
     public int ZIndex { get; set; }
     private decimal rotate => Model?.GetRotationFromTitle(20) ?? 0;
-    private string emoji => RandomStringHelper.GetRandomEmojiBasedOnString(Model?.Title);
 
     void GoToPost()
     {

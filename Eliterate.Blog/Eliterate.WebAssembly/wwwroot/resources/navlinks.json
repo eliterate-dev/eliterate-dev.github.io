@@ -1,0 +1,22 @@
+[
+	{
+		"Name": "Posts",
+		"Link": "posts"
+	},
+	{
+		"Name": "Introduction",
+		"Link": "posts/introduction"
+	},
+	{
+		"Name": "About",
+		"Link": "posts/about"
+	},
+	{
+		"Name": "AI Statement",
+		"Link": "posts/on_ai"
+	},
+	{
+		"Name": "Credits",
+		"Link": "credit"
+	}
+]

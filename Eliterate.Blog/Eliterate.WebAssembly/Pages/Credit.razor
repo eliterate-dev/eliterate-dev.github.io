@@ -1,28 +1,31 @@
 ﻿@page "/credit"
+@inject IContentService ContentService
+
 
 <PageTitle>Eliterate - Credit</PageTitle>
 
 <div id="book-back" class="book book-cover">
     <h2>Credit</h2>
     <table>
-        <tr>
-            <td>Content and design</td>
-            <td><a href="https://github.com/eliterate-dev" target="_blank" tabindex="2">Eliterate ↗</a></td>
-        </tr>
-        <tr>
-            <td>Inspiration</td>
-            <td><a href="https://eev.ee" target="_blank" tabindex="2">Evelyn Woods ↗</a></td>
-        </tr>
-        <tr>
-            <td>The cool textures</td>
-            <td><a href="https://www.transparenttextures.com/" target="_blank" tabindex="2">Transparent textures ↗</a></td>
-        </tr>
-        <tr>
-            <td>Emoji stickers</td>
-            <td><a href="https://symbl.cc/" target="_blank" tabindex="2">Symbl ↗</a></td>
-        </tr>
+        @foreach (var item in credits)
+        {
+            <tr>
+                <td>@(item.Description ?? "Thanks")</td>
+                <td><a href="@item.Link" target="_blank" tabindex="0">@item.Name ↗</a></td>
+            </tr>
+        }
     </table>
-    <Sticker Emoji="☠" Right="4" Top="3" Rotate="20"></Sticker>
-    <Sticker Emoji="🪫" Right="16" Top="25" Rotate="-23"></Sticker>
+    <Sticker Emoji="📱" Right="4" Top="3" Rotate="20"></Sticker>
+    <Sticker Emoji="🪫" Right="16" Top="26" Rotate="-23"></Sticker>
     <div class="bottom-right">&copy @DateTime.UtcNow.Year Eliterate</div>
 </div>
+
+@code
+{
+    private IEnumerable<LinkItem> credits = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        credits = await ContentService.GetCredits();
+    }
+}

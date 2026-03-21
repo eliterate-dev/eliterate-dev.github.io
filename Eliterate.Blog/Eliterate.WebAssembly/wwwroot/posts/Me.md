@@ -1,6 +1,6 @@
 ### About me
 
-<div class="polaroid" style="rotate:3deg;"><img alt="A picture of my cat. He's very adorable." src="../images/pictures/cat_on_tower.jpg"></img>Not me</div>
+<div class="polaroid" style="rotate:3deg;" role="note"><img alt="A picture of my cat. He's very adorable." src="../images/pictures/cat_on_tower.jpg"></img>Not me</div>
 
 Oh hey! Thanks for coming to check me out!
 
@@ -20,7 +20,7 @@ I spend a lot of my free time working on my own projects. Most of them are softw
 
 My big one at the moment is a platform to present your own projects and find people to help you do them - because I needed something like that, so I'm making it.
 
-<div class="sticker" style="rotate:-12deg;">✨</div>
+<div class="sticker" style="rotate:-12deg;" role="presentation">✨</div>
 
 ##### Hardware
 
@@ -30,9 +30,9 @@ My favourite piece of hardware is just the Raspberry Pi pico though. More of an 
 
 I'm not very good at soldring, but I make do.
 
-I have all the components ready for an Raspberry Pi powered Arcade cabinet, but I've put that on the back burner for now until my main software project is done.
+I have all the components ready for an Raspberry Pi powered Arcade cabinet, I just need to build and paint it, but I've put that on the back burner for now until my main software project is done.
 
-<div class="polaroid" style="rotate:-2deg;"><img alt="The charles bridge and the palace in prague" src="../images/pictures/Prague_charles_bridge.jpg"></img>Prague 2026</div>
+<div class="polaroid" style="rotate:-2deg;" role="note"><img alt="The charles bridge and the palace in prague" src="../images/pictures/Prague_charles_bridge.jpg"></img>Prague 2026</div>
 
 #### Stuff I like
 
@@ -50,9 +50,9 @@ I don't regeret it though. It's a super fun event with <a href="https://opensauc
 
 I plan to go again this year if family circumstances allow it.
 
-##### Pets
+<div class="polaroid" style="rotate:1deg;" role="note"><img alt="A picture of my cat biting my foot. He's still very adorable." src="../images/pictures/cat_biting.jpg"></img>Biting commentary</div>
 
-<div class="polaroid" style="rotate:1deg;"><img alt="A picture of my cat biting my foot. He's still very adorable." src="../images/pictures/cat_biting.jpg"></img>Biting commentary</div>
+##### Pets
 
 I love animals and will pet any that allow me.
 
@@ -64,19 +64,22 @@ He's a little goblin and his hobby is sneaking up on my dog while she's trying t
 
 It's bloody hilarious every time. She hates it.
 
-##### Music
+<div class="polaroid" style="rotate:-2deg;" role="note"><img alt="A concert " src="../images/pictures/botar.jpg"></img>BOTAR 2023</div>
 
-<div class="polaroid" style="rotate:-2deg;"><img alt="A concert " src="../images/pictures/botar.jpg"></img>BOTAR 2023</div>
+##### Music
 
 My taste in music is weird. I listen to a lot of different genres mixed together.
 
 I have a special fondness for Ska. I know it ain't hip, but I am a sucker for a good horn section.
 
-Streetlight Manifesto is the GOAT. I'm so hyped for the new album that will be released shortly after the heat death of the universe.
+<a href="https://music.youtube.com/watch?v=A-UTPKL-UGY">Streetlight Manifesto</a> is the GOAT. I'm so hyped for the new album that will be released shortly after the heat death of the universe.
 
-Other favourites include anything by Conor Oberst, John Darnielle, Patrick Schneeweis, Theo Hilton, Jesse Sendejas or April Hartman, as well as Gorillaz, Dawes and many others.
+Other favourites include anything else by Tomas Kalnoky, Conor Oberst, John Darnielle, Patrick Schneeweis, Theo Hilton, Jesse Sendejas or April Hartman, as well as Gorillaz, Dawes and many others.
 
 ##### Learning
 
 Saying "learning is a hobby of mine" sounds weird, but it's true.
 
+My YouTube watchtime is about an even split between entertainment and educational content.
+
+I love learning about technologies new and old, from people like <a href="https://www.youtube.com/technologyconnections">Alec Watson</a>, 
