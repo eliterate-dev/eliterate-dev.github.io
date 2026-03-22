@@ -12,6 +12,10 @@
 		"Link": "posts/about"
 	},
 	{
+		"Name": "Design",
+		"Link": "posts/design"
+	},
+	{
 		"Name": "AI Statement",
 		"Link": "posts/on_ai"
 	},

@@ -1,5 +1,4 @@
-﻿using Codespirals.Base.Extensions;
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 
 namespace Eliterate.WebAssembly;
 
@@ -8,6 +7,7 @@ public interface IContentService
     Task<IEnumerable<PostMetadata>> GetMetadata();
     Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tag);
     Task<BlogPost?> GetPost(string title);
+    Task<BlogPost?> GetLatest();
     Task<int> GetPostCount();
     Task<string> GetRandomTagline();
     Task<IEnumerable<LinkItem>> GetNavItems();
@@ -20,7 +20,7 @@ public class ContentService(HttpClient client) : IContentService
 
     public async Task<IEnumerable<PostMetadata>> GetMetadata()
     {
-        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/posts.json");
+        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
         if (metadata is null)
             return [];
         var posts = new List<PostMetadata>();
@@ -35,7 +35,7 @@ public class ContentService(HttpClient client) : IContentService
 
     public async Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tagId)
     {
-        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/posts.json");
+        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
         if (metadata is null)
             return [];
         var posts = new List<PostMetadata>();
@@ -50,7 +50,7 @@ public class ContentService(HttpClient client) : IContentService
 
     public async Task<BlogPost?> GetPost(string title)
     {
-        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/posts.json");
+        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
         if (metadata is null)
             return null;
         foreach (var item in metadata)
@@ -64,9 +64,22 @@ public class ContentService(HttpClient client) : IContentService
         }
         return null;
     }
+    public async  Task<BlogPost?> GetLatest()
+    {
+        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
+        if (metadata is null)
+            return null;
+        var post = metadata.OrderByDescending(p => p.Edited is null ? p.Created : p.Edited).FirstOrDefault();
+        if (post is null)
+            return null;
+        var markdown = await _client.GetStringAsync(post.ContentUrl);
+        if (markdown is null)
+            return null;
+        return new BlogPost { Metadata = post, Text = Markdig.Markdown.ToHtml(markdown) };
+    }
     public async Task<int> GetPostCount()
     {
-        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/posts.json");
+        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
         if (metadata is null)
             return 0;
         return metadata.Count();

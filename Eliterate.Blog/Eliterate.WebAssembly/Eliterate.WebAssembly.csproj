@@ -33,7 +33,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\post_metadata\posts.json" />
+    <None Include="wwwroot\posts\Design.md" />
+    <None Include="wwwroot\post_metadata\metadata.json" />
   </ItemGroup>
 
   <ItemGroup>

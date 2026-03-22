@@ -15,6 +15,4 @@ public class PostMetadata : ICreatable, IEditable, IPostMetadata
     public bool ShowInList { get; set; } = true;
     public string StickerEmoji { get; set; } = "";
     public int EstimatedReadTimeInMinutes { get; set; } = 5;
-
-    public decimal GetRotationFromTitle(int limit) => Title.GetRotationFromString(limit);
 }

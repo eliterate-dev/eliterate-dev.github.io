@@ -197,9 +197,10 @@ code {
 
 .sticker {
 	margin: -1.5rem;
-	font-size: 2rem;
+	font-size: 3rem;
 	line-height: 1;
 	z-index: 10;
+	color: var(--color-background);
 	text-shadow: var(--sticker-outline);
 	filter: var(--sticker-outline-filter);
 }
@@ -231,7 +232,7 @@ code {
 
 .book {
 	color: var(--color-foreground);
-	margin: 0 0.5rem 0 0;
+	margin: 2rem 0.5rem 0 0;
 	padding: 0;
 	position: relative;
 }
@@ -242,7 +243,7 @@ code {
 
 .book-page {
 	position: relative;
-	margin: 0.125rem 0.25rem 0.25rem 0;
+	margin: 0.25rem 0.25rem 0.25rem 0;
 	border: double 3px darkgrey;
 	border-left: none;
 	border-top: none;
@@ -297,13 +298,11 @@ code {
 	}
 
 .book-tags {
-	position: relative;
-	display: block;
+	position: absolute;
+	top: -2rem;
+	right: 1rem;
 	width: max-content;
-	margin-right: 0.5rem;
-	margin-left: auto;
-	margin-bottom: -0.3rem;
-	padding: 0.125rem;
+	padding: 0.25rem;
 }
 
 .book-tag {
@@ -452,12 +451,16 @@ a.card-tag:hover, a.card-tag:focus-visible {
 	right: 1.5rem;
 }
 
+.text-with-picture {
+	display: grid;
+	grid-template-columns: 65% 35%;
+}
+
 .polaroid {
-	width: 32%;
-	position: relative;
-	margin: 0 0 0 1rem;
-	padding: 0.25rem;
+	max-width: 240px;
 	float: right;
+	margin: 0 0 0.5rem 1rem;
+	padding: 0.25rem;
 	background-color: white;
 	color: black;
 	text-align: center;

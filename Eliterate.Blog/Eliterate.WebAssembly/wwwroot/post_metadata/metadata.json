@@ -33,6 +33,18 @@
 		"StickerEmoji": "📓",
 		"IsActive": true,
 		"ShowInList": true,
+		"EstimatedReadTimeInMinutes": 10
+	},
+	{
+		"Title": "Design",
+		"Description": "Why this site looks the way it does.",
+		"Tags": [ "Explanations", "Why not?" ],
+		"Created": "2026-03-22",
+		"Edited": "2026-03-22",
+		"ContentUrl": "posts/Design.md",
+		"StickerEmoji": "🎨",
+		"IsActive": true,
+		"ShowInList": true,
 		"EstimatedReadTimeInMinutes": 15
 	},
 	{

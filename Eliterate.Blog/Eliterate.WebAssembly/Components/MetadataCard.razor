@@ -6,7 +6,7 @@
 }
 else
 {
-    <div class="card" style="rotate:@(rotate/10m)deg;z-index:@ZIndex;">
+    <div class="card" style="rotate:@(rotate/10m)deg;">
         <div class="card-header">
             <div class="grid-container-dash-dot">
                 <h2 class="card-title"><a @onclick="GoToPost" tabindex="0" role="heading">@Model.Title</a></h2>
@@ -36,9 +36,7 @@ else
 @code {
     [Parameter]
     public PostMetadata? Model { get; set; }
-    [Parameter]
-    public int ZIndex { get; set; }
-    private decimal rotate => Model?.GetRotationFromTitle(20) ?? 0;
+    private decimal rotate => Model?.Title.GetRotationFromString(20) ?? 0;
 
     void GoToPost()
     {
