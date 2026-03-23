@@ -30,7 +30,7 @@ public class ContentService(HttpClient client) : IContentService
                 continue;
             posts.Add(item);
         }
-        return [.. posts.OrderByDescending(p => p.Edited is null ? p.Created : p.Edited)];
+        return [.. posts.OrderByDescending(p => p.Edited ?? p.Created)];
     }
 
     public async Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tagId)
@@ -45,7 +45,7 @@ public class ContentService(HttpClient client) : IContentService
                 continue;
             posts.Add(item);
         }
-        return [.. posts.OrderByDescending(p => p.Edited is null ? p.Created : p.Edited)];
+        return [.. posts.OrderByDescending(p => p.Edited ?? p.Created)];
     }
 
     public async Task<BlogPost?> GetPost(string title)
@@ -69,7 +69,7 @@ public class ContentService(HttpClient client) : IContentService
         var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
         if (metadata is null)
             return null;
-        var post = metadata.OrderByDescending(p => p.Edited is null ? p.Created : p.Edited).FirstOrDefault();
+        var post = metadata.OrderByDescending(p => p.Edited ?? p.Created).FirstOrDefault();
         if (post is null)
             return null;
         var markdown = await _client.GetStringAsync(post.ContentUrl);

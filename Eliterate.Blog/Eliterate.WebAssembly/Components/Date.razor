@@ -2,7 +2,7 @@
 {
     
 }
-else if (Model.Edited is null)
+else if (!Model.Edited.HasValue)
 {
     <div class="date">@Model.Created.ToString("yyyy/MM/dd")</div>
 }

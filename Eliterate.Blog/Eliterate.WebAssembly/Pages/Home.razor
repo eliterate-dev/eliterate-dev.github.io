@@ -12,36 +12,34 @@
 
     <div class="card">
         <div class="card-header">
+            <div class="sticker" style="rotate:3deg;" role="presentation">🇨🇭</div>
             <div class="grid-container-dash-dot">
-                <h2 class="card-title" tabindex="0" role="heading">@Model.Metadata.Title</h2>
-                <Date Model="Model.Metadata" Replace="true"></Date>
+                <h2 class="card-title" tabindex="0" role="heading">Introduction</h2>
+                <div class="date">@DateTime.Today.ToString("yyyy/MM/dd")</div>
             </div>
         </div>
         <div class="card-body">
             <div class="card-text" tabindex="0" role="document">
-                @((MarkupString)Model.Text)
+                <p>I'm Eli. I'm a software developer from Switzerland.</p>
+                <p>I do full stack development, though I'm much better at backend stuff. </p>
+                <p>This site is my creative outlet and attempt to get a bit better at frontend design.</p>
+                <p>Hit me up if you dig it!</p>
             </div>
         </div>
         <div class="card-footer">
             <div class="card-tags">
-                @foreach (var tag in Model.Metadata.Tags)
-                {
-                    if (string.IsNullOrWhiteSpace(tag))
-                        continue;
-                    <Tag Name="@tag" Classes="card-tag" Rotate="@tag.GetRotationFromString(3)"></Tag>
-                }
+                <Tag Name="Welcome" Classes="card-tag" Rotate="3"></Tag>
+                <Tag Name="Introduction" Classes="card-tag" Rotate="-2"></Tag>
             </div>
         </div>
     </div>
 </div>
 
 @code {
-    public BlogPost Model { get; set; } = new();
     private string tagline = "";
 
     protected override async Task OnInitializedAsync()
     {
         tagline = await ContentService.GetRandomTagline();
-        Model = await ContentService.GetPost("welcome") ?? new();
     }
 }

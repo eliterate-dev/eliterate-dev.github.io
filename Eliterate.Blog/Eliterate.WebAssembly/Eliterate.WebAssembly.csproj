@@ -17,6 +17,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\lib\**" />
+    <Content Remove="wwwroot\lib\**" />
+    <EmbeddedResource Remove="wwwroot\lib\**" />
+    <None Remove="wwwroot\lib\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Components\_PostDetail.razor" />
     <Content Remove="wwwroot\posts\posts.json" />
   </ItemGroup>
@@ -40,7 +47,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\icons\" />
     <Folder Include="wwwroot\images\stickers\" />
-    <Folder Include="wwwroot\lib\" />
+    <Folder Include="wwwroot\fonts\" />
   </ItemGroup>
 
   <ItemGroup>

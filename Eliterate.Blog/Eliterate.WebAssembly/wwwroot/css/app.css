@@ -39,10 +39,15 @@
 	}
 }
 
+@font-face {
+	font-family: Scratches;
+	src: url(fonts/help-me/HelpMe.ttf);
+}
+
 html, body {
 	font-family: Arial, sans-serif;
 	color: var(--color-foreground);
-	min-width: 600px;
+	min-width: 420px;
 	margin: 0;
 	font-size: 16px;
 	background-color: #9c5525;
@@ -482,4 +487,8 @@ a.card-tag:hover, a.card-tag:focus-visible {
 
 *:focus-visible {
 	outline: solid 2px var(--color-primary);
+}
+
+.page-not-found {
+	font-family: Scratches;
 }
