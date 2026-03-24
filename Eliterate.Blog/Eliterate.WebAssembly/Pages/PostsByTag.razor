@@ -3,12 +3,12 @@
 
 <PageTitle>Eliterate - Posts</PageTitle>
 
-@foreach (var post in Posts)
-{
-    if (post is null)
-        continue;
-    <MetadataCard Model="post"></MetadataCard>
-}
+<div class="post-list">
+    @foreach (var post in Posts)
+    {
+        <MetadataCard Model="post"></MetadataCard>
+    }
+</div>
 
 @code
 {

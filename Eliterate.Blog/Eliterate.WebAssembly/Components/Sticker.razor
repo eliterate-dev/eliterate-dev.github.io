@@ -1,4 +1,4 @@
-﻿<div class="sticker absolute" style="font-size:@(Scale)rem;top:@(Top)rem;right:@(Right)rem;rotate:@(Rotate)deg;" role="presentation">@Emoji</div>
+﻿<div class="sticker absolute" style="font-size:@(Scale)rem;top:@(Top)rem;right:@(Right)rem;rotate:@(Rotate)deg;z-index:@ZIndex;" role="presentation">@Emoji</div>
 
 @code {
     [Parameter]
@@ -11,4 +11,6 @@
     public decimal Scale { get; set; } = 3;
     [Parameter]
     public decimal Rotate { get; set; } = Random.Shared.Next(-4000, 4000) / 100m;
+    [Parameter]
+    public int ZIndex { get; set; }
 }

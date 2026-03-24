@@ -1,25 +1,23 @@
 ﻿@inject IContentService ContentService
 
-<div class="navbar">
-    <div class="grid-container-dash-dot">
-        <h1 class="navbar-brand"><a class="initial-focus" href="" tabindex="0">Eliterate</a></h1>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </button>
-    </div>
+<div class="grid-container-dash-dot">
+    <h1 class="navbar-brand"><a class="initial-focus" href="" tabindex="0">Eliterate</a></h1>
+    <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </button>
 </div>
 
 <div class="@NavMenuCssClass nav-scrollable">
-    <nav class="nav flex-column">
+    <nav class="flex-column">
         <div class="center">
             Contents:
         </div>
         @foreach (var item in links)
         {
             <div class="nav-item">
-                <NavLink class="nav-link" href="@item.Link" Match="NavLinkMatch.All" tabindex="0">@($"{item.Name.PadRight(20, '.')}{links.IndexOf(item).ToString().PadLeft(5, '.')}")</NavLink>
+                <NavLink class="nav-link" href="@item.Link" Match="NavLinkMatch.All" tabindex="0">@($"{item.Name.PadRight(17, '.')}{links.IndexOf(item).ToString().PadLeft(4, '.')}")</NavLink>
             </div>
         }
     </nav>

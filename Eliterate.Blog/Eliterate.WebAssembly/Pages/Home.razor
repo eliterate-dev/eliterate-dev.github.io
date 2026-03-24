@@ -12,15 +12,14 @@
 
     <div class="card">
         <div class="card-header">
-            <div class="sticker" style="rotate:3deg;" role="presentation">🇨🇭</div>
             <div class="grid-container-dash-dot">
-                <h2 class="card-title" tabindex="0" role="heading">Introduction</h2>
-                <div class="date">@DateTime.Today.ToString("yyyy/MM/dd")</div>
+                <h2 class="card-title" tabindex="0" role="heading">Hi! I'm Eli</h2>
             </div>
         </div>
         <div class="card-body">
+            <div class="sticker absolute" style="rotate:3deg;right:1.5rem;" role="presentation">🇨🇭</div>
             <div class="card-text" tabindex="0" role="document">
-                <p>I'm Eli. I'm a software developer from Switzerland.</p>
+                <p>I'm a software developer from Switzerland.</p>
                 <p>I do full stack development, though I'm much better at backend stuff. </p>
                 <p>This site is my creative outlet and attempt to get a bit better at frontend design.</p>
                 <p>Hit me up if you dig it!</p>
@@ -28,8 +27,8 @@
         </div>
         <div class="card-footer">
             <div class="card-tags">
-                <Tag Name="Welcome" Classes="card-tag" Rotate="3"></Tag>
-                <Tag Name="Introduction" Classes="card-tag" Rotate="-2"></Tag>
+                <a class="card-tag" href="posts" style="background-color:aquamarine;rotate:3deg;" tabindex="0">Posts</a>
+                <a class="card-tag" href="posts/about" style="background-color:lightpink;rotate:-2deg;" tabindex="0">About</a>
             </div>
         </div>
     </div>

@@ -4,22 +4,15 @@
 
 <div class="sticker-sheet">
     <div class="sticker-in-sheet"><a href="" style="background-color:lightblue;" tabindex="0">Home</a></div>
-    <div class="empty-sticker" style="background-color:white;"></div>
-    <div class="empty-sticker" style="background-color:white;"></div>
+    @for (int i = 0; i < 5; i++)
+    {
+        <div class="empty-sticker"></div>
+    }
 
-    <div class="empty-sticker" style="background-color:white;"></div>
-    <div class="empty-sticker" style="background-color:white;"></div>
-    <div class="empty-sticker" style="background-color:white;"></div>
-
-    <div class="empty-sticker" style="background-color:white;"></div>
-    <div class="sticker-in-sheet"><a href="posts" style="background-color:coral;" tabindex="0">Posts</a></div>
-    <div class="empty-sticker" style="background-color:white;"></div>
-
-    <div class="empty-sticker" style="background-color:white;"></div>
-    <div class="empty-sticker" style="background-color:white;"></div>
-    <div class="empty-sticker" style="background-color:white;"></div>
-
-    <div class="empty-sticker" style="background-color:white;"></div>
-    <div class="empty-sticker" style="background-color:white;"></div>
-    <div class="empty-sticker" style="background-color:white;"></div>
+    <div class="sticker-in-sheet"><a href="posts" style="background-color:aquamarine;" tabindex="0">Posts</a></div>
+    <div class="sticker-in-sheet"><a href="posts" style="background-color:aquamarine;" tabindex="0">Posts</a></div>
+    @for (int i = 0; i < 16; i++)
+    {
+        <div class="empty-sticker"></div>
+    }
 </div>

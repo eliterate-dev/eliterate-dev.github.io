@@ -2,21 +2,21 @@
 	--color-foreground: #eee;
 	--color-foreground-muted: #aaa;
 	--color-background: #111;
+	--color-wood: #9c5525;
 	--color-primary-h: 24;
 	--color-primary-s: 100%;
-	--color-primary-l: 80%;
-	--color-lighten-percentage: 5%;
-	--color-darken-percentage: 15%;
-	--color-tone-percentage: 40%;
+	--color-primary-l: 60%;
+	--color-lighten-percentage: 10%;
+	--color-darken-percentage: 20%;
 	--color-primary: hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
-	--color-primary-shade: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) - var(--color-lighten-percentage)));
-	--color-primary-tint: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) + var(--color-darken-percentage)));
-	--color-primary-tone: hsl(var(--color-primary-h), calc(var(--color-primary-s) - var(--color-tone-percentage)), var(--color-primary-l));
+	--color-primary-shade: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) - var(--color-darken-percentage)));
+	--color-primary-tint: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) + var(--color-lighten-percentage)));
 	--color-contrast-0: #000;
 	--color-contrast-1: #222;
 	--color-contrast-2: #333;
 	--color-contrast-3: #444;
 	--color-shadow: #050505;
+	--post-list-columns: auto;
 	--font-handwritten: 'Lucida Handwriting', 'Brush Script MT', cursive;
 	--sticker-outline: 1px 0px white, -1px 0px white, 0px -1px white, 0px 1px white;
 	--sticker-outline-filter: drop-shadow(1px 0px white) drop-shadow(-1px 0px white) drop-shadow(0px -1px white) drop-shadow(0px 1px white) drop-shadow(1px 1px 1px var(--color-shadow));
@@ -27,15 +27,25 @@
 		--color-foreground: #111;
 		--color-foreground-muted: #444;
 		--color-background: #eee;
-		--color-primary-l: 70%;
-		--color-lighten-percentage: 5%;
-		--color-darken-percentage: 20%;
-		--color-tone-percentage: 50%;
+		--color-primary-l: 50%;
+		--color-lighten-percentage: 20%;
+		--color-darken-percentage: 10%;
 		--color-primary: hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
 		--color-contrast-0: #ddd;
 		--color-contrast-1: #ccc;
 		--color-contrast-2: #bbb;
 		--color-contrast-3: #aaa;
+	}
+}
+
+@media (min-width: 1060px) {
+	:root {
+		--post-list-columns: auto auto;
+	}
+}
+@media (min-width: 1460px) {
+	:root {
+		--post-list-columns: auto auto auto;
 	}
 }
 
@@ -50,7 +60,7 @@ html, body {
 	min-width: 420px;
 	margin: 0;
 	font-size: 16px;
-	background-color: #9c5525;
+	background-color: var(--color-wood);
 	background-image: url(../images/textures/dark-wood.png);
 }
 
@@ -91,7 +101,7 @@ p {
 }
 
 button {
-	border: 2px solid var(--color-primary-shade);
+	border: 2px solid var(--color-primary);
 	border-radius: 0.25rem;
 	padding: 0.25rem 0.5rem;
 }
@@ -103,8 +113,7 @@ a, button {
 
 	a:hover, button:hover, a:focus-visible, button:focus-visible {
 		cursor: pointer;
-		color: var(--color-primary);
-		text-shadow: 1px 0px 1px var(--color-background), -1px 0px 1px var(--color-background), 0px 1px 1px var(--color-background), 0px -1px 1px var(--color-background);
+		color: var(--color-primary-tint);
 	}
 
 table {
@@ -204,7 +213,6 @@ code {
 	margin: -1.5rem;
 	font-size: 3rem;
 	line-height: 1;
-	z-index: 10;
 	color: var(--color-background);
 	text-shadow: var(--sticker-outline);
 	filter: var(--sticker-outline-filter);
@@ -241,6 +249,7 @@ code {
 	padding: 0;
 	position: relative;
 }
+
 	.book > h2 {
 		display: block;
 		text-align: center;
@@ -284,7 +293,7 @@ code {
 }
 
 	.book-page-text a {
-		color: var(--color-primary-shade);
+		color: var(--color-primary);
 	}
 
 		.book-page-text a:hover {
@@ -328,14 +337,20 @@ code {
 		box-shadow: 2px -3px var(--color-shadow), 2px 0px var(--color-shadow);
 	}
 
+.post-list {
+	padding: 0 0.5rem 0 0;
+	margin: 0 auto;
+	display: grid;
+	width: max-content;
+	grid-template-columns: var(--post-list-columns);
+}
+
 .card {
+	display: block;
 	color: var(--color-foreground);
-	margin: 0.5rem 1rem 0.5rem 0.5rem;
-	position: relative;
-	padding: 0;
-	border: solid 1px var(--color-contrast-2);
+	width: 400px;
 	border-radius: 0.125rem;
-	margin-bottom: 0.5rem;
+	margin: 0.25rem;
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/notebook.png);
 	box-shadow: 2px 2px var(--color-shadow);
@@ -353,7 +368,8 @@ code {
 }
 
 .card-body {
-	min-height: 3rem;
+	min-height: 4rem;
+	max-width: 380px;
 	padding: 0.125rem 0.5rem;
 }
 
@@ -390,9 +406,9 @@ code {
 	border: solid 2px white;
 	filter: var(--sticker-outline-filter);
 }
+
 a.card-tag:hover, a.card-tag:focus-visible {
 	color: black;
-	text-shadow: none;
 	border-color: black;
 }
 
@@ -495,10 +511,12 @@ a.card-tag:hover, a.card-tag:focus-visible {
 	font-size: 2rem;
 	margin: 6rem auto 2rem auto;
 	font-family: Scratches;
+	color: var(--color-wood);
+	letter-spacing: 3px;
 }
 
 .sticker-sheet {
-	padding: 0.25rem;
+	padding: 0.75rem 0.25rem;
 	rotate: 4deg;
 	position: absolute;
 	right: 2rem;
@@ -511,20 +529,25 @@ a.card-tag:hover, a.card-tag:focus-visible {
 }
 
 .sticker-in-sheet, .empty-sticker {
-	margin: 2px;
+	margin: 0 1px;
 	font-size: 1rem;
 	width: 60px;
 	height: 28px;
 	border-radius: 0.25rem;
 	color: var(--color-background);
 }
+
 	.sticker-in-sheet a {
 		display: block;
 		text-align: center;
 		border-radius: 0.25rem;
 		border: solid 4px white;
-		outline: solid 1px black;
+		outline: solid 1px grey;
 	}
+
+		.sticker-in-sheet a:hover {
+			outline: solid 1px black;
+		}
 
 .empty-sticker {
 	box-shadow: 1px 1px 2px inset black;

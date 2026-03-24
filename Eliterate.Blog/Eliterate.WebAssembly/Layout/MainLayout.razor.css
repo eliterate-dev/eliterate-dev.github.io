@@ -11,13 +11,14 @@ main {
 }
 
 .sidebar {
+    min-width: max-content;
     height: auto;
     width: 100vw;
     background-color: var(--color-background);
     overflow: hidden;
 }
 
-@media (min-width: 641px) {
+@media (min-width: 680px) {
     .page {
         flex-direction: row;
     }
