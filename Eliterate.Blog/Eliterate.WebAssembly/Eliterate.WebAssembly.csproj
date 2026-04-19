@@ -45,7 +45,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\icons\" />
     <Folder Include="wwwroot\images\stickers\" />
     <Folder Include="wwwroot\fonts\" />
   </ItemGroup>

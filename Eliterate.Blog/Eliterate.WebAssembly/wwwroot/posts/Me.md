@@ -14,15 +14,15 @@ I'm a software developer by trade and passion.
 
 My specialty is backend work building APIs with C# and EF Core, but I dabble in many things.
 
-I spend a lot of my free time working on my own projects. Most of them are software projects - I'm sure I'll present them on this page once I'm done with them.
+I spend a lot of my free time working on my own projects. Most of them are software projects (like this page) - I'm sure I'll present them in a blog post once I'm done with them.
 
-My big one at the moment is a platform to present your own projects and find people to help you do them - because I needed something like that, so I'm making it.
+My big one at the moment is a platform to present your own projects or just ideas and find people to help you do them - because I needed something like that, so I'm making it.
 
 ##### Hardware
 
 Sometimes I like to dabble with microprocessors and IoT stuff too. I've worked with Arduinos and I've done a lot of stuff with various forms of Raspberry Pis, from Pi-holes to hosting Minecraft servers and Discord bots.
 
-My favourite piece of hardware is just the Raspberry Pi pico though. More of an Esp32 style microcontroller than their other SBC offerings, but simple and a lot of fun to tinker with. I use them for silly things like making LED strips flash in pretty colors.
+My favourite piece of hardware is just the <a href="https://shop.pimoroni.com/products/raspberry-pi-pico-2-w">Raspberry Pi Pico</a> though. More of an ESP32 style microcontroller than their other SBC offerings, but simple and a lot of fun to tinker with. I use them for silly things like making LED strips flash in pretty colors.
 
 I'm not very good at soldring, but I make do.
 
@@ -103,9 +103,7 @@ Saying "learning is a hobby of mine" sounds weird, but it's true. I'm always cur
 
 My YouTube watchtime is about an 40/60 split between entertainment and educational content - heavily favouring channels that do both.
 
-I love learning about technologies new and old, from people like <a href="https://www.youtube.com/@TechnologyConnections">Alec Watson</a>, math from people like <a href="https://www.youtube.com/@3blue1brown">Grant Sanderson</a> or <a href="https://www.youtube.com/@standupmaths">Matt Parker</a>, chemistry from <a href="https://www.youtube.com/@NileRed">Nigel Braun</a> or <a href="https://www.youtube.com/@ExplosionsAndFire">Tom de Prinse</a> or what not to do to electronics from <a href="https://www.youtube.com/@ElectroBOOM">Mehdi Sadaghdar</a> and <a href="https://www.youtube.com/@styropyro">Drake Anthony</a>.
-
-A lot of those people also come to Open Sauce!
+I love learning about technologies new and old, from people like <a href="https://www.youtube.com/@TechnologyConnections">Alec Watson</a>, math from people like <a href="https://www.youtube.com/@3blue1brown">Grant Sanderson</a> or <a href="https://www.youtube.com/@standupmaths">Matt Parker</a>, chemistry from <a href="https://www.youtube.com/@NileRed">Nigel Braun</a> or <a href="https://www.youtube.com/@ExplosionsAndFire">Tom de Prinse</a> or what not to do to electronics from <a href="https://www.youtube.com/@ElectroBOOM">Mehdi Sadaghdar</a> and <a href="https://www.youtube.com/@styropyro">Drake Anthony</a>. A lot of those people also come to Open Sauce!
 
 Of course I also read my fair share. When I don't have the focus to concentrate on my eReader, I usually listen to an audio book on train rides or while chilling at home.
 

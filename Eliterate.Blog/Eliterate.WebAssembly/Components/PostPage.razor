@@ -1,4 +1,4 @@
-﻿@inject HttpClient Http
+﻿@inject IJSRuntime javaScript
 
 @if (Model is null)
 {
@@ -17,7 +17,7 @@ else
                 </div>
                 <Sticker Emoji="@Model.Metadata.StickerEmoji" Top="2" Right="7" Rotate="@Model.Metadata.Title.GetRotationFromString(20)" ZIndex="10"></Sticker>
                 <div class="book-page-body">
-                    <article class="book-page-text" tabindex="0">
+                    <article id="top-of-page" class="book-page-text" tabindex="0">
                         @((MarkupString)(Model.Text ?? "Text not found."))
                     </article>
                 </div>
@@ -39,7 +39,7 @@ else
     public BlogPost? Model { get; set; }
     public DateTime Date => Model?.Metadata.Edited ?? Model?.Metadata.Created ?? DateTime.UtcNow;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
         
     }
