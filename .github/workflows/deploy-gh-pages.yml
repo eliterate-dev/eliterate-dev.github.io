@@ -18,7 +18,7 @@ jobs:
           dotnet-version: '10.x'
 
       - name: Restore
-        run: dotnet restore
+        run: dotnet restore ./Eliterate.Blog/Eliterate.WebAssembly/Eliterate.WebAssembly.csproj
 
       - name: Set base href for GitHub Pages
         # Adjusts base href to "/<repo>/" so pages work at /repo/
