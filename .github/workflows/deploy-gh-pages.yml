@@ -24,8 +24,7 @@ jobs:
         # Adjusts base href to "/<repo>/" so pages work at /repo/
         run: |
           REPO_NAME="${{ github.repository }}"
-          PROJECT_DIR=$(find . -maxdepth 2 -name "*.csproj" -print -quit | xargs -n1 dirname)
-          INDEX_PATH="$PROJECT_DIR/wwwroot/index.html"
+          INDEX_PATH="./wwwroot/index.html"
           if [ -f "$INDEX_PATH" ]; then 
             sed -i "s|<base href=\"/\">|<base href=\"/$REPO_NAME/\">|" "$INDEX_PATH" || true
           fi
