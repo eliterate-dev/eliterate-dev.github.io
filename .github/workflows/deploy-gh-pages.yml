@@ -24,14 +24,14 @@ jobs:
         # Adjusts base href to "/<repo>/" so pages work at /repo/
         run: |
           REPO_NAME="${{ github.repository }}"
-          PROJECT_DIR=$(find . -maxdepth 2 -name "*.csproj" -print -quit | xargs -n1 dirname)
+          PROJECT_DIR=$(find . -maxdepth 3 -name "*.csproj" -print -quit | xargs -n1 dirname)
           INDEX_PATH="$PROJECT_DIR/wwwroot/index.html"
           if [ -f "$INDEX_PATH" ]; then 
             sed -i "s|<base href=\"/\">|<base href=\"/$REPO_NAME/\">|" "$INDEX_PATH" || true
           fi
 
       - name: Publish
-        run: dotnet publish -c Release -o publish
+        run: dotnet publish ./Eliterate.Blog/Eliterate.WebAssembly/Eliterate.WebAssembly.csproj -c Release -o publish
 
       - name: Copy index to 404 for SPA routing
         run: |
