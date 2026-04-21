@@ -16,7 +16,7 @@ Inversely where maintainability **isn't** an issue, code that doesn't really ent
 
 However **any** use of AI on this site and in my projects will be clearly marked as such.
 
-I did have an AI help me debug the GitHub Actions .yaml "script" that helped publish this site, mostly because that stuff is so baked into Github that it's basically the easiest way to debug that.
+I did have an AI help me debug the GitHub Actions .yaml "script" that helped publish this site, mostly because that stuff (Copilot) is so baked into Github that it's basically the easiest way to debug actions.
 
 #### AI writing
 
@@ -28,17 +28,20 @@ So yeah, I don't use AI to write regular words at all. I don't see the point. If
 
 However I can't say AI hasn't influenced my writing... I used to use em-dashes. I don't anymore, for some reason.
 
-It also took writing in rules of three from me!
+It also took writing in rules of three from me! Or 
 
-It's not just annoying, it's downright unfair!
+It's not just annoying, it's downright unfair! 
 
-(That was a joke, intentionally written. I'm still not AI)
+^(That was a joke, intentionally written. I'm still not AI)^
 
 #### Is AI a bad thing?
 
-Not inherently. The technology is interesting. I can see local, specific-purpose neural networks becoming part of the general toolkit.
+Not inherently, but I don't like how it's being handled. 
 
-However I do not subscribe to the hype. 
+The technology is interesting. I can see local, efficient, *specific-purpose* neural networks becoming part of the general toolkit. Like as a better IntelliSense.
+
+However I do not subscribe to the hype.
 
 The AI market is an unsustainable bubble, and the popping or even just deflating of it will hurt a lot of regular people.
 
+Not to *mention* how the datacenter scramble is fucking over prices for RAM and GPUs for consumers.
