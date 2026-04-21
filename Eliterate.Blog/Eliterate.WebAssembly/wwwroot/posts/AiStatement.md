@@ -8,13 +8,15 @@ Jokes aside, I'm not a big fan of AI. I don't really use AI to code, beyond usin
 
 I will work with AI if an employer wants me to. Their codebase, their rules.
 
-My personal project code however is artisanal and I like it that way. I will not include a line in my codebase if I don't understand what it does.
+My personal project code however is almost entirely *artisanal* and I like it that way. I will not include a line in my codebase if I don't understand what it does.
 
 That makes me a tad slower than the vibe coders, but I think long term code maintainability more than makes up for it.
 
 Inversely where maintainability **isn't** an issue, code that doesn't really enter the code base, like a one time use script I don't really have an issue with AI. I think it's an okay tool in that limited context. I might use it there.
 
 However **any** use of AI on this site and in my projects will be clearly marked as such.
+
+I did have an AI help me debug the GitHub Actions .yaml "script" that helped publish this site, mostly because that stuff is so baked into Github that it's basically the easiest way to debug that.
 
 #### AI writing
 

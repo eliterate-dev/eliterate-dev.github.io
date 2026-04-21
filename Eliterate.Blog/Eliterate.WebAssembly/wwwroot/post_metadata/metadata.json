@@ -13,7 +13,7 @@
 	},
 	{
 		"Title": "About",
-		"Description": "How and mostly why this site exists.",
+		"Description": "How and mostly why this site exists. I had a lot of fun making it, but it was also frustrating at times.",
 		"Tags": [ "Welcome", "Explanations", "Why not?" ],
 		"Created": "2026-03-10",
 		"Edited": "2026-03-18",
@@ -25,7 +25,7 @@
 	},
 	{
 		"Title": "Design",
-		"Description": "Why this site looks the way it does.",
+		"Description": "Why this site looks the way it does. It's actually surprisingly simple. Feel free to shoot me questions about anything you don't fully undestand.",
 		"Tags": [ "Explanations", "Why not?" ],
 		"Created": "2026-03-22",
 		"Edited": "2026-03-22",
