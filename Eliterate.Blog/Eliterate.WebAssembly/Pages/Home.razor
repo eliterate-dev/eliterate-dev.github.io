@@ -7,10 +7,10 @@
     <h2 class="center">Eliterate</h2>
     <p class="center">@tagline</p>
     <Sticker Emoji="🔋" Right="3" Top="2.5m" Rotate="-15"></Sticker>
-    <Sticker Emoji="💻" Right="4" Top="26" Rotate="10" Scale="4"></Sticker>
-    <Sticker Emoji="🎮" Right="17" Top="10" Rotate="-9" Scale="4"></Sticker>
+    <Sticker Emoji="💻" Right="4" Bottom="3" Rotate="10" Scale="4"></Sticker>
+    <Sticker Emoji="🎮" Left="3" Top="10" Rotate="-9" Scale="4"></Sticker>
 </div>
-<div id="introduction">
+<content id="introduction">
     <div class="card">
         <div class="card-header">
             <div class="grid-container-dash-dot">
@@ -20,10 +20,12 @@
         <div class="card-body">
             <div class="sticker absolute" style="rotate:3deg;right:2rem;" role="presentation">🇨🇭</div>
             <div class="card-text" tabindex="0" role="document">
-                <p>I'm a software developer from Switzerland.</p>
-                <p>I do full stack development, though I'm much better at backend stuff. </p>
-                <p>This site is my creative outlet and attempt to get a bit better at frontend design.</p>
-                <p>Hit me up if you dig it!</p>
+                <p>
+                    I'm a software developer from Switzerland.<br>
+                    I do full stack development, though I'm much better at backend stuff.<br>
+                    This site is my creative outlet and attempt to get a bit better at frontend design.<br>
+                    Hit me up if you dig it!<br>
+                </p>
             </div>
         </div>
         <div class="card-footer">
@@ -33,7 +35,7 @@
             </div>
         </div>
     </div>
-</div>
+</content>
 
 @code {
     private string tagline = "";

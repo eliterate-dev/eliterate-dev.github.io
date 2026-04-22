@@ -1,4 +1,5 @@
 :root {
+	--min-width: 300px;
 	--color-foreground: #eee;
 	--color-foreground-muted: #aaa;
 	--color-background: #111;
@@ -39,12 +40,17 @@
 	}
 }
 
-@media (min-width: 1060px) {
+@media (min-width: 400px) {
+	:root {
+		--min-width: 400px;
+	}
+}
+@media (min-width: 1038px) {
 	:root {
 		--post-list-columns: auto auto;
 	}
 }
-@media (min-width: 1460px) {
+@media (min-width: 1438px) {
 	:root {
 		--post-list-columns: auto auto auto;
 	}
@@ -60,7 +66,7 @@ html, body {
 	color: var(--color-foreground);
 	width: stretch;
 	height: 100%;
-	min-width: 420px;
+	min-width: var(--min-width);
 	margin: 0;
 	font-size: 16px;
 	background-color: var(--color-wood);
@@ -264,12 +270,12 @@ code {
 
 .book-closed {
 	color: white;
-	width: 22rem;
-	min-width: 20rem;
-	min-height: 25rem;
+	min-width: var(--min-width);
+	width: 20rem;
+	min-height: calc(var(--min-width) * 1.2);
 	margin-right: auto;
 	margin-left: auto;
-	padding: 3rem 0.5rem;
+	padding: 3rem 1rem;
 	border-top: none;
 }
 
@@ -380,16 +386,15 @@ code {
 	padding: 1rem 0.5rem 0 0;
 	margin: 0 auto;
 	display: grid;
-	width: max-content;
 	grid-template-columns: var(--post-list-columns);
 }
 
 .card {
 	display: block;
 	color: var(--color-foreground);
-	width: 400px;
+	width: var(--min-width);
 	border-radius: 0.125rem;
-	margin: 0.25rem;
+	margin: 0.25rem auto;
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/notebook.png);
 	box-shadow: 2px 2px var(--color-shadow);
@@ -431,14 +436,15 @@ code {
 
 .card-tags {
 	width: max-content;
-	margin: 0 0 0 1rem;
+	margin: 0 0 0 0.5rem;
 	display: inline-block;
+	overflow: scroll;
 }
 
 .card-tag {
 	padding: 0.25rem;
 	border-radius: 0.25rem;
-	margin: 0.5rem 0.5rem 0.5rem 0;
+	margin: 0.25rem 0.375rem 0.25rem 0;
 	width: max-content;
 	display: inline-block;
 	color: black;
@@ -453,32 +459,41 @@ a.card-tag:hover, a.card-tag:focus-visible {
 
 .read-time {
 	position: absolute;
+	display: grid;
+	grid-template-columns: 1fr;
 	right: 0;
 	bottom: 0;
-	font-size: 1rem;
-	margin: 0.5rem;
-	padding: 0.25rem;
+	font-size: 0.75rem;
+	height: 2rem;
+	margin-right: 0.125rem;
+	margin-bottom: 0.75rem;
 }
 
 	.read-time .sticker {
+		position: absolute;
+		right: 0;
+		bottom: 0;
 		font-size: inherit;
-		margin: 0.25rem;
 		display: inline-block;
-		z-index: 9;
+		margin: 0;
 	}
 
+.read-time-minutes {
+	width: 1rem;
+	text-align: center;
+	position: relative;
+}
+
 #introduction {
-	width: 400px;
 	margin-right: auto;
 	margin-left: auto;
 }
 
-#introduction .card {
-	box-shadow: 5px 1px black;
-	rotate: 1deg;
-	position: absolute;
-	margin-top: -20rem;
-}
+	#introduction .card {
+		box-shadow: 5px 1px black;
+		rotate: 1deg;
+		margin-top: -20rem;
+	}
 
 .bottom-right {
 	position: absolute;
@@ -509,8 +524,8 @@ a.card-tag:hover, a.card-tag:focus-visible {
 	grid-template-columns: auto auto;
 }
 	.text-with-picture div:nth-of-type(2) {
-		min-width: 200px;
-		max-width: 320px;
+		min-width: calc(var(--min-width) /3);
+		max-width: calc(var(--min-width) /2);
 	}
 
 .center {

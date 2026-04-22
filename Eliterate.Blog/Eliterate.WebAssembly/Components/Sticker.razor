@@ -1,16 +1,25 @@
-﻿<div class="sticker absolute" style="font-size:@(Scale)rem;top:@(Top)rem;right:@(Right)rem;rotate:@(Rotate)deg;z-index:@ZIndex;" role="presentation">@Emoji</div>
+﻿<div class="sticker absolute" style="font-size:@(Scale)rem;rotate:@(Rotate)deg;z-index:@ZIndex;@_top @_right @_bottom @_left" role="presentation">@Emoji</div>
 
 @code {
     [Parameter]
     public required string Emoji { get; set; }
     [Parameter]
-    public decimal Top { get; set; }
+    public decimal? Top { get; set; }
     [Parameter]
-    public decimal Right { get; set; }
+    public decimal? Bottom { get; set; }
+    [Parameter]
+    public decimal? Right { get; set; }
+    [Parameter]
+    public decimal? Left { get; set; }
     [Parameter]
     public decimal Scale { get; set; } = 3;
     [Parameter]
     public decimal Rotate { get; set; } = Random.Shared.Next(-4000, 4000) / 100m;
     [Parameter]
     public int ZIndex { get; set; }
+
+    private string _top => Top is null ? string.Empty : $"top:{Top}rem;";
+    private string _right => Right is null ? string.Empty : $"right:{Right}rem;";
+    private string _bottom => Bottom is null ? string.Empty : $"bottom:{Bottom}rem;";
+    private string _left => Left is null ? string.Empty : $"left:{Left}rem;";
 }
