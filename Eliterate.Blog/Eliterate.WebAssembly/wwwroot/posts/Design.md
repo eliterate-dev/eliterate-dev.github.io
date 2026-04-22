@@ -8,7 +8,7 @@ So to not use any framework as a crutch, I'm writing all the CSS for this projec
 
 Since I have decided on the name "Eliterate", I chose to go with a book theme for the site. 
 
-<div class="sticker" style="rotate:9deg;margin-right:3rem;" role="presentation">📂</div>
+<div class="sticker" style="rotate:9deg;margin-right:2rem;" role="presentation">📂</div>
 
 #### Navigation
 

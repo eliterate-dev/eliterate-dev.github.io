@@ -1,19 +1,18 @@
 .page {
     display: flex;
     flex-direction: column;
+    height: inherit;
 }
 
 main {
     flex: 1;
-    padding: 1rem 0 0 0;
+    padding: 0;
 }
 
 .sidebar {
     min-width: max-content;
-    height: auto;
-    width: 100vw;
+    width: stretch;
     background-color: var(--color-background);
-    overflow: hidden;
 }
 
 @media (min-width: 680px) {
@@ -22,7 +21,6 @@ main {
     }
 
     .sidebar {
-        min-height: 100vh;
         width: min-content;
         position: sticky;
     }

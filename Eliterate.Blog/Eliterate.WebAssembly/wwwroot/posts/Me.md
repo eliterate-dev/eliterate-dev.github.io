@@ -1,12 +1,20 @@
 ### About me
 
-<div class="polaroid" style="rotate:3deg;" role="note"><img alt="A picture of my cat. He's very adorable." src="../images/pictures/Cat_on_tower.jpg"></img>Not me</div>
+<div class="text-with-picture">
+<div>
 
 Oh hey! Thanks for coming to check me out!
 
 As mentioned on the <a href="" style="rotate:5deg;">front page</a>, I'm Eli.
 
-I'm a software developer by trade and passion.
+I'm a software developer by profession and passion.
+
+I'm a bit of a jack-of-all-trades and I have to try doing, learning, and making anything that catches my interest.
+
+</div>
+
+<div class="polaroid" style="rotate:3deg;" role="note"><img alt="A picture of my cat. He's very adorable." src="../images/pictures/Cat_on_tower.jpg"></img>Not me</div>
+</div>
 
 #### Stuff I make
 
