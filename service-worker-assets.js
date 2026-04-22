@@ -1,12 +1,12 @@
 self.assetsManifest = {
-  "version": "NuT7NbIE",
+  "version": "+7UgDhrl",
   "assets": [
     {
       "hash": "sha256-17yPNBa9VRCo0SLOwYV+BSqaXuWqbyXFsFyJakuEdvE=",
       "url": "404.html"
     },
     {
-      "hash": "sha256-eRyAbn3U40aScJ6qdrclSYlXhgCCP4sS/w7PJQje/0A=",
+      "hash": "sha256-OylWNhTP/8VHmNs6Q7DSz2ETq/5uFmgHNKw6ZffsVis=",
       "url": "Eliterate.WebAssembly.styles.css"
     },
     {
@@ -14,8 +14,8 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.Base.Shared.y2gbqsscqy.wasm"
     },
     {
-      "hash": "sha256-ndyRvgSYd4x/mczlfyfVh/cJOP8RObrK6i/f/+N5CMQ=",
-      "url": "_framework/Eliterate.WebAssembly.lywnemj37w.wasm"
+      "hash": "sha256-hfKXjmajg8bfU0P0UE1C8UvP0LX2FrSAbORGCY0hKmY=",
+      "url": "_framework/Eliterate.WebAssembly.vfo3fc5cjf.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
@@ -202,7 +202,7 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-NmFHKxAyIM/GWzyR8N8teoXol3IudWQFNb0zwZHqllA=",
+      "hash": "sha256-lyxfK0glTLytvH7kULKVvLykWTva6DFbafzK0KBorOg=",
       "url": "_framework/dotnet.js"
     },
     {
@@ -230,7 +230,7 @@ self.assetsManifest = {
       "url": "_framework/icudt_no_CJK.lfu7j35m59.dat"
     },
     {
-      "hash": "sha256-tGfbRsPDD3DCWsxyye9SaOIUTr3TPL4hh3ifA0CFsJQ=",
+      "hash": "sha256-Nl/bDJF9fpmvPnWZw4JlUdl+C69EqjB3pj66cHmQQcA=",
       "url": "css/app.css"
     },
     {
@@ -362,11 +362,11 @@ self.assetsManifest = {
       "url": "posts/CV.md"
     },
     {
-      "hash": "sha256-c/u7j5X5LujoWYt6v3eQN3LbXIBwblWc4DJcZzQmmfY=",
+      "hash": "sha256-Ikn0xvsksNd2BYLI2nv5cOyI2GpvD9K22JNTQ2QwQHs=",
       "url": "posts/Design.md"
     },
     {
-      "hash": "sha256-FQ+60FRjVzrYZ8lkxsBK0Ny1P0AldQA7K5ZS6EfqK/E=",
+      "hash": "sha256-f3gsZoIXJNTa/z2/xiMPnPHlZw1Biu8D4c+F6SH5qAc=",
       "url": "posts/Me.md"
     },
     {
@@ -382,7 +382,7 @@ self.assetsManifest = {
       "url": "resources/navlinks.json"
     },
     {
-      "hash": "sha256-EmhtrnEGUAgmKCleM3IYMTMTEfrRHWaqLu+Gcg8ILJE=",
+      "hash": "sha256-xZ+JWIY6eEYHoadZVF1iWdiOERlemwa63JV8DORHNes=",
       "url": "resources/taglines.json"
     }
   ]
