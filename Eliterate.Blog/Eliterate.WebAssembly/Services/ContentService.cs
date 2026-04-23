@@ -1,4 +1,5 @@
-﻿using Eliterate.WebAssembly.Models;
+﻿using Codespirals.Base.Extensions;
+using Eliterate.WebAssembly.Models;
 using System.Net.Http.Json;
 
 namespace Eliterate.WebAssembly;
@@ -53,7 +54,7 @@ public class ContentService(HttpClient client) : IContentService
     public async Task<BlogPost?> GetPost(string title)
     {
         var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
-        var post = metadata?.FirstOrDefault(m => m.Title == title);
+        var post = metadata?.FirstOrDefault(m => m.Id == title);
         if (post is null)
             return null;
         var markdown = await _client.GetStringAsync(post.ContentUrl);
