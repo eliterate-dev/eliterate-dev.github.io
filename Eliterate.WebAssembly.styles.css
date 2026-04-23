@@ -8,12 +8,13 @@
 main[b-cafgmfpazb] {
     flex: 1;
     padding: 0;
+    overflow-y: scroll;
 }
 
 .sidebar[b-cafgmfpazb] {
     min-width: max-content;
-    width: stretch;
     background-color: var(--color-background);
+    position: sticky;
 }
 
 @media (min-width: 680px) {
@@ -23,7 +24,7 @@ main[b-cafgmfpazb] {
 
     .sidebar[b-cafgmfpazb] {
         width: min-content;
-        position: sticky;
+        position: relative;
     }
 }
 /* /Layout/NavMenu.razor.rz.scp.css */
@@ -114,4 +115,8 @@ nav[b-3fzxegserq]  a {
 		/* Allow sidebar to scroll for tall menus */
 		overflow-y: auto;
 	}
+}
+/* /Pages/Plans.razor.rz.scp.css */
+body[b-s7o7uf68lo] {
+
 }

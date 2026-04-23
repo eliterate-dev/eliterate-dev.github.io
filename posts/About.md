@@ -25,10 +25,12 @@ since this project was supposed to be quick and dirty. Basically a static page, 
 
 Technically this could all be done with JavaScript pretty easily, but I don't enjoy writing JavaScript code all that much. No shade to anyone using it, I just think the language is a bit of a mess.
 
-So I turned to a relative newcommer in C# space: WASM (**W**eb **AS**se**M**bly (No I don't know why they abbreviated it this way)).
+So I turned to a relative newcommer in Webdev space: WASM (**W**eb **AS**se**M**bly (No I don't know why they abbreviated it this way)).
 
-Compiling to WASM almost entierly eliminates the need for JavaScript (apart from maybe a service worker).
+The .Net framework has the capability to compile my usual C# code directly into WASM, meaning I can just write my code normally, interfaces, services and all, run it through a build and bam, compiled WASM code.
 
-Combined with Blazor, the current .Net framework for frontend stuff, I can comfortably write my code in C# and pure HTML / CSS.
+Using to WASM like that almost entierly eliminates the need for JavaScript (apart from maybe a service worker) - to be clear, you don't have to replace any JS. You can still use it anywhere, but *anything done in WASM* is something *I don't need to do in JS*, which is perfect for me.
 
-As posts are static files, they're easy to change and reload - however the small downside is that the keeping of metadata (such as "Last Edited Date") is entirely manual. I'm fine with that.
+Combined with Blazor, the current .Net framework for frontend stuff, I can comfortably write my code in pretty much just C# and pure HTML / CSS.
+
+As posts are static Markdown files, they're easy to change and reload - however the small downside is that the keeping of metadata (such as the title and tags) is entirely manual. I'm fine with that.
