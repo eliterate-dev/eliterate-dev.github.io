@@ -1,4 +1,4 @@
-﻿<a class="@Classes" href="posts/tags/@id" style="background-color:hsl(@color);rotate:@(Rotate)deg;" tabindex="0">@Name</a>
+﻿<a class="tag @Classes" href="posts/tags/@_id" style="@_color @_rotate" tabindex="0">@Name</a>
 
 @code {
     [Parameter]
@@ -7,6 +7,8 @@
     public string Classes { get; set; } = "";
     [Parameter]
     public decimal Rotate { get; set; }
-    private string color => $"{Name.GetIntFromString(360)}, 100%, 80%";
-    private string id => Name.ToUrlSafeString();
+
+    private string _rotate => $"rotate:{Rotate}deg;";
+    private string _color => $"background-color:hsl({Name.GetIntFromString(360)}, 100%, 80%);";
+    private string _id => Name.ToUrlSafeString();
 }

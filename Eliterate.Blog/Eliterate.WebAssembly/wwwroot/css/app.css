@@ -21,6 +21,8 @@
 	--font-handwritten: 'Lucida Handwriting', 'Brush Script MT', cursive;
 	--sticker-outline: 1px 0px white, -1px 0px white, 0px -1px white, 0px 1px white;
 	--sticker-outline-filter: drop-shadow(1px 0px white) drop-shadow(-1px 0px white) drop-shadow(0px -1px white) drop-shadow(0px 1px white) drop-shadow(1px 1px 1px var(--color-shadow));
+	--breakpoint-1: calc(var(--min-width) * 2 + 220);
+	--breakpoint-2: calc(var(--min-width) * 3);
 }
 
 @media (prefers-color-scheme: light) {
@@ -40,19 +42,20 @@
 	}
 }
 
-@media (min-width: 400px) {
-	:root {
-		--min-width: 400px;
-	}
-}
-@media (min-width: 1038px) {
+/* 220px for nav + 8px scrollbar + 310px per card */
+@media (min-width: 840px) {
 	:root {
 		--post-list-columns: auto auto;
 	}
 }
-@media (min-width: 1438px) {
+@media (min-width: 1150px) {
 	:root {
 		--post-list-columns: auto auto auto;
+	}
+}
+@media (min-width: 1460px) {
+	:root {
+		--post-list-columns: auto auto auto auto;
 	}
 }
 
@@ -66,7 +69,7 @@ html, body {
 	color: var(--color-foreground);
 	width: stretch;
 	height: 100%;
-	min-width: var(--min-width);
+	min-width: calc(var(--min-width) + 10);
 	margin: 0;
 	font-size: 16px;
 	background-color: var(--color-wood);
@@ -307,33 +310,34 @@ code {
 	border-left: none;
 	border-top: none;
 	border-radius: 0 0.5rem 0.5rem 0;
-	padding: 0.25rem 0;
+	padding: 0;
 	background-color: var(--color-contrast-0);
 	background-image: url(../images/textures/light-paper-fibers.png);
 }
 
 .book-page-header {
-	padding: 0;
+	padding: 0 0.125rem 0 0.5rem;
+	position: sticky;
 }
 
 .book-page-title {
-	padding: 0 0.375rem;
-	margin: auto 0.5rem;
 }
 
 .book-page-body {
-	padding: 0.125rem 0.5rem;
+	position: relative;
+	margin: 0;
+	max-height: 75vh;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 .book-page-text {
-	height: 90%;
-	overflow-y: scroll;
 	padding: 0.125rem 0.75rem 0.125rem 0.5rem;
 	margin: 0;
 	background-color: var(--color-background);
 	background-image: url(../images/textures/notebook-dark.png);
-	border-radius: 0.25rem;
 	text-align: justify;
+	border-radius: 0.25rem;
 }
 
 	.book-page-text a {
@@ -385,16 +389,17 @@ code {
 .post-list {
 	padding: 1rem 0.5rem 0 0;
 	margin: 0 auto;
+	margin-bottom: 5rem;
 	display: grid;
 	grid-template-columns: var(--post-list-columns);
 }
 
 .card {
-	display: block;
 	color: var(--color-foreground);
-	width: var(--min-width);
+	min-width: var(--min-width);
+	margin: 0.25rem;
+	padding-bottom: 2.5rem;
 	border-radius: 0.125rem;
-	margin: 0.25rem auto;
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/notebook.png);
 	box-shadow: 2px 2px var(--color-shadow);
@@ -431,7 +436,9 @@ code {
 	}
 
 .card-footer {
-	position: relative;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
 
 .card-tags {
@@ -466,7 +473,7 @@ a.card-tag:hover, a.card-tag:focus-visible {
 	font-size: 0.75rem;
 	height: 2rem;
 	margin-right: 0.125rem;
-	margin-bottom: 0.75rem;
+	margin-bottom: 0.5rem;
 }
 
 	.read-time .sticker {
@@ -485,14 +492,18 @@ a.card-tag:hover, a.card-tag:focus-visible {
 }
 
 #introduction {
-	margin-right: auto;
-	margin-left: auto;
+	position: relative;
+	width: 100%;
+	bottom: 19rem;
 }
 
 	#introduction .card {
+		min-width: var(--min-width);
+		max-width: 400px;
 		box-shadow: 5px 1px black;
 		rotate: 1deg;
-		margin-top: -20rem;
+		margin-right: auto;
+		margin-left: auto;
 	}
 
 .bottom-right {

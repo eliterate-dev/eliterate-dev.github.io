@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Json;
+﻿using Eliterate.WebAssembly.Models;
+using System.Net.Http.Json;
 
 namespace Eliterate.WebAssembly;
 
@@ -43,6 +44,7 @@ public class ContentService(HttpClient client) : IContentService
         {
             if (item is null || !item.IsActive || !item.Tags.Any(t => t.ToUrlSafeString() == tagId))
                 continue;
+            item.Edited = File.GetLastAccessTimeUtc(item.ContentUrl);
             posts.Add(item);
         }
         return [.. posts.OrderByDescending(p => p.Edited ?? p.Created)];
@@ -51,25 +53,18 @@ public class ContentService(HttpClient client) : IContentService
     public async Task<BlogPost?> GetPost(string title)
     {
         var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
-        if (metadata is null)
+        var post = metadata?.FirstOrDefault(m => m.Title == title);
+        if (post is null)
             return null;
-        foreach (var item in metadata)
-        {
-            if (item is null || !item.IsActive || item.Id != title)
-                continue;
-            var markdown = await _client.GetStringAsync(item.ContentUrl);
-            if (markdown is null)
-                continue;
-            return new BlogPost { Metadata = item, Text = Markdig.Markdown.ToHtml(markdown) };
-        }
-        return null;
+        var markdown = await _client.GetStringAsync(post.ContentUrl);
+        if (string.IsNullOrWhiteSpace(markdown))
+            return null;
+        return new BlogPost { Metadata = post, Text = Markdig.Markdown.ToHtml(markdown) };
     }
     public async  Task<BlogPost?> GetLatest()
     {
         var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
-        if (metadata is null)
-            return null;
-        var post = metadata.OrderByDescending(p => p.Edited ?? p.Created).FirstOrDefault();
+        var post = metadata?.OrderByDescending(p => p.Created).FirstOrDefault();
         if (post is null)
             return null;
         var markdown = await _client.GetStringAsync(post.ContentUrl);
@@ -86,10 +81,11 @@ public class ContentService(HttpClient client) : IContentService
     }
     public async Task<string> GetRandomTagline()
     {
-        var taglines = await _client.GetFromJsonAsync<IEnumerable<string>>($"resources/taglines.json");
-        if (taglines is null)
-            return "404 Tagline not found";
-        return taglines.ElementAt(Random.Shared.Next(taglines.Count()));
+        var songquotes = await _client.GetFromJsonAsync<IEnumerable<SongQuote>>($"resources/songquotes.json");
+        var tagline = songquotes?.ElementAt(Random.Shared.Next(songquotes.Count()));
+        if (tagline is null)
+            return "404: Tagline not found";
+        return tagline.Text;
     }
     public async Task<IEnumerable<LinkItem>> GetNavItems()
     {

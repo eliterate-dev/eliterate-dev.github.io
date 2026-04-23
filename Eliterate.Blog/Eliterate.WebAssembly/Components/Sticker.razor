@@ -1,4 +1,4 @@
-﻿<div class="sticker absolute" style="font-size:@(Scale)rem;rotate:@(Rotate)deg;z-index:@ZIndex;@_top @_right @_bottom @_left" role="presentation">@Emoji</div>
+﻿<div class="sticker absolute" style="@_fontSize @_rotate @_zIndex @_top @_right @_bottom @_left" role="presentation">@Emoji</div>
 
 @code {
     [Parameter]
@@ -18,6 +18,9 @@
     [Parameter]
     public int ZIndex { get; set; }
 
+    private string _fontSize => $"font-size:{Scale}rem;";
+    private string _rotate => $"rotate:{Rotate}deg;";
+    private string _zIndex => $"z-index:{ZIndex};";
     private string _top => Top is null ? string.Empty : $"top:{Top}rem;";
     private string _right => Right is null ? string.Empty : $"right:{Right}rem;";
     private string _bottom => Bottom is null ? string.Empty : $"bottom:{Bottom}rem;";
