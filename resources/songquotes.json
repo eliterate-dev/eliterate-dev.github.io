@@ -2,12 +2,12 @@
 	{
 		"artist": "Streetlight Manifesto",
 		"song": "Enormous",
-		"text": "Do what you must, do what you cannot do. <wbr>Do anything that will get you through the dark"
+		"text": "Do what you must, do what you cannot do. \nDo anything that will get you through the dark"
 	},
 	{
 		"artist": "Amigo the Devil",
 		"song": "Another man's grave",
-		"text": "Life is a lot like a sewer: <wbr>We get out of it what we put in"
+		"text": "Life is a lot like a sewer: \nWe get out of it what we put in"
 	},
 	{
 		"artist": "Durry",
@@ -17,17 +17,17 @@
 	{
 		"artist": "Dawes",
 		"song": "From a window seat",
-		"text": "When you don't know where you're going, <wbr>any road will take you there"
+		"text": "When you don't know where you're going, \nany road will take you there"
 	},
 	{
 		"artist": "Friends in real life",
 		"song": "Route nine legends",
-		"text": "Sometimes it seems we're just spinning our wheels and then suddenly... <wbr>we move"
+		"text": "Sometimes it seems we're just spinning our wheels and then suddenly... \nwe move"
 	},
 	{
 		"artist": "Monsters of Folk",
 		"song": "Ahead of the curve",
-		"text": "I had shoes to fill. <wbr>Walking barefoot now."
+		"text": "I had shoes to fill. \nWalking barefoot now."
 	},
 	{
 		"artist": "Gorillaz",
@@ -42,7 +42,7 @@
 	{
 		"artist": "Bright Eyes",
 		"song": "At the bottom of everything",
-		"text": "Into the ear of every anarchist <wbr>that sleeps but doesn't dream <wbr>we must sing, we must sing, we must sing"
+		"text": "Into the ear of every anarchist \nthat sleeps but doesn't dream \nwe must sing, we must sing, we must sing"
 	},
 	{
 		"artist": "Apes of the state",
@@ -57,6 +57,6 @@
 	{
 		"artist": "Window Smashing Job Creators",
 		"song": "The Power of Friendship",
-		"text": "The ember of freedom will not bloom<wbr> if we do not plant any seeds"
+		"text": "The ember of freedom will not bloom\n if we do not plant any seeds"
 	}
 ]

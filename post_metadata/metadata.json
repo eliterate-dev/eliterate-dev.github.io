@@ -40,7 +40,7 @@
 		"ContentUrl": "posts/Post_1.md",
 		"StickerEmoji": "📝",
 		"IsActive": true,
-		"ShowInList": true,
+		"ShowInList": false,
 		"EstimatedReadTimeInMinutes": 3
 	},
 	{

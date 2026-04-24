@@ -13,7 +13,7 @@ I'm a bit of a jack-of-all-trades and I have to try doing, learning, and making 
 
 </div>
 
-<div class="polaroid" style="rotate:3deg;" role="note"><img alt="A picture of my cat. He's very adorable." src="../images/pictures/Cat_on_tower.jpg"></img>Not me</div>
+<div class="polaroid" style="rotate:3deg;" role="note"><img loading="lazy" alt="A picture of my cat. He's very adorable." src="../images/pictures/Cat_on_tower.jpg"></img>Not me</div>
 </div>
 
 #### Stuff I make
@@ -61,7 +61,7 @@ That there is a Starbucks **in** the castle is a bit of a gut punch to bring you
 
 </div>
 
-<div class="polaroid" style="rotate:-2deg;" role="note"><img alt="The charles bridge and the palace in prague" src="../images/pictures/Prague_charles_bridge.jpg"></img>Prague 2026</div>
+<div class="polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="The charles bridge and the palace in prague" src="../images/pictures/Prague_charles_bridge.jpg"></img>Prague 2026</div>
 </div>
 
 ##### Pets
@@ -81,7 +81,7 @@ It's bloody hilarious every time. She hates it.
 
 </div>
 
-<div class="polaroid" style="rotate:1deg;" role="note"><img alt="A picture of my cat biting my foot. He's still very adorable." src="../images/pictures/Cat_biting.jpg"></img>Biting commentary</div>
+<div class="polaroid" style="rotate:1deg;" role="note"><img loading="lazy" alt="A picture of my cat biting my foot. He's still very adorable." src="../images/pictures/Cat_biting.jpg"></img>Biting commentary</div>
 </div>
 
 ##### Music
@@ -100,7 +100,7 @@ I have seen them live multiple times now, even though I had to fly to the states
 The BOTAR show in Denver was especially mindblowing. Hearing some of your favourite songs with orchestral backing is just an amazing experience.
 
 </div>
-<div class="polaroid" style="rotate:-2deg;" role="note"><img alt="A concert " src="../images/pictures/BOTAR.jpg"></img>BOTAR 2023</div>
+<div class="polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="A concert " src="../images/pictures/BOTAR.jpg"></img>BOTAR 2023</div>
 </div>
 
 Other favourites include anything else by Tomas Kalnoky, Conor Oberst, John Darnielle, Patrick Schneeweis, Theo Hilton, Jesse Sendejas or April Hartman, as well as Gorillaz, Dawes and many others.
