@@ -6,29 +6,33 @@
 }
 else
 {
-    <div class="card" style="rotate:@(rotate/10m)deg;">
-        <div class="card-header">
-            <div class="grid-container-dash-dot">
-                <h2 class="card-title"><a @onclick="GoToPost" tabindex="0" role="heading">@Model.Title</a></h2>
-                <Date Model="Model" Replace="true"></Date>
+    <div class="post-grid-cell">
+        <div class="post-wrapper">
+            <div class="card" style="@_rotate">
+                <div class="card-header">
+                    <div class="grid-container-dash-dot">
+                        <h2 class="card-title"><a @onclick="GoToPost" tabindex="0" role="heading">@Model.Title</a></h2>
+                        <Date Model="Model" Replace="true"></Date>
+                    </div>
+                    <Sticker Emoji="@Model.StickerEmoji" Top="1.25m" Right="0.5m" Rotate="@_rotation" Scale="2"></Sticker>
+                </div>
+                <div class="card-body">
+                    <div class="card-text" tabindex="0" role="document">
+                        @((MarkupString)(Model.Description ?? "Description missing..."))
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-tags">
+                        @foreach (var tag in Model.Tags)
+                        {
+                            if (string.IsNullOrWhiteSpace(tag))
+                                continue;
+                            <Tag Name="@tag" Classes="card-tag" Rotate="@(tag.GetRandomValueFromString(4))"></Tag>
+                        }
+                    </div>
+                    <ReadTime EstimatedReadTimeInMinutes="@Model.EstimatedReadTimeInMinutes"></ReadTime>
+                </div>
             </div>
-            <Sticker Emoji="@Model.StickerEmoji" Top="3" Right="1.5m" Rotate="@(rotate)" Scale="2"></Sticker>
-        </div>
-        <div class="card-body">
-            <div class="card-text" tabindex="0" role="document">
-                @((MarkupString)(Model.Description ?? "Description missing..."))
-            </div>
-        </div>
-        <div class="card-footer">
-            <div class="card-tags">
-                @foreach (var tag in Model.Tags)
-                {
-                    if (string.IsNullOrWhiteSpace(tag))
-                        continue;
-                    <Tag Name="@tag" Classes="card-tag" Rotate="@(tag.GetRotationFromString(4))"></Tag>
-                }
-            </div>
-            <ReadTime EstimatedReadTimeInMinutes="@Model.EstimatedReadTimeInMinutes"></ReadTime>
         </div>
     </div>
 }
@@ -36,7 +40,8 @@ else
 @code {
     [Parameter]
     public PostMetadata? Model { get; set; }
-    private decimal rotate => Model?.Title.GetRotationFromString(20) ?? 0;
+    private decimal _rotation => Model?.Title.GetRandomValueFromString(20) ?? 0;
+    private string _rotate => $"rotate:{_rotation / 10}deg;";
 
     void GoToPost()
     {

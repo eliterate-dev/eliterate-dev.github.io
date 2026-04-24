@@ -1,7 +1,22 @@
-﻿@page "/plans"
+﻿@inject IContentService ContentService
+@page "/plans"
 
-
+<div class="brick-wall">
+    <div class="corkboard">
+        <div class="post-list">
+            @foreach (var item in _ideas)
+            {
+                <Paper Model="item"></Paper>
+            }
+        </div>
+    </div>
+</div>
 
 @code {
+    private IEnumerable<FutureIdea> _ideas = [];
 
+    protected override async Task OnInitializedAsync()
+    {
+        _ideas = [.. await ContentService.GetPlans()];
+    }
 }

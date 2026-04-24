@@ -1,0 +1,9 @@
+﻿
+table {
+	font-size: 0.8rem;
+}
+
+td:first-of-type {
+	list-style-type: none;
+	padding: 0 1rem 0 0;
+}

@@ -14,6 +14,7 @@ public interface IContentService
     Task<string> GetRandomTagline();
     Task<IEnumerable<LinkItem>> GetNavItems();
     Task<IEnumerable<LinkItem>> GetCredits();
+    Task<IEnumerable<FutureIdea >> GetPlans();
 }
 
 public class ContentService(HttpClient client) : IContentService
@@ -101,5 +102,12 @@ public class ContentService(HttpClient client) : IContentService
         if (credits is null)
             return [];
         return credits;
+    }
+    public async Task<IEnumerable<FutureIdea>> GetPlans()
+    {
+        var plans = await _client.GetFromJsonAsync<IEnumerable<FutureIdea>>($"resources/plans.json");
+        if (plans is null)
+            return [];
+        return plans;
     }
 }

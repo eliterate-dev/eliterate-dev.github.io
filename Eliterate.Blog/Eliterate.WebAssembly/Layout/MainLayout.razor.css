@@ -16,7 +16,7 @@ main {
     position: sticky;
 }
 
-@media (min-width: 680px) {
+@media (min-width: 840px) {
     .page {
         flex-direction: row;
     }

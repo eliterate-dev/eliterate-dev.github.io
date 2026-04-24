@@ -1,0 +1,10 @@
+﻿.post-grid-cell {
+	position: relative;
+	margin-top: -17.5rem;
+	z-index: 10;
+}
+
+.card {
+	rotate: 1deg;
+	box-shadow: 5px 2px black;
+}

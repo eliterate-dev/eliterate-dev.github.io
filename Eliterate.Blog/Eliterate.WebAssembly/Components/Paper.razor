@@ -1,0 +1,25 @@
+﻿@if (Model is not null)
+{
+    <div class="post-grid-cell">
+        <div class="post-wrapper">
+            <div class="paper-container">
+                <div class="paper" style="@_rotate">
+                    <div class="paper-spacer"></div>
+                    <div class="paper-content">
+                        <div class="paper-text">
+                            <h2>@Model.Title</h2>
+                            @((MarkupString)(Model.Description ?? "Description missing..."))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public FutureIdea? Model { get; set; }
+    private decimal _rand => Model?.Title.GetRandomValueFromString(20) ?? 0;
+    private string _rotate => $"rotate:{_rand / 10}deg;";
+}
