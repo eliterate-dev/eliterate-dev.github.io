@@ -3,9 +3,10 @@
 	height: calc(100% - 1rem);
 	width: 100%;
 	padding: 0.5rem 0;
+	min-width: var(--min-width);
 	background-color: #b42e22;
 	background-image: url(../images/textures/brick-wall-dark.png);
-	min-width: var(--min-width);
+	background-size: 300px 240px;
 }
 
 .corkboard {
@@ -15,5 +16,5 @@
 	background-image: url(../images/textures/wine-cork.png);
 	border: inset 0.5rem var(--color-wood);
 	overflow-x: hidden;
-	box-shadow: 2px 2px 4px var(--color-shadow);
+	box-shadow: 2px 2px 4px black;
 }
