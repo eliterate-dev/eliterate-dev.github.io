@@ -8,13 +8,35 @@
                         <Pin Left="true" Top="true"></Pin>
                         <Pin Right="true" Top="true"></Pin>
                     </div>
-                    <div class="paper-spacer"></div>
+                    <div class="@(_hasTearoff ? "paper-spacer-with-tearoffs" : "paper-spacer")"></div>
                     <div class="paper-content">
                         <div class="paper-text">
                             <h2>@Model.Title</h2>
                             @((MarkupString)(Model.Description ?? "Description missing..."))
                         </div>
                     </div>
+                    @if (_hasTearoff)
+                    {
+                        <div class="tearoff-container">
+                            @for (int i = 0; i < 6; i++)
+                            {
+                                if (i == _skip || i == _skip2)
+                                {
+                                    <div class="tearoff-empty">
+
+                                    </div>
+                                }
+                                else
+                                {
+                                    <a class="tearoff" href="@Model.Link">
+                                        <div class="tearoff-text">
+                                            @Model.LinkText
+                                        </div>
+                                    </a>
+                                }
+                            }
+                        </div>
+                    }
                 </div>
             </div>
         </div>
@@ -26,4 +48,7 @@
     public FutureIdea? Model { get; set; }
     private decimal _rand => Model?.Title.GetRandomValueFromString(20) ?? 0;
     private string _rotate => $"rotate:{_rand / 10}deg;";
+    private int _skip = Random.Shared.Next(6);
+    private int _skip2 = Random.Shared.Next(6);
+    private bool _hasTearoff => Model?.Link is not null;
 }
