@@ -1,0 +1,15 @@
+﻿@page "/latest"
+@inject IContentService ContentService
+
+<PageTitle>Eliterate - Latest</PageTitle>
+
+<PostPage Model="Model"></PostPage>
+
+@code {
+    public BlogPost? Model { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        Model = await ContentService.GetLatest();
+    }
+}
