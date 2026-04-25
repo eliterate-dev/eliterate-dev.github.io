@@ -234,7 +234,7 @@ code {
 
 .sticker {
 	user-select: none;
-	font-size: 3rem;
+	font-size: 2rem;
 	color: var(--color-background);
 	text-shadow: var(--sticker-outline);
 	filter: var(--sticker-outline-filter);
@@ -432,7 +432,6 @@ code {
 	.card-text .sticker {
 		position: relative;
 		float: right;
-		margin: -0.25rem 0.25rem;
 		z-index: 9;
 	}
 
