@@ -16,6 +16,10 @@
 		"Link": "posts/design"
 	},
 	{
+		"Name": "Latest",
+		"Link": "latest"
+	},
+	{
 		"Name": "AI Statement",
 		"Link": "posts/on_ai"
 	},

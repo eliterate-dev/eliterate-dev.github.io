@@ -394,7 +394,6 @@ code {
 
 .post-wrapper {
 	margin: 0 auto;
-	width: calc(100% - 0.5rem);
 	max-width: 380px;
 }
 
@@ -580,25 +579,26 @@ a.card-tag:hover, a.card-tag:focus-visible {
 }
 
 .paper-container {
-	margin: 0 auto 9rem auto;
+	margin: 0 auto calc(var(--tearoff-height) + 1.5rem) auto;
 }
 
 .paper {
 	position: relative;
-	margin: 0.5rem 0.5rem 0 0.5rem;
 	display: inline-block;
 	min-width: calc(var(--min-width) - 4rem);
 	width: calc(100% - 2rem);
+	margin: 0 0.5rem;
 }
 
 .pin {
 	margin: -2rem -1rem 0 -1rem;
 	position: absolute;
 	font-size: 2rem;
-	height: 1.875rem;
+	height: 2rem;
 	z-index: 1;
 	text-shadow: -2px -1px 2px black, 0 -1px 1px black;
 	user-select: none;
+	overflow-y: hidden;
 }
 
 .paper-spacer {
@@ -667,8 +667,11 @@ a.card-tag:hover, a.card-tag:focus-visible {
 }
 
 .tearoff-text {
-	padding: 0.5rem 0.25rem;
+	right: 0;
+	padding: 0.5rem 0 0.5rem 0.5rem;
 	font-size: 0.75rem;
 	writing-mode: vertical-rl;
 	text-orientation: mixed;
+	text-align: center;
+	margin: auto;
 }
