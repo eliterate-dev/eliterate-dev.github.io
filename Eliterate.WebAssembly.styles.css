@@ -145,14 +145,15 @@ td:first-of-type[b-kis47zz0cb] {
 	padding: 0.5rem 0;
 	background-color: #b42e22;
 	background-image: url(../images/textures/brick-wall-dark.png);
-	overflow-y: scroll;
+	min-width: var(--min-width);
 }
 
 .corkboard[b-s7o7uf68lo] {
 	margin: 0 0.5rem;
-	min-width: calc(var(--min-width) - 1.5rem);
 	min-height: 200px;
 	background-color: #4d2400;
 	background-image: url(../images/textures/wine-cork.png);
 	border: inset 0.5rem var(--color-wood);
+	overflow-x: hidden;
+	box-shadow: 2px 2px 4px var(--color-shadow);
 }

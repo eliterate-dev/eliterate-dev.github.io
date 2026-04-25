@@ -385,7 +385,6 @@ code {
 }
 
 .post-grid-cell {
-	width: 100%;
 	min-height: 100px;
 	min-width: var(--min-width);
 }
@@ -579,19 +578,27 @@ a.card-tag:hover, a.card-tag:focus-visible {
 
 .paper-container {
 	width: max-content;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 0.5rem;
 }
 
 .paper {
 	margin-top: 1rem;
 	display: inline-block;
-	position: relative;
 	min-width: calc(var(--min-width) * 0.8);
 }
 
+.pin {
+	margin: -2rem -1rem 0 -1rem;
+	position: absolute;
+	font-size: 2rem;
+	height: 2.25rem;
+	z-index: 1;
+	text-shadow: -2px -1px 2px black, 0 -1px 1px black;
+	overflow-y: hidden;
+}
+
 .paper-spacer {
-	margin-top: 121%;
+	margin-top: 141%;
 }
 
 .paper-content {
@@ -602,6 +609,7 @@ a.card-tag:hover, a.card-tag:focus-visible {
 	right: 0;
 	bottom: 0;
 	left: 0;
+	box-shadow: 2px 2px var(--color-shadow);
 }
 
 .paper-text {
