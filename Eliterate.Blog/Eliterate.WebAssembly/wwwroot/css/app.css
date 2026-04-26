@@ -151,14 +151,6 @@ td {
 	min-width: calc(var(--min-width) + 20);
 }
 
-.invalid {
-	outline: 1px solid var(--color-disagree);
-}
-
-.validation-message {
-	color: var(--color-disagree);
-}
-
 #blazor-error-ui {
 	bottom: 0;
 	box-shadow: 0 -1px 2px var(--color-shadow);
