@@ -3,12 +3,12 @@
     <div class="post-grid-cell">
         <div class="post-wrapper">
             <div class="paper-container">
-                <div class="paper" style="@_rotate">
+                <div class="paper @(_hasTearoff ? "has-tearoffs" : "")" style="@_rotate">
                     <div class="pins">
                         <Pin Left="true" Top="true"></Pin>
                         <Pin Right="true" Top="true"></Pin>
                     </div>
-                    <div class="@(_hasTearoff ? "paper-spacer-with-tearoffs" : "paper-spacer")"></div>
+                    <div class="paper-spacer@(_hasTearoff ? "-with-tearoffs" : "")"></div>
                     <div class="paper-content">
                         <div class="paper-text">
                             <h2>@Model.Title</h2>
@@ -47,7 +47,7 @@
     [Parameter]
     public FutureIdea? Model { get; set; }
     private decimal _rand => Model?.Title.GetRandomValueFromString(20) ?? 0;
-    private string _rotate => $"rotate:{_rand / 10}deg;";
+    private string _rotate => $"rotate:{_rand / 5}deg;";
     private int _skip = Random.Shared.Next(6);
     private int _skip2 = Random.Shared.Next(6);
     private bool _hasTearoff => Model?.Link is not null;

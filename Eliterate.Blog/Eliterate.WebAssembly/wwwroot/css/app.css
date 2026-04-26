@@ -17,8 +17,9 @@
 	--color-contrast-2: #333;
 	--color-contrast-3: #444;
 	--color-shadow: #303030;
+	--color-book-cover: #170500;
 	--post-list-columns: 1fr;
-	--tearoff-height: 7rem;
+	--tearoff-height: 8rem;
 	--font-handwritten: 'Lucida Handwriting', 'Brush Script MT', cursive;
 	--sticker-outline: 1px 0px white, -1px 0px white, 0px -1px white, 0px 1px white;
 	--sticker-outline-filter: drop-shadow(1px 0px white) drop-shadow(-1px 0px white) drop-shadow(0px -1px white) drop-shadow(0px 1px white) drop-shadow(1px 1px 1px var(--color-shadow));
@@ -234,8 +235,8 @@ code {
 
 .sticker {
 	user-select: none;
-	font-size: 2rem;
-	color: var(--color-background);
+	font-size: 1rem;
+	color: var(--color-foreground);
 	text-shadow: var(--sticker-outline);
 	filter: var(--sticker-outline-filter);
 }
@@ -270,8 +271,8 @@ code {
 	}
 
 .book-cover {
-	border: solid 2px #170500;
-	background-color: #170500;
+	border: solid 1px var(--color-book-cover);
+	background-color: var(--color-book-cover);
 	background-image: url(../images/textures/dark-leather.png);
 	border-radius: 0 0.5rem 0.5rem 0;
 }
@@ -300,7 +301,7 @@ code {
 .book-back {
 	rotate: 1deg;
 	border-radius: 0.75rem 0.25rem 0.25rem 0.75rem;
-	border-right: 0.25rem solid #170500;
+	border-right: 0.25rem solid var(--color-book-cover);
 	box-shadow: 0px -4px inset darkgrey, 1px 2px 2px #111;
 }
 
@@ -389,7 +390,7 @@ code {
 }
 
 .post-grid-cell {
-
+	margin-left: 0.5rem;
 }
 
 .post-wrapper {
@@ -530,9 +531,9 @@ a.card-tag:hover, a.card-tag:focus-visible {
 }
 
 .not-found {
+	min-width: calc(var(--min-width) - 2rem);
+	text-align: center;
 	rotate: -5deg;
-	width: max-content;
-	font-size: 2rem;
 	margin: 6rem auto 2rem auto;
 	font-family: Scratches;
 	color: var(--color-wood);
@@ -541,9 +542,8 @@ a.card-tag:hover, a.card-tag:focus-visible {
 
 .sticker-sheet {
 	padding: 0.75rem 0.25rem;
+	margin: 0 auto;
 	rotate: 4deg;
-	position: absolute;
-	right: 2rem;
 	display: grid;
 	grid-template-columns: auto auto auto;
 	width: max-content;
@@ -553,29 +553,27 @@ a.card-tag:hover, a.card-tag:focus-visible {
 }
 
 .sticker-in-sheet, .empty-sticker {
-	margin: 0 1px;
-	font-size: 1rem;
-	width: 60px;
-	height: 28px;
+	margin: 0;
+	width: 56px;
+	height: 33px;
 	border-radius: 0.25rem;
 }
+	.sticker-in-sheet .card-tag {
+		width: 42px;
+	}
 
 	.sticker-in-sheet a {
-		color: black;
-		display: block;
-		text-align: center;
+		margin: 0 1px;
 		border-radius: 0.25rem;
-		border: solid 4px white;
-		outline: solid 1px grey;
+		border: solid 2px white;
 	}
 
 		.sticker-in-sheet a:hover {
-			color: var(--color-primary);
-			outline: solid 1px black;
+
 		}
 
 .empty-sticker {
-	box-shadow: 1px 1px 2px inset black;
+	box-shadow: 1px 1px 2px inset black, -1px -1px 2px inset #aaa;
 }
 
 .paper-container {
@@ -588,6 +586,11 @@ a.card-tag:hover, a.card-tag:focus-visible {
 	min-width: calc(var(--min-width) - 4rem);
 	width: calc(100% - 2rem);
 	margin: 0 0.5rem;
+	box-shadow: 2px 2px var(--color-shadow);
+}
+
+.has-tearoffs {
+	border-bottom: 1px dashed var(--color-contrast-3);
 }
 
 .pin {
@@ -617,7 +620,6 @@ a.card-tag:hover, a.card-tag:focus-visible {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	box-shadow: 2px 2px var(--color-shadow);
 }
 
 .paper-text {
@@ -626,12 +628,14 @@ a.card-tag:hover, a.card-tag:focus-visible {
 
 	.paper-text h2 {
 		text-align: center;
+		font-size: 1.25rem;
+		padding: 0 1rem;
 	}
 
 .tearoff-container {
 	width: 100%;
 	position: absolute;
-	bottom: calc(var(--tearoff-height) * -1 - 0.125rem);
+	bottom: calc(var(--tearoff-height) * -1 - 1px);
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
 	overflow: visible;
@@ -639,18 +643,18 @@ a.card-tag:hover, a.card-tag:focus-visible {
 
 .tearoff {
 	height: var(--tearoff-height);
-	border: 1px dashed var(--color-contrast-1);
+	border: 1px dashed var(--color-contrast-3);
 	border-bottom: none;
-	overflow: visible;
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/light-paper-fibers.png);
 	box-shadow: 2px 2px var(--color-shadow);
+	width: calc(100% - 1px);
 }
 
 		.tearoff:hover {
 			position:relative;
 			top: 1rem;
-			left: 0.25rem;
+			left: 0.5rem;
 		}
 
 		.tearoff:first-of-type {
@@ -664,14 +668,16 @@ a.card-tag:hover, a.card-tag:focus-visible {
 .tearoff-empty {
 	width: 100%;
 	height: 100%;
+	display: flex;
 }
 
 .tearoff-text {
-	right: 0;
-	padding: 0.5rem 0 0.5rem 0.5rem;
+	padding: 0.5rem 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	font-size: 0.75rem;
 	writing-mode: vertical-rl;
-	text-orientation: mixed;
 	text-align: center;
-	margin: auto;
 }

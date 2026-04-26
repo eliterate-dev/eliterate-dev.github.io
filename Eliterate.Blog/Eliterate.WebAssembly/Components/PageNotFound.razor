@@ -1,18 +1,26 @@
 ﻿<div class="not-found">
-    Page not found
+    <h2>@Message</h2>
 </div>
 
 <div class="sticker-sheet">
-    <div class="sticker-in-sheet"><a href="" style="background-color:lightblue;" tabindex="0">Home</a></div>
+    <div class="sticker-in-sheet">
+        <a class="card-tag" href="" style="background-color:lightblue;" tabindex="0">Home</a>
+    </div>
     @for (int i = 0; i < 5; i++)
     {
         <div class="empty-sticker"></div>
     }
 
-    <div class="sticker-in-sheet"><a href="posts" style="background-color:aquamarine;" tabindex="0">Posts</a></div>
-    <div class="sticker-in-sheet"><a href="posts" style="background-color:aquamarine;" tabindex="0">Posts</a></div>
-    @for (int i = 0; i < 16; i++)
+    <div class="sticker-in-sheet"><a class="card-tag" href="posts" style="background-color:aquamarine;" tabindex="0">Posts</a></div>
+    <div class="sticker-in-sheet"><a class="card-tag" href="posts" style="background-color:aquamarine;" tabindex="0">Posts</a></div>
+    @for (int i = 0; i < 13; i++)
     {
         <div class="empty-sticker"></div>
     }
 </div>
+
+@code
+{
+    [Parameter]
+    public string? Message { get; set; } = "404: Page not found";
+}
