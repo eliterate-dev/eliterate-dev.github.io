@@ -12,11 +12,11 @@
     [Parameter]
     public decimal? Left { get; set; }
     [Parameter]
-    public decimal Scale { get; set; }
+    public decimal Scale { get; set; } = 1;
     [Parameter]
     public decimal Rotate { get; set; } = Random.Shared.Next(-400, 400) / 10m;
     [Parameter]
-    public int ZIndex { get; set; }
+    public int ZIndex { get; set; } = 10;
 
     private string _fontSize => $"font-size:{Scale}rem;";
     private string _rotate => $"rotate:{Rotate}deg;";

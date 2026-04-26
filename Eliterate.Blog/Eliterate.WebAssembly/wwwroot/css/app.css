@@ -1,5 +1,6 @@
 :root {
 	--min-width: 300px;
+	--navmenu-height: 40px;
 	--color-foreground: #eee;
 	--color-foreground-muted: #aaa;
 	--color-background: #111;
@@ -75,13 +76,13 @@
 html, body {
 	margin: 0;
 	font-size: 16px;
-	height: 100%;
 	background-color: var(--color-background);
+	min-width: calc(var(--min-width) + 20);
+	height: 100%;
 }
 
 body {
 	font-family: Arial, sans-serif;
-	min-width: calc(var(--min-width) + 10);
 	color: var(--color-foreground);
 }
 
@@ -147,7 +148,7 @@ td {
 
 #app {
 	height: inherit;
-	min-width: calc(var(--min-width) + 10);
+	min-width: calc(var(--min-width) + 20);
 }
 
 .invalid {
@@ -237,8 +238,7 @@ code {
 
 .sticker {
 	user-select: none;
-	font-size: 1rem;
-	color: var(--color-foreground);
+	color: black;
 	text-shadow: var(--sticker-outline);
 	filter: var(--sticker-outline-filter);
 }
@@ -328,7 +328,8 @@ code {
 }
 
 .book-page-text {
-	height: 70vh;
+	min-height: 150px;
+	height: calc(100vh - var(--navmenu-height) - 9rem);
 	margin: 0;
 	padding: 0 0.75rem 3rem 0.5rem;
 	border-radius: 0 0 0.5rem 0;
@@ -354,7 +355,7 @@ code {
 		position: relative;
 		float: right;
 		margin: -0.25rem 0.25rem;
-		z-index: 9;
+		font-size: 2rem;
 	}
 
 .book-tags {
