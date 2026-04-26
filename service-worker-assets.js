@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "PBqarOj4",
+  "version": "GwCgmSC8",
   "assets": [
     {
       "hash": "sha256-17yPNBa9VRCo0SLOwYV+BSqaXuWqbyXFsFyJakuEdvE=",
@@ -18,8 +18,8 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.Base.Shared.y2gbqsscqy.wasm"
     },
     {
-      "hash": "sha256-9xS8D0XK4mcaKa1/oiQhNAknfgHucAhGwbYWnWfBTzE=",
-      "url": "_framework/Eliterate.WebAssembly.j5bup241mk.wasm"
+      "hash": "sha256-nNOXIfjTkobKpNy/g0kbRQq3A7tShBlJa9NHhw6jUnU=",
+      "url": "_framework/Eliterate.WebAssembly.on57cqynjs.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
@@ -162,16 +162,16 @@ self.assetsManifest = {
       "url": "_framework/System.ObjectModel.jswlj2n5ky.wasm"
     },
     {
-      "hash": "sha256-iBv0ck9f8FncxkVbi57LDA7wC/kV445e5uqZx4VSOIM=",
-      "url": "_framework/System.Private.CoreLib.kp2b24rmmg.wasm"
+      "hash": "sha256-unE3qWi/LwKcaYLHOzn1EqGTjYW+7FFv70IlKnZEonA=",
+      "url": "_framework/System.Private.CoreLib.m4iymubdiv.wasm"
     },
     {
       "hash": "sha256-CqGZFZt55EpWYdOpppefZLrwXdSWzq6fx/AJ4z8kCjs=",
       "url": "_framework/System.Private.Uri.acde68wm9j.wasm"
     },
     {
-      "hash": "sha256-Yb+Mgy+cqRGfULH8T4AW9jbnIbZ+b+KOOLJnMKdNpik=",
-      "url": "_framework/System.Runtime.7uqr8ah82p.wasm"
+      "hash": "sha256-cc5IGqgxbN5MjxBymrJ+gOJXlrTENWE2etvfQKIElD0=",
+      "url": "_framework/System.Runtime.5byzeenks8.wasm"
     },
     {
       "hash": "sha256-p6/wV05PEoKocillIiVPYCnVVIrkHEzHoyxRM/6Uc8A=",
@@ -206,7 +206,7 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-P3yXHUbcYPPW/lUm1nuXGZWXRUB0pFR8d5lRuaEYYYo=",
+      "hash": "sha256-DjblfMysrvUe8v0KxdFyyKSl+hanAVuLuKHfZ1/X/2k=",
       "url": "_framework/dotnet.js"
     },
     {
@@ -366,7 +366,7 @@ self.assetsManifest = {
       "url": "manifest.webmanifest"
     },
     {
-      "hash": "sha256-4JC2I7t9Wy+iEknoInllzkaWX/jwrnQawOqiPnwTTRo=",
+      "hash": "sha256-1sfKFaUE0ho6IwvrouaUUBMFKdfW1ZiVcEep5iIPq5g=",
       "url": "post_metadata/metadata.json"
     },
     {
