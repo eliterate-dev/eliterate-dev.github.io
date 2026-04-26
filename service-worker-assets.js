@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "uJMlfQj4",
+  "version": "/IppdHEO",
   "assets": [
     {
       "hash": "sha256-17yPNBa9VRCo0SLOwYV+BSqaXuWqbyXFsFyJakuEdvE=",
@@ -10,7 +10,7 @@ self.assetsManifest = {
       "url": "CNAME"
     },
     {
-      "hash": "sha256-3dwaqX3K+bv3fnz5mwP50rdYNeFA0oPII+2RrD7/wvs=",
+      "hash": "sha256-j407s6GX1wrrVY2nznUYLBw1zAUvvWJ0WCOjRvtRnrg=",
       "url": "Eliterate.WebAssembly.styles.css"
     },
     {
@@ -18,8 +18,8 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.Base.Shared.y2gbqsscqy.wasm"
     },
     {
-      "hash": "sha256-L+3/AC1R+DMgpVLqEFAqweVt/bg7FcNibYBO5opclzw=",
-      "url": "_framework/Eliterate.WebAssembly.rdozzhu71q.wasm"
+      "hash": "sha256-gNJ/1fKrjQ59idVqDrrO7KQOG0+ELdiSKjA82IC6goQ=",
+      "url": "_framework/Eliterate.WebAssembly.oash5hiwbj.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
@@ -206,7 +206,7 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-2GYDabDq7JKaL9Nxu4BGwtzSvGwwvI/22oQxLELSVV4=",
+      "hash": "sha256-J2Tc+Z+QXnwD0CjeZRbOyXUlxQO+Z86uyIdF8MJNzs4=",
       "url": "_framework/dotnet.js"
     },
     {
@@ -234,7 +234,7 @@ self.assetsManifest = {
       "url": "_framework/icudt_no_CJK.lfu7j35m59.dat"
     },
     {
-      "hash": "sha256-k9bHgG8kP0Dg3CUAZo/kN0hjLVZoaApROcoqi9GGI+o=",
+      "hash": "sha256-GpCtZX4UInliqKNkGgfBqbxf6IIwmlCorhaZVDFfPs8=",
       "url": "css/app.css"
     },
     {
@@ -334,6 +334,18 @@ self.assetsManifest = {
       "url": "images/textures/notebook.png"
     },
     {
+      "hash": "sha256-ZkdkCMJzhns4ms/Eg91B99CpDeIyIEFSSCgNO8AMkAg=",
+      "url": "images/textures/paper-2.png"
+    },
+    {
+      "hash": "sha256-vBpQtB2DUniUs2X0LSr2Kp8/jEIYieHq4S17vmpTvHA=",
+      "url": "images/textures/paper-3.png"
+    },
+    {
+      "hash": "sha256-Ph5kP8E/G0Jv+6pGYTKGH4KhPu5/uIU2WdK3Qy+DqwQ=",
+      "url": "images/textures/paper.png"
+    },
+    {
       "hash": "sha256-AfLsnUHCveQ4/91A2dzqev/Z8C0T9SNTCOg/4NM68gY=",
       "url": "images/textures/wine-cork.png"
     },
@@ -386,7 +398,7 @@ self.assetsManifest = {
       "url": "resources/credits.json"
     },
     {
-      "hash": "sha256-sRT/1Y0HvMyux7xoOHw7yDn6zVXEhHn6MARfkbT/IrA=",
+      "hash": "sha256-e2enhFBPYZkdkv3GYpTywyctcK5L6n4J9pGGwVMyGD0=",
       "url": "resources/navlinks.json"
     },
     {

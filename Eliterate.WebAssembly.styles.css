@@ -3,19 +3,27 @@
     display: flex;
     flex-direction: column;
     height: inherit;
+    min-width: calc(var(--min-width) + 10);
 }
 
 main[b-cafgmfpazb] {
     flex: 1;
     padding: 0;
+    padding-bottom: 0.75rem;
     overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: var(--color-wood);
+    background-image: url(../images/textures/dark-wood.png);
+    min-width: calc(var(--min-width) + 10);
 }
 
 .sidebar[b-cafgmfpazb] {
     min-width: max-content;
     background-color: var(--color-background);
     position: sticky;
-    border-bottom: 2px solid var(--color-foreground);
+    border: none;
+    border-bottom: 1px solid var(--color-foreground);
+    background-image: var(--texture-paper);
 }
 
 @media (min-width: 840px) {
@@ -26,6 +34,7 @@ main[b-cafgmfpazb] {
     .sidebar[b-cafgmfpazb] {
         width: min-content;
         position: relative;
+        border: none;
         border-right: 1px solid var(--color-foreground);
     }
 }
@@ -140,10 +149,6 @@ td:first-of-type[b-kis47zz0cb] {
 	box-shadow: 5px 2px black;
 }
 /* /Pages/Plans.razor.rz.scp.css */
-body[b-s7o7uf68lo] {
-	background-color: #b42e22;
-	background-image: url(../images/textures/brick-wall-dark.png);
-}
 
 .brick-wall[b-s7o7uf68lo] {
 	min-height: calc(100vh - 6.5rem);

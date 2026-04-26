@@ -24,11 +24,11 @@
 		"Link": "posts/on_ai"
 	},
 	{
-		"Name": "Plans",
-		"Link": "plans"
-	},
-	{
 		"Name": "Credits",
 		"Link": "credit"
+	},
+	{
+		"Name": "Plans",
+		"Link": "plans"
 	}
 ]
