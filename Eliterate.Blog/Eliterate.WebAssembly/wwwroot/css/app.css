@@ -590,11 +590,11 @@ a.card-tag:hover, a.card-tag:focus-visible {
 	min-width: calc(var(--min-width) - 4rem);
 	width: calc(100% - 2rem);
 	margin: 0 0.5rem;
-	box-shadow: 2px 2px var(--color-shadow);
+	box-shadow: 3px 2px 3px black;
 }
 
 .has-tearoffs {
-	border-bottom: 1px dashed var(--color-contrast-3);
+	border-bottom: 1px dashed grey;
 }
 
 .pin {
@@ -647,11 +647,11 @@ a.card-tag:hover, a.card-tag:focus-visible {
 
 .tearoff {
 	height: var(--tearoff-height);
-	border: 1px dashed var(--color-contrast-3);
+	border: 1px dashed grey;
 	border-bottom: none;
 	background-color: var(--color-contrast-1);
 	background-image: var(--texture-paper);
-	box-shadow: 2px 2px var(--color-shadow);
+	box-shadow: 3px 2px 2px black;
 	width: calc(100% - 1px);
 }
 
