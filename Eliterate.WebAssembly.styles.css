@@ -15,6 +15,7 @@ main[b-cafgmfpazb] {
     min-width: max-content;
     background-color: var(--color-background);
     position: sticky;
+    border-bottom: 2px solid var(--color-foreground);
 }
 
 @media (min-width: 840px) {
@@ -25,6 +26,7 @@ main[b-cafgmfpazb] {
     .sidebar[b-cafgmfpazb] {
         width: min-content;
         position: relative;
+        border-right: 1px solid var(--color-foreground);
     }
 }
 /* /Layout/NavMenu.razor.rz.scp.css */
@@ -138,11 +140,16 @@ td:first-of-type[b-kis47zz0cb] {
 	box-shadow: 5px 2px black;
 }
 /* /Pages/Plans.razor.rz.scp.css */
+body[b-s7o7uf68lo] {
+	background-color: #b42e22;
+	background-image: url(../images/textures/brick-wall-dark.png);
+}
 
 .brick-wall[b-s7o7uf68lo] {
-	height: calc(100% - 1rem);
+	min-height: calc(100vh - 6.5rem);
+	height: max-content;
 	width: 100%;
-	padding: 0.5rem 0;
+	padding: 0.5rem 0 6rem 0;
 	min-width: var(--min-width);
 	background-color: #b42e22;
 	background-image: url(../images/textures/brick-wall-dark.png);
