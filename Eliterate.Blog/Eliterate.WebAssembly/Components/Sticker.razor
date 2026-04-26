@@ -12,15 +12,15 @@
     [Parameter]
     public decimal? Left { get; set; }
     [Parameter]
-    public decimal Scale { get; set; } = 3;
+    public decimal Scale { get; set; }
     [Parameter]
-    public decimal Rotate { get; set; } = Random.Shared.Next(-4000, 4000) / 100m;
+    public decimal Rotate { get; set; } = Random.Shared.Next(-400, 400) / 10m;
     [Parameter]
     public int ZIndex { get; set; }
 
     private string _fontSize => $"font-size:{Scale}rem;";
     private string _rotate => $"rotate:{Rotate}deg;";
-    private string _zIndex => $"z-index:{ZIndex};";
+    private string _zIndex => ZIndex < 1 ? string.Empty : $"z-index:{ZIndex};";
     private string _top => Top is null ? string.Empty : $"top:{Top}rem;";
     private string _right => Right is null ? string.Empty : $"right:{Right}rem;";
     private string _bottom => Bottom is null ? string.Empty : $"bottom:{Bottom}rem;";

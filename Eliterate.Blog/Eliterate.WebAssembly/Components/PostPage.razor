@@ -15,7 +15,7 @@ else
                         <Date Model="Model.Metadata"></Date>
                     </div>
                 </div>
-                <Sticker Emoji="@Model.Metadata.StickerEmoji" Top="0.5m" Right="5.5m" Rotate="@Model.Metadata.Title.GetRandomValueFromString(20)" ZIndex="10"></Sticker>
+                <Sticker Emoji="@Model.Metadata.StickerEmoji" Top="0.5m" Right="5.5m" Rotate="@Model.Metadata.Title.GetRandomValueFromString(20)"></Sticker>
                 <div class="book-page-body">
                     <article id="top-of-page" class="book-page-text" tabindex="0">
                         @((MarkupString)(Model.Text ?? "Text not found."))
