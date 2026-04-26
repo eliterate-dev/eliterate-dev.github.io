@@ -1,5 +1,6 @@
 ﻿using Codespirals.Base.Extensions;
 using Eliterate.WebAssembly.Models;
+using Microsoft.Win32.SafeHandles;
 using System.Net.Http.Json;
 
 namespace Eliterate.WebAssembly;
@@ -31,7 +32,6 @@ public class ContentService(HttpClient client) : IContentService
         {
             if (item is null || !item.IsActive || !item.ShowInList)
                 continue;
-            item.Edited = File.GetLastAccessTimeUtc(item.ContentUrl);
             posts.Add(item);
         }
         return [.. posts.OrderByDescending(p => p.Edited ?? p.Created)];
@@ -47,7 +47,6 @@ public class ContentService(HttpClient client) : IContentService
         {
             if (item is null || !item.IsActive || !item.Tags.Any(t => t.ToUrlSafeString() == tagId))
                 continue;
-            item.Edited = File.GetLastAccessTimeUtc(item.ContentUrl);
             posts.Add(item);
         }
         return [.. posts.OrderByDescending(p => p.Edited ?? p.Created)];
@@ -59,7 +58,6 @@ public class ContentService(HttpClient client) : IContentService
         var post = metadata?.FirstOrDefault(m => m.Id == title);
         if (post is null)
             return null;
-        post.Edited = File.GetLastAccessTimeUtc(post.ContentUrl);
         var markdown = await _client.GetStringAsync(post.ContentUrl);
         if (string.IsNullOrWhiteSpace(markdown))
             return null;
