@@ -1,7 +1,6 @@
 ﻿@page "/credit"
 @inject IContentService ContentService
 
-
 <PageTitle>Eliterate - Credit</PageTitle>
 
 <div class="book book-cover book-closed book-back">
@@ -15,8 +14,9 @@
             </tr>
         }
     </table>
-    <Sticker Emoji="📱" Left="2" Top="1" Rotate="20"></Sticker>
-    <Sticker Emoji="🪫" Right="1" Bottom="3" Rotate="-23"></Sticker>
+    <Sticker Emoji="📱" Left="2" Top="1" Scale="3" Rotate="20"></Sticker>
+    <Sticker Emoji="🪫" Right="1" Bottom="6" Scale="3" Rotate="-23"></Sticker>
+
     <div class="bottom-right">&copy @DateTime.UtcNow.Year Eliterate</div>
 </div>
 
