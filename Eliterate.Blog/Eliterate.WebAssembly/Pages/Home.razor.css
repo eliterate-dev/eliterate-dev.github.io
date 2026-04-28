@@ -1,4 +1,17 @@
-﻿.post-grid-cell {
+﻿.home-container {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	min-height: 580px;
+}
+
+.book-container {
+	height: max-content;
+}
+
+.post-grid-cell {
 	position: relative;
 	margin-top: -17.5rem;
 	z-index: 10;
@@ -8,3 +21,27 @@
 	rotate: 1deg;
 	box-shadow: 5px 2px black;
 }
+
+.peek-card-container {
+	min-width: var(--min-width);
+	height: 12rem;
+	overflow: hidden;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 11;
+}
+
+.peek-card {
+	height: max-content;
+	min-width: calc(var(--min-width) - 40px);
+	width: max-content;
+	rotate: -6deg;
+	position: absolute;
+	bottom: -7rem;
+	right: -1rem;
+}
+	.showSource {
+		bottom: 0;
+		right: 0;
+	}

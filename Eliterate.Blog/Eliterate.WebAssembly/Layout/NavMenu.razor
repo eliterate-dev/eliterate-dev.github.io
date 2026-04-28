@@ -1,13 +1,12 @@
 ﻿@inject IContentService ContentService
 
-<div class="grid-container-dash-dot">
-    <h1 class="navbar-brand"><a href="" tabindex="0">Eliterate</a></h1>
-    <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-    </button>
-</div>
+<h1 class="navbar-brand"><a href="" tabindex="0">Eliterate</a></h1>
+
+<button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+</button>
 
 <nav class="@NavMenuCssClass nav-scrollable flex-column">
     <div class="center">
@@ -20,15 +19,15 @@
 </nav>
 
 @code {
-    private bool collapseNavMenu = true;
+    public bool CollapseNavMenu { get; set; } = true;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string? NavMenuCssClass => CollapseNavMenu ? "collapse" : null;
 
     private List<LinkItem> links = [];
 
     private void ToggleNavMenu()
     {
-        collapseNavMenu = !collapseNavMenu; 
+        CollapseNavMenu = !CollapseNavMenu;
     }
     protected override async Task OnInitializedAsync()
     {

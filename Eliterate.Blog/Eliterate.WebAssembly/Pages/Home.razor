@@ -3,49 +3,92 @@
 
 <PageTitle>Eliterate</PageTitle>
 
-<div class="book book-cover book-closed book-front">
-    <h2 class="center">Eliterate</h2>
-    <p class="center">@tagline</p>
-    <Sticker Emoji="🔋" Right="1.5m" Top="1" Rotate="-15" Scale="3"></Sticker>
-    <Sticker Emoji="💻" Right="2" Bottom="3" Rotate="10" Scale="4"></Sticker>
-    <Sticker Emoji="🎮" Left="1" Bottom="1" Rotate="-9" Scale="4"></Sticker>
-</div>
-<div class="post-grid-cell">
-    <div class="post-wrapper">
-        <div class="card">
-            <div class="card-header">
-                <div class="grid-container-dash-dot">
-                    <h2 class="card-title" tabindex="0" role="heading">Hi! I'm Eli</h2>
-                </div>
-                <Sticker Emoji="🇨🇭" Top="0.5m" Right="0.5m" Rotate="3" Scale="2"></Sticker>
-            </div>
-            <div class="card-body">
-                <div class="card-text" tabindex="0" role="document">
-                    <p>
-                        I'm a software developer from Switzerland.<br>
-                        I do full stack development, though I'm much better at backend stuff.<br>
-                        This site is my creative outlet and attempt to get a bit better at frontend design.<br>
-                        Hit me up if you dig it!<br>
-                    </p>
-                </div>
-            </div>
-            <div class="card-footer">
-                <div class="card-tags">
-                    <a class="card-tag" href="posts" style="background-color:aquamarine;rotate:3deg;" tabindex="0">Posts</a>
-                    <a class="card-tag" href="posts/about" style="background-color:lightpink;rotate:-2deg;" tabindex="0">About</a>
-                    <a class="card-tag" href="@mailLink" style="background-color:lightsalmon;rotate:2deg;" tabindex="0">Contact</a>
+<div class="home-container">
+    <div class="book-container">
+        <div class="book book-cover book-closed book-front">
+            <h2 class="center">Eliterate</h2>
+            @if (tagline is not null)
+            {
+                <p class="center">@tagline.Text</p>
+            }
+            <Sticker Emoji="🔋" Right="1.5m" Top="1" Rotate="-15" Scale="3"></Sticker>
+            <Sticker Emoji="💻" Right="2" Bottom="3" Rotate="10" Scale="4"></Sticker>
+            <Sticker Emoji="🎮" Left="1" Bottom="1" Rotate="-9" Scale="4"></Sticker>
+        </div>
+        <div class="post-grid-cell">
+            <div class="post-wrapper">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="grid-container-dash-dot">
+                            <h2 class="card-title" tabindex="0" role="heading">Hi! I'm Eli</h2>
+                        </div>
+                        <Sticker Emoji="🇨🇭" Top="0.5m" Right="0.5m" Rotate="3" Scale="2"></Sticker>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text" tabindex="0" role="document">
+                            <p>
+                                I'm a software developer from Switzerland.<br>
+                                I do full stack development, though I'm much better at backend stuff.<br>
+                                This site is my creative outlet and attempt to get a bit better at frontend design.<br>
+                                Hit me up if you dig it!<br>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-tags">
+                            <a class="card-tag" href="posts" style="background-color:aquamarine;rotate:3deg;" tabindex="0">Posts</a>
+                            <a class="card-tag" href="posts/about" style="background-color:lightpink;rotate:-2deg;" tabindex="0">About</a>
+                            <a class="card-tag" href="@mailLink" style="background-color:lightsalmon;rotate:2deg;" tabindex="0">Contact</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    @if (tagline is not null)
+    {
+        <div class="peek-card-container">
+            <div class="card peek-card @showSourceCssClass" @onclick="ToggleShowSource">
+                <div class="card-header">
+                    <div class="grid-container-dash-dot">
+                        <h2 class="card-title" tabindex="0" role="heading">Tagline Source</h2>
+                        <Sticker Emoji="💿" Top="0.25m" Right="0.5m" Rotate="3" Scale="1.5m"></Sticker>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-text" tabindex="0" role="document">
+                        <p>
+                            Artist: @tagline.Artist<br>
+                            Song: @tagline.Song
+                        </p>
+                    </div>
+                </div>
+                @if (tagline.YouTubeLink is not null)
+                {
+                    <div class="card-footer">
+                        <div class="card-tags">
+                            <a class="card-tag" target="_blank" href="@tagline.YouTubeLink" style="background-color:#FF0000;color:white;rotate:-2deg;" tabindex="0">YouTube</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
 </div>
 
+
 @code {
-    private string tagline = "";
+    private SongQuote? tagline;
+    private bool showSource = false;
+    private string? showSourceCssClass => showSource ? "showSource" : null;
     private string mailLink = $"mailto:{EliterateConstants.EmailContact}";
 
     protected override async Task OnInitializedAsync()
     {
-        tagline = await ContentService.GetRandomTagline();
+        tagline = await ContentService.GetRandomSongQuote();
+    }
+    private void ToggleShowSource()
+    {
+        showSource = !showSource;
     }
 }

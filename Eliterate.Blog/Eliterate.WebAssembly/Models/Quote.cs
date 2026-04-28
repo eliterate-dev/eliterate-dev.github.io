@@ -1,4 +1,4 @@
-﻿namespace Eliterate.WebAssembly.Models;
+﻿namespace Eliterate.WebAssembly;
 
 public class Quote
 {

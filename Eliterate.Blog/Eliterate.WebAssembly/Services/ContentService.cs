@@ -1,7 +1,4 @@
-﻿using Codespirals.Base.Extensions;
-using Eliterate.WebAssembly.Models;
-using Microsoft.Win32.SafeHandles;
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 
 namespace Eliterate.WebAssembly;
 
@@ -12,7 +9,7 @@ public interface IContentService
     Task<BlogPost?> GetPost(string title);
     Task<BlogPost?> GetLatest();
     Task<int> GetPostCount();
-    Task<string> GetRandomTagline();
+    Task<SongQuote?> GetRandomSongQuote();
     Task<IEnumerable<LinkItem>> GetNavItems();
     Task<IEnumerable<LinkItem>> GetCredits();
     Task<IEnumerable<FutureIdea >> GetPlans();
@@ -81,13 +78,11 @@ public class ContentService(HttpClient client) : IContentService
             return 0;
         return metadata.Count();
     }
-    public async Task<string> GetRandomTagline()
+    public async Task<SongQuote?> GetRandomSongQuote()
     {
         var songquotes = await _client.GetFromJsonAsync<IEnumerable<SongQuote>>($"resources/songquotes.json");
         var tagline = songquotes?.ElementAt(Random.Shared.Next(songquotes.Count()));
-        if (tagline is null)
-            return "404: Tagline not found";
-        return tagline.Text;
+        return tagline;
     }
     public async Task<IEnumerable<LinkItem>> GetNavItems()
     {
