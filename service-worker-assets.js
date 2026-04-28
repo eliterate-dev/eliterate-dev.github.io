@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "j3xOexyP",
+  "version": "i77G+VmO",
   "assets": [
     {
       "hash": "sha256-17yPNBa9VRCo0SLOwYV+BSqaXuWqbyXFsFyJakuEdvE=",
@@ -18,8 +18,8 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.Base.Shared.y2gbqsscqy.wasm"
     },
     {
-      "hash": "sha256-sfSJ1VMEbzkfUh1l2eQal0VGj/uumpjUt5RWrdOVfb0=",
-      "url": "_framework/Eliterate.WebAssembly.1k2j9m2ui0.wasm"
+      "hash": "sha256-mb/DpBChfS9fk2k1b7qlrfieVsl+I59f85Quod0STuA=",
+      "url": "_framework/Eliterate.WebAssembly.p4bd2drsrz.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
@@ -206,7 +206,7 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-wNI7a/+GwdvxzqDBME22HzJWyFx+D+E/1t4RcG5LYJ0=",
+      "hash": "sha256-9rPDKRp2bniYeXO2QxW127zEWwe+e6dQIXr9/gOyRJA=",
       "url": "_framework/dotnet.js"
     },
     {
@@ -234,7 +234,7 @@ self.assetsManifest = {
       "url": "_framework/icudt_no_CJK.lfu7j35m59.dat"
     },
     {
-      "hash": "sha256-PwSFIDemRCSRnvnFX2pwoXbeNTUDZLjfWnaDyW0nF5c=",
+      "hash": "sha256-xqrAkM9VQu3EGCLTaVUzjmz/PWVb/6VydS/jj3J9qRI=",
       "url": "css/app.css"
     },
     {
@@ -244,6 +244,10 @@ self.assetsManifest = {
     {
       "hash": "sha256-SQPWMCRo96cs1so1Q9nnN1ajLL2uH9TjAiHkRzD5p9w=",
       "url": "fonts/help-me/License.txt"
+    },
+    {
+      "hash": "sha256-rQpFzOfA7FfHoprj+iZdH4MJkYhrpQhaE+6I8fkEt0c=",
+      "url": "images/gifs/AuntyDonna_square.gif"
     },
     {
       "hash": "sha256-sRcVJujiS9Fy+GfH+2ycmSncOqHREiK0tmGtlrVDV+k=",
@@ -276,6 +280,14 @@ self.assetsManifest = {
     {
       "hash": "sha256-MnrY6zwdXQYSeX/H0DzQRgSc9gwh/8DWcOiIh6e3YV8=",
       "url": "images/pictures/Prague_charles_bridge.jpg"
+    },
+    {
+      "hash": "sha256-Bqe6j+0dFsSL/CF0XMnl00NSynZHvZtouG7bANslev8=",
+      "url": "images/pictures/swiss_flag.jpg"
+    },
+    {
+      "hash": "sha256-yFxPCC+a4/f+O96e6bwGBtEdQIQG1TphS9jyoeXobUo=",
+      "url": "images/pictures/us_flag.jpg"
     },
     {
       "hash": "sha256-ieXblNXTGpzEWU1Tg4e+q7Q7Zd5FQ15+FzLKeb0QteI=",
@@ -388,6 +400,10 @@ self.assetsManifest = {
     {
       "hash": "sha256-kzgnZxVV4izsnz6untLydts/W2Q1iJoVduThRuqRl/k=",
       "url": "posts/Me.md"
+    },
+    {
+      "hash": "sha256-aEzG0QK2G72ptOC9jyyGXg0sk/dmNi7TRwTpQLLDMm0=",
+      "url": "posts/OnEffort.md"
     },
     {
       "hash": "sha256-sMg4wIrpsQkDkTd3kHuFLX/Qv40K2Ufr38pUtCH4WcU=",
