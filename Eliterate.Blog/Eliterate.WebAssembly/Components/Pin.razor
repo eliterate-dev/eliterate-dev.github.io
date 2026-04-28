@@ -12,7 +12,7 @@
 
     private decimal _rand = Random.Shared.Next(10) + 2;
     private string _rotate => $"rotate:{(Right ? _rand : _rand * -1)}deg;";
-    private string _top => Top ? $"top:{Random.Shared.NextDouble() + 0.5d}rem;" : string.Empty;
+    private string _top => Top ? $"top:{Random.Shared.NextDouble() + 0.75d}rem;" : string.Empty;
     private string _right => Right ? $"right:{Random.Shared.NextDouble() + 0.5d}rem;" : string.Empty;
     private string _bottom => Bottom ? $"bottom:{Random.Shared.NextDouble() + 0.5d}rem;" : string.Empty;
     private string _left => Left ? $"left:{Random.Shared.NextDouble() + 0.5d}rem;" : string.Empty;

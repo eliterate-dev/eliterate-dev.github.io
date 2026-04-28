@@ -16,6 +16,5 @@
 	background-color: #4d2400;
 	background-image: url(../images/textures/wine-cork.png);
 	border: inset 0.5rem var(--color-wood);
-	overflow-x: hidden;
 	box-shadow: 2px 2px 4px black;
 }

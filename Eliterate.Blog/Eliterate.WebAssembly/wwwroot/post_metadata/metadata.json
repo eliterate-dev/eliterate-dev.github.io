@@ -16,7 +16,7 @@
 		"Description": "How and mostly why this site exists.<br> I had a lot of fun making it, but it was also frustrating at times.",
 		"Tags": [ "Welcome", "Explanations", "Why not?" ],
 		"Created": "2026-03-10",
-		"Edited": "2026-04-26",
+		"Edited": "2026-04-28",
 		"ContentUrl": "posts/About.md",
 		"StickerEmoji": "📓",
 		"IsActive": true,
@@ -28,12 +28,12 @@
 		"Description": "Why this site looks the way it does.<br> It's actually surprisingly simple.<br> Feel free to shoot me questions about anything you don't fully undestand.",
 		"Tags": [ "Explanations", "Why not?" ],
 		"Created": "2026-03-22",
-		"Edited": "2026-04-25",
+		"Edited": "2026-04-28",
 		"ContentUrl": "posts/Design.md",
 		"StickerEmoji": "🎨",
 		"IsActive": true,
 		"ShowInList": true,
-		"EstimatedReadTimeInMinutes": 15
+		"EstimatedReadTimeInMinutes": 20
 	},
 	{
 		"Title": "I'm doing a blog now",

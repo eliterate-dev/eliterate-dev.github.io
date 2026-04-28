@@ -13,7 +13,7 @@
 
 .post-grid-cell {
 	position: relative;
-	margin-top: -17.5rem;
+	margin-top: -16.5rem;
 	z-index: 10;
 }
 
@@ -38,8 +38,9 @@
 	width: max-content;
 	rotate: -6deg;
 	position: absolute;
-	bottom: -7rem;
-	right: -1rem;
+	bottom: -8rem;
+	right: -0.5rem;
+	box-shadow: 1px -1px 1px black, 2px 2px 2px black;
 }
 	.showSource {
 		bottom: 0;
