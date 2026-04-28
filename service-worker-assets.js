@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "rgoA65rT",
+  "version": "j3xOexyP",
   "assets": [
     {
       "hash": "sha256-17yPNBa9VRCo0SLOwYV+BSqaXuWqbyXFsFyJakuEdvE=",
@@ -10,7 +10,7 @@ self.assetsManifest = {
       "url": "CNAME"
     },
     {
-      "hash": "sha256-w4v67YRJCghUS4CZHO8/SwCQPecqQVpV++/6zkf1M2I=",
+      "hash": "sha256-QK/fqWmHdSxmkaKcdePbq1SOGdME6FUvdlSV6C0vIr0=",
       "url": "Eliterate.WebAssembly.styles.css"
     },
     {
@@ -18,8 +18,8 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.Base.Shared.y2gbqsscqy.wasm"
     },
     {
-      "hash": "sha256-Zu3g+lkzMl4B4uLot1P+mrnGsxhKmRF+YpybTGEHFGQ=",
-      "url": "_framework/Eliterate.WebAssembly.i5qwl34lwu.wasm"
+      "hash": "sha256-sfSJ1VMEbzkfUh1l2eQal0VGj/uumpjUt5RWrdOVfb0=",
+      "url": "_framework/Eliterate.WebAssembly.1k2j9m2ui0.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
@@ -206,7 +206,7 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-7rGcuplqP+2YpKigZo5cHOh0WxTtysy+8QyEVVnC2Ys=",
+      "hash": "sha256-wNI7a/+GwdvxzqDBME22HzJWyFx+D+E/1t4RcG5LYJ0=",
       "url": "_framework/dotnet.js"
     },
     {
@@ -366,11 +366,11 @@ self.assetsManifest = {
       "url": "manifest.webmanifest"
     },
     {
-      "hash": "sha256-1sfKFaUE0ho6IwvrouaUUBMFKdfW1ZiVcEep5iIPq5g=",
+      "hash": "sha256-Sd8m7FOZKdniqCEy9H9KsfSFqm65akebCVUlV0flM1g=",
       "url": "post_metadata/metadata.json"
     },
     {
-      "hash": "sha256-CisEDe39MgFksNrDK8UNL/TO3kGvMXZU5C1+OcdO3xA=",
+      "hash": "sha256-5CKXt9QR/OolSuGrm7pvFPha3goaED8P7g4QsXXG6GY=",
       "url": "posts/About.md"
     },
     {
@@ -382,7 +382,7 @@ self.assetsManifest = {
       "url": "posts/CV.md"
     },
     {
-      "hash": "sha256-Ikn0xvsksNd2BYLI2nv5cOyI2GpvD9K22JNTQ2QwQHs=",
+      "hash": "sha256-35O945UNbqlxGEKslcc1wfiu1lKAG0kFmVgdQWllsfY=",
       "url": "posts/Design.md"
     },
     {
@@ -410,7 +410,7 @@ self.assetsManifest = {
       "url": "resources/quotes.json"
     },
     {
-      "hash": "sha256-46KZu5QMGpYOHWIg1KTmWFvUAYrYhyYUFUzs5oTl4Zo=",
+      "hash": "sha256-mTnbAWm8oXgz1Q1rvnLSifx3HHqj8U11cAo+DjqOPus=",
       "url": "resources/songquotes.json"
     },
     {
