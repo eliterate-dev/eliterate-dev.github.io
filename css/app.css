@@ -673,7 +673,7 @@ a.card-tag:hover, a.card-tag:focus-visible {
 		}
 
 .tearoff-empty {
-	visibility: hidden;
+	visibility: hidden; 
 	display: flex;
 }
 
