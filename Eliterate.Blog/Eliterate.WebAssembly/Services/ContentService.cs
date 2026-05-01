@@ -13,6 +13,7 @@ public interface IContentService
     Task<IEnumerable<LinkItem>> GetNavItems();
     Task<IEnumerable<LinkItem>> GetCredits();
     Task<IEnumerable<FutureIdea >> GetPlans();
+    Task<IEnumerable<LinkItem>> GetToys();
 }
 
 public class ContentService(HttpClient client) : IContentService
@@ -60,7 +61,7 @@ public class ContentService(HttpClient client) : IContentService
             return null;
         return new BlogPost { Metadata = post, Text = Markdig.Markdown.ToHtml(markdown) };
     }
-    public async  Task<BlogPost?> GetLatest()
+    public async Task<BlogPost?> GetLatest()
     {
         var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
         var post = metadata?.OrderByDescending(p => p.Created).FirstOrDefault();
@@ -104,5 +105,12 @@ public class ContentService(HttpClient client) : IContentService
         if (plans is null)
             return [];
         return plans;
+    }
+    public async Task<IEnumerable<LinkItem>> GetToys()
+    {
+        var toys = await _client.GetFromJsonAsync<IEnumerable<LinkItem>>($"resources/toys.json");
+        if (toys is null)
+            return [];
+        return toys;
     }
 }

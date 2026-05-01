@@ -1,0 +1,11 @@
+﻿
+.playing-card {
+	padding: 0;
+	line-height: 1;
+	background-color: var(--color-background);
+	color: var(--color-foreground);
+	font-size: 8rem;
+	margin: 0 auto;
+	text-align: center;
+	display: inline-block;
+}

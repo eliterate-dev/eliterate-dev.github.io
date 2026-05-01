@@ -1,8 +1,22 @@
 ﻿@inject IContentService ContentService
 @page "/toys"
 
+<PageTitle>Eliterate - Toys</PageTitle>
+
 <h3>Toys</h3>
 
-@code {
+<div>
+    @foreach (var item in _toys)
+    {
+        <NavLink class="nav-link" href="@item.Link" Match="NavLinkMatch.All" tabindex="0">@($"{item.Name.PadRight(17, '.')}{_toys.IndexOf(item).ToString().PadLeft(4, '.')}")</NavLink>
+    }
+</div>
 
+@code {
+    private List<LinkItem> _toys = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        _toys = [.. await ContentService.GetToys()];
+    }
 }

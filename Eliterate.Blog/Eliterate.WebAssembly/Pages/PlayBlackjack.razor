@@ -1,0 +1,109 @@
+﻿@using Codespirals.CardGames.Poker
+@using Codespirals.CardGames.Poker.BlackJack
+@using Eliterate.WebAssembly.Components.Toys
+@page "/blackjack"
+
+<PageTitle>Eliterate - Blackjack</PageTitle>
+
+<h3>Play Blackjack</h3>
+
+<div class="playing-card-container">
+    @foreach (var card in _game.Dealer.Hand)
+    {
+        <PlayingCard Model="card"></PlayingCard>
+    }
+    Dealer
+    <ul>
+        <li>Dealer</li>
+        <li>Cards:@_game.Dealer.HandValue</li>
+        <li>Buy In:@_game.BuyIn</li>
+    </ul>
+</div>
+<div class="playing-card-container">
+    @foreach (var card in _player.Hand)
+    {
+        <PlayingCard Model="card"></PlayingCard>
+    }
+    
+    <ul>
+        <li>You</li>
+        <li>Cards:@_player.HandValue</li>
+        <li>Cash:@_player.Cash</li>
+    </ul>
+</div>
+<button @onclick="Stand">Stand</button>
+<button @onclick="Hit">Hit Me</button>
+
+<button @onclick="Restart">Restart</button>
+
+@code {
+    private BlackJackGame _game = BlackJackGame.SetUp(1, 1, 21, 100);
+    private BlackJackPlayer _player => _game.Players[1];
+
+    protected override async Task OnInitializedAsync()
+    {
+        Restart();
+    }
+    private void Stand()
+    {
+        _game.Stand(_player);
+        _game.MoveToNextPlayer();
+        PlayDealer();
+    }
+    private void Hit()
+    {
+        _game.Hit(_player);
+        _game.MoveToNextPlayer();
+        PlayDealer();
+    }
+    private void PlayDealer()
+    {
+        if (_game.Dealer.HandValue < 17)
+        {
+            _game.Hit(_game.Dealer);
+        }
+        else
+        {
+            _game.Stand(_game.Dealer);
+        }
+        if (_game.Players.Except([_game.Dealer]).All(p => p.IsOutForRound))
+        {
+            PlayDealer();
+            return;
+        }
+        EvaluateGameState();
+    }
+    private void EvaluateGameState()
+    {
+        if (_player.HandValue > _game.WinningScore)
+            _player.Bust();
+
+        if (_game.RoundActive)
+        {
+            return;
+        }
+        if (_game.Dealer.HandValue <= _game.WinningScore && _game.Dealer.HandValue > _player.HandValue)
+        {
+            return;
+        }
+        if (_player.HandValue == _game.Dealer.HandValue)
+        {
+            _player.AddWinnings(_game.BuyIn);
+        }
+        if (_player.HandValue == _game.WinningScore)
+        {
+            _player.AddWinnings(_game.BuyIn * 3);
+        }
+        else if (_player.HandValue < _game.WinningScore)
+        {
+            _player.AddWinnings(_game.BuyIn * 2);
+        }
+        _game.RaiseTheStakes(_game.BuyIn);
+        _game.StartRound();
+    }
+    private void Restart()
+    {
+        _game = BlackJackGame.SetUp(1);
+        _game.StartRound();
+    }
+}

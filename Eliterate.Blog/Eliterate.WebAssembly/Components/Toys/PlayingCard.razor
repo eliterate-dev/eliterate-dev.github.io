@@ -1,0 +1,18 @@
+﻿
+@if (Model is null)
+{
+    <div>Error</div>
+}
+else
+{
+    <div class="playing-card" alt="@Model.Name">
+        <div hidden>@Model.Value</div>
+        @Model.Emoji
+    </div>
+}
+
+@code {
+    [Parameter]
+    public Codespirals.CardGames.Poker.Card? Model { get; set; }
+
+}

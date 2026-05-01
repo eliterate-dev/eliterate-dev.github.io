@@ -12,9 +12,9 @@
     <div class="center">
         Contents:
     </div>
-    @foreach (var item in links)
+    @foreach (var item in _links)
     {
-        <NavLink class="nav-link" href="@item.Link" Match="NavLinkMatch.All" tabindex="0">@($"{item.Name.PadRight(17, '.')}{links.IndexOf(item).ToString().PadLeft(4, '.')}")</NavLink>
+        <NavLink class="nav-link" href="@item.Link" Match="NavLinkMatch.All" tabindex="0">@($"{item.Name.PadRight(17, '.')}{_links.IndexOf(item).ToString().PadLeft(4, '.')}")</NavLink>
     }
 </nav>
 
@@ -23,7 +23,7 @@
 
     private string? NavMenuCssClass => CollapseNavMenu ? "collapse" : null;
 
-    private List<LinkItem> links = [];
+    private List<LinkItem> _links = [];
 
     private void ToggleNavMenu()
     {
@@ -31,6 +31,6 @@
     }
     protected override async Task OnInitializedAsync()
     {
-        links = [.. await ContentService.GetNavItems()];
+        _links = [.. await ContentService.GetNavItems()];
     }
 }
