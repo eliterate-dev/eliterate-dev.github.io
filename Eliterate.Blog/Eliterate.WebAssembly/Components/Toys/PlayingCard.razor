@@ -5,7 +5,7 @@
 }
 else
 {
-    <div class="playing-card" alt="@Model.Name">
+    <div class="playing-card" alt="@Model.Name" style="@_size">
         <div hidden>@Model.Value</div>
         @Model.Emoji
     </div>
@@ -14,5 +14,8 @@ else
 @code {
     [Parameter]
     public Codespirals.CardGames.Poker.Card? Model { get; set; }
+    [Parameter]
+    public int Scale { get; set; } = 1;
 
+    private string _size => $"font-size:{Scale}rem;";
 }

@@ -30,7 +30,7 @@
 
   <ItemGroup>
     <PackageReference Include="Codespirals.Base.Shared" Version="1.1.1.26110" />
-    <PackageReference Include="Codespirals.CardGames.Poker" Version="1.0.8.26122" />
+    <PackageReference Include="Codespirals.CardGames.Poker" Version="1.0.10.26123" />
     <PackageReference Include="Markdig" Version="1.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.6" PrivateAssets="all" />
