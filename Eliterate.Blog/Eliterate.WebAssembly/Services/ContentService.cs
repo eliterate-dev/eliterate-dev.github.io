@@ -13,7 +13,7 @@ public interface IContentService
     Task<IEnumerable<LinkItem>> GetNavItems();
     Task<IEnumerable<LinkItem>> GetCredits();
     Task<IEnumerable<FutureIdea >> GetPlans();
-    Task<IEnumerable<LinkItem>> GetToys();
+    Task<IEnumerable<PostMetadata>> GetToys();
 }
 
 public class ContentService(HttpClient client) : IContentService
@@ -106,9 +106,9 @@ public class ContentService(HttpClient client) : IContentService
             return [];
         return plans;
     }
-    public async Task<IEnumerable<LinkItem>> GetToys()
+    public async Task<IEnumerable<PostMetadata>> GetToys()
     {
-        var toys = await _client.GetFromJsonAsync<IEnumerable<LinkItem>>($"resources/toys.json");
+        var toys = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"resources/toys.json");
         if (toys is null)
             return [];
         return toys;

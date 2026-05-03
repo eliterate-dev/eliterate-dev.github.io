@@ -1,6 +1,9 @@
 [
 	{
-		"name": "Blackjack",
-		"link": "/blackjack"
+		"Title": "Blackjack",
+		"Group": "toys",
+		"Description": "Play Blackjack! <br>A little implementation of the classic game against a dealer.",
+		"Created": "2026-05-02",
+		"StickerEmoji": "🂡🂮"
 	}
 ]

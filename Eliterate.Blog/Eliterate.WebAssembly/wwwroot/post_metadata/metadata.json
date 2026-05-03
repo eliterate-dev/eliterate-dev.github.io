@@ -1,6 +1,7 @@
 ﻿[
 	{
 		"Title": "Introduction",
+		"Group": "posts",
 		"Description": "A bit more about me.<br> Also pictures of my cat.",
 		"Tags": [ "Introductions", "CV", "Cats" ],
 		"Created": "2026-03-19",
@@ -13,6 +14,7 @@
 	},
 	{
 		"Title": "About",
+		"Group": "posts",
 		"Description": "How and mostly why this site exists.<br> I had a lot of fun making it, but it was also frustrating at times.",
 		"Tags": [ "Welcome", "Explanations", "Why not?" ],
 		"Created": "2026-03-10",
@@ -25,6 +27,7 @@
 	},
 	{
 		"Title": "Design",
+		"Group": "posts",
 		"Description": "Why this site looks the way it does.<br> It's actually surprisingly simple.<br> Feel free to shoot me questions about anything you don't fully undestand.",
 		"Tags": [ "Explanations", "Why not?" ],
 		"Created": "2026-03-22",
@@ -37,6 +40,7 @@
 	},
 	{
 		"Title": "I'm doing a blog now",
+		"Group": "posts",
 		"Description": "Because \"diary\" sounds embarrassing.",
 		"Tags": [ "Testing", "Why not?" ],
 		"Created": "2025-11-17",
@@ -49,6 +53,7 @@
 	},
 	{
 		"Title": "On AI",
+		"Group": "posts",
 		"Description": "Grok is this true?",
 		"Tags": [ "AI", "Explanations" ],
 		"Created": "2025-11-19",

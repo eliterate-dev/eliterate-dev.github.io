@@ -7,4 +7,5 @@
 	color: black;
 	display: inline-block;
 	border-radius: 0.05em;
+	box-shadow: 2px 2px black;
 }

@@ -5,15 +5,15 @@
 
 <h3>Toys</h3>
 
-<div>
-    @foreach (var item in _toys)
+<div class="post-list">
+    @foreach (var toy in _toys)
     {
-        <NavLink class="nav-link" href="@item.Link" Match="NavLinkMatch.All" tabindex="0">@($"{item.Name.PadRight(17, '.')}{_toys.IndexOf(item).ToString().PadLeft(4, '.')}")</NavLink>
+        <MetadataCard Model="toy" />
     }
 </div>
 
 @code {
-    private List<LinkItem> _toys = [];
+    private List<PostMetadata> _toys = [];
 
     protected override async Task OnInitializedAsync()
     {
