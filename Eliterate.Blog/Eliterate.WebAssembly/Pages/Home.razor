@@ -80,7 +80,7 @@
 @code {
     private SongQuote? tagline;
     private bool showSource = false;
-    private string? showSourceCssClass => showSource ? "showSource" : null;
+    private string? showSourceCssClass = "";
     private string mailLink = $"mailto:{EliterateConstants.EmailContact}";
 
     protected override async Task OnInitializedAsync()
@@ -90,5 +90,6 @@
     private void ToggleShowSource()
     {
         showSource = !showSource;
+        showSourceCssClass = showSource ? "showSource" : "hideSource";
     }
 }

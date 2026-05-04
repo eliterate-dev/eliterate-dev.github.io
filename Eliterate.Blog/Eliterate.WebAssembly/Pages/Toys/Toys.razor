@@ -1,9 +1,10 @@
 ﻿@inject IContentService ContentService
 @page "/toys"
+@using Eliterate.WebAssembly.Components.Misc
 
 <PageTitle>Eliterate - Toys</PageTitle>
 
-<h3>Toys</h3>
+<h2 class="toy-page-title"><span class="sticker">Toys</span></h2>
 
 <div class="post-list">
     @foreach (var toy in _toys)
