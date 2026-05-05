@@ -43,7 +43,7 @@
             <ul>
                 @foreach (var player in _game.Players)
                 {
-                    <li class="overview-player @(_game.GetCurrentPlayer() == player ? "active" : "")">
+                    <li class="overview-player @(_currentPlayer == player ? "active" : "")">
                         <div>
                             @player.Name
                         </div>
@@ -83,13 +83,14 @@
 </div>
 
 @code {
-    private BlackJackGame _game = BlackJackGame.SetUp(1, 1, 21, 100, 1);
-    private BlackJackPlayer _currentPlayer => _game.GetCurrentPlayer();
+    private BlackJackGame _game = BlackJackGame.SetUp(1, 1, 21, 100, 1, 2);
+    private BlackJackPlayer _currentPlayer => _game.CurrentPlayer;
     private BlackJackPlayer _currentOrFirstPlayer => _currentPlayer == _game.Dealer ? _game.Players[1] : _currentPlayer;
     private string _prompt = "";
     private string _feedback = "";
 
     private int _numberOfPlayers = 1;
+    private int _drawAtStartOfRound = 2;
     private int _minBet = 1;
     private int _winningScore = 21;
     private int _startingCash = 100;
@@ -102,83 +103,75 @@
 
     private void Restart()
     {
-        _game = BlackJackGame.SetUp(_numberOfPlayers, _minBet, _winningScore, _startingCash, _autoIncreaseBuyInAfterRound);
+        _game = BlackJackGame.SetUp(_numberOfPlayers, _minBet, _winningScore, _startingCash, _autoIncreaseBuyInAfterRound, _drawAtStartOfRound);
         StartNextRound();
     }
 
     private void StartNextRound()
     {
         _game.StartRound();
-        MoveToNextPlayer();
+        // move to player 1
+        _game.MoveToNextPlayer();
         _prompt = $"{_currentPlayer.Name} choose an action!";
         _feedback = $"Starting Round {_game.CurrentRound}";
     }
 
+    #region Actions
     private void Stand()
     {
         _game.Stand(_currentPlayer);
         _feedback += $"\n{_currentPlayer.Name} is standing on {_currentPlayer.HandValue}!";
         EvaluateHand();
     }
+
     private void Hit()
     {
         var newCard = _game.Hit(_currentPlayer);
         _feedback += $"\n{_currentPlayer.Name} drew {newCard.Name}!";
         EvaluateHand();
     }
+    #endregion
 
-    private void MoveToNextPlayer()
+    private void PlayDealer()
     {
+        if (_game.Dealer.IsOutForRound)
+        {
+            _game.MoveToNextPlayer();
+            return;
+        }
+
+        var newCard = _game.PlayDealer();
+        if (newCard is null)
+        {
+            _feedback += $"\nThe dealer stands on {_game.Dealer.HandValue}.";
+        }
+        else
+        {
+            _feedback += $"\nThe dealer drew {newCard.Name}!";
+        }
+        EvaluateHand();
+    }
+
+    private void EvaluateHand()
+    {
+        if (!_game.RoundActive)
+        {
+            EndRound();
+            return;
+        }
+
+        if (_currentPlayer.IsBusted)
+        {
+            _feedback += _currentPlayer == _game.Dealer
+                ? $"\nOof. The Dealer went over {_game.WinningScore}!"
+                : $"\nOh no... {_currentPlayer.Name} got busted!";
+        }
+
         _game.MoveToNextPlayer();
 
         if (_currentPlayer == _game.Dealer)
         {
             PlayDealer();
-        }
-        else
-        {
-            _prompt = $"{_currentPlayer.Name} choose an action!";
-        }
-    }
-
-    private void PlayDealer()
-    {
-        if (_game.Dealer.HandValue <= 17)
-        {
-            Hit();
-            if (_game.Dealer.HandValue > _game.WinningScore)
-            {
-                EndRound();
-            }
-        }
-        else if (!_game.Dealer.IsOutForRound)
-        {
-            Stand();
-        }
-    }
-
-    private void EvaluateHand()
-    {
-        if (_currentPlayer.HandValue > _game.WinningScore)
-        {
-            _currentPlayer.Bust();
-            if (_currentPlayer == _game.Dealer)
-            {
-                _feedback += $"\nOof. The {_currentPlayer.Name} went over {_game.WinningScore}!";
-            }
-            else
-            {
-                _feedback += $"\nOh no... {_currentPlayer.Name} got busted!";
-            }
-        }
-
-        if (_game.RoundActive)
-        {
-            MoveToNextPlayer();
-        }
-        else
-        {
-            EndRound();
         }
     }
 
@@ -188,40 +181,26 @@
         {
             foreach (var player in _game.Players)
             {
-                player.Bust();
+                player.DeactivateForRound();
             }
+            _prompt = "";
             _feedback = _prompt = $"GAME OVER!";
             return;
         }
 
-        foreach (var player in _game.Players.Except([_game.Dealer]))
+        foreach (var item in _game.CalculateWinningsOfRound())
         {
-            if (player.HandValue == _game.WinningScore && player.Hand.Count == 2)
+            if (item.Winnings > 0)
             {
-                _feedback += $"\n{player.Name} got a Blackjack! +{_game.BuyIn * 3}";
-                player.AddWinnings(_game.BuyIn * 3);
-                continue;
-            }
-            var dealerBusted = _game.Dealer.HandValue > _game.WinningScore;
-            var playerBusted = player.HandValue > _game.WinningScore;
-            // points
-            if ((dealerBusted && !playerBusted)
-                || (!dealerBusted && !playerBusted && player.HandValue > _game.Dealer.HandValue))
-            {
-                _feedback += $"\n{player.Name} won! +{_game.BuyIn * 2}";
-                player.AddWinnings(_game.BuyIn * 2);
-            }
-            else if (!dealerBusted && player.HandValue == _game.Dealer.HandValue)
-            {
-                _feedback += $"\n{player.Name} drew with the dealer! +{_game.BuyIn}";
-                player.AddWinnings(_game.BuyIn);
+                _feedback += $"\n{item.Player.Name} wins! +{item.Winnings}";
             }
             else
             {
-                _feedback += $"\n{player.Name} lost!";
+                _feedback += $"\n{item.Player.Name} lost...";
             }
-            player.
         }
+
+        _game.PayOut();
 
         _game.EndRound();
         if (_autoIncreaseBuyInAfterRound > 0)
