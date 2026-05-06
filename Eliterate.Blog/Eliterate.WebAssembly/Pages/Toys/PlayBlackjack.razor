@@ -38,7 +38,6 @@
     </div>
     <div>
         <div class="player-overview">
-            <h4>Current buy in: @_game.BuyIn</h4>
             <h4>Player overview:</h4>
             <ul>
                 @foreach (var player in _game.Players)
@@ -59,6 +58,7 @@
         </div>
         <div class="round-feed">
             <h4>Round @_game.CurrentRound feed:</h4>
+            <h5>Current buy in: @_game.BuyIn</h5>
             <pre class="feedback">@_feedback</pre>
         </div>
     </div>
@@ -111,7 +111,7 @@
     {
         _game.StartRound();
         // move to player 1
-        _game.MoveToNextPlayer();
+        MoveToNextPlayer();
         _prompt = $"{_currentPlayer.Name} choose an action!";
         _feedback = $"Starting Round {_game.CurrentRound}";
     }
@@ -136,25 +136,33 @@
     {
         if (_game.Dealer.IsOutForRound)
         {
-            _game.MoveToNextPlayer();
+            MoveToNextPlayer();
             return;
         }
 
+        _feedback += $"\nIt's the dealer's turn!";
         var newCard = _game.PlayDealer();
         if (newCard is null)
-        {
             _feedback += $"\nThe dealer stands on {_game.Dealer.HandValue}.";
-        }
         else
-        {
             _feedback += $"\nThe dealer drew {newCard.Name}!";
-        }
+
         EvaluateHand();
+    }
+
+    private void MoveToNextPlayer()
+    {
+        _game.MoveToNextPlayer();
+
+        if (_currentPlayer == _game.Dealer)
+            PlayDealer();
+        else
+            _feedback += $"\nIt's {_currentPlayer.Name} turn!";
     }
 
     private void EvaluateHand()
     {
-        if (!_game.RoundActive)
+        if (_game.Players.All(p => p.IsOutForRound))
         {
             EndRound();
             return;
@@ -163,16 +171,10 @@
         if (_currentPlayer.IsBusted)
         {
             _feedback += _currentPlayer == _game.Dealer
-                ? $"\nOof. The Dealer went over {_game.WinningScore}!"
+                ? $"\nOof. The dealer went over {_game.WinningScore}!"
                 : $"\nOh no... {_currentPlayer.Name} got busted!";
         }
-
-        _game.MoveToNextPlayer();
-
-        if (_currentPlayer == _game.Dealer)
-        {
-            PlayDealer();
-        }
+        MoveToNextPlayer();
     }
 
     private void EndRound()
@@ -183,16 +185,17 @@
             {
                 player.DeactivateForRound();
             }
-            _prompt = "";
             _feedback = _prompt = $"GAME OVER!";
             return;
         }
-
-        foreach (var item in _game.CalculateWinningsOfRound())
+        
+        _feedback += $"\nRound over!";
+        var winnings = _game.CalculateWinningsOfRound();
+        foreach (var item in winnings)
         {
-            if (item.Winnings > 0)
+            if (item.WinningMultiplier > 0)
             {
-                _feedback += $"\n{item.Player.Name} wins! +{item.Winnings}";
+                _feedback += $"\n{item.Player.Name} wins! +{item.WinningMultiplier * item.Player.CurrentBet}";
             }
             else
             {
@@ -201,8 +204,9 @@
         }
 
         _game.PayOut();
-
+        
         _game.EndRound();
+        _prompt = $"Start the next round.";
         if (_autoIncreaseBuyInAfterRound > 0)
             _feedback += $"\nThe stakes have risen by {_autoIncreaseBuyInAfterRound}!";
     }
