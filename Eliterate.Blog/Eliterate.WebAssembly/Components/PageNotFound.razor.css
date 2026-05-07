@@ -1,0 +1,46 @@
+﻿
+.not-found {
+	min-width: calc(var(--min-width) - 2rem);
+	text-align: center;
+	rotate: -5deg;
+	margin: 6rem auto 2rem auto;
+	font-family: Scratches;
+	color: var(--color-wood);
+	letter-spacing: 3px;
+}
+
+.sticker-sheet {
+	padding: 0.75rem 0.25rem;
+	margin: 0 auto;
+	rotate: 4deg;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	width: max-content;
+	background-color: white;
+	border-radius: 0.125rem;
+	box-shadow: 2px 2px 2px black;
+}
+
+.sticker-in-sheet, .empty-sticker {
+	margin: 0;
+	width: 56px;
+	height: 33px;
+	border-radius: 0.25rem;
+}
+
+	.sticker-in-sheet .card-tag {
+		width: 42px;
+	}
+
+	.sticker-in-sheet a {
+		margin: 0 1px;
+		border-radius: 0.25rem;
+		border: solid 2px white;
+	}
+
+		.sticker-in-sheet a:hover {
+		}
+
+.empty-sticker {
+	box-shadow: 1px 1px 2px inset black, -1px -1px 2px inset #aaa;
+}

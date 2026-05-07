@@ -30,7 +30,7 @@ else
                             <Tag Name="@tag" Classes="card-tag" Rotate="@(tag.GetRandomValueFromString(4))"></Tag>
                         }
                     </div>
-                    <ReadTime EstimatedReadTimeInMinutes="@Model.EstimatedReadTimeInMinutes"></ReadTime>
+                    <ReadTime EstimatedReadTimeInMinutes="@Model?.EstimatedReadTimeInMinutes"></ReadTime>
                 </div>
             </div>
         </div>
@@ -45,6 +45,6 @@ else
 
     void GoToPost()
     {
-        NavigationManager.NavigateTo($"posts/{Model?.Id}");
+        NavigationManager.NavigateTo(Model?.Group is not null ? $"{Model?.Group.ToLowerInvariant()}/{Model?.Id}" : $"/{Model?.Id}");
     }
 }

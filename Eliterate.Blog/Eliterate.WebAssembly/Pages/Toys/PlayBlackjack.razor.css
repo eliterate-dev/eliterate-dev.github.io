@@ -1,0 +1,96 @@
+﻿
+
+h3, h4 {
+	text-align: center;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	list-style: none;
+}
+
+.blackjack-game {
+	display: grid;
+	padding: 1rem;
+	grid-template-columns: 1fr max-content;
+}
+
+.blackjack-container {
+}
+
+.player-container {
+	margin-top: 1rem;
+	min-height: 4rem;
+}
+
+.playing-card-container {
+	margin: 0 auto;
+	width: max-content;
+}
+
+.player-overview {
+	width: max-content;
+	padding: 0 1rem 0.5rem 1rem;
+	background-color: var(--color-contrast-1);
+	background-image: url(../images/textures/light-paper-fibers.png);
+	box-shadow: 2px 2px black;
+}
+
+.overview-player {
+	display: grid;
+	grid-template-columns: 1fr max-content;
+}
+
+.round-feed {
+	margin-top: 1rem;
+	padding: 0 1rem;
+	height: 20rem;
+	background-color: var(--color-contrast-1);
+	background-image: url(../images/textures/notebook.png);
+	box-shadow: 2px 2px black;
+	overflow-y: scroll;
+}
+
+.feedback {
+	margin: 0;
+}
+
+.active {
+	text-decoration: underline;
+}
+
+.game-controls {
+	width: max-content;
+	margin: 0 auto;
+}
+
+.game-settings-container {
+	margin-top: 2rem;
+	padding: 1rem;
+	background-color: var(--color-contrast-1);
+	background-image: url(../images/textures/light-paper-fibers.png);
+	box-shadow: 2px 2px black;
+	width: max-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.game-settings {
+	display: grid;
+	grid-template-columns: 1fr min-content;
+}
+
+	.game-settings ::deep label{
+		margin: 0.375rem;
+	}
+
+	.game-settings ::deep input {
+		margin: 0.125rem;
+		width: 50px;
+	}
+
+	.game-settings-container ::deep button {
+		width: 100%;
+	}

@@ -1,0 +1,6 @@
+﻿.sticker {
+	user-select: none;
+	color: black;
+	text-shadow: var(--sticker-outline);
+	filter: var(--sticker-outline-filter);
+}

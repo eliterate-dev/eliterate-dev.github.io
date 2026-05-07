@@ -1,0 +1,98 @@
+﻿.paper-container {
+	margin: 0 auto calc(var(--tearoff-height) + 1.5rem) auto;
+}
+
+.paper {
+	position: relative;
+	display: inline-block;
+	min-width: calc(var(--min-width) - 4rem);
+	width: calc(100% - 2rem);
+	margin: 0 0.5rem;
+	box-shadow: 3px 2px 3px black;
+	overflow-y: visible;
+}
+
+.has-tearoffs {
+	border-bottom: 1px dashed grey;
+}
+
+.pins {
+	overflow-y: visible;
+}
+
+.paper-spacer {
+	margin-top: 141%;
+}
+
+.paper-spacer-with-tearoffs {
+	margin-top: calc(141% - var(--tearoff-height));
+}
+
+.paper-content {
+	background-color: var(--color-contrast-1);
+	background-image: var(--texture-paper);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.paper-text {
+	padding: 1rem;
+}
+
+	.paper-text h2 {
+		text-align: center;
+		font-size: 1.25rem;
+		padding: 0 1rem;
+	}
+
+.tearoff-container {
+	width: 100%;
+	position: absolute;
+	bottom: calc(var(--tearoff-height) * -1 - 1px);
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	overflow: visible;
+}
+
+	.tearoff-container :first-child {
+		border-left: none;
+	}
+
+	.tearoff-container :last-child {
+		border-right: none;
+	}
+
+.tearoff {
+	height: var(--tearoff-height);
+	border: 1px dashed grey;
+	border-bottom: none;
+	background-color: var(--color-contrast-1);
+	background-image: var(--texture-paper);
+	box-shadow: 3px 2px 2px black;
+	width: calc(100% - 1px);
+}
+
+	.tearoff:hover {
+		position: relative;
+		top: 1rem;
+		left: 0.5rem;
+	}
+
+.tearoff-empty {
+	visibility: hidden;
+	display: flex;
+}
+
+.tearoff-text {
+	padding: 0.5rem 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 0.75rem;
+	writing-mode: vertical-rl;
+	text-align: center;
+}

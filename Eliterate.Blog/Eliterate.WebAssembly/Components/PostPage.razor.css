@@ -1,0 +1,59 @@
+﻿
+.book-page {
+	margin: 0.25rem 0.25rem 0.25rem 0;
+	border: double 3px darkgrey;
+	border-left: none;
+	border-top: none;
+	border-radius: 0 0.5rem 0.5rem 0;
+	padding: 0;
+	background-color: var(--color-contrast-0);
+	background-image: url(../images/textures/light-paper-fibers.png);
+}
+
+.book-page-header {
+	padding: 0 0.125rem 0 0.5rem;
+}
+
+.book-page-body {
+	margin: 0;
+	border-radius: 0 0 0.5rem 0;
+}
+
+.book-page-text {
+	min-height: 150px;
+	height: calc(100vh - var(--navmenu-height) - 9rem);
+	margin: 0;
+	padding: 0 0.75rem 3rem 0.5rem;
+	border-radius: 0 0 0.5rem 0;
+	background-color: var(--color-background);
+	background-image: url(../images/textures/notebook-dark.png);
+	text-align: justify;
+	overflow: scroll;
+}
+
+	.book-page-text a {
+		color: var(--color-primary);
+	}
+
+		.book-page-text a:hover {
+			color: var(--color-foreground);
+		}
+
+	.book-page-text h4 {
+		margin-top: 1rem;
+	}
+
+	.book-page-text .sticker {
+		position: relative;
+		float: right;
+		margin: -0.25rem 0.25rem;
+		font-size: 2rem;
+	}
+
+.book-tags {
+	position: absolute;
+	top: -2rem;
+	right: 1rem;
+	width: max-content;
+	padding: 0.25rem;
+}

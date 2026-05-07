@@ -1,0 +1,11 @@
+﻿
+.playing-card {
+	padding: 0;
+	margin: 0 0.25rem;
+	line-height: 1;
+	background-color: white;
+	color: black;
+	display: inline-block;
+	border-radius: 0.05em;
+	box-shadow: 2px 2px black;
+}
