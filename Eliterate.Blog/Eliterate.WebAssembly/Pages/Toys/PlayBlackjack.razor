@@ -35,6 +35,12 @@
                 <li>Cash: @_currentOrFirstPlayer.Cash</li>
             </ul>
         </div>
+        <div class="game-controls">
+            <button @onclick="Stand" disabled="@(!_game.RoundActive || _game.GameOver)">Stand</button>
+            <button @onclick="Hit" disabled="@(!_game.RoundActive || _game.GameOver)">Hit Me</button>
+
+            <button class="right" @onclick="StartNextRound" disabled="@(_game.RoundActive || _game.GameOver)">Start Next Round</button>
+        </div>
     </div>
     <div>
         <div class="player-overview">
@@ -46,10 +52,13 @@
                         <div>
                             @player.Name
                         </div>
+                        <div>
+                            @player.HandValue
+                        </div>
                         <div class="overview-cards">
                             @foreach (var card in player.Hand)
                             {
-                                <PlayingCard Model="card" Scale="1"></PlayingCard>
+                                <PlayingCard Model="card" Scale="2"></PlayingCard>
                             }
                         </div>
                     </li>
@@ -64,20 +73,13 @@
     </div>
 </div>
 
-<div class="game-controls">
-    <button @onclick="Stand" disabled="@(!_game.RoundActive || _game.GameOver)">Stand</button>
-    <button @onclick="Hit" disabled="@(!_game.RoundActive || _game.GameOver)">Hit Me</button>
-
-    <button class="right" @onclick="StartNextRound" disabled="@(_game.RoundActive || _game.GameOver)">Start Next Round</button>
-</div>
-
 <div class="game-settings-container">
     <div class="game-settings">
         <label>Number of players</label><InputNumber @bind-value="_numberOfPlayers" DisplayName="Number of players" min="1" max="5"/>
         <label>Winning Score</label><InputNumber @bind-value="_winningScore" DisplayName="Winning Score" min="21" max="100" />
         <label>Starting Buy-in</label><InputNumber @bind-value="_minBet" DisplayName="Starting Buy-in" min="1" max="100" />
         <label>Starting Cash</label><InputNumber @bind-value="_startingCash" DisplayName="Starting Cash" min="1" max="1000000" />
-        <label>Auto increase buy in after round</label><InputNumber @bind-value="_autoIncreaseBuyInAfterRound" DisplayName="Increase buy in after round" min="0" max="100" />
+        <label>Auto increase buy in</label><InputNumber @bind-value="_autoIncreaseBuyInAfterRound" DisplayName="Increase buy in after round" min="0" max="100" />
     </div>
     <button @onclick="Restart">Apply and Restart</button>
 </div>
@@ -170,9 +172,13 @@
 
         if (_currentPlayer.IsBusted)
         {
-            _feedback += _currentPlayer == _game.Dealer
-                ? $"\nOof. The dealer went over {_game.WinningScore}!"
-                : $"\nOh no... {_currentPlayer.Name} got busted!";
+            if (_currentPlayer == _game.Dealer)
+            {
+                _feedback += $"\nOof. The dealer went over {_game.WinningScore}!";
+                EndRound();
+                return;
+            }
+            _feedback += $"\nOh no... {_currentPlayer.Name} got busted!";
         }
         MoveToNextPlayer();
     }
@@ -193,13 +199,21 @@
         var winnings = _game.CalculateWinningsOfRound();
         foreach (var item in winnings)
         {
-            if (item.WinningMultiplier > 0)
+            if (item.WinningMultiplier < 1)
+            {
+                _feedback += $"\n{item.Player.Name} lost...";
+            }
+            else if (item.WinningMultiplier == 2)
             {
                 _feedback += $"\n{item.Player.Name} wins! +{item.WinningMultiplier * item.Player.CurrentBet}";
             }
+            else if (item.WinningMultiplier == 1)
+            {
+                _feedback += $"\n{item.Player.Name} drew with the dealer. +{item.WinningMultiplier * item.Player.CurrentBet}";
+            }
             else
             {
-                _feedback += $"\n{item.Player.Name} lost...";
+                _feedback += $"\n{item.Player.Name} Hit a blackjack! +{item.WinningMultiplier * item.Player.CurrentBet}";
             }
         }
 

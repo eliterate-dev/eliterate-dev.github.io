@@ -133,7 +133,11 @@ button {
 	border-radius: 0.25rem;
 	padding: 0.25rem 0.5rem;
 	background-color: var(--color-background);
+	box-shadow: 2px 2px 1px black;
 }
+	button:hover {
+		box-shadow: 1px 1px 1px black;
+	}
 	button:disabled {
 		border-color: grey;
 		background-color: var(--color-contrast-3);
@@ -141,6 +145,7 @@ button {
 		button:disabled:hover {
 			color: var(--color-foreground);
 			cursor: inherit;
+			box-shadow: 2px 2px 1px black;
 		}
 
 a, button {
