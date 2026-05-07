@@ -1,0 +1,12 @@
+﻿@if (EstimatedReadTimeInMinutes is not null)
+{
+    <div class="read-time">
+        <div class="read-time-minutes">@EstimatedReadTimeInMinutes</div>
+        <div class="sticker">⏳</div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int? EstimatedReadTimeInMinutes { get; set; }
+}

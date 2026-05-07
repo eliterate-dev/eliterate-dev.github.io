@@ -4,10 +4,13 @@ namespace Eliterate.WebAssembly
 {
     public interface IPostMetadata : IIdentifiable, IDescribable, IHasCreateAndEditDate
     {
-        string ContentUrl { get; }
+        string? Group { get; }
+        string Title { get; }
+        string[] Tags { get; }
+        string? ContentUrl { get; }
         bool IsActive { get; }
         bool ShowInList { get; }
-        string[] Tags { get; }
-        string Title { get; }
+        string StickerEmoji { get; }
+        int? EstimatedReadTimeInMinutes { get; }
     }
 }

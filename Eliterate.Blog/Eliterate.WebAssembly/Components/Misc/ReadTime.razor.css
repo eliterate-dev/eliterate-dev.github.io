@@ -1,0 +1,26 @@
+﻿.read-time {
+	position: absolute;
+	display: grid;
+	grid-template-columns: 1fr;
+	right: 0;
+	bottom: 0;
+	font-size: 0.75rem;
+	height: 2rem;
+	margin-right: 0.125rem;
+	margin-bottom: 0.5rem;
+}
+
+	.read-time .sticker {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		font-size: inherit;
+		display: inline-block;
+		margin: 0;
+	}
+
+.read-time-minutes {
+	width: 1rem;
+	text-align: center;
+	position: relative;
+}
