@@ -648,6 +648,15 @@ a.card-tag:hover[b-e5flhzutw9], a.card-tag:focus-visible[b-e5flhzutw9] {
 }
 /* /Pages/Toys/PlayBlackjack.razor.rz.scp.css */
 
+:root[b-bcecxxhwdg] {
+	--game-layout-grid: 1fr;
+}
+
+@media (min-width: 620px) {
+	:root[b-bcecxxhwdg] {
+		--game-layout-grid: repeat(2, minmax(0, 1fr));
+	}
+}
 
 h3[b-bcecxxhwdg], h4[b-bcecxxhwdg] {
 	text-align: center;
@@ -662,15 +671,19 @@ ul[b-bcecxxhwdg] {
 
 .blackjack-game[b-bcecxxhwdg] {
 	display: grid;
-	padding: 1rem;
-	grid-template-columns: 1fr max-content;
+	padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+	grid-template-columns: var(--game-layout-grid);
 }
 
 .blackjack-container[b-bcecxxhwdg] {
+	background-color: red;
+	background-image: url(../images/textures/diagmonds.png);
+	padding: 1rem 0;
+	border: solid 1rem darkred;
+	border-radius: 1rem;
 }
 
 .player-container[b-bcecxxhwdg] {
-	margin-top: 1rem;
 	min-height: 4rem;
 }
 
@@ -681,7 +694,8 @@ ul[b-bcecxxhwdg] {
 
 .player-overview[b-bcecxxhwdg] {
 	width: max-content;
-	padding: 0 1rem 0.5rem 1rem;
+	margin: 1rem auto;
+	padding: 0.5rem;
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/light-paper-fibers.png);
 	box-shadow: 2px 2px black;
@@ -689,17 +703,18 @@ ul[b-bcecxxhwdg] {
 
 .overview-player[b-bcecxxhwdg] {
 	display: grid;
-	grid-template-columns: 1fr max-content;
+	grid-template-columns: 1fr max-content max-content;
 }
 
 .round-feed[b-bcecxxhwdg] {
-	margin-top: 1rem;
+	margin: 0.5rem auto;
 	padding: 0 1rem;
 	height: 20rem;
+	max-width: 400px;
+	overflow-y: scroll;
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/notebook.png);
 	box-shadow: 2px 2px black;
-	overflow-y: scroll;
 }
 
 .feedback[b-bcecxxhwdg] {
@@ -710,20 +725,13 @@ ul[b-bcecxxhwdg] {
 	text-decoration: underline;
 }
 
-.game-controls[b-bcecxxhwdg] {
-	width: max-content;
-	margin: 0 auto;
-}
-
 .game-settings-container[b-bcecxxhwdg] {
-	margin-top: 2rem;
+	margin: 1rem auto;
 	padding: 1rem;
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/light-paper-fibers.png);
 	box-shadow: 2px 2px black;
 	width: max-content;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .game-settings[b-bcecxxhwdg] {
