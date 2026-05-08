@@ -5,19 +5,29 @@
 
 <PageTitle>Eliterate - Blackjack</PageTitle>
 
-<h3>Play Blackjack</h3>
+<h2 class="toy-page-title"><span class="sticker">Play Blackjack</span></h2>
 
 <div class="blackjack-game">
     <div class="blackjack-container">
         <div class="dealer-container">
             <ul>
                 <li>Dealer</li>
-                <li>Value of Cards: @_game.Dealer.HandValue</li>
             </ul>
             <div class="playing-card-container">
-                @foreach (var card in _game.Dealer.Hand)
+                <PlayingCard Model="_game.Dealer.Hand.First()" Scale="8"></PlayingCard>
+                @if (_game.RoundActive)
                 {
-                    <PlayingCard Model="card" Scale="8"></PlayingCard>
+                    @foreach (var card in _game.Dealer.Hand.Skip(1))
+                    {
+                        <PlayingCard Model="null" Scale="8"></PlayingCard>
+                    }
+                }
+                else
+                {
+                    @foreach (var card in _game.Dealer.Hand.Skip(1))
+                    {
+                        <PlayingCard Model="card" Scale="8"></PlayingCard>
+                    }
                 }
             </div>
         </div>
@@ -42,18 +52,15 @@
             <button class="right" @onclick="StartNextRound" disabled="@(_game.RoundActive || _game.GameOver)">Start Next Round</button>
         </div>
     </div>
-    <div>
+    <div class="feed-container">
         <div class="player-overview">
             <h4>Player overview:</h4>
             <ul>
-                @foreach (var player in _game.Players)
+                @foreach (var player in _game.Players.Except([_game.Dealer]))
                 {
                     <li class="overview-player @(_currentPlayer == player ? "active" : "")">
                         <div>
-                            @player.Name
-                        </div>
-                        <div>
-                            @player.HandValue
+                            @player.Name | @player.HandValue
                         </div>
                         <div class="overview-cards">
                             @foreach (var card in player.Hand)
@@ -145,9 +152,9 @@
         _feedback += $"\nIt's the dealer's turn!";
         var newCard = _game.PlayDealer();
         if (newCard is null)
-            _feedback += $"\nThe dealer stands on {_game.Dealer.HandValue}.";
+            _feedback += $"\nThe dealer stands on their cards.";
         else
-            _feedback += $"\nThe dealer drew {newCard.Name}!";
+            _feedback += $"\nThe dealer drew a card!";
 
         EvaluateHand();
     }
@@ -174,8 +181,7 @@
         {
             if (_currentPlayer == _game.Dealer)
             {
-                _feedback += $"\nOof. The dealer went over {_game.WinningScore}!";
-                EndRound();
+                _game.Dealer.Bust();
                 return;
             }
             _feedback += $"\nOh no... {_currentPlayer.Name} got busted!";
@@ -196,6 +202,14 @@
         }
         
         _feedback += $"\nRound over!";
+        if (_game.Dealer.IsBusted)
+        {
+            _feedback += $"\nThe dealer is busted with a {_game.Dealer.HandValue}!";
+        }
+        else
+        {
+            _feedback += $"\nThe dealer has a {_game.Dealer.HandValue}.";
+        }
         var winnings = _game.CalculateWinningsOfRound();
         foreach (var item in winnings)
         {

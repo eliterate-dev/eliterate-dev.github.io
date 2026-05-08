@@ -128,35 +128,39 @@ p {
 	margin: 0 0 0.5rem 0;
 }
 
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+	a:hover, a:focus-visible {
+		cursor: pointer;
+		color: var(--color-primary-tint);
+	}
+
 button {
 	border: 2px solid var(--color-primary);
 	border-radius: 0.25rem;
 	padding: 0.25rem 0.5rem;
 	background-color: var(--color-background);
+	color: inherit;
 	box-shadow: 2px 2px 1px black;
 }
-	button:hover {
+	button:hover, button:focus-visible {
+		cursor: pointer;
+		color: var(--color-primary-tint);
 		box-shadow: 1px 1px 1px black;
 	}
+
 	button:disabled {
+		color: var(--color-background);
 		border-color: grey;
 		background-color: var(--color-contrast-3);
 	}
 		button:disabled:hover {
-			color: var(--color-foreground);
 			cursor: inherit;
 			box-shadow: 2px 2px 1px black;
 		}
-
-a, button {
-	color: inherit;
-	text-decoration: none;
-}
-
-	a:hover, button:hover, a:focus-visible, button:focus-visible {
-		cursor: pointer;
-		color: var(--color-primary-tint);
-	}
 
 table {
 	border-collapse: collapse;

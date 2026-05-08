@@ -1,11 +1,15 @@
-﻿
-:root {
+﻿.toy-page-title {
+	text-align: center;
+	rotate: -5deg;
+}
+
+.blackjack-game {
 	--game-layout-grid: 1fr;
 }
 
-@media (min-width: 620px) {
-	:root {
-		--game-layout-grid: repeat(2, minmax(0, 1fr));
+@media (min-width: 820px) {
+	.blackjack-game {
+		--game-layout-grid: 1fr max-content;
 	}
 }
 
@@ -34,8 +38,8 @@ ul {
 	border-radius: 1rem;
 }
 
-.player-container {
-	min-height: 4rem;
+.player-container, .dealer-container {
+	color: white;
 }
 
 .playing-card-container {
@@ -54,9 +58,11 @@ ul {
 
 .overview-player {
 	display: grid;
-	grid-template-columns: 1fr max-content max-content;
+	grid-template-columns: max-content max-content;
 }
-
+.feed-container {
+	padding: 0.5rem;
+}
 .round-feed {
 	margin: 0.5rem auto;
 	padding: 0 1rem;
@@ -74,6 +80,11 @@ ul {
 
 .active {
 	text-decoration: underline;
+}
+
+.game-controls {
+	width: max-content;
+	margin: 0 auto;
 }
 
 .game-settings-container {

@@ -1,7 +1,9 @@
 ﻿
 @if (Model is null)
 {
-    <div>Error</div>
+    <div class="playing-card" style="@_size">
+        @Codespirals.CardGames.Poker.Constants.CARDBACKEMOJI
+    </div>
 }
 else
 {
