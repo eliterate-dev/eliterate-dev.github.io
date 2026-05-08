@@ -361,8 +361,8 @@ a.card-tag:hover[b-n6ksulzrvs], a.card-tag:focus-visible[b-n6ksulzrvs] {
 /* /Components/Toys/PlayingCard.razor.rz.scp.css */
 
 .playing-card[b-v1hydyhowl] {
-	padding: 0;
-	margin: 0 0.25rem;
+	text-wrap: stable;
+	margin-left: 0.25rem;
 	line-height: 1;
 	background-color: white;
 	color: black;
@@ -647,14 +647,18 @@ a.card-tag:hover[b-e5flhzutw9], a.card-tag:focus-visible[b-e5flhzutw9] {
 	box-shadow: 2px 2px 4px black;
 }
 /* /Pages/Toys/PlayBlackjack.razor.rz.scp.css */
+.toy-page-title[b-bcecxxhwdg] {
+	text-align: center;
+	rotate: -5deg;
+}
 
-:root[b-bcecxxhwdg] {
+.blackjack-game[b-bcecxxhwdg] {
 	--game-layout-grid: 1fr;
 }
 
-@media (min-width: 620px) {
-	:root[b-bcecxxhwdg] {
-		--game-layout-grid: repeat(2, minmax(0, 1fr));
+@media (min-width: 820px) {
+	.blackjack-game[b-bcecxxhwdg] {
+		--game-layout-grid: 1fr max-content;
 	}
 }
 
@@ -683,8 +687,8 @@ ul[b-bcecxxhwdg] {
 	border-radius: 1rem;
 }
 
-.player-container[b-bcecxxhwdg] {
-	min-height: 4rem;
+.player-container[b-bcecxxhwdg], .dealer-container[b-bcecxxhwdg] {
+	color: white;
 }
 
 .playing-card-container[b-bcecxxhwdg] {
@@ -703,9 +707,11 @@ ul[b-bcecxxhwdg] {
 
 .overview-player[b-bcecxxhwdg] {
 	display: grid;
-	grid-template-columns: 1fr max-content max-content;
+	grid-template-columns: max-content max-content;
 }
-
+.feed-container[b-bcecxxhwdg] {
+	padding: 0.5rem;
+}
 .round-feed[b-bcecxxhwdg] {
 	margin: 0.5rem auto;
 	padding: 0 1rem;
@@ -723,6 +729,11 @@ ul[b-bcecxxhwdg] {
 
 .active[b-bcecxxhwdg] {
 	text-decoration: underline;
+}
+
+.game-controls[b-bcecxxhwdg] {
+	width: max-content;
+	margin: 0 auto;
 }
 
 .game-settings-container[b-bcecxxhwdg] {
