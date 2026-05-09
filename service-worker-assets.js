@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "JqcRAgOZ",
+  "version": "a35jlbDp",
   "assets": [
     {
       "hash": "sha256-17yPNBa9VRCo0SLOwYV+BSqaXuWqbyXFsFyJakuEdvE=",
@@ -10,7 +10,7 @@ self.assetsManifest = {
       "url": "CNAME"
     },
     {
-      "hash": "sha256-Th1Fms8OPi4d8+DoTQ7fJtKCFGS33IzVJfa0vTDY78A=",
+      "hash": "sha256-kzUqpgCvvVgIthfStw875VTrXsLaa0GI4Gg1pkAe6KA=",
       "url": "Eliterate.WebAssembly.styles.css"
     },
     {
@@ -26,8 +26,8 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.CardGames.Shared.auqyehongo.wasm"
     },
     {
-      "hash": "sha256-c4FWolVkpq+BgghQZgfK8j0vq/O16VlaKsbW0B6VdQQ=",
-      "url": "_framework/Eliterate.WebAssembly.916wgay4lo.wasm"
+      "hash": "sha256-RtKnvJHIdPNu2/XqLYLTaq+AQY6LcfLxGFYpHFy50ls=",
+      "url": "_framework/Eliterate.WebAssembly.uebiwyuk81.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
@@ -226,7 +226,7 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-UJzZ8yRMBQ45X4YSadevI5K3L1GGV5wcTms5yKpnG+o=",
+      "hash": "sha256-ujGZymIpfFKl+ALaVebCAkyB4EGWIddJT44QjID4tzU=",
       "url": "_framework/dotnet.js"
     },
     {
