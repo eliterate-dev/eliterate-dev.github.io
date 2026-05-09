@@ -120,7 +120,7 @@
     {
         _game.StartRound();
         // move to player 1
-        MoveToNextPlayer();
+        _game.MoveToNextPlayer();
         _prompt = $"{_currentPlayer.Name} choose an action!";
         _feedback = $"Starting Round {_game.CurrentRound}";
     }
@@ -130,14 +130,14 @@
     {
         _game.Stand(_currentPlayer);
         _feedback += $"\n{_currentPlayer.Name} is standing on {_currentPlayer.HandValue}!";
-        EvaluateHand();
+        EvaluateHandAndMoveToNextPlayer();
     }
 
     private void Hit()
     {
         var newCard = _game.Hit(_currentPlayer);
         _feedback += $"\n{_currentPlayer.Name} drew {newCard.Name}!";
-        EvaluateHand();
+        EvaluateHandAndMoveToNextPlayer();
     }
     #endregion
 
@@ -145,7 +145,7 @@
     {
         if (_game.Dealer.IsOutForRound)
         {
-            EvaluateHand();
+            EvaluateHandAndMoveToNextPlayer();
             return;
         }
 
@@ -156,36 +156,32 @@
         else
             _feedback += $"\nThe dealer drew a card!";
 
-        EvaluateHand();
+        EvaluateHandAndMoveToNextPlayer();
     }
 
-    private void MoveToNextPlayer()
+    private void EvaluateHandAndMoveToNextPlayer()
     {
-        _game.MoveToNextPlayer();
+        if (_currentPlayer.IsBusted)
+        {
+            _currentPlayer.Bust();
+            if (_currentPlayer != _game.Dealer)
+                _feedback += $"\nOh no... {_currentPlayer.Name} got busted!";
+        }
 
-        if (_currentPlayer == _game.Dealer)
-            PlayDealer();
-        else
-            _feedback += $"\nIt's {_currentPlayer.Name} turn!";
-    }
-
-    private void EvaluateHand()
-    {
         if (_game.Players.All(p => p.IsOutForRound))
         {
             EndRound();
             return;
         }
 
-        if (_currentPlayer.IsBusted)
+        _game.MoveToNextPlayer();
+        if (_currentPlayer == _game.Dealer)
+            PlayDealer();
+        else
         {
-            _currentPlayer.Bust();
-            if (_currentPlayer == _game.Dealer)
-                return;
-            else
-                _feedback += $"\nOh no... {_currentPlayer.Name} got busted!";
+            _feedback += $"\nIt's {_currentPlayer.Name} turn!";
+            _prompt = $"{_currentPlayer.Name} choose an action!";
         }
-        MoveToNextPlayer();
     }
 
     private void EndRound()
