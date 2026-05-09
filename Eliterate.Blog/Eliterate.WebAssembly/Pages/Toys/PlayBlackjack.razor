@@ -145,7 +145,7 @@
     {
         if (_game.Dealer.IsOutForRound)
         {
-            MoveToNextPlayer();
+            EvaluateHand();
             return;
         }
 
@@ -161,12 +161,6 @@
 
     private void MoveToNextPlayer()
     {
-        if (_game.Players.All(p => p.IsOutForRound))
-        {
-            EndRound();
-            return;
-        }
-
         _game.MoveToNextPlayer();
 
         if (_currentPlayer == _game.Dealer)
@@ -177,14 +171,19 @@
 
     private void EvaluateHand()
     {
+        if (_game.Players.All(p => p.IsOutForRound))
+        {
+            EndRound();
+            return;
+        }
+
         if (_currentPlayer.IsBusted)
         {
+            _currentPlayer.Bust();
             if (_currentPlayer == _game.Dealer)
-            {
-                _game.Dealer.Bust();
                 return;
-            }
-            _feedback += $"\nOh no... {_currentPlayer.Name} got busted!";
+            else
+                _feedback += $"\nOh no... {_currentPlayer.Name} got busted!";
         }
         MoveToNextPlayer();
     }
