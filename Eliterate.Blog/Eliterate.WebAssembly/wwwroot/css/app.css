@@ -78,7 +78,6 @@
 	src: url(../fonts/help-me/HelpMe.ttf);
 }
 
-
 html, body {
 	margin: 0;
 	font-size: 16px;
@@ -315,24 +314,6 @@ code {
 	bottom: 1.5rem;
 	right: 1.5rem;
 }
-
-.polaroid {
-	height: min-content;
-	margin: 0 0 0.5rem 1rem;
-	padding: 0.25rem;
-	background-color: white;
-	color: black;
-	text-align: center;
-	font-family: var(--font-handwritten);
-	filter: var(--sticker-outline-filter);
-}
-
-	.polaroid img {
-		width: 100%;
-		display: block;
-		margin-bottom: 0.25rem;
-		border: solid 1px black;
-	}
 
 .text-with-picture {
 	display: grid;

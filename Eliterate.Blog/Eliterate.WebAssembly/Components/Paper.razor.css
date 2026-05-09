@@ -76,9 +76,8 @@
 }
 
 	.tearoff:hover {
-		position: relative;
-		top: 1rem;
-		left: 0.5rem;
+		transform: rotate(-4deg) translate(10px,25px);
+		transition: 0.25s;
 	}
 
 .tearoff-empty {

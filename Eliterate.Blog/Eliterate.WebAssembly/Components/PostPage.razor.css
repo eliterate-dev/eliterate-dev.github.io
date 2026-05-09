@@ -43,11 +43,29 @@
 		margin-top: 1rem;
 	}
 
-	.book-page-text .sticker {
-		position: relative;
-		float: right;
-		margin: -0.25rem 0.25rem;
-		font-size: 2rem;
+::deep .book-page-text .sticker {
+	position: relative;
+	float: right;
+	margin: -0.25rem 0.25rem;
+	font-size: 2rem;
+}
+
+::deep .polaroid {
+	height: min-content;
+	margin: 0 0 0.5rem 1rem;
+	padding: 0.25rem;
+	background-color: white;
+	color: black;
+	text-align: center;
+	font-family: var(--font-handwritten);
+	filter: var(--sticker-outline-filter);
+}
+
+	::deep .polaroid img {
+		width: 100%;
+		display: block;
+		margin-bottom: 0.25rem;
+		border: solid 1px black;
 	}
 
 .book-tags {
