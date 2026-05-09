@@ -161,6 +161,12 @@
 
     private void MoveToNextPlayer()
     {
+        if (_game.Players.All(p => p.IsOutForRound))
+        {
+            EndRound();
+            return;
+        }
+
         _game.MoveToNextPlayer();
 
         if (_currentPlayer == _game.Dealer)
@@ -171,12 +177,6 @@
 
     private void EvaluateHand()
     {
-        if (_game.Players.All(p => p.IsOutForRound))
-        {
-            EndRound();
-            return;
-        }
-
         if (_currentPlayer.IsBusted)
         {
             if (_currentPlayer == _game.Dealer)
