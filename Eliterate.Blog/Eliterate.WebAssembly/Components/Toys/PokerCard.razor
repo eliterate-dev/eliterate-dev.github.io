@@ -2,7 +2,7 @@
 @if (Model is null)
 {
     <div class="playing-card" style="@_size">
-        @Codespirals.CardGames.Poker.Constants.CARDBACKEMOJI
+        @Codespirals.CardGames.Poker.PokerConstants.CARDBACKEMOJI
     </div>
 }
 else
@@ -15,7 +15,7 @@ else
 
 @code {
     [Parameter]
-    public Codespirals.CardGames.Poker.Card? Model { get; set; }
+    public Codespirals.CardGames.Poker.PokerCard? Model { get; set; }
     [Parameter]
     public int Scale { get; set; } = 1;
 
