@@ -99,44 +99,28 @@
     #region Actions
     private void Stand()
     {
-        _game.ban(_currentPlayer);
-        _feedback += $"\n{_currentPlayer.Name} is standing on {_currentPlayer.HandValue}!";
+        var banked = _game.Bank(_currentPlayer);
+        _feedback += $"\n{_currentPlayer.Name} banks their {banked} points! \nThey have {_currentPlayer.BankedPoints} in total.";
         EvaluateHandAndMoveToNextPlayer();
     }
 
     private void Hit()
     {
-        var newCard = _game.Hit(_currentPlayer);
-        _feedback += $"\n{_currentPlayer.Name} drew {newCard.Name}!";
+        var newCard = _game.Flip(_currentPlayer);
+        if (newCard is not null)
+        {
+            _feedback += $"\n{_currentPlayer.Name} drew {newCard.Name}!";
+        }
         EvaluateHandAndMoveToNextPlayer();
     }
     #endregion
-
-    private void PlayDealer()
-    {
-        if (_game.Dealer.IsOutForRound)
-        {
-            EvaluateHandAndMoveToNextPlayer();
-            return;
-        }
-
-        _feedback += $"\nIt's the dealer's turn!";
-        var newCard = _game.PlayDealer();
-        if (newCard is null)
-            _feedback += $"\nThe dealer stands on their cards.";
-        else
-            _feedback += $"\nThe dealer drew a card!";
-
-        EvaluateHandAndMoveToNextPlayer();
-    }
 
     private void EvaluateHandAndMoveToNextPlayer()
     {
         if (_currentPlayer.IsBusted)
         {
             _currentPlayer.Bust();
-            if (_currentPlayer != _game.Dealer)
-                _feedback += $"\nOh no... {_currentPlayer.Name} got busted!";
+            _feedback += $"\nOh no... {_currentPlayer.Name} got busted!";
         }
 
         if (_game.Players.All(p => p.IsOutForRound))
@@ -146,13 +130,8 @@
         }
 
         _game.MoveToNextPlayer();
-        if (_currentPlayer == _game.Dealer)
-            PlayDealer();
-        else
-        {
-            _feedback += $"\nIt's {_currentPlayer.Name} turn!";
-            _prompt = $"{_currentPlayer.Name} choose an action!";
-        }
+        _feedback += $"\nIt's {_currentPlayer.Name} turn!";
+        _prompt = $"{_currentPlayer.Name} choose an action!";
     }
 
     private void EndRound()
@@ -168,40 +147,13 @@
         }
         
         _feedback += $"\nRound over!";
-        if (_game.Dealer.IsBusted)
+        foreach (var player in _game.Players)
         {
-            _feedback += $"\nThe dealer is busted with a {_game.Dealer.HandValue}!";
-        }
-        else
-        {
-            _feedback += $"\nThe dealer has a {_game.Dealer.HandValue}.";
-        }
-        var winnings = _game.CalculateWinningsOfRound();
-        foreach (var item in winnings)
-        {
-            if (item.WinningMultiplier < 1)
-            {
-                _feedback += $"\n{item.Player.Name} lost...";
-            }
-            else if (item.WinningMultiplier == 2)
-            {
-                _feedback += $"\n{item.Player.Name} wins! +{item.WinningMultiplier * item.Player.CurrentBet}";
-            }
-            else if (item.WinningMultiplier == 1)
-            {
-                _feedback += $"\n{item.Player.Name} drew with the dealer. +{item.WinningMultiplier * item.Player.CurrentBet}";
-            }
-            else
-            {
-                _feedback += $"\n{item.Player.Name} Hit a blackjack! +{item.WinningMultiplier * item.Player.CurrentBet}";
-            }
+            player.
         }
 
-        _game.PayOut();
         
         _game.EndRound();
         _prompt = $"Start the next round.";
-        if (_autoIncreaseBuyInAfterRound > 0)
-            _feedback += $"\nThe stakes have risen by {_autoIncreaseBuyInAfterRound}!";
     }
 }
