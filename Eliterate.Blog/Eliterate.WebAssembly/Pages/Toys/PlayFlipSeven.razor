@@ -11,15 +11,15 @@
     <div class="flipseven-container">
         <div class="player-container">
             <div class="playing-card-container">
-                @foreach (var card in _currentOrFirstPlayer.Hand)
+                @foreach (var card in _currentPlayer.Hand)
                 {
-                    <PokerCard Model="card" Scale="8"></PokerCard>
+                    <FlipSevenCard Model="card" Scale="8"></FlipSevenCard>
                 }
             </div>
             <h4 class="prompt">@_prompt</h4>
             <ul>
-                <li>Current Player: @_currentOrFirstPlayer.Name</li>
-                <li>Value of Cards: @_currentOrFirstPlayer.HandValue</li>
+                <li>Current Player: @_currentPlayer.Name</li>
+                <li>Value of Cards: @_currentPlayer.HandPoints</li>
             </ul>
         </div>
         <div class="game-controls">
@@ -37,7 +37,7 @@
                 {
                     <li class="overview-player @(_currentPlayer == player ? "active" : "")">
                         <div>
-                            @player.Name | @player.HandValue
+                            @player.Name | @player.HandPoints
                         </div>
                         <div class="overview-cards">
                             @foreach (var card in player.Hand)
@@ -51,7 +51,6 @@
         </div>
         <div class="round-feed">
             <h4>Round @_game.CurrentRound feed:</h4>
-            <h5>Current buy in: @_game.BuyIn</h5>
             <pre class="feedback">@_feedback</pre>
         </div>
     </div>
@@ -145,11 +144,11 @@
             _feedback = _prompt = $"GAME OVER!";
             return;
         }
-        
+
         _feedback += $"\nRound over!";
         foreach (var player in _game.Players)
         {
-            player.
+            
         }
 
         
