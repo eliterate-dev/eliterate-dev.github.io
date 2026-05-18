@@ -52,21 +52,25 @@
 		--post-list-columns: repeat(2, minmax(0, 1fr));
 	}
 }
+
 @media (min-width: 840px) {
 	:root {
 		--navmenu-height: 0px;
 	}
 }
+
 @media (min-width: 1150px) {
 	:root {
 		--post-list-columns: repeat(3, minmax(0, 1fr));
 	}
 }
+
 @media (min-width: 1460px) {
 	:root {
 		--post-list-columns: repeat(4, minmax(0, 1fr));
 	}
 }
+
 @media (min-width: 1770px) {
 	:root {
 		--post-list-columns: repeat(5, minmax(0, 1fr));
@@ -146,6 +150,7 @@ button {
 	color: inherit;
 	box-shadow: 2px 2px 1px black;
 }
+
 	button:hover, button:focus-visible {
 		cursor: pointer;
 		color: var(--color-primary-tint);
@@ -157,6 +162,7 @@ button {
 		border-color: grey;
 		background-color: var(--color-contrast-3);
 	}
+
 		button:disabled:hover {
 			cursor: inherit;
 			box-shadow: 2px 2px 1px black;
@@ -299,6 +305,7 @@ code {
 	padding: 3rem 1rem;
 	border-top: none;
 }
+
 	.book-closed p {
 		white-space: pre-line;
 	}
@@ -338,6 +345,7 @@ code {
 	display: grid;
 	grid-template-columns: auto auto;
 }
+
 	.text-with-picture div:nth-of-type(2) {
 		min-width: calc(var(--min-width) /3);
 		max-width: calc(var(--min-width) /2);

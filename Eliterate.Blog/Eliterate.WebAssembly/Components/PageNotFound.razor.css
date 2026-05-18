@@ -1,4 +1,20 @@
 ﻿
+.card-tag {
+	padding: 0.25rem;
+	border-radius: 0.25rem;
+	margin: 0.25rem 0.375rem 0.25rem 0;
+	width: max-content;
+	display: inline-block;
+	color: black;
+	border: solid 2px white;
+	filter: var(--sticker-outline-filter);
+}
+
+a.card-tag:hover, a.card-tag:focus-visible {
+	color: black;
+	border-color: black;
+}
+
 .not-found {
 	min-width: calc(var(--min-width) - 2rem);
 	text-align: center;

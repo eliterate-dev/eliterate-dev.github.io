@@ -1,0 +1,16 @@
+﻿<div class="box-container @Class.ToLowerInvariant()-container">
+    <div class="box @Class.ToLowerInvariant()">
+        <div class="box-inner">
+            <div class="box-content @Class.ToLowerInvariant()-content">
+                @ChildContent
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Class { get; set; } = "";
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

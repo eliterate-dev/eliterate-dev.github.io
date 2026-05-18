@@ -6,9 +6,23 @@
 
 <h2 class="toy-page-title"><span class="sticker">Toys</span></h2>
 
-<a class="blackjack-box" href="~/toys/blackjack">
+<div class="toy-list">
+    <div class="toy-grid-cell">
+        <a class="toy-wrapper" href="toys/blackjack">
+            <Box Class="blackjack-toy">
+                ♠
+            </Box>
+        </a>
+    </div>
+    <div class="toy-grid-cell">
+        <a class="toy-wrapper" href="toys/x">
+            <Box Class="test">
+                E
+            </Box>
+        </a>
+    </div>
+</div>
 
-</a>
 
 @code {
     private List<PostMetadata> _toys = [];
