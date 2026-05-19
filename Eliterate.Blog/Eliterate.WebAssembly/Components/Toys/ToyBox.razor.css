@@ -10,3 +10,15 @@
 	display: block;
 	margin: 0 auto;
 }
+
+	.toy-wrapper:first-child {
+		transition: 0.5s;
+		transform-style: preserve-3d;
+	}
+
+		.toy-wrapper:first-child:hover {
+			transition: 0.5s;
+			translate: 1rem -1rem;
+			transform: rotateX(25deg);
+			transform-style: preserve-3d;
+		}

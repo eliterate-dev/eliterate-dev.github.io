@@ -1,7 +1,8 @@
-﻿
+﻿@using Codespirals.Base.Extensions
+
 <div class="toy-grid-cell" style="@_size">
-    <a class="toy-wrapper" href="toys/@Name">
-        <Box Class="@($"{Name}-toy")" Scale="Scale" Color="@(Color)" Label="@(Name)">
+    <a class="toy-wrapper" href="toys/@Name.ToLowerInvariant().MakeUrlSafe('_')">
+        <Box Class="@($"{Name.ToLowerInvariant().MakeUrlSafe('-')}-toy")" Scale="Scale" Color="@(Color)" Label="@(Name)">
             @ChildContent
         </Box>
     </a>
