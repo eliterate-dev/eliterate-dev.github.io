@@ -8,51 +8,13 @@
 	height: max-content;
 }
 
-.toy-grid-cell {
-	display: block;
-	min-height: 12rem;
-	height: max-content;
-}
-
-.toy-wrapper {
-	width: 100%;
-	height: max-content;
-	position: relative;
-	display: block;
-	margin: 0 auto;
-}
-
-.blackjack-toy-container {
-	width: max-content;
-	left: 50%;
-	margin: 0 auto;
+.blackjack-label {
+	--border-size: 5px;
+	width: calc(100% - (1.8 * var(--border-size)));
+	height: calc(100% - (1.8 * var(--border-size)));
+	border: var(--border-size) solid black;
+	color: black;
 	text-align: center;
-	font-size: 11rem;
-	color: black;
-	background-color: var(--color);
-}
-
-.blackjack-toy-container, .blackjack-toy div-container, .blackjack-toy-container div::before, .blackjack-toy-container div::after {
-	content: 'Blackjack';
-	position: absolute;
-	transform-style: preserve-3d;
-}
-
-.blackjack-toy {
-	--x: 10rem;
-	--y: 12rem;
-	--z: 2rem;
-	--color: #fff;
-}
-	.blackjack-toy > div::before,
-	.blackjack-toy > div::after {
-		background-image: linear-gradient(black, black);
-		background-position: 2em 4em;
-		background-size: 1em 1em;
-		background-repeat: no-repeat;
-	}
-
-.blackjack-toy-content {
-	color: black;
-	font-size: 8rem;
+	font-size: 5rem;
+	background-image: url(../images/textures/diagmonds.png);
 }

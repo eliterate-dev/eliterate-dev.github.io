@@ -1,26 +1,18 @@
 ﻿@inject IContentService ContentService
 @page "/toys"
-@using Eliterate.WebAssembly.Components.Misc
+@using Eliterate.WebAssembly.Components.Toys
 
 <PageTitle>Eliterate - Toys</PageTitle>
 
 <h2 class="toy-page-title"><span class="sticker">Toys</span></h2>
 
 <div class="toy-list">
-    <div class="toy-grid-cell">
-        <a class="toy-wrapper" href="toys/blackjack">
-            <Box Class="blackjack-toy">
-                ♠
-            </Box>
-        </a>
-    </div>
-    <div class="toy-grid-cell">
-        <a class="toy-wrapper" href="toys/x">
-            <Box Class="test">
-                E
-            </Box>
-        </a>
-    </div>
+    <ToyBox Name="Blackjack" Scale="1" Color="f00">
+        <div class="blackjack-label">
+            ♠
+        </div>
+    </ToyBox>
+    <ToyBox Name="test" Scale="1.5">T</ToyBox>
 </div>
 
 

@@ -1,0 +1,12 @@
+﻿
+.toy-grid-cell {
+	display: block;
+}
+
+.toy-wrapper {
+	width: max-content;
+	height: inherit;
+	position: relative;
+	display: block;
+	margin: 0 auto;
+}
