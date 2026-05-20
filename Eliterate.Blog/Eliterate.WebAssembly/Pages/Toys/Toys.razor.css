@@ -11,7 +11,7 @@
 	--border-size: 5px;
 	width: calc(100% - (1.8 * var(--border-size)));
 	height: calc(100% - (1.8 * var(--border-size)));
-	border: var(--border-size) solid black;
+	border: var(--border-size) solid darkred;
 	line-height: 0.9;
 	text-align: center;
 	background-image: url(../images/textures/diagmonds.png);

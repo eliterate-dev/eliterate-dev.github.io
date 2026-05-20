@@ -68,10 +68,10 @@
     private FlipSevenGame _game = FlipSevenGame.SetUp(2);
     private FlipSevenPlayer _currentPlayer => _game.CurrentPlayer;
 
-    private string _prompt = "";
-    private string _feedback = "";
+    private string _prompt => _game.Prompt;
+    private string _feedback => string.Join('\n', _game.LogEntries.Where(l => l.Round == _game.CurrentRound).Select(l => l.Text));
 
-    private int _numberOfPlayers = 1;
+    private int _numberOfPlayers = 2;
     private int _numbersToFlip = 7;
     private int _winningScore = 200;
 
@@ -91,25 +91,18 @@
         _game.StartRound();
         // move to player 1
         _game.MoveToNextPlayer();
-        _prompt = $"{_currentPlayer.Name} choose an action!";
-        _feedback = $"Starting Round {_game.CurrentRound}";
     }
 
     #region Actions
     private void Stand()
     {
         var banked = _game.Bank(_currentPlayer);
-        _feedback += $"\n{_currentPlayer.Name} banks their {banked} points! \nThey have {_currentPlayer.BankedPoints} in total.";
         EvaluateHandAndMoveToNextPlayer();
     }
 
     private void Hit()
     {
         var newCard = _game.Flip(_currentPlayer);
-        if (newCard is not null)
-        {
-            _feedback += $"\n{_currentPlayer.Name} drew {newCard.Name}!";
-        }
         EvaluateHandAndMoveToNextPlayer();
     }
     #endregion
@@ -119,7 +112,6 @@
         if (_currentPlayer.IsBusted)
         {
             _currentPlayer.Bust();
-            _feedback += $"\nOh no... {_currentPlayer.Name} got busted!";
         }
 
         if (_game.Players.All(p => p.IsOutForRound))
@@ -129,8 +121,6 @@
         }
 
         _game.MoveToNextPlayer();
-        _feedback += $"\nIt's {_currentPlayer.Name} turn!";
-        _prompt = $"{_currentPlayer.Name} choose an action!";
     }
 
     private void EndRound()
@@ -141,11 +131,9 @@
             {
                 player.DeactivateForRound();
             }
-            _feedback = _prompt = $"GAME OVER!";
             return;
         }
 
-        _feedback += $"\nRound over!";
         foreach (var player in _game.Players)
         {
             
@@ -153,6 +141,5 @@
 
         
         _game.EndRound();
-        _prompt = $"Start the next round.";
     }
 }

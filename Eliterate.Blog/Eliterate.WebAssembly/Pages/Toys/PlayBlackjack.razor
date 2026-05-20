@@ -34,15 +34,15 @@
         <div class="player-container">
             <h4 class="prompt">@_prompt</h4>
             <div class="playing-card-container">
-                @foreach (var card in _currentOrFirstPlayer.Hand)
+                @foreach (var card in _currentPlayer.Hand)
                 {
                     <PokerCard Model="card" Scale="8"></PokerCard>
                 }
             </div>
             <ul>
-                <li>Current Player: @_currentOrFirstPlayer.Name</li>
-                <li>Value of Cards: @_currentOrFirstPlayer.HandValue</li>
-                <li>Cash: @_currentOrFirstPlayer.TotalPoints</li>
+                <li>Current Player: @_currentPlayer.Name</li>
+                <li>Value of Cards: @_currentPlayer.HandValue</li>
+                <li>Cash: @_currentPlayer.TotalPoints</li>
             </ul>
         </div>
         <div class="game-controls">
@@ -94,7 +94,7 @@
 @code {
     private BlackJackGame _game = BlackJackGame.SetUp(1, 100, 1, 21, 1, 2);
     private BlackJackPlayer _currentPlayer => _game.CurrentPlayer;
-    private BlackJackPlayer _currentOrFirstPlayer => _currentPlayer == _game.Dealer ? _game.Players[1] : _currentPlayer;
+
     private string _prompt => _game.Prompt;
     private string _feedback => string.Join('\n', _game.LogEntries.Where(l => l.Round == _game.CurrentRound).Select(l => l.Text));
 
