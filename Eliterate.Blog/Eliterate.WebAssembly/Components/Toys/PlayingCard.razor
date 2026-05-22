@@ -1,0 +1,26 @@
+﻿@if (Model is null)
+{
+    <div class="playing-card @Class" style="@_size">
+        @Codespirals.CardGames.Poker.PokerConstants.CARDBACKEMOJI
+    </div>
+}
+else
+{
+    <div class="playing-card @Class" alt="@Model.Name" style="@_size">
+        <div hidden>@Model.Value</div>
+        @ChildContent
+    </div>
+}
+
+@code {
+    private string _size => $"height:{Scale*1.4}rem;width:{Scale}";
+
+    [Parameter]
+    public Codespirals.CardGames.ICard? Model { get; set; }
+    [Parameter]
+    public int Scale { get; set; } = 1;
+    [Parameter]
+    public string Class { get; set; } = "";
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

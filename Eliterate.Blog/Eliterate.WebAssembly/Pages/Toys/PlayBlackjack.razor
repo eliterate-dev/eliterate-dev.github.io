@@ -14,19 +14,19 @@
                 <li>Dealer</li>
             </ul>
             <div class="playing-card-container">
-                <PokerCard Model="_game.Dealer.Hand.First()" Scale="8"></PokerCard>
+                <PlayingCard Model="_game.Dealer.Hand.First()" Scale="8">@_game.Dealer.Hand.First().Emoji</PlayingCard>
                 @if (_game.RoundActive)
                 {
                     @foreach (var card in _game.Dealer.Hand.Skip(1))
                     {
-                        <PokerCard Model="null" Scale="8"></PokerCard>
+                        <PlayingCard Model="null" Scale="8">@card.Emoji</PlayingCard>
                     }
                 }
                 else
                 {
                     @foreach (var card in _game.Dealer.Hand.Skip(1))
                     {
-                        <PokerCard Model="card" Scale="8"></PokerCard>
+                        <PlayingCard Model="card" Scale="8">@card.Emoji</PlayingCard>
                     }
                 }
             </div>
@@ -36,7 +36,7 @@
             <div class="playing-card-container">
                 @foreach (var card in _currentPlayer.Hand)
                 {
-                    <PokerCard Model="card" Scale="8"></PokerCard>
+                    <PlayingCard Model="card" Scale="8">@card.Emoji</PlayingCard>
                 }
             </div>
             <ul>
@@ -65,7 +65,7 @@
                         <div class="overview-cards">
                             @foreach (var card in player.Hand)
                             {
-                                <PokerCard Model="card" Scale="2"></PokerCard>
+                                <PlayingCard Model="card" Scale="2">@card.Emoji</PlayingCard>
                             }
                         </div>
                     </li>

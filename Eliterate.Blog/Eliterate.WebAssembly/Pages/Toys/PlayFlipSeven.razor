@@ -13,7 +13,7 @@
             <div class="playing-card-container">
                 @foreach (var card in _currentPlayer.Hand)
                 {
-                    <FlipSevenCard Model="card" Scale="8"></FlipSevenCard>
+                    <PlayingCard Model="card" Scale="8"></PlayingCard>
                 }
             </div>
             <h4 class="prompt">@_prompt</h4>
@@ -23,7 +23,7 @@
             </ul>
         </div>
         <div class="game-controls">
-            <button @onclick="Stand" disabled="@(!_game.RoundActive || _game.GameOver)">Bank</button>
+            <button @onclick="Bank" disabled="@(!_game.RoundActive || _game.GameOver)">Bank</button>
             <button @onclick="Hit" disabled="@(!_game.RoundActive || _game.GameOver)">Hit Me</button>
 
             <button class="right" @onclick="StartNextRound" disabled="@(_game.RoundActive || _game.GameOver)">Start Next Round</button>
@@ -42,7 +42,7 @@
                         <div class="overview-cards">
                             @foreach (var card in player.Hand)
                             {
-                                <FlipSevenCard Model="card" Scale="2"></FlipSevenCard>
+                                <PlayingCard Model="card" Scale="2"></PlayingCard>
                             }
                         </div>
                     </li>
@@ -89,57 +89,29 @@
     private void StartNextRound()
     {
         _game.StartRound();
-        // move to player 1
-        _game.MoveToNextPlayer();
     }
 
     #region Actions
-    private void Stand()
+    private void Bank()
     {
         var banked = _game.Bank(_currentPlayer);
-        EvaluateHandAndMoveToNextPlayer();
+        if (!_game.RoundActive)
+        {
+            _game.PayOut();
+            return;
+        }
+        _game.MoveToNextPlayer();
     }
 
     private void Hit()
     {
         var newCard = _game.Flip(_currentPlayer);
-        EvaluateHandAndMoveToNextPlayer();
-    }
-    #endregion
-
-    private void EvaluateHandAndMoveToNextPlayer()
-    {
-        if (_currentPlayer.IsBusted)
+        if (!_game.RoundActive)
         {
-            _currentPlayer.Bust();
-        }
-
-        if (_game.Players.All(p => p.IsOutForRound))
-        {
-            EndRound();
+            _game.PayOut();
             return;
         }
-
         _game.MoveToNextPlayer();
     }
-
-    private void EndRound()
-    {
-        if (_game.GameOver)
-        {
-            foreach (var player in _game.Players)
-            {
-                player.DeactivateForRound();
-            }
-            return;
-        }
-
-        foreach (var player in _game.Players)
-        {
-            
-        }
-
-        
-        _game.EndRound();
-    }
+    #endregion
 }
