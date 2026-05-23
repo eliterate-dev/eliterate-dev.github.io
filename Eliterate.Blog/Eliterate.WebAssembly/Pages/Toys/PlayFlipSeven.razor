@@ -13,7 +13,11 @@
             <div class="playing-card-container">
                 @foreach (var card in _currentPlayer.Hand)
                 {
-                    <PlayingCard Model="card" Scale="8"></PlayingCard>
+                    <PlayingCard Model="card" Scale="8">
+                        <div>
+                            @card.Name
+                        </div>
+                    </PlayingCard>
                 }
             </div>
             <h4 class="prompt">@_prompt</h4>
@@ -64,6 +68,18 @@
     <button @onclick="Restart">Apply and Restart</button>
 </div>
 
+<div class="target-dialog" style="visibility:@(_showDialog?"visible":"hidden");">
+    <div class="dialog-content">
+        @foreach (var player in _game.GetValidTargets())
+        {
+            <div class="dialog-row">
+                <div>@player.Name</div>
+                <button @onclick="@(e => Target(player))">Target</button>
+            </div>
+        }
+    </div>
+</div>
+
 @code {
     private FlipSevenGame _game = FlipSevenGame.SetUp(2);
     private FlipSevenPlayer _currentPlayer => _game.CurrentPlayer;
@@ -74,6 +90,9 @@
     private int _numberOfPlayers = 2;
     private int _numbersToFlip = 7;
     private int _winningScore = 200;
+
+    private FlipSevenCard? _activeActionCard;
+    private bool _showDialog => _activeActionCard is not null;
 
     protected override async Task OnInitializedAsync()
     {
@@ -106,12 +125,31 @@
     private void Hit()
     {
         var newCard = _game.Flip(_currentPlayer);
+        if (newCard is null)
+            return;
+
+        if (newCard.IsActionCard)
+        {
+            _activeActionCard = newCard;
+            return;
+        }
+
         if (!_game.RoundActive)
         {
             _game.PayOut();
             return;
         }
         _game.MoveToNextPlayer();
+    }
+
+    private void Target(FlipSevenPlayer player)
+    {
+        if (_activeActionCard is null)
+            return;
+        var result = _game.TryGivePlayerCard(player, _activeActionCard);
+        if (result is null)
+            return;
+
     }
     #endregion
 }

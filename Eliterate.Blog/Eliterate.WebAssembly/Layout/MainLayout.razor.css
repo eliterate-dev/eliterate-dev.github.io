@@ -3,6 +3,7 @@
     flex-direction: column;
     height: inherit;
     min-width: calc(var(--min-width) + 20);
+    overflow-x: scroll; 
 }
 
 main {

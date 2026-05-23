@@ -4,11 +4,13 @@
 	--z: calc(var(--x) * 0.3);
 	--color: #fff;
 	--label: 'Test';
+	transform-origin: 50%;
 	transform-style: preserve-3d;
-	transform: rotateX(25deg) rotateY(-2deg) rotateZ(95deg);
-	width: 100%;
-	height: 100%;
-	margin-top: -4rem;
+	transform: rotateX(-5deg) rotateY(-25deg) rotateZ(5deg);
+	width: var(--x);
+	height: var(--y);
+	display: block;
+	box-shadow: 0.25rem -0.25rem 0.5rem #00000088;
 }
 
 	box, .box div, .box div::before, .box div::after {
@@ -17,12 +19,15 @@
 		transform-style: preserve-3d;
 	}
 
+		box:hover {
+			box-shadow: none;
+		}
+
 .box-bottom {
 	width: var(--x);
 	height: var(--y);
 	background-color: color-mix(in srgb, var(--color) 50%, #333333);
 	transform-origin: top center;
-	box-shadow: 0 -0.25rem 0.25rem black, -0.25rem -0.25rem 0.25rem black;
 }
 
 	.box-bottom::before {

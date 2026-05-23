@@ -1,11 +1,15 @@
 ﻿
 .playing-card {
-	text-wrap: stable;
 	margin-left: 0.25rem;
-	line-height: 1;
 	background-color: white;
 	color: black;
 	display: inline-block;
 	border-radius: 0.05em;
 	box-shadow: 2px 2px black;
+}
+
+.card-back {
+	background-color: darkgrey;
+	color: lightgrey;
+	content: '';
 }

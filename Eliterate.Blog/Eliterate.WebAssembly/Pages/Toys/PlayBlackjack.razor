@@ -19,14 +19,18 @@
                 {
                     @foreach (var card in _game.Dealer.Hand.Skip(1))
                     {
-                        <PlayingCard Model="null" Scale="8">@card.Emoji</PlayingCard>
+                        <PlayingCard Model="null" Scale="8" CardBackEmoji="@Codespirals.CardGames.Poker.PokerConstants.CARDBACKEMOJI">
+                            @card.Emoji
+                        </PlayingCard>
                     }
                 }
                 else
                 {
                     @foreach (var card in _game.Dealer.Hand.Skip(1))
                     {
-                        <PlayingCard Model="card" Scale="8">@card.Emoji</PlayingCard>
+                        <PlayingCard Model="card" Scale="8">
+                            @card.Emoji
+                        </PlayingCard>
                     }
                 }
             </div>

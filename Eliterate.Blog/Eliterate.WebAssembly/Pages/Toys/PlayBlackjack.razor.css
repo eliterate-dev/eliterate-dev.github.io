@@ -113,3 +113,15 @@ ul {
 	.game-settings-container ::deep button {
 		width: 100%;
 	}
+
+.playing-card-container ::deep .playing-card {
+	line-height: 11.5rem;
+	font-size: 11rem;
+	text-align: center;
+}
+
+.overview-cards ::deep .playing-card {
+	line-height: 3rem;
+	font-size: 2.75rem;
+	text-align: center;
+}

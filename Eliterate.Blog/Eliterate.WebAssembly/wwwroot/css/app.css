@@ -178,6 +178,7 @@ td {
 
 #app {
 	height: inherit;
+	overflow-x: scroll;
 	min-width: calc(var(--min-width) + 20);
 }
 
