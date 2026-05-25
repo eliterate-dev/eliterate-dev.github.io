@@ -70,12 +70,15 @@
 
 <div class="target-dialog" style="visibility:@(_showDialog?"visible":"hidden");">
     <div class="dialog-content">
-        @foreach (var player in _game.GetValidTargets())
+        @if (_activeActionCard is not null)
         {
-            <div class="dialog-row">
-                <div>@player.Name</div>
-                <button @onclick="@(e => Target(player))">Target</button>
-            </div>
+            foreach (var player in _game.GetValidTargets(_activeActionCard))
+            {
+                <div class="dialog-row">
+                    <div>@player.Name</div>
+                    <button @onclick="@(e => Target(player))">Target</button>
+                </div>
+            }
         }
     </div>
 </div>
@@ -89,6 +92,7 @@
 
     private int _numberOfPlayers = 2;
     private int _numbersToFlip = 7;
+    private int _flipNumberBonus = 15;
     private int _winningScore = 200;
 
     private FlipSevenCard? _activeActionCard;
@@ -101,30 +105,20 @@
 
     private void Restart()
     {
-        _game = FlipSevenGame.SetUp(_numberOfPlayers, _numbersToFlip, _winningScore);
+        _game = FlipSevenGame.SetUp(_numberOfPlayers, _numbersToFlip, _flipNumberBonus, _winningScore);
         StartNextRound();
     }
 
     private void StartNextRound()
-    {
-        _game.StartRound();
-    }
+        => _game.StartRound();
 
     #region Actions
     private void Bank()
-    {
-        var banked = _game.Bank(_currentPlayer);
-        if (!_game.RoundActive)
-        {
-            _game.PayOut();
-            return;
-        }
-        _game.MoveToNextPlayer();
-    }
+        => _game.Bank();
 
     private void Hit()
     {
-        var newCard = _game.Flip(_currentPlayer);
+        var newCard = _game.Flip();
         if (newCard is null)
             return;
 

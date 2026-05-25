@@ -1,0 +1,12 @@
+﻿.round-feed {
+	margin: 0.5rem auto;
+	padding: 0 1rem;
+	overflow-y: scroll;
+	background-color: var(--color-contrast-1);
+	background-image: url(../images/textures/notebook.png);
+	box-shadow: 2px 2px black;
+}
+
+.round-select {
+
+}

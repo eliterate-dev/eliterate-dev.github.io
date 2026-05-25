@@ -1,0 +1,20 @@
+﻿<div class="round-feed-container">
+    <div class="round-feed">
+        <pre class="feedback">@_feedback</pre>
+    </div>
+    @foreach (var round in Model.GroupBy(x => x.Round).Skip(1))
+    {
+        <button class="round-select" @onclick="(x => SetRound(round.Key ?? 0))" value="@round.Key">@round.Key</button>
+    }
+</div>
+
+@code {
+    private string _feedback => string.Join('\n', Model.Where(l => l.Round == _round).Select(l => l.Text));
+    private int _round;
+
+    [Parameter]
+    public IEnumerable<Codespirals.CardGames.LogEntry> Model { get; set; } = [];
+
+    private void SetRound(int i)
+        => _round = i;
+}
