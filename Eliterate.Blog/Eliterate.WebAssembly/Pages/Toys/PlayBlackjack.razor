@@ -76,11 +76,7 @@
                 }
             </ul>
         </div>
-        <div class="round-feed">
-            <h4>Round @_game.CurrentRound feed:</h4>
-            <h5>Current buy in: @_game.BuyIn</h5>
-            <pre class="feedback">@_feedback</pre>
-        </div>
+        <GameLog Model="_game" CurrentRound="_game.CurrentRound"></GameLog>
     </div>
 </div>
 
@@ -97,7 +93,7 @@
 
 @code {
     private BlackJackGame _game = BlackJackGame.SetUp(1, 100, 1, 21, 1, 2);
-    private BlackJackPlayer _currentPlayer => _game.CurrentPlayer;
+    private BlackJackPlayer _currentPlayer => _game.CurrentPlayer == _game.Dealer ? _game.Players[1] : _game.CurrentPlayer;
 
     private string _prompt => _game.Prompt;
     private string _feedback => string.Join('\n', _game.LogEntries.Where(l => l.Round == _game.CurrentRound).Select(l => l.Text));
@@ -128,7 +124,7 @@
     #region Actions
     private void Stand()
     {
-        _game.Stand(_currentPlayer);
+        _game.Stand();
         if (!_game.RoundActive)
         {
             _game.PayOut();
@@ -137,7 +133,7 @@
 
     private void Hit()
     {
-        var newCard = _game.Hit(_currentPlayer);
+        var newCard = _game.Hit();
         if (!_game.RoundActive)
         {
             _game.PayOut();

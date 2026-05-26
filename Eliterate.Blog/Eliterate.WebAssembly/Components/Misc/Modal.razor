@@ -1,0 +1,20 @@
+﻿
+<div class="modal-dialog" style="@_visible" @onclick="Toggle">
+    <div class="dialog-content">
+        @ChildContent
+    </div>
+</div>
+
+@code {
+    private string _visible => Visible ? "visibility:visible;" : $"visibility:hidden;";
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public bool Visible { get; set; }
+    [Parameter]
+    public bool Hideable { get; set; } = true;
+
+    public void Toggle()
+        => Visible = Hideable ? false : true;
+}

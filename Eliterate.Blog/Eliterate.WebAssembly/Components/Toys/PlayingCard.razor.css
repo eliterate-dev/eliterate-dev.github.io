@@ -5,11 +5,12 @@
 	color: black;
 	display: inline-block;
 	border-radius: 0.05em;
-	box-shadow: 2px 2px black;
+	border: 1px solid black;
+	box-shadow: 2px 2px #0009;
 }
 
 .card-back {
-	background-color: darkgrey;
-	color: lightgrey;
+	background-color: white;
+	color: #ec3048;
 	content: '';
 }

@@ -1,12 +1,30 @@
-﻿.round-feed {
-	margin: 0.5rem auto;
-	padding: 0 1rem;
+﻿.round-feed-container {
+	height: 420px;
+	width: 320px;
+	margin: 0 auto;
+	position: relative;
+	padding: 0 0.5rem;
+}
+
+.round-feed {
+	position: absolute;
+	height: 400px;
+	width: calc(320px - 3rem);
+	padding: 0.5rem;
 	overflow-y: scroll;
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/notebook.png);
-	box-shadow: 2px 2px black;
+	background-size: 400px 8rem;
+	border: 1px solid black;
+	box-shadow: 2px 2px 1px #000b;
+}
+.feedback {
+	margin: 0;
+	line-height: 1rem;
+	text-wrap: wrap;
 }
 
-.round-select {
-
+.round-select-button {
+	position: absolute;
+	right: 0.5rem;
 }

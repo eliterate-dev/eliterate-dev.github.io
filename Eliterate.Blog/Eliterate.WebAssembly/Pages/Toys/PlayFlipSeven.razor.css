@@ -113,3 +113,14 @@ ul {
 	.game-settings-container ::deep button {
 		width: 100%;
 	}
+
+.target-dialog {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #222a;
+}
+.target-dialog-content {
+}

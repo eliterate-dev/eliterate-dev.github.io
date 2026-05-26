@@ -13,11 +13,7 @@
             <div class="playing-card-container">
                 @foreach (var card in _currentPlayer.Hand)
                 {
-                    <PlayingCard Model="card" Scale="8">
-                        <div>
-                            @card.Name
-                        </div>
-                    </PlayingCard>
+                    <FlipSevenCard Model="card" Scale="8"></FlipSevenCard>
                 }
             </div>
             <h4 class="prompt">@_prompt</h4>
@@ -46,17 +42,14 @@
                         <div class="overview-cards">
                             @foreach (var card in player.Hand)
                             {
-                                <PlayingCard Model="card" Scale="2"></PlayingCard>
+                                <FlipSevenCard Model="card" Scale="2"></FlipSevenCard>
                             }
                         </div>
                     </li>
                 }
             </ul>
         </div>
-        <div class="round-feed">
-            <h4>Round @_game.CurrentRound feed:</h4>
-            <pre class="feedback">@_feedback</pre>
-        </div>
+        <GameLog Model="_game" CurrentRound="_game.CurrentRound"></GameLog>
     </div>
 </div>
 
@@ -68,22 +61,17 @@
     <button @onclick="Restart">Apply and Restart</button>
 </div>
 
-<div class="target-dialog" style="visibility:@(_showDialog?"visible":"hidden");">
-    <div class="dialog-content">
-        @if (_activeActionCard is not null)
-        {
-            foreach (var player in _game.GetValidTargets(_activeActionCard))
-            {
-                <div class="dialog-row">
-                    <div>@player.Name</div>
-                    <button @onclick="@(e => Target(player))">Target</button>
-                </div>
-            }
-        }
-    </div>
-</div>
+<Modal Hideable="false" Visible="@_showDialog">
+    @foreach (var player in _game.GetValidTargets(_activeActionCard) ?? [])
+    {
+        <div class="dialog-row">
+            <div>@player.Name</div>
+            <button @onclick="@(e => UseActionCard(player))">Target</button>
+        </div>
+    }
+</Modal>
 
-@code {
+    @code {
     private FlipSevenGame _game = FlipSevenGame.SetUp(2);
     private FlipSevenPlayer _currentPlayer => _game.CurrentPlayer;
 
@@ -95,7 +83,7 @@
     private int _flipNumberBonus = 15;
     private int _winningScore = 200;
 
-    private FlipSevenCard? _activeActionCard;
+    private Codespirals.CardGames.FlipSeven.FlipSevenCard? _activeActionCard => _game.ActionCardQueue.FirstOrDefault().ActionCard;
     private bool _showDialog => _activeActionCard is not null;
 
     protected override async Task OnInitializedAsync()
@@ -117,30 +105,13 @@
         => _game.Bank();
 
     private void Hit()
-    {
-        var newCard = _game.Flip();
-        if (newCard is null)
-            return;
+        => _game.Flip();
 
-        if (newCard.IsActionCard)
-        {
-            _activeActionCard = newCard;
-            return;
-        }
-
-        if (!_game.RoundActive)
-        {
-            _game.PayOut();
-            return;
-        }
-        _game.MoveToNextPlayer();
-    }
-
-    private void Target(FlipSevenPlayer player)
+    private void UseActionCard(FlipSevenPlayer player)
     {
         if (_activeActionCard is null)
             return;
-        var result = _game.TryGivePlayerCard(player, _activeActionCard);
+        var result = _game.UseActionCard(player, _activeActionCard);
         if (result is null)
             return;
 
