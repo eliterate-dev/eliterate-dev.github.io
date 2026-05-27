@@ -62,13 +62,16 @@
 </div>
 
 <Modal Hideable="false" Visible="@_showDialog">
-    @foreach (var player in _game.GetValidTargets(_activeActionCard) ?? [])
-    {
-        <div class="dialog-row">
-            <div>@player.Name</div>
-            <button @onclick="@(e => UseActionCard(player))">Target</button>
-        </div>
-    }
+    <div class="target-dialog">
+        <div class="target-dialog-title">@(_activeActionCard?.Name ?? "")</div>
+        @foreach (var player in _game.GetValidTargets(_activeActionCard) ?? [])
+        {
+            <div class="target-dialog-row">
+                <div>@player.Name</div>
+                <button @onclick="@(e => UseActionCard(player))">Choose</button>
+            </div>
+        }
+    </div>
 </Modal>
 
     @code {
@@ -97,15 +100,15 @@
         StartNextRound();
     }
 
-    private void StartNextRound()
-        => _game.StartRound();
-
-    #region Actions
+    #region Actions requiring user input
     private void Bank()
         => _game.Bank();
 
     private void Hit()
         => _game.Flip();
+
+    private void StartNextRound()
+        => _game.StartRound();
 
     private void UseActionCard(FlipSevenPlayer player)
     {
@@ -114,7 +117,6 @@
         var result = _game.UseActionCard(player, _activeActionCard);
         if (result is null)
             return;
-
     }
     #endregion
 }
