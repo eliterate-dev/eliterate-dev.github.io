@@ -2,10 +2,14 @@
 
 <div class="round-feed-container">
     <div class="round-feed" style="rotate:-1.2deg;">
-        <pre class="feedback">@_firstRound</pre>
+        <p class="feedback">
+            @((MarkupString)(_firstRound))
+        </p>
     </div>
     <div class="round-feed">
-        <pre class="feedback">@_feedback</pre>
+        <p class="feedback">
+            @((MarkupString)(_feedback))
+        </p>
     </div>
     @{
         var i = 0;
@@ -19,8 +23,8 @@
 
 @code {
     private IEnumerable<LogEntry> _logEntries => Model?.LogEntries ?? [];
-    private string _firstRound => string.Join('\n', _logEntries.Where(l => l.Round == 0).Select(l => l.Text));
-    private string _feedback => string.Join('\n', _logEntries.Where(l => l.Round == _selectedRound).Select(l => l.Text));
+    private string _firstRound => string.Join("<br />", _logEntries.Where(l => l.Round == 0).Select(l => l.Text));
+    private string _feedback => string.Join("<br />", _logEntries.Where(l => l.Round == _selectedRound).Select(l => l.Text));
     private int _selectedRound;
     private int _currentRound;
 

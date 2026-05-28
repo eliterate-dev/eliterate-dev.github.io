@@ -1,20 +1,16 @@
-﻿@if (Model is null)
-{
-    
-}
-else
-{
-    <PlayingCard Model="@Model" Scale="@Scale">
-        <div class="@_class">
-            @Model.Name
+﻿
+<PlayingCard Model="@Model" Scale="@Scale">
+    <div class="flip-seven-card" style="@_accent">
+        <div class="flip-seven-card-content @_class">
+            <p>@Model?.Name</p>
         </div>
-    </PlayingCard>
-}
+    </div>
+</PlayingCard>
 
 
 @code {
     private string _class => Model?.CardType switch
-        {
+    {
         Codespirals.CardGames.FlipSeven.CardType.Number => "card-number",
         Codespirals.CardGames.FlipSeven.CardType.BonusAdd => "card-bonus",
         Codespirals.CardGames.FlipSeven.CardType.Multiplier => "card-mult",
@@ -22,10 +18,14 @@ else
         Codespirals.CardGames.FlipSeven.CardType.Freeze => "card-freeze",
         Codespirals.CardGames.FlipSeven.CardType.Flip => "card-flip",
         _ => "card-number"
-        };
+    };
+    private int _hue => 360 / (MaxNumber + 1)  * (Model?.Value ?? 1);
+    private string _accent => $"--accent-color:hsl({_hue}, 100%, 50%);";
 
     [Parameter]
     public Codespirals.CardGames.FlipSeven.FlipSevenCard? Model { get; set; }
     [Parameter]
     public int Scale { get; set; } = 1;
+    [Parameter]
+    public int MaxNumber { get; set; } = 12;
 }

@@ -1,15 +1,45 @@
-﻿.playing-card {
+﻿.flip-seven-card {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+.flip-seven-card-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+	.flip-seven-card-content > p {
+		margin: 0;
+		text-align: center;
+		font-size: 0.8em;
+	}
 
 .card-number {
+	height: calc(100% - 0.3em);
+	width: calc(100% - 0.3em);
+	border: 0.1em solid var(--accent-color);
+	border-radius: 5px;
 }
-.card-bonus {
-}
-.card-mult {
-}
-.card-second-chance {
+.card-bonus, .card-mult, .card-second-chance, .card-freeze, .card-flip {
+	height: calc(100% - 0.3em);
+	width: calc(100% - 0.3em);
+	border: 0.1em solid var(--color-primary);
+	border-radius: 5px;
+	background-color: hsl(0, 20%, 80%);
 }
 .card-freeze {
+	font-size: 0.5em;
 }
 .card-flip {
+	font-size: 0.5em;
 }
+.card-second-chance {
+	font-size: 0.3em;
+}
+	.card-second-chance > p, .card-freeze > p, -card-flip > p {
+		background-color: var(--color-primary);
+		border-radius: 50%;
+		rotate: -30deg;
+	}

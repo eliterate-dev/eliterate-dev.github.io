@@ -1,6 +1,7 @@
 ﻿.toy-page-title {
 	text-align: center;
 	rotate: -2deg;
+	margin: 0.5rem auto;
 }
 
 .blackjack-game {
@@ -46,6 +47,9 @@ ul {
 	margin: 0 auto;
 	width: max-content;
 }
+	.playing-card-container > div {
+		overflow: hidden;
+	}
 
 .player-overview {
 	width: max-content;
@@ -115,13 +119,14 @@ ul {
 	}
 
 .target-dialog {
-
+	display: grid;
+	grid-template-columns: 1fr;
 }
-.target-dialog-title {
+.target-dialog ::deep .playing-card {
+	margin: 1rem auto;
 }
 
 .target-dialog-row {
-	width: max-content;
 	display: grid;
 	grid-template-columns: 1fr min-content;
 }

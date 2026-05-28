@@ -1,12 +1,12 @@
 ﻿
 .playing-card {
-	margin-left: 0.25rem;
 	background-color: white;
 	color: black;
 	display: inline-block;
 	border-radius: 0.05em;
 	border: 1px solid black;
 	box-shadow: 2px 2px #0009;
+	margin-left: 0.25rem;
 }
 
 .card-back {

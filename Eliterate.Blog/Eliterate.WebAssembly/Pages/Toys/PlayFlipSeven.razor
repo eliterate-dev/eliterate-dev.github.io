@@ -11,7 +11,7 @@
     <div class="flipseven-container">
         <div class="player-container">
             <div class="playing-card-container">
-                @foreach (var card in _currentPlayer.Hand)
+                @foreach (var card in _currentPlayer.Hand.OrderBy(c => c.CardType).ThenBy(c => c.Value))
                 {
                     <FlipSevenCard Model="card" Scale="8"></FlipSevenCard>
                 }
@@ -61,10 +61,11 @@
     <button @onclick="Restart">Apply and Restart</button>
 </div>
 
-<Modal Hideable="false" Visible="@_showDialog">
+<Modal Hideable="false" Visible="@_hasActiveActionCard">
     <div class="target-dialog">
-        <div class="target-dialog-title">@(_activeActionCard?.Name ?? "")</div>
-        @foreach (var player in _game.GetValidTargets(_activeActionCard) ?? [])
+        <h4>@_actionPrompt</h4>
+        <FlipSevenCard Model="_activeActionCard?.Card" Scale="8"></FlipSevenCard>
+        @foreach (var player in _validTargets)
         {
             <div class="target-dialog-row">
                 <div>@player.Name</div>
@@ -74,20 +75,21 @@
     </div>
 </Modal>
 
-    @code {
+@code {
     private FlipSevenGame _game = FlipSevenGame.SetUp(2);
     private FlipSevenPlayer _currentPlayer => _game.CurrentPlayer;
 
     private string _prompt => _game.Prompt;
-    private string _feedback => string.Join('\n', _game.LogEntries.Where(l => l.Round == _game.CurrentRound).Select(l => l.Text));
 
     private int _numberOfPlayers = 2;
     private int _numbersToFlip = 7;
     private int _flipNumberBonus = 15;
     private int _winningScore = 200;
 
-    private Codespirals.CardGames.FlipSeven.FlipSevenCard? _activeActionCard => _game.ActionCardQueue.FirstOrDefault().ActionCard;
-    private bool _showDialog => _activeActionCard is not null;
+    private (FlipSevenPlayer Player, Codespirals.CardGames.FlipSeven.FlipSevenCard Card)? _activeActionCard => _game.ActionCardQueue.FirstOrDefault();
+    private bool _hasActiveActionCard => _game.ActionCardQueue.Count > 0;
+    private IEnumerable<FlipSevenPlayer> _validTargets => _game.GetValidTargets(_activeActionCard?.Card) ?? [];
+    private string _actionPrompt => _hasActiveActionCard ? $"{_activeActionCard?.Player.Name} has to choose an action for:" : "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -112,11 +114,9 @@
 
     private void UseActionCard(FlipSevenPlayer player)
     {
-        if (_activeActionCard is null)
+        if (!_hasActiveActionCard || _activeActionCard?.Card is null)
             return;
-        var result = _game.UseActionCard(player, _activeActionCard);
-        if (result is null)
-            return;
+        _game.UseActionCard(player, _activeActionCard?.Card);
     }
     #endregion
 }

@@ -1,19 +1,19 @@
 ﻿
-<div class="modal-dialog" style="@_visible" @onclick="Toggle">
+<div class="modal-dialog @_visible" style="" @onclick="Toggle">
     <div class="modal-dialog-content">
         @ChildContent
     </div>
 </div>
 
 @code {
-    private string _visible => Visible ? "visibility:visible;" : $"visibility:hidden;";
+    private string _visible => Visible ? "modal-show" : $"";
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
     [Parameter]
     public bool Visible { get; set; }
     [Parameter]
-    public bool Hideable { get; set; } = true;
+    public bool Hideable { get; init; } = true;
 
     public void Toggle()
         => Visible = Hideable ? false : true;
