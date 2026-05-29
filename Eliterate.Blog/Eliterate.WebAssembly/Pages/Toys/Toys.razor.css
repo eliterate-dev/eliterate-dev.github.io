@@ -1,4 +1,52 @@
 ﻿.toy-page-title {
 	text-align: center;
-	rotate: -5deg;
+}
+
+.toy-list {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.blackjack-label {
+	--border-size: 5px;
+	width: calc(100% - (1.8 * var(--border-size)));
+	height: calc(100% - (1.8 * var(--border-size)));
+	border: var(--border-size) solid darkred;
+	line-height: 0.9;
+	text-align: center;
+	background-image: url(../images/textures/diagmonds.png);
+}
+	.blackjack-label span {
+		position: absolute;
+		color: white;
+	}
+
+.flip-seven-label {
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+	.flip-seven-label h2 {
+		--outline-size: 4px;
+		position: absolute;
+		margin: 5rem 1rem;
+		line-height: 1;
+		color: #e9cb49;
+		font-size: 4.75rem;
+		text-transform: uppercase;
+		text-shadow: var(--outline-size) var(--outline-size) purple, var(--outline-size) calc(var(--outline-size) * -1) purple, calc(var(--outline-size) * -1) var(--outline-size) purple, calc(var(--outline-size) * -1) calc(var(--outline-size) * -1) purple;
+		border: 2px solid #00949b;
+		background-color: #ece2ca;
+		transform: rotate(-10deg);
+		box-shadow: var(--outline-size) var(--outline-size) #ece2ca, var(--outline-size) calc(var(--outline-size) * -1) #ece2ca, calc(var(--outline-size) * -1) var(--outline-size) #ece2ca, calc(var(--outline-size) * -1) calc(var(--outline-size) * -1) #ece2ca;
+	}
+
+.flip-seven-outline {
+	--border-size: 5px;
+	position: absolute;
+	top: 10%;
+	right: 10%;
+	width: calc(80% - (1.8 * var(--border-size)));
+	height: calc(80% - (1.8 * var(--border-size)));
+	border: var(--border-size) solid #e9cb49;
 }

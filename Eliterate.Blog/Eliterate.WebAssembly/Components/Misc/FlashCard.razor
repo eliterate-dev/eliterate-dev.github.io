@@ -1,0 +1,11 @@
+﻿<div class="flashcard" style="@_rotate">
+    @ChildContent
+</div>
+
+@code {
+    private string _rotate => $"rotate:{Rotation}deg;";
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public double Rotation { get; set; }
+}

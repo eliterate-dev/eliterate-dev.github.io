@@ -1,0 +1,122 @@
+﻿@using Codespirals.CardGames.FlipSeven
+@using Eliterate.WebAssembly.Components.Toys
+
+@page "/toys/flip_seven"
+
+<PageTitle>Eliterate - Flip Seven</PageTitle>
+
+<h2 class="toy-page-title"><span class="sticker">Play Flip Seven</span></h2>
+
+<div class="flipseven-game">
+    <div class="flipseven-container">
+        <div class="player-container">
+            <div class="playing-card-container">
+                @foreach (var card in _currentPlayer.Hand.OrderBy(c => c.CardType).ThenBy(c => c.Value))
+                {
+                    <FlipSevenCard Model="card" Scale="8"></FlipSevenCard>
+                }
+            </div>
+            <h4 class="prompt">@_prompt</h4>
+            <ul>
+                <li>Current Player: @_currentPlayer.Name</li>
+                <li>Value of Cards: @_currentPlayer.HandPoints</li>
+            </ul>
+        </div>
+        <div class="game-controls">
+            <button @onclick="Bank" disabled="@(!_game.RoundActive || _game.GameOver)">Bank</button>
+            <button @onclick="Hit" disabled="@(!_game.RoundActive || _game.GameOver)">Hit Me</button>
+
+            <button class="right" @onclick="StartNextRound" disabled="@(_game.RoundActive || _game.GameOver)">Start Next Round</button>
+        </div>
+    </div>
+    <div class="feed-container">
+        <div class="player-overview">
+            <h4>Player overview:</h4>
+            <ul>
+                @foreach (var player in _game.Players)
+                {
+                    <li class="overview-player @(_currentPlayer == player ? "active" : "")">
+                        <div class="center-content">
+                            <p>@player.Name | @player.TotalPoints | @player.HandPoints</p>
+                        </div>
+                        <div class="overview-cards">
+                            @foreach (var card in player.Hand)
+                            {
+                                <FlipSevenCard Model="card" Scale="2"></FlipSevenCard>
+                            }
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <GameLog Model="_game" CurrentRound="_game.CurrentRound"></GameLog>
+    </div>
+</div>
+
+<div class="game-settings-container">
+    <div class="game-settings">
+        <label>Number of players</label><InputNumber @bind-value="_numberOfPlayers" DisplayName="Number of players" min="1" max="5" />
+        <label>Winning Score</label><InputNumber @bind-value="_winningScore" DisplayName="Winning Score" min="21" max="100" />
+    </div>
+    <button @onclick="Restart">Apply and Restart</button>
+</div>
+
+<Modal Hideable="false" Visible="@_hasActiveActionCard">
+    <div class="target-dialog">
+        <h4>@_actionPrompt</h4>
+        <FlipSevenCard Model="_activeActionCard?.Card" Scale="8"></FlipSevenCard>
+        @foreach (var player in _validTargets)
+        {
+            <div class="target-dialog-row">
+                <div>@player.Name</div>
+                <button @onclick="@(e => UseActionCard(player))">Choose</button>
+            </div>
+        }
+    </div>
+</Modal>
+
+@code {
+    private FlipSevenGame _game = FlipSevenGame.SetUp(2);
+    private FlipSevenPlayer _currentPlayer => _game.CurrentPlayer;
+
+    private string _prompt => _game.Prompt;
+
+    private int _numberOfPlayers = 2;
+    private int _numbersToFlip = 7;
+    private int _flipNumberBonus = 15;
+    private int _winningScore = 200;
+
+    private (FlipSevenPlayer Player, Codespirals.CardGames.FlipSeven.FlipSevenCard Card)? _activeActionCard => _game.ActionCardQueue.FirstOrDefault();
+    private bool _hasActiveActionCard => _game.ActionCardQueue.Count > 0;
+    private IEnumerable<FlipSevenPlayer> _validTargets => _game.GetValidTargets(_activeActionCard?.Card) ?? [];
+    private string _actionPrompt => _hasActiveActionCard ? $"{_activeActionCard?.Player.Name} has to choose an action for:" : "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        Restart();
+    }
+
+    private void Restart()
+    {
+        _game = FlipSevenGame.SetUp(_numberOfPlayers, _numbersToFlip, _flipNumberBonus, _winningScore);
+        StartNextRound();
+    }
+
+    #region Actions requiring user input
+    private void Bank()
+        => _game.Bank();
+
+    private void Hit()
+        => _game.Flip();
+
+    private void StartNextRound()
+        => _game.StartRound();
+
+    private void UseActionCard(FlipSevenPlayer player)
+    {
+        if (!_hasActiveActionCard || _activeActionCard?.Card is null)
+            return;
+        _game.UseActionCard(player, _activeActionCard?.Card);
+    }
+    #endregion
+}

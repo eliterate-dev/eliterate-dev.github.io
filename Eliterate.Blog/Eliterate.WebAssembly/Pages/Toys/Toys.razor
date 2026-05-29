@@ -1,17 +1,32 @@
 ﻿@inject IContentService ContentService
 @page "/toys"
-@using Eliterate.WebAssembly.Components.Misc
+@using Eliterate.WebAssembly.Components.Toys
 
 <PageTitle>Eliterate - Toys</PageTitle>
 
 <h2 class="toy-page-title"><span class="sticker">Toys</span></h2>
 
-<div class="post-list">
-    @foreach (var toy in _toys)
-    {
-        <MetadataCard Model="toy" />
-    }
+<div class="toy-list">
+    <ToyBox Name="Blackjack" Scale="1" Color="f00">
+        <div class="blackjack-label">
+            <span style="font-size:15rem;right:0;left:0;">♠</span>
+            <span style="font-size:1.5rem;top:0.5rem;right:0.5rem;">21</span>
+            <span style="font-size:1.5rem;bottom:0.5rem;left:0.5rem;">21</span>
+        </div>
+    </ToyBox>
+    <ToyBox Name="Flip Seven" Scale="1.2d" Color="00949b">
+        <div class="flip-seven-label">
+            <span class="flip-seven-outline"></span>
+            <h2>Flip7</h2>
+        </div>
+    </ToyBox>
+    <ToyBox Name="Test Box" Scale="1.5">
+        <div class="center-content">
+            <p>Test box, do not click.</p>
+        </div>
+    </ToyBox>
 </div>
+
 
 @code {
     private List<PostMetadata> _toys = [];

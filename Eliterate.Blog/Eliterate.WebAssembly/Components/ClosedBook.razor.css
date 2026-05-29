@@ -1,0 +1,43 @@
+﻿.book {
+	position: relative;
+	color: var(--color-foreground);
+	margin-top: 2rem;
+	margin-right: 0.25rem;
+}
+
+.book-cover {
+	border: solid 1px var(--color-book-cover);
+	background-color: var(--color-book-cover);
+	background-image: url(../images/textures/dark-leather.png);
+	border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.book-closed {
+	color: white;
+	width: calc(var(--min-width) * 0.9);
+	height: calc(var(--min-width) * 1.1);
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 3rem 1rem;
+	border-top: none;
+}
+
+	.book-closed p {
+		white-space: pre-line;
+	}
+
+.book-front {
+	rotate: -2deg;
+	border-radius: 0.25rem 0.75rem 0.5rem 0.75rem;
+	border-left: solid 0.25rem var(--color-book-cover);
+	box-shadow: -4px -4px inset darkgrey, 2px 2px #111;
+}
+
+.book-back {
+	rotate: 1deg;
+	border-radius: 0.75rem 0.5rem 0.25rem 0.5rem;
+	border-right: 0.5rem solid var(--color-book-cover);
+	box-shadow: 0px -4px inset darkgrey, 1px 2px #111;
+}

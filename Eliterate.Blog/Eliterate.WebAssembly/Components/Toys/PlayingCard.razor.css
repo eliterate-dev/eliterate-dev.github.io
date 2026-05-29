@@ -1,11 +1,16 @@
 ﻿
 .playing-card {
-	text-wrap: stable;
-	margin-left: 0.25rem;
-	line-height: 1;
 	background-color: white;
 	color: black;
 	display: inline-block;
 	border-radius: 0.05em;
-	box-shadow: 2px 2px black;
+	border: 1px solid black;
+	box-shadow: 2px 2px #0009;
+	margin-left: 0.25rem;
+}
+
+.card-back {
+	background-color: white;
+	color: #ec3048;
+	content: '';
 }

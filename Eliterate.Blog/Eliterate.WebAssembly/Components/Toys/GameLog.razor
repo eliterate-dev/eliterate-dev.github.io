@@ -1,0 +1,48 @@
+﻿@using Codespirals.CardGames
+
+<div class="round-feed-container">
+    <div class="round-feed" style="rotate:-1.2deg;">
+        <p class="feedback">
+            @((MarkupString)(_firstRound))
+        </p>
+    </div>
+    <div class="round-feed">
+        <p class="feedback">
+            @((MarkupString)(_feedback))
+        </p>
+    </div>
+    @{
+        var i = 0;
+        foreach (var round in _logEntries.GroupBy(x => x.Round).Skip(1))
+        {
+            <button class="round-select-button" style="@GetTopOffset(i)" @onclick="(x => SetRound(round.Key ?? 0))" value="@round.Key">@round.Key</button>
+            i++;
+        }
+    }
+</div>
+
+@code {
+    private IEnumerable<LogEntry> _logEntries => Model?.LogEntries ?? [];
+    private string _firstRound => string.Join("<br />", _logEntries.Where(l => l.Round == 0).Select(l => l.Text));
+    private string _feedback => string.Join("<br />", _logEntries.Where(l => l.Round == _selectedRound).Select(l => l.Text));
+    private int _selectedRound;
+    private int _currentRound;
+
+    [Parameter]
+    public IHasActivityLog<LogEntry>? Model { get; set; }
+    [Parameter]
+    public int CurrentRound
+    { 
+        get => _currentRound; 
+        set
+        {
+            _currentRound = _selectedRound = value;
+        }
+    }
+
+    private void SetRound(int i)
+        => _selectedRound = i;
+
+    private string GetTopOffset(int i)
+        => $"top:{i * 2}rem;";
+}

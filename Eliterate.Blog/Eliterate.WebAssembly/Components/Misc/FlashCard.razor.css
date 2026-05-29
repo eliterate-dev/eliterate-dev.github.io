@@ -1,0 +1,11 @@
+﻿.flashcard {
+	min-width: var(--min-width);
+	min-height: calc(var(--min-width) * 0.6);
+	color: var(--color-foreground);
+	background-color: var(--color-contrast-1);
+	background-image: url(../images/textures/notebook.png);
+	margin-bottom: 0.5rem;
+	border: 1px solid var(--color-shadow);
+	border-radius: 0.125rem;
+	box-shadow: 2px 2px black;
+}

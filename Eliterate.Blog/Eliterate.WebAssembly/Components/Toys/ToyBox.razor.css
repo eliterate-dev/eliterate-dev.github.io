@@ -1,0 +1,24 @@
+﻿.toy-grid-cell {
+	position: relative;
+	width: 100%;
+}
+
+.toy-wrapper {
+	width: max-content;
+	height: min-content;
+	display: block;
+	margin: 0 auto 0 auto;
+	rotate: 90deg;
+}
+
+	.toy-wrapper:first-child {
+		transition: 0.5s;
+		transform-style: preserve-3d;
+	}
+
+		.toy-wrapper:first-child:hover {
+			transition: 0.5s;
+			translate: 1rem -1rem;
+			transform: rotateY(-25deg);
+			transform-style: preserve-3d;
+		}

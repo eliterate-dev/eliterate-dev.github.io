@@ -12,12 +12,6 @@
 	height: max-content;
 }
 
-.book-front {
-	rotate: -2deg;
-	border-radius: 0.25rem 0.75rem 0.25rem 0.75rem;
-	box-shadow: -4px -4px inset darkgrey, 1px 2px 2px #111;
-}
-
 .post-grid-cell {
 	position: relative;
 	margin-top: -16.5rem;
@@ -34,17 +28,6 @@
 	min-width: var(--min-width);
 }
 
-.card {
-	color: var(--color-foreground);
-	border-radius: 0.125rem;
-	background-color: var(--color-contrast-1);
-	background-image: url(../images/textures/notebook.png);
-	margin-bottom: 0.5rem;
-	min-width: var(--min-width);
-	rotate: 1deg;
-	box-shadow: 5px 2px black;
-}
-
 .card-header {
 	border-bottom: solid 1px var(--color-foreground);
 	background-color: var(--color-contrast-1);
@@ -58,7 +41,7 @@
 .card-body {
 	max-width: 380px;
 	height: max-content;
-	margin: 0;
+	margin-bottom: 2.5rem;
 }
 
 .card-text {
@@ -74,6 +57,9 @@
 	}
 
 .card-footer {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
 }
 
 .card-tags {
@@ -102,21 +88,21 @@ a.card-tag:hover, a.card-tag:focus-visible {
 .peek-card-container {
 	min-width: var(--min-width);
 	height: 12rem;
-	overflow: hidden;
 	position: absolute;
 	bottom: 0;
 	right: 0;
 	z-index: 11;
+	overflow: hidden;
+	padding-top: 2rem;
+	padding-left: 2rem;
 }
 
 .peek-card {
 	height: max-content;
 	min-width: calc(var(--min-width) - 40px);
 	width: max-content;
-	rotate: -6deg;
 	position: absolute;
-	box-shadow: 1px -1px 1px black, 2px 2px 2px black;
-	bottom: -8rem;
+	bottom: -9rem;
 	right: 0;
 }
 	.peek-card.showSource {
@@ -125,5 +111,5 @@ a.card-tag:hover, a.card-tag:focus-visible {
 	}
 	.peek-card.hideSource {
 		transition: bottom 0.5s;
-		bottom: -8rem;
+		bottom: -9rem;
 	}

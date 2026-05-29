@@ -1,23 +1,27 @@
-﻿
-@if (Model is null)
+﻿@if (Model is null)
 {
-    <div class="playing-card" style="@_size">
-        @Codespirals.CardGames.Poker.Constants.CARDBACKEMOJI
+    <div class="playing-card card-back" style="@_size">
+        @CardBackEmoji
     </div>
 }
 else
 {
-    <div class="playing-card" alt="@Model.Name" style="@_size">
-        <div hidden>@Model.Value</div>
-        @Model.Emoji
+    <div class="playing-card @Class" alt="@Model.Name" style="@_size">
+        @ChildContent
     </div>
 }
 
 @code {
+    private string _size => $"height:{Scale*1.4}rem;width:{Scale}rem;font-size:{Scale*0.8}rem;";
+
     [Parameter]
-    public Codespirals.CardGames.Poker.Card? Model { get; set; }
+    public Codespirals.CardGames.ICard? Model { get; set; }
     [Parameter]
     public int Scale { get; set; } = 1;
-
-    private string _size => $"font-size:{Scale}rem;";
+    [Parameter]
+    public string Class { get; set; } = "";
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public string CardBackEmoji { get; set; } = "";
 }

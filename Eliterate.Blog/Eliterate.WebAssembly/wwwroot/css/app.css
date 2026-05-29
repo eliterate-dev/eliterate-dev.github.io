@@ -17,7 +17,8 @@
 	--color-contrast-1: #222;
 	--color-contrast-2: #333;
 	--color-contrast-3: #444;
-	--color-shadow: #303030;
+	--color-shadow: #111;
+	--color-border: #303030;
 	--color-book-cover: #170500;
 	--post-list-columns: 1fr;
 	--tearoff-height: 8rem;
@@ -52,21 +53,25 @@
 		--post-list-columns: repeat(2, minmax(0, 1fr));
 	}
 }
+
 @media (min-width: 840px) {
 	:root {
 		--navmenu-height: 0px;
 	}
 }
+
 @media (min-width: 1150px) {
 	:root {
 		--post-list-columns: repeat(3, minmax(0, 1fr));
 	}
 }
+
 @media (min-width: 1460px) {
 	:root {
 		--post-list-columns: repeat(4, minmax(0, 1fr));
 	}
 }
+
 @media (min-width: 1770px) {
 	:root {
 		--post-list-columns: repeat(5, minmax(0, 1fr));
@@ -146,6 +151,7 @@ button {
 	color: inherit;
 	box-shadow: 2px 2px 1px black;
 }
+
 	button:hover, button:focus-visible {
 		cursor: pointer;
 		color: var(--color-primary-tint);
@@ -157,6 +163,7 @@ button {
 		border-color: grey;
 		background-color: var(--color-contrast-3);
 	}
+
 		button:disabled:hover {
 			cursor: inherit;
 			box-shadow: 2px 2px 1px black;
@@ -172,6 +179,7 @@ td {
 
 #app {
 	height: inherit;
+	overflow-x: scroll;
 	min-width: calc(var(--min-width) + 20);
 }
 
@@ -244,21 +252,7 @@ code {
 	border-radius: 0.25rem;
 }
 
-.collapse {
-	display: collapse;
-}
-
-.absolute {
-	position: absolute;
-}
-
-.sticker {
-	user-select: none;
-	color: black;
-	text-shadow: var(--sticker-outline);
-	filter: var(--sticker-outline-filter);
-}
-
+/* Common classes */
 .grid-container {
 	display: grid;
 	grid: auto-flow dense;
@@ -268,46 +262,22 @@ code {
 	display: grid;
 	grid-template-columns: 1fr min-content;
 }
-
-.book {
-	position: relative;
-	color: var(--color-foreground);
-	margin-top: 2rem;
-	margin-right: 0.25rem;
+.center-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-	.book > h2 {
-		display: block;
-		text-align: center;
-	}
-
-.book-cover {
-	border: solid 1px var(--color-book-cover);
-	background-color: var(--color-book-cover);
-	background-image: url(../images/textures/dark-leather.png);
-	border-radius: 0 0.5rem 0.5rem 0;
+.center-text {
+	text-align: center;
 }
 
-.book-closed {
-	color: white;
-	width: calc(var(--min-width) * 0.9);
-	height: calc(var(--min-width) * 1.1);
-	margin-top: 1rem;
-	margin-bottom: 1rem;
-	margin-right: auto;
-	margin-left: auto;
-	padding: 3rem 1rem;
-	border-top: none;
+.collapse {
+	display: collapse;
 }
-	.book-closed p {
-		white-space: pre-line;
-	}
 
-.post-list {
-	padding: 1rem 0.5rem 0 0;
-	display: grid;
-	height: max-content;
-	grid-template-columns: var(--post-list-columns);
+.absolute {
+	position: absolute;
 }
 
 .bottom-right {
@@ -316,37 +286,14 @@ code {
 	right: 1.5rem;
 }
 
-.polaroid {
-	height: min-content;
-	margin: 0 0 0.5rem 1rem;
-	padding: 0.25rem;
-	background-color: white;
+.sticker {
+	user-select: none;
 	color: black;
-	text-align: center;
-	font-family: var(--font-handwritten);
+	text-shadow: var(--sticker-outline);
 	filter: var(--sticker-outline-filter);
 }
 
-	.polaroid img {
-		width: 100%;
-		display: block;
-		margin-bottom: 0.25rem;
-		border: solid 1px black;
-	}
-
-.text-with-picture {
-	display: grid;
-	grid-template-columns: auto auto;
-}
-	.text-with-picture div:nth-of-type(2) {
-		min-width: calc(var(--min-width) /3);
-		max-width: calc(var(--min-width) /2);
-	}
-
-.center {
-	text-align: center;
-}
-
+/* globally applied */
 *:focus-visible {
 	outline: solid 2px var(--color-primary);
 }

@@ -1,0 +1,21 @@
+﻿@using Codespirals.Base.Extensions
+
+<div class="toy-grid-cell" style="@_size">
+    <a class="toy-wrapper" href="toys/@Name.ToLowerInvariant().MakeUrlSafe('_')">
+        <Box Class="@($"{Name.ToLowerInvariant().MakeUrlSafe('-')}-toy")" Scale="Scale" Color="@(Color)" Label="@(Name)">
+            @ChildContent
+        </Box>
+    </a>
+</div>
+
+@code {
+    private string _size => $"height:{250 * Scale}px;";
+    [Parameter]
+    public string Name { get; set; } = "";
+    [Parameter]
+    public double Scale { get; set; } = 1;
+    [Parameter]
+    public string Color { get; set; } = "";
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

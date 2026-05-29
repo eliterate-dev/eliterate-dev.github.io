@@ -1,8 +1,8 @@
-﻿<div class="sticker absolute" style="@_fontSize @_rotate @_zIndex @_top @_right @_bottom @_left" role="presentation">@Emoji</div>
+﻿<div class="sticker absolute" style="@_fontSize @_rotate @_top @_right @_bottom @_left" role="presentation">@Text</div>
 
 @code {
     [Parameter]
-    public required string Emoji { get; set; }
+    public required string Text { get; set; }
     [Parameter]
     public decimal? Top { get; set; }
     [Parameter]
@@ -15,12 +15,9 @@
     public decimal Scale { get; set; } = 1;
     [Parameter]
     public decimal Rotate { get; set; } = Random.Shared.Next(-400, 400) / 10m;
-    [Parameter]
-    public int ZIndex { get; set; } = 10;
 
     private string _fontSize => $"font-size:{Scale}rem;";
     private string _rotate => $"rotate:{Rotate}deg;";
-    private string _zIndex => ZIndex < 1 ? string.Empty : $"z-index:{ZIndex};";
     private string _top => Top is null ? string.Empty : $"top:{Top}rem;";
     private string _right => Right is null ? string.Empty : $"right:{Right}rem;";
     private string _bottom => Bottom is null ? string.Empty : $"bottom:{Bottom}rem;";

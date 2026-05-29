@@ -1,0 +1,6 @@
+﻿.post-list {
+	padding: 1rem 0.5rem 0 0;
+	display: grid;
+	height: max-content;
+	grid-template-columns: var(--post-list-columns);
+}
