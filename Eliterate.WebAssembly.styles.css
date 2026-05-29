@@ -1,3 +1,47 @@
+/* /Components/ClosedBook.razor.rz.scp.css */
+.book[b-4j0gara5q3] {
+	position: relative;
+	color: var(--color-foreground);
+	margin-top: 2rem;
+	margin-right: 0.25rem;
+}
+
+.book-cover[b-4j0gara5q3] {
+	border: solid 1px var(--color-book-cover);
+	background-color: var(--color-book-cover);
+	background-image: url(../images/textures/dark-leather.png);
+	border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.book-closed[b-4j0gara5q3] {
+	color: white;
+	width: calc(var(--min-width) * 0.9);
+	height: calc(var(--min-width) * 1.1);
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 3rem 1rem;
+	border-top: none;
+}
+
+	.book-closed p[b-4j0gara5q3] {
+		white-space: pre-line;
+	}
+
+.book-front[b-4j0gara5q3] {
+	rotate: -2deg;
+	border-radius: 0.25rem 0.75rem 0.5rem 0.75rem;
+	border-left: solid 0.25rem var(--color-book-cover);
+	box-shadow: -4px -4px inset darkgrey, 2px 2px #111;
+}
+
+.book-back[b-4j0gara5q3] {
+	rotate: 1deg;
+	border-radius: 0.75rem 0.5rem 0.25rem 0.5rem;
+	border-right: 0.5rem solid var(--color-book-cover);
+	box-shadow: 0px -4px inset darkgrey, 1px 2px #111;
+}
 /* /Components/MetadataCard.razor.rz.scp.css */
 .post-grid-cell[b-unn3f93ta0] {
 	margin-left: 0.5rem;
@@ -6,16 +50,6 @@
 .post-wrapper[b-unn3f93ta0] {
 	margin: 0 auto;
 	max-width: 380px;
-	min-width: var(--min-width);
-}
-
-.card[b-unn3f93ta0] {
-	color: var(--color-foreground);
-	border-radius: 0.125rem;
-	background-color: var(--color-contrast-1);
-	background-image: url(../images/textures/notebook.png);
-	box-shadow: 2px 2px var(--color-shadow);
-	margin-bottom: 0.5rem;
 	min-width: var(--min-width);
 }
 
@@ -48,6 +82,9 @@
 	}
 
 .card-footer[b-unn3f93ta0] {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
 }
 
 .card-tags[b-unn3f93ta0] {
@@ -56,6 +93,87 @@
 	display: inline-block;
 	overflow: scroll;
 }
+/* /Components/Misc/Box.razor.rz.scp.css */
+/* box inspiration from https://miocene.io/post/3d-cube-with-css/ */
+.box[b-fwpzq2ohze] {
+	--y: calc(var(--x) * 1.41);
+	--z: calc(var(--x) * 0.3);
+	--color: #fff;
+	--label: 'Test';
+	transform-origin: 50%;
+	transform-style: preserve-3d;
+	transform: rotateX(-5deg) rotateY(-15deg) rotateZ(5deg);
+	width: var(--x);
+	height: var(--y);
+	display: block;
+	box-shadow: 0.25rem -0.25rem 0.5rem #00000088;
+}
+
+	box[b-fwpzq2ohze], .box div[b-fwpzq2ohze], .box div[b-fwpzq2ohze]::before, .box div[b-fwpzq2ohze]::after {
+		content: '';
+		position: absolute;
+		transform-style: preserve-3d;
+	}
+
+		box:hover[b-fwpzq2ohze] {
+			box-shadow: none;
+		}
+
+.box-bottom[b-fwpzq2ohze] {
+	width: var(--x);
+	height: var(--y);
+	background-color: color-mix(in srgb, var(--color) 50%, #333333);
+	transform-origin: top center;
+}
+
+	.box-bottom[b-fwpzq2ohze]::before {
+		width: 100%;
+		height: var(--z);
+		background-color: color-mix(in srgb, var(--color) 70%, #333333);
+		transform-origin: top center;
+		rotate: x 90deg;
+	}
+
+	.box-bottom[b-fwpzq2ohze]::after {
+		width: 100%;
+		height: var(--z);
+		background-color: color-mix(in srgb, var(--color) 90%, white);
+		translate: 0 var(--y);
+		transform-origin: top center;
+		rotate: x 90deg;
+	}
+
+.box-top[b-fwpzq2ohze] {
+	width: 100%;
+	height: 100%;
+	background-color: var(--color);
+	translate: 0 0 var(--z);
+}
+	.box-top[b-fwpzq2ohze]::before {
+		width: var(--z);
+		height: 100%;
+		background-color: color-mix(in srgb, var(--color) 90%, #333333);
+		transform-origin: left center;
+		rotate: y 90deg;
+	}
+	.box-top[b-fwpzq2ohze]::after {
+		width: var(--z);
+		height: 100%;
+		background-color: color-mix(in srgb, var(--color) 90%, #333333);
+		transform-origin: left center;
+		transform: rotateX(180deg) rotateY(90deg);
+		translate: var(--x) 0 calc(var(--z) * -1);
+		content: var(--label) !important;
+		writing-mode: vertical-lr;
+		font-size: calc(var(--z) * 0.6);
+		text-align: center;
+		line-height: calc(var(--z) * 0.9);
+	}
+
+.box-label[b-fwpzq2ohze] {
+	width: 100%;
+	height: 100%;
+}
 /* /Components/Misc/Date.razor.rz.scp.css */
 
 .date[b-pxmglg8vme] {
@@ -63,6 +181,38 @@
 	padding: 0.25rem 0;
 	font-size: 0.75rem;
 	font-family: var(--font-handwritten);
+}
+/* /Components/Misc/FlashCard.razor.rz.scp.css */
+.flashcard[b-2putsf1dm1] {
+	min-width: var(--min-width);
+	min-height: calc(var(--min-width) * 0.6);
+	color: var(--color-foreground);
+	background-color: var(--color-contrast-1);
+	background-image: url(../images/textures/notebook.png);
+	margin-bottom: 0.5rem;
+	border: 1px solid var(--color-shadow);
+	border-radius: 0.125rem;
+	box-shadow: 2px 2px black;
+}
+/* /Components/Misc/Modal.razor.rz.scp.css */
+
+.modal-dialog[b-3lbsfabvgk] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #222c;
+}
+
+.modal-dialog-content[b-3lbsfabvgk] {
+	width: max-content;
+	max-width: 90%;
+	margin: min(200px, 15%) auto auto auto;
+	background-color: var(--color-background);
+	padding: 0.25rem;
+	border: 2px solid var(--color-primary-tint);
+	border-radius: 0.5rem;
 }
 /* /Components/Misc/Pin.razor.rz.scp.css */
 
@@ -153,6 +303,22 @@ a.card-tag:hover[b-n6ksulzrvs], a.card-tag:focus-visible[b-n6ksulzrvs] {
 	border-color: black;
 }
 /* /Components/PageNotFound.razor.rz.scp.css */
+
+.card-tag[b-ez7k6alu6d] {
+	padding: 0.25rem;
+	border-radius: 0.25rem;
+	margin: 0.25rem 0.375rem 0.25rem 0;
+	width: max-content;
+	display: inline-block;
+	color: black;
+	border: solid 2px white;
+	filter: var(--sticker-outline-filter);
+}
+
+a.card-tag:hover[b-ez7k6alu6d], a.card-tag:focus-visible[b-ez7k6alu6d] {
+	color: black;
+	border-color: black;
+}
 
 .not-found[b-ez7k6alu6d] {
 	min-width: calc(var(--min-width) - 2rem);
@@ -299,6 +465,24 @@ a.card-tag:hover[b-n6ksulzrvs], a.card-tag:focus-visible[b-n6ksulzrvs] {
 	text-align: center;
 }
 /* /Components/PostPage.razor.rz.scp.css */
+.book[b-98bhqljm32] {
+	position: relative;
+	color: var(--color-foreground);
+	margin-top: 2rem;
+	margin-right: 0.25rem;
+}
+
+	.book > h2[b-98bhqljm32] {
+		display: block;
+		text-align: center;
+	}
+
+.book-cover[b-98bhqljm32] {
+	border: solid 1px var(--color-book-cover);
+	background-color: var(--color-book-cover);
+	background-image: url(../images/textures/dark-leather.png);
+	border-radius: 0 0.5rem 0.5rem 0;
+}
 
 .book-page[b-98bhqljm32] {
 	margin: 0.25rem 0.25rem 0.25rem 0;
@@ -351,31 +535,167 @@ a.card-tag:hover[b-n6ksulzrvs], a.card-tag:focus-visible[b-n6ksulzrvs] {
 		font-size: 2rem;
 	}
 
-.book-tags[b-98bhqljm32] {
+.book-tag-container[b-98bhqljm32] {
 	position: absolute;
 	top: -2rem;
 	right: 1rem;
 	width: max-content;
 	padding: 0.25rem;
 }
+
+[b-98bhqljm32] .polaroid {
+	height: min-content;
+	margin: 0 0 0.5rem 1rem;
+	padding: 0.25rem;
+	background-color: white;
+	color: black;
+	text-align: center;
+	font-family: var(--font-handwritten);
+	filter: var(--sticker-outline-filter);
+}
+
+	[b-98bhqljm32] .polaroid img {
+		width: 100%;
+		display: block;
+		margin-bottom: 0.25rem;
+		border: solid 1px black;
+	}
+
+[b-98bhqljm32] .text-with-picture {
+	display: grid;
+	grid-template-columns: auto auto;
+}
+
+	[b-98bhqljm32] .text-with-picture div:nth-of-type(2) {
+		min-width: calc(var(--min-width) /3);
+		max-width: calc(var(--min-width) /2);
+	}
+/* /Components/Toys/FlipSevenCard.razor.rz.scp.css */
+.flip-seven-card[b-s7pzopebm7] {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.flip-seven-card-content[b-s7pzopebm7] {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+	.flip-seven-card-content > p[b-s7pzopebm7] {
+		margin: 0;
+		text-align: center;
+		font-size: 0.8em;
+	}
+
+.card-number[b-s7pzopebm7] {
+	height: calc(100% - 0.3em);
+	width: calc(100% - 0.3em);
+	border: 0.1em solid var(--accent-color);
+	border-radius: 5px;
+}
+.card-bonus[b-s7pzopebm7], .card-mult[b-s7pzopebm7], .card-second-chance[b-s7pzopebm7], .card-freeze[b-s7pzopebm7], .card-flip[b-s7pzopebm7] {
+	height: calc(100% - 0.3em);
+	width: calc(100% - 0.3em);
+	border: 0.1em solid var(--color-primary);
+	border-radius: 5px;
+	background-color: hsl(0, 20%, 80%);
+}
+.card-freeze[b-s7pzopebm7] {
+	font-size: 0.5em;
+}
+.card-flip[b-s7pzopebm7] {
+	font-size: 0.5em;
+}
+.card-second-chance[b-s7pzopebm7] {
+	font-size: 0.3em;
+}
+	.card-second-chance > p[b-s7pzopebm7], .card-freeze > p[b-s7pzopebm7], -card-flip > p[b-s7pzopebm7] {
+		background-color: var(--color-primary);
+		border-radius: 50%;
+		rotate: -30deg;
+	}
+/* /Components/Toys/GameLog.razor.rz.scp.css */
+.round-feed-container[b-v01cbtegyq] {
+	height: 420px;
+	width: 320px;
+	margin: 0 auto;
+	position: relative;
+	padding: 0 0.5rem;
+}
+
+.round-feed[b-v01cbtegyq] {
+	position: absolute;
+	height: 400px;
+	width: calc(320px - 3rem);
+	padding: 0.5rem;
+	overflow-y: scroll;
+	background-color: var(--color-contrast-1);
+	background-image: url(../images/textures/notebook.png);
+	background-size: 400px 8rem;
+	border: 1px solid black;
+	box-shadow: 2px 2px 1px #000b;
+}
+.feedback[b-v01cbtegyq] {
+	margin: 0;
+	line-height: 1rem;
+	text-wrap: wrap;
+}
+
+.round-select-button[b-v01cbtegyq] {
+	position: absolute;
+	right: 0.5rem;
+}
 /* /Components/Toys/PlayingCard.razor.rz.scp.css */
 
 .playing-card[b-v1hydyhowl] {
-	text-wrap: stable;
-	margin-left: 0.25rem;
-	line-height: 1;
 	background-color: white;
 	color: black;
 	display: inline-block;
 	border-radius: 0.05em;
-	box-shadow: 2px 2px black;
+	border: 1px solid black;
+	box-shadow: 2px 2px #0009;
+	margin-left: 0.25rem;
 }
+
+.card-back[b-v1hydyhowl] {
+	background-color: white;
+	color: #ec3048;
+	content: '';
+}
+/* /Components/Toys/ToyBox.razor.rz.scp.css */
+.toy-grid-cell[b-elfcms6m31] {
+	position: relative;
+	width: 100%;
+}
+
+.toy-wrapper[b-elfcms6m31] {
+	width: max-content;
+	height: min-content;
+	display: block;
+	margin: 0 auto 0 auto;
+	rotate: 90deg;
+}
+
+	.toy-wrapper:first-child[b-elfcms6m31] {
+		transition: 0.5s;
+		transform-style: preserve-3d;
+	}
+
+		.toy-wrapper:first-child:hover[b-elfcms6m31] {
+			transition: 0.5s;
+			translate: 1rem -1rem;
+			transform: rotateY(-25deg);
+			transform-style: preserve-3d;
+		}
 /* /Layout/MainLayout.razor.rz.scp.css */
 .page[b-cafgmfpazb] {
     display: flex;
     flex-direction: column;
     height: inherit;
     min-width: calc(var(--min-width) + 20);
+    overflow-x: scroll; 
 }
 
 main[b-cafgmfpazb] {
@@ -480,12 +800,6 @@ nav[b-3fzxegserq]  a {
 	}
 }
 /* /Pages/Credit.razor.rz.scp.css */
-.book-back[b-kis47zz0cb] {
-	rotate: 1deg;
-	border-radius: 0.75rem 0.25rem 0.25rem 0.75rem;
-	border-right: 0.25rem solid var(--color-book-cover);
-	box-shadow: 0px -4px inset darkgrey, 1px 2px 2px #111;
-}
 
 table[b-kis47zz0cb] {
 	font-size: 0.8rem;
@@ -510,12 +824,6 @@ td:first-of-type[b-kis47zz0cb] {
 	height: max-content;
 }
 
-.book-front[b-e5flhzutw9] {
-	rotate: -2deg;
-	border-radius: 0.25rem 0.75rem 0.25rem 0.75rem;
-	box-shadow: -4px -4px inset darkgrey, 1px 2px 2px #111;
-}
-
 .post-grid-cell[b-e5flhzutw9] {
 	position: relative;
 	margin-top: -16.5rem;
@@ -532,17 +840,6 @@ td:first-of-type[b-kis47zz0cb] {
 	min-width: var(--min-width);
 }
 
-.card[b-e5flhzutw9] {
-	color: var(--color-foreground);
-	border-radius: 0.125rem;
-	background-color: var(--color-contrast-1);
-	background-image: url(../images/textures/notebook.png);
-	margin-bottom: 0.5rem;
-	min-width: var(--min-width);
-	rotate: 1deg;
-	box-shadow: 5px 2px black;
-}
-
 .card-header[b-e5flhzutw9] {
 	border-bottom: solid 1px var(--color-foreground);
 	background-color: var(--color-contrast-1);
@@ -556,7 +853,7 @@ td:first-of-type[b-kis47zz0cb] {
 .card-body[b-e5flhzutw9] {
 	max-width: 380px;
 	height: max-content;
-	margin: 0;
+	margin-bottom: 2.5rem;
 }
 
 .card-text[b-e5flhzutw9] {
@@ -572,6 +869,9 @@ td:first-of-type[b-kis47zz0cb] {
 	}
 
 .card-footer[b-e5flhzutw9] {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
 }
 
 .card-tags[b-e5flhzutw9] {
@@ -600,21 +900,21 @@ a.card-tag:hover[b-e5flhzutw9], a.card-tag:focus-visible[b-e5flhzutw9] {
 .peek-card-container[b-e5flhzutw9] {
 	min-width: var(--min-width);
 	height: 12rem;
-	overflow: hidden;
 	position: absolute;
 	bottom: 0;
 	right: 0;
 	z-index: 11;
+	overflow: hidden;
+	padding-top: 2rem;
+	padding-left: 2rem;
 }
 
 .peek-card[b-e5flhzutw9] {
 	height: max-content;
 	min-width: calc(var(--min-width) - 40px);
 	width: max-content;
-	rotate: -6deg;
 	position: absolute;
-	box-shadow: 1px -1px 1px black, 2px 2px 2px black;
-	bottom: -8rem;
+	bottom: -9rem;
 	right: 0;
 }
 	.peek-card.showSource[b-e5flhzutw9] {
@@ -623,7 +923,7 @@ a.card-tag:hover[b-e5flhzutw9], a.card-tag:focus-visible[b-e5flhzutw9] {
 	}
 	.peek-card.hideSource[b-e5flhzutw9] {
 		transition: bottom 0.5s;
-		bottom: -8rem;
+		bottom: -9rem;
 	}
 /* /Pages/Plans.razor.rz.scp.css */
 
@@ -645,6 +945,13 @@ a.card-tag:hover[b-e5flhzutw9], a.card-tag:focus-visible[b-e5flhzutw9] {
 	background-image: url(../images/textures/wine-cork.png);
 	border: inset 0.5rem var(--color-wood);
 	box-shadow: 2px 2px 4px black;
+}
+/* /Pages/PostList.razor.rz.scp.css */
+.post-list[b-gesebqxkkw] {
+	padding: 1rem 0.5rem 0 0;
+	display: grid;
+	height: max-content;
+	grid-template-columns: var(--post-list-columns);
 }
 /* /Pages/Toys/PlayBlackjack.razor.rz.scp.css */
 .toy-page-title[b-bcecxxhwdg] {
@@ -682,7 +989,6 @@ ul[b-bcecxxhwdg] {
 .blackjack-container[b-bcecxxhwdg] {
 	background-color: red;
 	background-image: url(../images/textures/diagmonds.png);
-	padding: 1rem 0;
 	border: solid 1rem darkred;
 	border-radius: 1rem;
 }
@@ -692,13 +998,23 @@ ul[b-bcecxxhwdg] {
 }
 
 .playing-card-container[b-bcecxxhwdg] {
-	margin: 0 auto;
 	width: max-content;
+	margin-left: auto;
+	margin-right: calc(50% - 6rem);
 }
+	.playing-card-container[b-bcecxxhwdg]  .playing-card {
+		line-height: 11.5rem;
+		font-size: 11rem;
+		text-align: center;
+	}
+
+	.playing-card-container:not(:first-child)[b-bcecxxhwdg]  .playing-card {
+		margin-left: -5.5rem;
+	}
 
 .player-overview[b-bcecxxhwdg] {
 	width: max-content;
-	margin: 1rem auto;
+	margin: 0.5rem auto;
 	padding: 0.5rem;
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/light-paper-fibers.png);
@@ -709,23 +1025,6 @@ ul[b-bcecxxhwdg] {
 	display: grid;
 	grid-template-columns: max-content max-content;
 }
-.feed-container[b-bcecxxhwdg] {
-	padding: 0.5rem;
-}
-.round-feed[b-bcecxxhwdg] {
-	margin: 0.5rem auto;
-	padding: 0 1rem;
-	height: 20rem;
-	max-width: 400px;
-	overflow-y: scroll;
-	background-color: var(--color-contrast-1);
-	background-image: url(../images/textures/notebook.png);
-	box-shadow: 2px 2px black;
-}
-
-.feedback[b-bcecxxhwdg] {
-	margin: 0;
-}
 
 .active[b-bcecxxhwdg] {
 	text-decoration: underline;
@@ -734,6 +1033,7 @@ ul[b-bcecxxhwdg] {
 .game-controls[b-bcecxxhwdg] {
 	width: max-content;
 	margin: 0 auto;
+	padding: 0.5rem 0;
 }
 
 .game-settings-container[b-bcecxxhwdg] {
@@ -743,6 +1043,7 @@ ul[b-bcecxxhwdg] {
 	background-image: url(../images/textures/light-paper-fibers.png);
 	box-shadow: 2px 2px black;
 	width: max-content;
+	position: relative;
 }
 
 .game-settings[b-bcecxxhwdg] {
@@ -762,8 +1063,199 @@ ul[b-bcecxxhwdg] {
 	.game-settings-container[b-bcecxxhwdg]  button {
 		width: 100%;
 	}
+
+.overview-cards[b-bcecxxhwdg]  .playing-card {
+	line-height: 3rem;
+	font-size: 2.75rem;
+	text-align: center;
+}
+/* /Pages/Toys/PlayFlipSeven.razor.rz.scp.css */
+.toy-page-title[b-oeoq3gchar] {
+	text-align: center;
+	rotate: -2deg;
+	margin: 0.5rem auto;
+}
+
+.blackjack-game[b-oeoq3gchar] {
+	--game-layout-grid: 1fr;
+}
+
+@media (min-width: 820px) {
+	.blackjack-game[b-oeoq3gchar] {
+		--game-layout-grid: 1fr max-content;
+	}
+}
+
+h3[b-oeoq3gchar], h4[b-oeoq3gchar] {
+	text-align: center;
+}
+
+ul[b-oeoq3gchar] {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	list-style: none;
+}
+
+.blackjack-game[b-oeoq3gchar] {
+	display: grid;
+	padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+	grid-template-columns: var(--game-layout-grid);
+}
+
+.blackjack-container[b-oeoq3gchar] {
+	background-color: red;
+	background-image: url(../images/textures/diagmonds.png);
+	padding: 1rem 0;
+	border: solid 1rem darkred;
+	border-radius: 1rem;
+}
+
+.player-container[b-oeoq3gchar], .dealer-container[b-oeoq3gchar] {
+	color: white;
+}
+
+.playing-card-container[b-oeoq3gchar] {
+	margin: 0 auto;
+	width: max-content;
+}
+	.playing-card-container > div[b-oeoq3gchar] {
+		overflow: hidden;
+	}
+
+.player-overview[b-oeoq3gchar] {
+	width: max-content;
+	margin: 1rem auto;
+	padding: 0.5rem;
+	background-color: var(--color-contrast-1);
+	background-image: url(../images/textures/light-paper-fibers.png);
+	box-shadow: 2px 2px black;
+}
+
+.overview-player[b-oeoq3gchar] {
+	display: grid;
+	grid-template-columns: max-content max-content;
+}
+.feed-container[b-oeoq3gchar] {
+	padding: 0.5rem;
+}
+.round-feed[b-oeoq3gchar] {
+	margin: 0.5rem auto;
+	padding: 0 1rem;
+	height: 20rem;
+	max-width: 400px;
+	overflow-y: scroll;
+	background-color: var(--color-contrast-1);
+	background-image: url(../images/textures/notebook.png);
+	box-shadow: 2px 2px black;
+}
+
+.feedback[b-oeoq3gchar] {
+	margin: 0;
+}
+
+.active[b-oeoq3gchar] {
+	text-decoration: underline;
+}
+
+.game-controls[b-oeoq3gchar] {
+	width: max-content;
+	margin: 0 auto;
+}
+
+.game-settings-container[b-oeoq3gchar] {
+	margin: 1rem auto;
+	padding: 1rem;
+	background-color: var(--color-contrast-1);
+	background-image: url(../images/textures/light-paper-fibers.png);
+	box-shadow: 2px 2px black;
+	width: max-content;
+}
+
+.game-settings[b-oeoq3gchar] {
+	display: grid;
+	grid-template-columns: 1fr min-content;
+}
+
+	.game-settings[b-oeoq3gchar]  label{
+		margin: 0.375rem;
+	}
+
+	.game-settings[b-oeoq3gchar]  input {
+		margin: 0.125rem;
+		width: 50px;
+	}
+
+	.game-settings-container[b-oeoq3gchar]  button {
+		width: 100%;
+	}
+
+.target-dialog[b-oeoq3gchar] {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+.target-dialog[b-oeoq3gchar]  .playing-card {
+	margin: 1rem auto;
+}
+
+.target-dialog-row[b-oeoq3gchar] {
+	display: grid;
+	grid-template-columns: 1fr min-content;
+}
+	.target-dialog-row > *[b-oeoq3gchar] {
+		padding: 0.25rem 0.5rem;
+		margin: 0.25rem;
+	}
 /* /Pages/Toys/Toys.razor.rz.scp.css */
 .toy-page-title[b-lk2m0eyhvx] {
 	text-align: center;
-	rotate: -5deg;
+}
+
+.toy-list[b-lk2m0eyhvx] {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.blackjack-label[b-lk2m0eyhvx] {
+	--border-size: 5px;
+	width: calc(100% - (1.8 * var(--border-size)));
+	height: calc(100% - (1.8 * var(--border-size)));
+	border: var(--border-size) solid darkred;
+	line-height: 0.9;
+	text-align: center;
+	background-image: url(../images/textures/diagmonds.png);
+}
+	.blackjack-label span[b-lk2m0eyhvx] {
+		position: absolute;
+		color: white;
+	}
+
+.flip-seven-label[b-lk2m0eyhvx] {
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+	.flip-seven-label h2[b-lk2m0eyhvx] {
+		--outline-size: 4px;
+		position: absolute;
+		margin: 5rem 1rem;
+		line-height: 1;
+		color: #e9cb49;
+		font-size: 4.75rem;
+		text-transform: uppercase;
+		text-shadow: var(--outline-size) var(--outline-size) purple, var(--outline-size) calc(var(--outline-size) * -1) purple, calc(var(--outline-size) * -1) var(--outline-size) purple, calc(var(--outline-size) * -1) calc(var(--outline-size) * -1) purple;
+		border: 2px solid #00949b;
+		background-color: #ece2ca;
+		transform: rotate(-10deg);
+		box-shadow: var(--outline-size) var(--outline-size) #ece2ca, var(--outline-size) calc(var(--outline-size) * -1) #ece2ca, calc(var(--outline-size) * -1) var(--outline-size) #ece2ca, calc(var(--outline-size) * -1) calc(var(--outline-size) * -1) #ece2ca;
+	}
+
+.flip-seven-outline[b-lk2m0eyhvx] {
+	--border-size: 5px;
+	position: absolute;
+	top: 10%;
+	right: 10%;
+	width: calc(80% - (1.8 * var(--border-size)));
+	height: calc(80% - (1.8 * var(--border-size)));
+	border: var(--border-size) solid #e9cb49;
 }
