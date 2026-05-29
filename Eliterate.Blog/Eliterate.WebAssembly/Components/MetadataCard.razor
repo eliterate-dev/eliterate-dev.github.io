@@ -8,13 +8,13 @@ else
 {
     <div class="post-grid-cell">
         <div class="post-wrapper">
-            <div class="card" style="@_rotate">
+            <FlashCard>
                 <div class="card-header">
                     <div class="grid-container-dash-dot">
                         <h2 class="card-title"><a @onclick="GoToPost" tabindex="0" role="heading">@Model.Title</a></h2>
                         <Date Model="Model" Replace="true"></Date>
                     </div>
-                    <Sticker Emoji="@Model.StickerEmoji" Top="1.25m" Right="0.5m" Rotate="@_rotation" Scale="1.5m"></Sticker>
+                    <Sticker Text="@Model.StickerEmoji" Top="1.25m" Right="0.5m" Rotate="@_rotation" Scale="1.5m"></Sticker>
                 </div>
                 <div class="card-body">
                     <div class="card-text" tabindex="0" role="document">
@@ -32,7 +32,7 @@ else
                     </div>
                     <ReadTime EstimatedReadTimeInMinutes="@Model?.EstimatedReadTimeInMinutes"></ReadTime>
                 </div>
-            </div>
+            </FlashCard>
         </div>
     </div>
 }

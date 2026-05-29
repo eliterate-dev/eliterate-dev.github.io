@@ -36,8 +36,8 @@
                 @foreach (var player in _game.Players)
                 {
                     <li class="overview-player @(_currentPlayer == player ? "active" : "")">
-                        <div>
-                            @player.Name | @player.HandPoints
+                        <div class="center-content">
+                            <p>@player.Name | @player.TotalPoints | @player.HandPoints</p>
                         </div>
                         <div class="overview-cards">
                             @foreach (var card in player.Hand)

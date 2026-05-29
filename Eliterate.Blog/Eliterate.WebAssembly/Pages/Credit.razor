@@ -3,8 +3,8 @@
 
 <PageTitle>Eliterate - Credit</PageTitle>
 
-<div class="book book-cover book-closed book-back">
-    <h2>Credit</h2>
+<ClosedBook Back="true">
+    <h2 class="center-text">Credit</h2>
     <table>
         @foreach (var item in credits)
         {
@@ -14,11 +14,11 @@
             </tr>
         }
     </table>
-    <Sticker Emoji="📱" Left="2" Top="1" Scale="3" Rotate="20"></Sticker>
-    <Sticker Emoji="🪫" Right="1" Bottom="6" Scale="3" Rotate="-23"></Sticker>
+    <Sticker Text="📱" Left="2" Top="1" Scale="3" Rotate="20"></Sticker>
+    <Sticker Text="🪫" Right="1" Bottom="6" Scale="3" Rotate="-23"></Sticker>
 
     <div class="bottom-right">&copy @DateTime.UtcNow.Year Eliterate</div>
-</div>
+</ClosedBook>
 
 @code
 {

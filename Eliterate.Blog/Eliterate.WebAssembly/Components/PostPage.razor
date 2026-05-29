@@ -15,7 +15,7 @@ else
                         <Date Model="Model.Metadata"></Date>
                     </div>
                 </div>
-                <Sticker Emoji="@Model.Metadata.StickerEmoji" Top="0.5m" Right="5.5m" Scale="2" Rotate="@Model.Metadata.Title.GetRandomValueFromString(20)"></Sticker>
+                <Sticker Text="@Model.Metadata.StickerEmoji" Top="0.5m" Right="5.5m" Scale="2" Rotate="@Model.Metadata.Title.GetRandomValueFromString(20)"></Sticker>
                 <div class="book-page-body">
                     <article id="top-of-page" class="book-page-text" tabindex="0">
                         @((MarkupString)(Model.Text ?? "Text not found."))
@@ -23,7 +23,7 @@ else
                 </div>
             </div>
         </div>
-        <div class="book-tags">
+        <div class="book-tag-container">
             @foreach (var tag in Model.Metadata.Tags)
             {
                 if (string.IsNullOrWhiteSpace(tag))
@@ -38,9 +38,4 @@ else
     [Parameter]
     public BlogPost? Model { get; set; }
     public DateTime Date => Model?.Metadata.Edited ?? Model?.Metadata.Created ?? DateTime.UtcNow;
-
-    protected override async Task OnParametersSetAsync()
-    {
-        
-    }
 }

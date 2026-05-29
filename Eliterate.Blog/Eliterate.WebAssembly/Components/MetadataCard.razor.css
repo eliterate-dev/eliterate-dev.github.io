@@ -8,16 +8,6 @@
 	min-width: var(--min-width);
 }
 
-.card {
-	color: var(--color-foreground);
-	border-radius: 0.125rem;
-	background-color: var(--color-contrast-1);
-	background-image: url(../images/textures/notebook.png);
-	box-shadow: 2px 2px var(--color-shadow);
-	margin-bottom: 0.5rem;
-	min-width: var(--min-width);
-}
-
 .card-header {
 	border-bottom: solid 1px var(--color-foreground);
 	background-color: var(--color-contrast-1);
@@ -47,6 +37,9 @@
 	}
 
 .card-footer {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
 }
 
 .card-tags {

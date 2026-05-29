@@ -1,0 +1,12 @@
+﻿<div class="book book-cover book-closed @_isBack">
+    @ChildContent
+</div>
+
+@code {
+    private string _isBack => Back ? "book-back" : "book-front";
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public bool Back { get; set; }
+}
