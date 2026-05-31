@@ -10,16 +10,19 @@
 <div class="flipseven-game">
     <div class="flipseven-container">
         <div class="player-container">
-            <div class="playing-card-container">
-                @foreach (var card in _currentPlayer.Hand.OrderBy(c => c.CardType).ThenBy(c => c.Value))
+            <p class="center-text">Current player: @_game.CurrentPlayer.Name</p>
+            <Hand>
+                @{int i = 1;}
+                @foreach (var card in _game.CurrentPlayer.Hand.OrderBy(c => c.CardType).ThenBy(c => c.Value))
                 {
                     <FlipSevenCard Model="card" Scale="8"></FlipSevenCard>
+                    i++;
                 }
-            </div>
-            <h4 class="prompt">@_prompt</h4>
+            </Hand>
+            <h4 class="prompt">@_game.Prompt</h4>
             <ul>
-                <li>Current Player: @_currentPlayer.Name</li>
-                <li>Value of Cards: @_currentPlayer.HandPoints</li>
+                <li>Current Player: @_game.CurrentPlayer.Name</li>
+                <li>Value of Cards: @_game.CurrentPlayer.HandPoints</li>
             </ul>
         </div>
         <div class="game-controls">
@@ -35,12 +38,15 @@
             <ul>
                 @foreach (var player in _game.Players)
                 {
-                    <li class="overview-player @(_currentPlayer == player ? "active" : "")">
+                    <li class="overview-player @(_game.CurrentPlayer == player ? "active" : "")">
                         <div class="center-content">
-                            <p>@player.Name | @player.TotalPoints | @player.HandPoints</p>
+                            <p>
+                                @(GetPlayerStateEmoji(player))@player.Name (@player.TotalPoints) <br />
+                                Hand: @player.NumberCardsInHand / @player.HandPoints
+                            </p>
                         </div>
                         <div class="overview-cards">
-                            @foreach (var card in player.Hand)
+                            @foreach (var card in player.Hand.OrderBy(c => c.CardType).ThenBy(c => c.Value))
                             {
                                 <FlipSevenCard Model="card" Scale="2"></FlipSevenCard>
                             }
@@ -56,7 +62,9 @@
 <div class="game-settings-container">
     <div class="game-settings">
         <label>Number of players</label><InputNumber @bind-value="_numberOfPlayers" DisplayName="Number of players" min="1" max="5" />
-        <label>Winning Score</label><InputNumber @bind-value="_winningScore" DisplayName="Winning Score" min="21" max="100" />
+        <label>Winning Score</label><InputNumber @bind-value="_winningScore" DisplayName="Winning Score" min="0" max="100" />
+        <label>Flip For bonus</label><InputNumber @bind-value="_numbersToFlip" DisplayName="Numbers to Flip" min="2" max="@_highestNumber" />
+        <label>Bonus Points</label><InputNumber @bind-value="_flipNumberBonus" DisplayName="Flip Bonus" min="0" max="@_winningScore" />
     </div>
     <button @onclick="Restart">Apply and Restart</button>
 </div>
@@ -77,14 +85,12 @@
 
 @code {
     private FlipSevenGame _game = FlipSevenGame.SetUp(2);
-    private FlipSevenPlayer _currentPlayer => _game.CurrentPlayer;
-
-    private string _prompt => _game.Prompt;
 
     private int _numberOfPlayers = 2;
     private int _numbersToFlip = 7;
     private int _flipNumberBonus = 15;
     private int _winningScore = 200;
+    private int _highestNumber => _game.Deck.CardPool.Max(c => c.Value);
 
     private (FlipSevenPlayer Player, Codespirals.CardGames.FlipSeven.FlipSevenCard Card)? _activeActionCard => _game.ActionCardQueue.FirstOrDefault();
     private bool _hasActiveActionCard => _game.ActionCardQueue.Count > 0;
@@ -102,15 +108,15 @@
         StartNextRound();
     }
 
+    private void StartNextRound()
+        => _game.StartRound();
+
     #region Actions requiring user input
     private void Bank()
         => _game.Bank();
 
     private void Hit()
         => _game.Flip();
-
-    private void StartNextRound()
-        => _game.StartRound();
 
     private void UseActionCard(FlipSevenPlayer player)
     {
@@ -119,4 +125,13 @@
         _game.UseActionCard(player, _activeActionCard?.Card);
     }
     #endregion
+
+    private static string GetPlayerStateEmoji(FlipSevenPlayer player)
+        => player.State switch
+        {
+            PlayerStates.Banked => "🏦 ",
+            PlayerStates.Frozen => "🧊 ",
+            PlayerStates.Busted => "💀 ",
+            _ => "",
+        };
 }

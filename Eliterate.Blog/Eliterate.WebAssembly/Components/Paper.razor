@@ -1,44 +1,39 @@
 ﻿@if (Model is not null)
 {
-    <div class="post-grid-cell">
-        <div class="post-wrapper">
-            <div class="paper-container">
-                <div class="paper @(_hasTearoff ? "has-tearoffs" : "")" style="@_rotate">
-                    <div class="pins">
-                        <Pin Left="true" Top="true"></Pin>
-                        <Pin Right="true" Top="true"></Pin>
-                    </div>
-                    <div class="paper-spacer@(_hasTearoff ? "-with-tearoffs" : "")"></div>
-                    <div class="paper-content">
-                        <div class="paper-text">
-                            <h2>@Model.Title</h2>
-                            @((MarkupString)(Model.Description ?? "Description missing..."))
-                        </div>
-                    </div>
-                    @if (_hasTearoff)
-                    {
-                        <div class="tearoff-container">
-                            @for (int i = 0; i < 6; i++)
-                            {
-                                if (i == _skip || i == _skip2)
-                                {
-                                    <div class="tearoff tearoff-empty">
-
-                                    </div>
-                                }
-                                else
-                                {
-                                    <a class="tearoff" href="@Model.Link">
-                                        <div class="tearoff-text">
-                                            @Model.LinkText
-                                        </div>
-                                    </a>
-                                }
-                            }
-                        </div>
-                    }
+    <div class="paper-container">
+        <div class="paper @(_hasTearoff ? "has-tearoffs" : "")" style="@_rotate">
+            <div class="pins">
+                <Pin Left="true" Top="true"></Pin>
+                <Pin Right="true" Top="true"></Pin>
+            </div>
+            <div class="paper-spacer@(_hasTearoff ? "-with-tearoffs" : "")"></div>
+            <div class="paper-content">
+                <div class="paper-text">
+                    <h2>@Model.Title</h2>
+                    @((MarkupString)(Model.Description ?? "Description missing..."))
                 </div>
             </div>
+            @if (_hasTearoff)
+            {
+                <div class="tearoff-container">
+                    @for (int i = 0; i < 6; i++)
+                    {
+                        if (i == _skip || i == _skip2)
+                        {
+                            <div class="tearoff tearoff-empty">
+                            </div>
+                        }
+                        else
+                        {
+                            <a class="tearoff" href="@Model.Link">
+                                <div class="tearoff-text">
+                                    @Model.LinkText
+                                </div>
+                            </a>
+                        }
+                    }
+                </div>
+            }
         </div>
     </div>
 }

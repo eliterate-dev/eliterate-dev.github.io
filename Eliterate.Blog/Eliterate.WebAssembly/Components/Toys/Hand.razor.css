@@ -1,0 +1,10 @@
+﻿.playing-card-container {
+	width: max-content;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 5.5rem;
+}
+
+	.playing-card-container ::deep .playing-card {
+		margin-left: -5.5rem;
+	}
