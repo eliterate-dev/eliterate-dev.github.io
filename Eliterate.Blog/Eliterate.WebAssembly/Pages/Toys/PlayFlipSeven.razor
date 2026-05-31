@@ -10,12 +10,13 @@
 <div class="flipseven-game">
     <div class="flipseven-container">
         <div class="player-container">
-            <div class="playing-card-container">
+            <p class="center-text">Current player: @_currentPlayer.Name</p>
+            <Hand>
                 @foreach (var card in _currentPlayer.Hand.OrderBy(c => c.CardType).ThenBy(c => c.Value))
                 {
                     <FlipSevenCard Model="card" Scale="8"></FlipSevenCard>
                 }
-            </div>
+            </Hand>
             <h4 class="prompt">@_prompt</h4>
             <ul>
                 <li>Current Player: @_currentPlayer.Name</li>
@@ -37,10 +38,13 @@
                 {
                     <li class="overview-player @(_currentPlayer == player ? "active" : "")">
                         <div class="center-content">
-                            <p>@player.Name | @player.TotalPoints | @player.HandPoints</p>
+                            <p>
+                                @player.Name (@player.TotalPoints) <br />
+                                Hand: @player.NumberCardsInHand / @player.HandPoints
+                            </p>
                         </div>
                         <div class="overview-cards">
-                            @foreach (var card in player.Hand)
+                            @foreach (var card in player.Hand.OrderBy(c => c.CardType).ThenBy(c => c.Value))
                             {
                                 <FlipSevenCard Model="card" Scale="2"></FlipSevenCard>
                             }
@@ -56,7 +60,9 @@
 <div class="game-settings-container">
     <div class="game-settings">
         <label>Number of players</label><InputNumber @bind-value="_numberOfPlayers" DisplayName="Number of players" min="1" max="5" />
-        <label>Winning Score</label><InputNumber @bind-value="_winningScore" DisplayName="Winning Score" min="21" max="100" />
+        <label>Winning Score</label><InputNumber @bind-value="_winningScore" DisplayName="Winning Score" min="0" max="100" />
+        <label>Flip For bonus</label><InputNumber @bind-value="_numbersToFlip" DisplayName="Numbers to Flip" min="2" max="@_highestNumber" />
+        <label>Bonus Points</label><InputNumber @bind-value="_flipNumberBonus" DisplayName="Flip Bonus" min="0" max="@_winningScore" />
     </div>
     <button @onclick="Restart">Apply and Restart</button>
 </div>
@@ -85,6 +91,7 @@
     private int _numbersToFlip = 7;
     private int _flipNumberBonus = 15;
     private int _winningScore = 200;
+    private int _highestNumber => _game.Deck.CardPool.Max(c => c.Value);
 
     private (FlipSevenPlayer Player, Codespirals.CardGames.FlipSeven.FlipSevenCard Card)? _activeActionCard => _game.ActionCardQueue.FirstOrDefault();
     private bool _hasActiveActionCard => _game.ActionCardQueue.Count > 0;

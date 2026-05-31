@@ -1,33 +1,46 @@
 ﻿.flip-seven-card {
+	position: relative;
 	width: 100%;
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-.flip-seven-card-content {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-	.flip-seven-card-content > p {
-		margin: 0;
-		text-align: center;
-		font-size: 0.8em;
-	}
 
-.card-number {
+.flip-seven-card-content {
 	height: calc(100% - 0.3em);
 	width: calc(100% - 0.3em);
+}
+.flip-seven-card-content > p {
+
+}
+
+.pin {
+	position: absolute;
+	aspect-ratio: 1 / 1;
+	font-size: 0.2em;
+	text-align: center;
+	width: 1.25em;
+	top: 0.25em;
+	left: 0.25em;
+	background-color: var(--accent-color);
+	color: white;
+	border-radius: 50%;
+	padding: 0.2em;
+}
+
+.card-number {
 	border: 0.1em solid var(--accent-color);
 	border-radius: 5px;
 }
+
 .card-bonus, .card-mult, .card-second-chance, .card-freeze, .card-flip {
-	height: calc(100% - 0.3em);
-	width: calc(100% - 0.3em);
 	border: 0.1em solid var(--color-primary);
 	border-radius: 5px;
 	background-color: hsl(0, 20%, 80%);
+}
+.card-bonus, .card-mult {
+	font-size: 0.6em;
 }
 .card-freeze {
 	font-size: 0.5em;

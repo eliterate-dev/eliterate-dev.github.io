@@ -39,7 +39,7 @@ ul {
 	border-radius: 1rem;
 }
 
-.player-container, .dealer-container {
+.player-container {
 	color: white;
 }
 
@@ -47,14 +47,11 @@ ul {
 	margin: 0 auto;
 	width: max-content;
 }
-	.playing-card-container > div {
-		overflow: hidden;
-	}
 
 .player-overview {
 	width: max-content;
 	margin: 1rem auto;
-	padding: 0.5rem;
+	padding: 1rem;
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/light-paper-fibers.png);
 	box-shadow: 2px 2px black;
@@ -64,6 +61,10 @@ ul {
 	display: grid;
 	grid-template-columns: max-content max-content;
 }
+.overview-cards {
+	padding: 0.25rem 0.5rem;
+}
+
 .feed-container {
 	padding: 0.5rem;
 }
