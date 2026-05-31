@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "2ubRhJaO",
+  "version": "qG8HiVIF",
   "assets": [
     {
       "hash": "sha256-17yPNBa9VRCo0SLOwYV+BSqaXuWqbyXFsFyJakuEdvE=",
@@ -10,7 +10,7 @@ self.assetsManifest = {
       "url": "CNAME"
     },
     {
-      "hash": "sha256-7RKrhfKcutqD/gSBgfhiIJcb70Cqa7xj+ySa2dVXAIo=",
+      "hash": "sha256-f60dVxBx8vw0Lrnd7Gr2fyhhNSzdBGFH8I8FdUpqzWA=",
       "url": "Eliterate.WebAssembly.styles.css"
     },
     {
@@ -18,40 +18,40 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.Base.Shared.096v7rpcvz.wasm"
     },
     {
-      "hash": "sha256-7BFwhAf1MsDiwPEQhOOffL8AG040KuCDDn+wYHf8W8Q=",
-      "url": "_framework/Codespirals.CardGames.FlipSeven.kw0qf2vv3q.wasm"
+      "hash": "sha256-mRpgRFX6sblceelnJcc+doFMTo4zp/et6tuk/zBYJ7s=",
+      "url": "_framework/Codespirals.CardGames.FlipSeven.dvflzp95vm.wasm"
     },
     {
-      "hash": "sha256-SFD7oShEWILj1Q3M/q2Z3oDZzlkwJbdtxnCmQPCQMkE=",
-      "url": "_framework/Codespirals.CardGames.Poker.o0ia6sk16e.wasm"
+      "hash": "sha256-a9twhQzVgiecbkee8kdI75ZB5ErVeAJBcr4HNCmHXQo=",
+      "url": "_framework/Codespirals.CardGames.Poker.hxybrxc3g9.wasm"
     },
     {
       "hash": "sha256-pM03nBYQqCYsslhIYen+ye/q3erWH4eU0f8YmlsU8vs=",
       "url": "_framework/Codespirals.CardGames.Shared.488sdi4jc0.wasm"
     },
     {
-      "hash": "sha256-ptYBrwjSbUsUl5YbT40odq0FyXjvHuTQfyjt4tE1Zys=",
-      "url": "_framework/Eliterate.WebAssembly.6sndt0q91e.wasm"
+      "hash": "sha256-CDxTWG5rtLAmO7asJSlslKJAv+nVoR5bvfBuHvv5JCY=",
+      "url": "_framework/Eliterate.WebAssembly.g2nhli7mie.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
       "url": "_framework/Markdig.qqvxzo214f.wasm"
     },
     {
+      "hash": "sha256-A+jNALoWFCU9wY9KaWN8ffkwb23hUH8akQVLjiVpuug=",
+      "url": "_framework/Microsoft.AspNetCore.Components.770oth7p7j.wasm"
+    },
+    {
       "hash": "sha256-+jTgKXgH0mjBgPb7RlqtNKyTltfZAQr0CreG8VenVdA=",
       "url": "_framework/Microsoft.AspNetCore.Components.Forms.ilstdubmvo.wasm"
     },
     {
-      "hash": "sha256-eMmf1XTu2AwnkioYkEELaINUo+iEuV3E8JW7Pv7Gq1E=",
-      "url": "_framework/Microsoft.AspNetCore.Components.Web.cv5vii8tfe.wasm"
+      "hash": "sha256-p4WXRnd+oikTkwCp8oEzI6ayHQz38iluPdrujy+0QkY=",
+      "url": "_framework/Microsoft.AspNetCore.Components.Web.7ge6j5t0qy.wasm"
     },
     {
       "hash": "sha256-mYE15Q+tfM2fHGq72S80Mlq6BF5piCMbb5tjPEPhwEM=",
       "url": "_framework/Microsoft.AspNetCore.Components.WebAssembly.396zkwqv3y.wasm"
-    },
-    {
-      "hash": "sha256-zfnoIrCEzhssKWHPVhx05KHRXFICd+ul1W9hKoD2Qi8=",
-      "url": "_framework/Microsoft.AspNetCore.Components.xv5w4cq9c6.wasm"
     },
     {
       "hash": "sha256-yqBP2nTwgGNLI5ZUlBsk59F2x3QiIshT1JcPEAGv378=",
@@ -150,8 +150,8 @@ self.assetsManifest = {
       "url": "_framework/System.IO.Pipelines.osw9ot8gwu.wasm"
     },
     {
-      "hash": "sha256-FCTH5l0oPCSXJOXlJl1nkFSqtIt9V4lCuEaIZTow42w=",
-      "url": "_framework/System.Linq.07jjwh7mzr.wasm"
+      "hash": "sha256-kXUyP2LhmokrscZDeZjvctHLk87mjUc417kFM9/jQ3U=",
+      "url": "_framework/System.Linq.9m31p9zg2r.wasm"
     },
     {
       "hash": "sha256-R8Ikma8w4OVAiQkin8aIkbwjGz6X0tanWSpWAE/nI9U=",
@@ -178,8 +178,8 @@ self.assetsManifest = {
       "url": "_framework/System.ObjectModel.bfrfx59lpg.wasm"
     },
     {
-      "hash": "sha256-8F0+UVgrowrI+BL37uTRLqWHaSR8ju5s+JpCYpRLuvk=",
-      "url": "_framework/System.Private.CoreLib.k3x6tyfna6.wasm"
+      "hash": "sha256-FnkPNF7kjmp2SLCyjbOlN3peTpVMzE3hyIQM+mPEfTU=",
+      "url": "_framework/System.Private.CoreLib.mc1t5iep83.wasm"
     },
     {
       "hash": "sha256-dON+M/sMR1jK9WL1UfkotsPVOu9KD8xUJM7hW3KaNNk=",
@@ -230,7 +230,7 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-kCsWutSn120wDgvZhojfgsvSNlrYhGNKEZM1VOBgJGg=",
+      "hash": "sha256-mhOhw59dx3nqV4VRLYQBGY+GP0+PDtKYRzVL1tqHxo8=",
       "url": "_framework/dotnet.js"
     },
     {
@@ -258,7 +258,7 @@ self.assetsManifest = {
       "url": "_framework/icudt_no_CJK.lfu7j35m59.dat"
     },
     {
-      "hash": "sha256-ruxSSIQfBuV5QIGEKATB7/DW0Og9KRIIDWtUq2ZRggA=",
+      "hash": "sha256-hQQ3EPFHhLkKzyWOS8zwhKkKr7evoiSFvDSMLgqoDoU=",
       "url": "css/app.css"
     },
     {
