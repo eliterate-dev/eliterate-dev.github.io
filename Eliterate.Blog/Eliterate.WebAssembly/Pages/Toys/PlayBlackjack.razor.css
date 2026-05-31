@@ -41,21 +41,6 @@ ul {
 	color: white;
 }
 
-.playing-card-container {
-	width: max-content;
-	margin-left: auto;
-	margin-right: calc(50% - 6rem);
-}
-	.playing-card-container ::deep .playing-card {
-		line-height: 11.5rem;
-		font-size: 11rem;
-		text-align: center;
-	}
-
-	.playing-card-container:not(:first-child) ::deep .playing-card {
-		margin-left: -5.5rem;
-	}
-
 .player-overview {
 	width: max-content;
 	margin: 0.5rem auto;

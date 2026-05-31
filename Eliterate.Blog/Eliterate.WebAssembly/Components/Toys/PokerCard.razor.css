@@ -1,0 +1,14 @@
+﻿.poker-card {
+	width: 100%;
+	height: 100%;
+}
+
+.poker-card-content {
+	width: 100%;
+	height: 100%;
+	font-size: 2em;
+}
+
+	.poker-card-content > p {
+		line-height: 1;
+	}

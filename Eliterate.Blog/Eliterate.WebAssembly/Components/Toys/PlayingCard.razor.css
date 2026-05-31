@@ -1,5 +1,5 @@
-﻿
-.playing-card {
+﻿.playing-card {
+	position: relative;
 	background-color: white;
 	color: black;
 	display: inline-block;

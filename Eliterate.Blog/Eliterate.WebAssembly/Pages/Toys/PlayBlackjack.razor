@@ -1,6 +1,6 @@
-﻿@using Codespirals.CardGames.Poker
-@using Codespirals.CardGames.Poker.BlackJack
+﻿@using Codespirals.CardGames.Poker.BlackJack
 @using Eliterate.WebAssembly.Components.Toys
+
 @page "/toys/blackjack"
 
 <PageTitle>Eliterate - Blackjack</PageTitle>
@@ -14,39 +14,39 @@
                 <li>Dealer</li>
             </ul>
             <Hand>
-                <PlayingCard Model="_game.Dealer.Hand.First()" Scale="8">@_game.Dealer.Hand.First().Emoji</PlayingCard>
+                <PokerCard Model="_game.Dealer.Hand.First()" Scale="8">
+                </PokerCard>
                 @if (_game.RoundActive)
                 {
                     @foreach (var card in _game.Dealer.Hand.Skip(1))
                     {
-                        <PlayingCard Model="null" Scale="8" CardBackEmoji="@Codespirals.CardGames.Poker.PokerConstants.CARDBACKEMOJI">
-                            @card.Emoji
-                        </PlayingCard>
+                        <PokerCard Model="null" Scale="8">
+
+                        </PokerCard>
                     }
                 }
                 else
                 {
                     @foreach (var card in _game.Dealer.Hand.Skip(1))
                     {
-                        <PlayingCard Model="card" Scale="8">
-                            @card.Emoji
-                        </PlayingCard>
+                        <PokerCard Model="card" Scale="8">
+                        </PokerCard>
                     }
                 }
             </Hand>
         </div>
         <div class="player-container">
-            <h4 class="prompt">@_prompt</h4>
+            <h4 class="prompt">@_game.Prompt</h4>
             <Hand>
-                @foreach (var card in _currentPlayer.Hand)
+                @foreach (var card in _currentPlayerNotDealer.Hand)
                 {
-                    <PlayingCard Model="card" Scale="8">@card.Emoji</PlayingCard>
+                    <PokerCard Model="card" Scale="8"></PokerCard>
                 }
             </Hand>
             <ul>
-                <li>Current Player: @_currentPlayer.Name</li>
-                <li>Value of Cards: @_currentPlayer.HandValue</li>
-                <li>Cash: @_currentPlayer.TotalPoints</li>
+                <li>Current Player: @_currentPlayerNotDealer.Name</li>
+                <li>Value of Cards: @_currentPlayerNotDealer.HandValue</li>
+                <li>Cash: @_currentPlayerNotDealer.TotalPoints</li>
             </ul>
         </div>
         <div class="game-controls">
@@ -62,14 +62,14 @@
             <ul>
                 @foreach (var player in _game.Players.Except([_game.Dealer]))
                 {
-                    <li class="overview-player @(_currentPlayer == player ? "active" : "")">
+                    <li class="overview-player @(_game.CurrentPlayer == player ? "active" : "")">
                         <div>
                             @player.Name | @player.HandValue
                         </div>
                         <div class="overview-cards">
                             @foreach (var card in player.Hand)
                             {
-                                <PlayingCard Model="card" Scale="2">@card.Emoji</PlayingCard>
+                                <PokerCard Model="card" Scale="2"></PokerCard>
                             }
                         </div>
                     </li>
@@ -94,10 +94,7 @@
 
 @code {
     private BlackJackGame _game = BlackJackGame.SetUp(1);
-    private BlackJackPlayer _currentPlayer => _game.Players.Except([_game.Dealer]).First();
-
-    private string _prompt => _game.Prompt;
-    private string _feedback => string.Join('\n', _game.LogEntries.Where(l => l.Round == _game.CurrentRound).Select(l => l.Text));
+    private BlackJackPlayer _currentPlayerNotDealer => _game.CurrentPlayer == _game.Dealer ? _game.Players[1] : _game.CurrentPlayer;
 
     private int _numberOfPlayers = 1;
     private int _drawAtStartOfRound = 2;
@@ -108,11 +105,14 @@
     private bool _dealerCanCountCards = true;
 
     protected override async Task OnInitializedAsync()
-        => Restart();
+    {
+        Restart();
+    }
 
     private void Restart()
     {
-        _game = BlackJackGame.SetUp(_numberOfPlayers, _minBet, _startingCash, _autoIncreaseBuyInAfterRound, _drawAtStartOfRound, _winningScore, _dealerCanCountCards);
+        _game = BlackJackGame.SetUp(1);
+        // _game = BlackJackGame.SetUp(_numberOfPlayers, _minBet, _startingCash, _autoIncreaseBuyInAfterRound, _drawAtStartOfRound, _winningScore, _dealerCanCountCards);
         StartNextRound();
     }
 

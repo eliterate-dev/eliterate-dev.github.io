@@ -27,6 +27,7 @@
 	--sticker-outline-filter: drop-shadow(1px 0px white) drop-shadow(-1px 0px white) drop-shadow(0px -1px white) drop-shadow(0px 1px white) drop-shadow(1px 1px 1px var(--color-shadow));
 	/*textures*/
 	--texture-paper: url(../images/textures/paper-3.png);
+	--background-image: url(../images/textures/dark-wood.png);
 }
 
 @media (prefers-color-scheme: light) {

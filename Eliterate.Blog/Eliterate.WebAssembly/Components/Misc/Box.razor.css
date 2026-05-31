@@ -11,6 +11,7 @@
 	height: var(--y);
 	display: block;
 	box-shadow: 0.25rem -0.25rem 0.5rem #00000088;
+	color: black ;
 }
 
 	box, .box div, .box div::before, .box div::after {

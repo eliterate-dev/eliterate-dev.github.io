@@ -13,7 +13,7 @@ main {
     overflow-y: scroll;
     overflow-x: hidden;
     background-color: var(--color-wood);
-    background-image: url(../images/textures/dark-wood.png);
+    background-image: var(--background-image);
     min-width: calc(var(--min-width) + 20);
 }
 

@@ -2,8 +2,13 @@
 <PlayingCard Model="@Model" Scale="@Scale">
     <div class="flip-seven-card center-content" style="@_accent @_value">
         <div class="flip-seven-card-content center-content @_class">
-            <div class="pin">@Model?.Name</div>
             <p class="center-text">@Model?.Name</p>
+            <div class="pin pin-top center-content">
+                @Model?.Name
+            </div>
+            <div class="pin pin-bottom center-content">
+                @Model?.Name
+            </div>
         </div>
     </div>
 </PlayingCard>
@@ -20,7 +25,7 @@
         _ => "card-number"
     };
     private int _hue => 360 / (MaxNumber + 1)  * (Model?.Value ?? 1);
-    private string _value => $"--value:{Model?.Value ?? 0}";
+    private string _value => $"--value:{Model?.Name ?? ""}";
     private string _accent => $"--accent-color:hsl({_hue}, 100%, 50%);";
 
     [Parameter]

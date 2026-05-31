@@ -1,13 +1,12 @@
-﻿
-.brick-wall {
-	min-height: calc(100vh - 6.5rem);
-	height: max-content;
-	width: 100%;
-	padding: 0.5rem 0 6rem 0;
-	min-width: var(--min-width);
+﻿.brick-wall {
 	background-color: #b42e22;
 	background-image: url(../images/textures/brick-wall-dark.png);
 	background-size: 300px 240px;
+	width: 100%;
+	min-height: calc(100% - 5.5rem);
+	padding-top: 0.5rem;
+	padding-bottom: 5rem;
+	min-width: var(--min-width);
 }
 
 .corkboard {
@@ -17,4 +16,12 @@
 	background-image: url(../images/textures/wine-cork.png);
 	border: inset 0.5rem var(--color-wood);
 	box-shadow: 2px 2px 4px black;
+	padding: 0;
+	display: grid;
+	grid-template-columns: var(--post-list-columns);
+}
+
+::deep .corkboard > div {
+	width: calc(100% - 1rem);
+	padding: 1rem 0.5rem;
 }

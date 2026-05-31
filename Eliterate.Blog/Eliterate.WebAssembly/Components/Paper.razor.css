@@ -1,13 +1,13 @@
 ﻿.paper-container {
 	margin: 0 auto calc(var(--tearoff-height) + 1.5rem) auto;
+	width: 100%;
 }
 
 .paper {
 	position: relative;
 	display: inline-block;
 	min-width: calc(var(--min-width) - 4rem);
-	width: calc(100% - 2rem);
-	margin: 0 0.5rem;
+	width: 100%;
 	box-shadow: 3px 2px 3px black;
 	overflow-y: visible;
 }

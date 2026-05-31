@@ -1,0 +1,15 @@
+﻿
+<PlayingCard Model="@Model" Scale="@Scale">
+    <div class="poker-card center-content">
+        <div class="poker-card-content center-content">
+            <p class="center-text">@(Model?.Emoji ?? Codespirals.CardGames.Poker.PokerConstants.CARDBACKEMOJI)</p>
+        </div>
+    </div>
+</PlayingCard>
+
+@code {
+    [Parameter]
+    public Codespirals.CardGames.Poker.PokerCard? Model { get; set; }
+    [Parameter]
+    public int Scale { get; set; } = 1;
+}

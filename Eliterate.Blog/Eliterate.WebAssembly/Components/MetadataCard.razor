@@ -8,7 +8,7 @@ else
 {
     <div class="post-grid-cell">
         <div class="post-wrapper">
-            <FlashCard>
+            <FlashCard Rotation="@_rotate">
                 <div class="card-header">
                     <div class="grid-container-dash-dot">
                         <h2 class="card-title"><a @onclick="GoToPost" tabindex="0" role="heading">@Model.Title</a></h2>
@@ -41,7 +41,7 @@ else
     [Parameter]
     public PostMetadata? Model { get; set; }
     private decimal _rotation => Model?.Title.GetRandomValueFromString(20) ?? 0;
-    private string _rotate => $"rotate:{_rotation / 10}deg;";
+    private decimal _rotate => _rotation / 8;
 
     void GoToPost()
     {
