@@ -82,6 +82,13 @@
         }
     </div>
 </Modal>
+<GameOverModal Visible="_game.GameOver" HasWinner="true">
+    <div>
+        <div>Congratulations!</div>
+        <div>@(_game.GetWinner()?.Name ?? "Nobody") won the game!</div>
+        <button @onclick="Restart"> Restart</button>
+    </div>
+</GameOverModal>
 
 @code {
     private FlipSevenGame _game = FlipSevenGame.SetUp(2);

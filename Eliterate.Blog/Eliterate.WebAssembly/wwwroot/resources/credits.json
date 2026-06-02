@@ -15,8 +15,13 @@
 		"Link": "https://symbl.cc/"
 	},
 	{
-		"Description": "Inspiration",
+		"Description": "Style Inspiration",
 		"Name": "Evelyn Woods",
 		"Link": "https://eev.ee"
+	},
+	{
+		"Description": "Wisdom Inspiration",
+		"Name": "Grug",
+		"Link": "https://grugbrain.dev"
 	}
 ]
