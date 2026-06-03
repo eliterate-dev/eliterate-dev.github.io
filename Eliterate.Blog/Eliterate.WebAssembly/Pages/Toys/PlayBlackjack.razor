@@ -11,7 +11,7 @@
     <div class="blackjack-container">
         <div class="dealer-container">
             <ul>
-                <li>Dealer</li>
+                <li>@_game.Dealer.Name</li>
             </ul>
             <Hand>
                 <PokerCard Model="_game.Dealer.Hand.First()" Scale="8">
@@ -111,8 +111,7 @@
 
     private void Restart()
     {
-        _game = BlackJackGame.SetUp(1);
-        // _game = BlackJackGame.SetUp(_numberOfPlayers, _minBet, _startingCash, _autoIncreaseBuyInAfterRound, _drawAtStartOfRound, _winningScore, _dealerCanCountCards);
+        _game = BlackJackGame.SetUp(_numberOfPlayers, _minBet, _startingCash, _autoIncreaseBuyInAfterRound, _drawAtStartOfRound, _winningScore, _dealerCanCountCards);
         StartNextRound();
     }
 
