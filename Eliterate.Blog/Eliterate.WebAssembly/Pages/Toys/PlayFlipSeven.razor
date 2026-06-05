@@ -22,7 +22,7 @@
             <h4 class="prompt">@_game.Prompt</h4>
             <ul>
                 <li>Current Player: @_game.CurrentPlayer.Name</li>
-                <li>Value of Cards: @_game.CurrentPlayer.HandPoints</li>
+                <li>Value of Cards: @_game.CalculateHandValueForPlayer(_game.CurrentPlayer)</li>
             </ul>
         </div>
         <div class="game-controls">
@@ -42,7 +42,7 @@
                         <div class="center-content">
                             <p>
                                 @(GetPlayerStateEmoji(player))@player.Name (@player.TotalPoints) <br />
-                                Hand: @player.NumberCardsInHand / @player.HandPoints
+                                Hand: @player.NumberCardsInHand / @_game.CalculateHandValueForPlayer(player)
                             </p>
                         </div>
                         <div class="overview-cards">
@@ -69,6 +69,14 @@
     <button @onclick="Restart">Apply and Restart</button>
 </div>
 
+<div class="repo-link-card">
+    <FlashCard Rotation="3">
+        <Sticker Bottom="1" Right="1" Text="📁" Scale="3"></Sticker>
+        <h4>The Code</h4>
+        <a class="repo-link" target="_blank" href="https://github.com/Codespirals/Codespirals.CardGames/tree/master/Codespirals.CardGames.FlipSeven">Link to the repository containing the code to this game.</a>
+    </FlashCard>
+</div>
+
 <Modal Hideable="false" Visible="@_hasActiveActionCard">
     <div class="target-dialog">
         <h4>@_actionPrompt</h4>
@@ -82,6 +90,13 @@
         }
     </div>
 </Modal>
+<GameOverModal Visible="_game.GameOver" HasWinner="true">
+    <div>
+        <div>Congratulations!</div>
+        <div>@(_game.GetWinner()?.Name ?? "Nobody") won the game!</div>
+        <button @onclick="Restart"> Restart</button>
+    </div>
+</GameOverModal>
 
 @code {
     private FlipSevenGame _game = FlipSevenGame.SetUp(2);
@@ -129,9 +144,9 @@
     private static string GetPlayerStateEmoji(FlipSevenPlayer player)
         => player.State switch
         {
-            PlayerStates.Banked => "🏦 ",
-            PlayerStates.Frozen => "🧊 ",
-            PlayerStates.Busted => "💀 ",
+            PlayerState.Banked => "🏦 ",
+            PlayerState.Frozen => "🧊 ",
+            PlayerState.Busted => "💀 ",
             _ => "",
         };
 }

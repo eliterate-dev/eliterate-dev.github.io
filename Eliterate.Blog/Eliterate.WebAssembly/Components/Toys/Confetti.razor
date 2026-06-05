@@ -1,0 +1,8 @@
+﻿<div class="confetti-piece" style="@_position @_eccentricity @_duration @_color"></div>
+
+@code {
+    private string _eccentricity = $"--eccentricity:{Random.Shared.Next(1, 50)}px;";
+    private string _position = $"left:{Random.Shared.NextDouble() * 100}%;";
+    private string _duration = $"--fall-duration:{Random.Shared.NextDouble() * 5 + 5}s;";
+    private string _color = $"--confetti-color:hsl({Random.Shared.Next(0, 360)}, 100%, 50%);";
+}

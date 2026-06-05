@@ -1,0 +1,57 @@
+﻿@keyframes confetti-fall {
+	0% {
+		transform: translateY(-100%);
+		opacity: 1;
+	}
+	10% {
+		transform: translateY(10vh) translateX(var(--eccentricity)) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	20% {
+		transform: translateY(20vh) translateX(calc(var(--eccentricity) * -1)) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	30% {
+		transform: translateY(30vh) translateX(var(--eccentricity)) rotateX(135deg) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	40% {
+		transform: translateY(40vh) translateX(calc(var(--eccentricity) * -1)) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	50% {
+		transform: translateY(50vh) translateX(var(--eccentricity)) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	60% {
+		transform: translateY(60vh) translateX(calc(var(--eccentricity) * -1)) rotateX(135deg) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	70% {
+		transform: translateY(70vh) translateX(var(--eccentricity)) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	80% {
+		transform: translateY(80vh) translateX(calc(var(--eccentricity) * -1)) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	90% {
+		transform: translateY(90vh) translateX(var(--eccentricity)) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 0.5;
+	}
+	100% {
+		transform: translateY(100vh) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 0.1;
+	}
+}
+
+.confetti-piece {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background: var(--confetti-color, red);
+	opacity: 0.9;
+	animation: confetti-fall var(--fall-duration, 4s) linear infinite;
+	transform-style: preserve-3d;
+/*	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+*/}

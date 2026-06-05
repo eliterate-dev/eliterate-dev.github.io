@@ -11,7 +11,7 @@
     <div class="blackjack-container">
         <div class="dealer-container">
             <ul>
-                <li>Dealer</li>
+                <li>@_game.Dealer.Name</li>
             </ul>
             <Hand>
                 <PokerCard Model="_game.Dealer.Hand.First()" Scale="8">
@@ -45,7 +45,7 @@
             </Hand>
             <ul>
                 <li>Current Player: @_currentPlayerNotDealer.Name</li>
-                <li>Value of Cards: @_currentPlayerNotDealer.HandValue</li>
+                <li>Value of Cards: @_game.CalculateHandValue(_currentPlayerNotDealer)</li>
                 <li>Cash: @_currentPlayerNotDealer.TotalPoints</li>
             </ul>
         </div>
@@ -64,7 +64,7 @@
                 {
                     <li class="overview-player @(_game.CurrentPlayer == player ? "active" : "")">
                         <div>
-                            @player.Name | @player.HandValue
+                            @player.Name | @_game.CalculateHandValue(player)
                         </div>
                         <div class="overview-cards">
                             @foreach (var card in player.Hand)
@@ -82,7 +82,7 @@
 
 <div class="game-settings-container">
     <div class="game-settings">
-        <label>Number of players</label><InputNumber @bind-value="_numberOfPlayers" DisplayName="Number of players" min="1" max="5"/>
+        <label>Number of players</label><InputNumber @bind-value="_numberOfPlayers" DisplayName="Number of players" min="1" max="5" />
         <label>Winning Score</label><InputNumber @bind-value="_winningScore" DisplayName="Winning Score" min="21" max="100" />
         <label>Starting Buy-in</label><InputNumber @bind-value="_minBet" DisplayName="Starting Buy-in" min="1" max="100" />
         <label>Starting Cash</label><InputNumber @bind-value="_startingCash" DisplayName="Starting Cash" min="1" max="1000000" />
@@ -92,6 +92,13 @@
     <button @onclick="Restart">Apply and Restart</button>
 </div>
 
+<div class="repo-link-card">
+    <FlashCard Rotation="3">
+        <Sticker Bottom="1" Right="1" Text="📁" Scale="3"></Sticker>
+        <h4>The Code</h4>
+        <a class="repo-link" target="_blank" href="https://github.com/Codespirals/Codespirals.CardGames/tree/master/Codespirals.CardGames.Poker">Link to the repository containing the code to this game.</a>
+    </FlashCard>
+</div>
 @code {
     private BlackJackGame _game = BlackJackGame.SetUp(1);
     private BlackJackPlayer _currentPlayerNotDealer => _game.CurrentPlayer == _game.Dealer ? _game.Players[1] : _game.CurrentPlayer;
@@ -111,8 +118,7 @@
 
     private void Restart()
     {
-        _game = BlackJackGame.SetUp(1);
-        // _game = BlackJackGame.SetUp(_numberOfPlayers, _minBet, _startingCash, _autoIncreaseBuyInAfterRound, _drawAtStartOfRound, _winningScore, _dealerCanCountCards);
+        _game = BlackJackGame.SetUp(_numberOfPlayers, _minBet, _startingCash, _autoIncreaseBuyInAfterRound, _drawAtStartOfRound, _winningScore, _dealerCanCountCards);
         StartNextRound();
     }
 
