@@ -571,6 +571,64 @@ a.card-tag:hover[b-ez7k6alu6d], a.card-tag:focus-visible[b-ez7k6alu6d] {
 		min-width: calc(var(--min-width) /3);
 		max-width: calc(var(--min-width) /2);
 	}
+/* /Components/Toys/Confetti.razor.rz.scp.css */
+@keyframes confetti-fall-b-jh020nmkyg {
+	0% {
+		transform: translateY(-100%);
+		opacity: 1;
+	}
+	10% {
+		transform: translateY(10vh) translateX(var(--eccentricity)) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	20% {
+		transform: translateY(20vh) translateX(calc(var(--eccentricity) * -1)) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	30% {
+		transform: translateY(30vh) translateX(var(--eccentricity)) rotateX(135deg) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	40% {
+		transform: translateY(40vh) translateX(calc(var(--eccentricity) * -1)) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	50% {
+		transform: translateY(50vh) translateX(var(--eccentricity)) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	60% {
+		transform: translateY(60vh) translateX(calc(var(--eccentricity) * -1)) rotateX(135deg) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	70% {
+		transform: translateY(70vh) translateX(var(--eccentricity)) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	80% {
+		transform: translateY(80vh) translateX(calc(var(--eccentricity) * -1)) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 1;
+	}
+	90% {
+		transform: translateY(90vh) translateX(var(--eccentricity)) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 0.5;
+	}
+	100% {
+		transform: translateY(100vh) rotateX(135deg) rotateY(45deg) rotateZ(90deg);
+		opacity: 0.1;
+	}
+}
+
+.confetti-piece[b-jh020nmkyg] {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background: var(--confetti-color, red);
+	opacity: 0.9;
+	animation: confetti-fall-b-jh020nmkyg var(--fall-duration, 4s) linear infinite;
+	transform-style: preserve-3d;
+/*	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+*/}
 /* /Components/Toys/FlipSevenCard.razor.rz.scp.css */
 .flip-seven-card[b-s7pzopebm7] {
 	width: 100%;
@@ -661,6 +719,35 @@ a.card-tag:hover[b-ez7k6alu6d], a.card-tag:focus-visible[b-ez7k6alu6d] {
 .round-select-button[b-v01cbtegyq] {
 	position: absolute;
 	right: 0.5rem;
+}
+/* /Components/Toys/GameOverModal.razor.rz.scp.css */
+.modal-dialog[b-6ds2hxolge] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #222c;
+}
+
+.modal-dialog-content[b-6ds2hxolge] {
+	width: max-content;
+	max-width: 90%;
+	margin: min(200px, 15%) auto auto auto;
+	background-color: var(--color-background);
+	padding: 0.25rem;
+	border: 2px solid var(--color-primary-tint);
+	border-radius: 0.5rem;
+}
+
+.confetti-wrapper[b-6ds2hxolge] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none; /* Prevent interaction */
+	overflow: hidden;
 }
 /* /Components/Toys/Hand.razor.rz.scp.css */
 .playing-card-container[b-6eatec9baa] {
@@ -1035,6 +1122,7 @@ ul[b-bcecxxhwdg] {
 	background-image: url(../images/textures/diagmonds.png);
 	border: solid 1rem darkred;
 	border-radius: 1rem;
+	box-shadow: 2px 2px 4px black;
 }
 
 .player-container[b-bcecxxhwdg], .dealer-container[b-bcecxxhwdg] {
@@ -1047,6 +1135,7 @@ ul[b-bcecxxhwdg] {
 	padding: 0.5rem;
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/light-paper-fibers.png);
+	border: 1px solid var(--color-shadow);
 	box-shadow: 2px 2px black;
 }
 
@@ -1070,6 +1159,7 @@ ul[b-bcecxxhwdg] {
 	padding: 1rem;
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/light-paper-fibers.png);
+	border: 1px solid var(--color-shadow);
 	box-shadow: 2px 2px black;
 	width: max-content;
 	position: relative;
@@ -1097,6 +1187,15 @@ ul[b-bcecxxhwdg] {
 	line-height: 3rem;
 	font-size: 2.75rem;
 	text-align: center;
+}
+
+.repo-link-card[b-bcecxxhwdg] {
+	width: var(--min-width);
+	margin: 0 auto;
+}
+.repo-link[b-bcecxxhwdg] {
+	display: block;
+	padding: 0.5rem;
 }
 /* /Pages/Toys/PlayFlipSeven.razor.rz.scp.css */
 .toy-page-title[b-oeoq3gchar] {
@@ -1155,6 +1254,7 @@ ul[b-oeoq3gchar] {
 	padding: 1rem;
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/light-paper-fibers.png);
+	border: 1px solid var(--color-shadow);
 	box-shadow: 2px 2px black;
 }
 
@@ -1198,6 +1298,7 @@ ul[b-oeoq3gchar] {
 	padding: 1rem;
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/light-paper-fibers.png);
+	border: 1px solid var(--color-shadow);
 	box-shadow: 2px 2px black;
 	width: max-content;
 }
@@ -1236,6 +1337,16 @@ ul[b-oeoq3gchar] {
 		padding: 0.25rem 0.5rem;
 		margin: 0.25rem;
 	}
+
+.repo-link-card[b-oeoq3gchar] {
+	width: var(--min-width);
+	margin: 0 auto;
+}
+
+.repo-link[b-oeoq3gchar] {
+	display: block;
+	padding: 0.5rem;
+}
 /* /Pages/Toys/Toys.razor.rz.scp.css */
 .toy-page-title[b-lk2m0eyhvx] {
 	text-align: center;
