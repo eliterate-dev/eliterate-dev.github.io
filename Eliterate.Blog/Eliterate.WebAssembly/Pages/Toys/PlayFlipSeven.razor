@@ -22,7 +22,7 @@
             <h4 class="prompt">@_game.Prompt</h4>
             <ul>
                 <li>Current Player: @_game.CurrentPlayer.Name</li>
-                <li>Value of Cards: @_game.CurrentPlayer.HandPoints</li>
+                <li>Value of Cards: @_game.CalculateHandValueForPlayer(_game.CurrentPlayer)</li>
             </ul>
         </div>
         <div class="game-controls">
@@ -42,7 +42,7 @@
                         <div class="center-content">
                             <p>
                                 @(GetPlayerStateEmoji(player))@player.Name (@player.TotalPoints) <br />
-                                Hand: @player.NumberCardsInHand / @player.HandPoints
+                                Hand: @player.NumberCardsInHand / @_game.CalculateHandValueForPlayer(player)
                             </p>
                         </div>
                         <div class="overview-cards">
