@@ -24,12 +24,12 @@
 		"Link": "posts/on_ai"
 	},
 	{
-		"Name": "Plans",
-		"Link": "plans"
-	},
-	{
 		"Name": "Toys",
 		"Link": "toys"
+	},
+	{
+		"Name": "Plans",
+		"Link": "plans"
 	},
 	{
 		"Name": "Credits",

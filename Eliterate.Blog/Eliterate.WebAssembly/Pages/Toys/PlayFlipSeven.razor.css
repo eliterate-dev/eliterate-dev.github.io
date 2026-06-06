@@ -122,20 +122,27 @@ ul {
 	}
 
 .target-dialog {
+	padding: 0.5rem;
 	display: grid;
 	grid-template-columns: 1fr;
 }
+
+	.target-dialog h4 {
+		margin: 0;
+	}
+
 .target-dialog ::deep .playing-card {
-	margin: 1rem auto;
+	margin: 0.25rem auto;
 }
 
 .target-dialog-row {
 	display: grid;
 	grid-template-columns: 1fr min-content;
+	margin-top: 0.25rem;
 }
-	.target-dialog-row > * {
-		padding: 0.25rem 0.5rem;
-		margin: 0.25rem;
+	.target-dialog-row > div {
+		margin: 0.25rem 0;
+		padding: 0.25rem 0;
 	}
 
 .repo-link-card {

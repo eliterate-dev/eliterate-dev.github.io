@@ -10,7 +10,7 @@ Since I have decided on the name "Eliterate", I chose to go with a book theme fo
 
 ...that makes sense or something, right?
 
-<div class="sticker" style="rotate:9deg;margin-right:2rem;" role="presentation">📂</div>
+<div class="sticker" style="rotate:9deg;" role="presentation">📂</div>
 
 #### Navigation
 

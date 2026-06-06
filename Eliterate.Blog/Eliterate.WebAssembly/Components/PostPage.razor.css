@@ -103,3 +103,11 @@
 		min-width: calc(var(--min-width) /3);
 		max-width: calc(var(--min-width) /2);
 	}
+
+.book-page-text ::deep .sticker {
+	float: right;
+	margin-right: 0;
+	margin-left: 0.5rem;
+	margin-top: -1rem;
+	font-size: 2.5rem;
+}
