@@ -1,26 +1,18 @@
 .page {
-    display: flex;
-    flex-direction: column;
-    height: inherit;
-    min-width: calc(var(--min-width) + 20);
-    overflow-x: scroll; 
+    background-color: var(--color-wood);
+    background-image: var(--background-image);
 }
 
 main {
     position: relative;
-    flex: 1;
     padding: 0;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    background-color: var(--color-wood);
-    background-image: var(--background-image);
-    min-width: calc(var(--min-width) + 20);
 }
 
 .sidebar {
     min-width: max-content;
     background-color: var(--color-background);
     position: sticky;
+    top: 0;
     border: none;
     border-bottom: 1px solid var(--color-foreground);
     background-image: var(--texture-paper);
@@ -35,6 +27,9 @@ main {
     .sidebar {
         width: min-content;
         position: relative;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
         border: none;
         border-right: 1px solid var(--color-foreground);
     }

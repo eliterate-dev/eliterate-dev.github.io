@@ -3,6 +3,7 @@
 	color: var(--color-foreground);
 	margin-top: 2rem;
 	margin-right: 0.25rem;
+	min-width: var(--min-width);
 }
 
 	.book > h2 {
@@ -49,23 +50,35 @@
 	overflow: scroll;
 }
 
-	.book-page-text a {
+	.book-page-text ::deep a {
 		color: var(--color-primary);
 	}
 
-		.book-page-text a:hover {
+		.book-page-text ::deep a:hover {
 			color: var(--color-foreground);
 		}
 
-	.book-page-text h4 {
-		margin-top: 1rem;
+	.book-page-text ::deep h3, .book-page-text ::deep h4, .book-page-text ::deep h5 {
+		margin-bottom: 0.75rem;
+	}
+	.book-page-text ::deep p {
+		margin-bottom: 0.75rem;
 	}
 
-	.book-page-text .sticker {
-		position: relative;
+	.book-page-text ::deep .paper {
+		margin-left: 1rem;
+		max-width: calc(var(--min-width) / 2);
 		float: right;
-		margin: -0.25rem 0.25rem;
-		font-size: 2rem;
+		border: 1px solid var(--color-shadow);
+		box-shadow: 1px 1px black;
+	}
+
+	.book-page-text ::deep .sticker {
+		float: right;
+		margin-right: 0;
+		margin-left: 0.5rem;
+		margin-top: -1rem;
+		font-size: 2.5rem;
 	}
 
 .book-tag-container {
@@ -103,11 +116,3 @@
 		min-width: calc(var(--min-width) /3);
 		max-width: calc(var(--min-width) /2);
 	}
-
-.book-page-text ::deep .sticker {
-	float: right;
-	margin-right: 0;
-	margin-left: 0.5rem;
-	margin-top: -1rem;
-	font-size: 2.5rem;
-}

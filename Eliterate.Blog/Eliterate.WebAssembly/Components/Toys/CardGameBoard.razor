@@ -1,0 +1,17 @@
+﻿@typeparam TCard where TCard : Codespirals.CardGames.ICard
+@typeparam TPLayer where TPLayer : Codespirals.CardGames.IPlayer<TCard>
+
+<div class="table">
+    <div class="game-board">
+        @foreach (var player in Players)
+        {
+            
+        }
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public IEnumerable<TPLayer> Players { get; set; }
+}

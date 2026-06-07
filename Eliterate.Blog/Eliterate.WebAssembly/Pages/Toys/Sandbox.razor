@@ -1,0 +1,14 @@
+﻿@using Codespirals.CardGames.Poker.BlackJack
+@using Eliterate.WebAssembly.Components.Toys
+
+@page "/toys/sandbox"
+
+<PageTitle>Eliterate - Toy Sandbox</PageTitle>
+
+<CardGameBoard TCard="Codespirals.CardGames.Poker.PokerCard" TPLayer="BlackJackPlayer" Players="@_game.Players.Except([_game.Dealer])">
+
+</CardGameBoard>
+
+@code {
+    private BlackJackGame _game = BlackJackGame.SetUp(4);
+}
