@@ -100,6 +100,10 @@ body {
 }
 
 #app {
+	overflow-x: scroll;
+	min-width: calc(var(--min-width) + 20);
+	height: 100vh;
+	width: 100%;
 }
 
 h1 {
@@ -180,12 +184,6 @@ table {
 
 td {
 	padding: 0;
-}
-
-#app {
-	height: inherit;
-	overflow-x: scroll;
-	min-width: calc(var(--min-width) + 20);
 }
 
 #blazor-error-ui {
