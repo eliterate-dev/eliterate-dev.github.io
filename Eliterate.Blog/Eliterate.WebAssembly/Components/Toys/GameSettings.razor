@@ -1,0 +1,24 @@
+﻿<div class="misc-container">
+    <div class="game-settings-container">
+        @ChildContent
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(RepoLink))
+    {
+        <div class="repo-link-card">
+            <FlashCard Rotation="1.5m">
+                <Sticker Bottom="1" Right="1" Text="📁" Scale="3"></Sticker>
+                <h4>The Code</h4>
+                <p>Link to the repository containing the code to this game:</p>
+                <a class="repo-link" target="_blank" href="@RepoLink">Check it out!</a>
+            </FlashCard>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public string RepoLink { get; set; } = string.Empty;
+}

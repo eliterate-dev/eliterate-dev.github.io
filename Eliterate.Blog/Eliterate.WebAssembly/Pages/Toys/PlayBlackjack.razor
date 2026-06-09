@@ -80,7 +80,7 @@
     </div>
 </div>
 
-<div class="game-settings-container">
+<GameSettings RepoLink="https://github.com/Codespirals/Codespirals.CardGames/tree/master/Codespirals.CardGames.Poker">
     <div class="game-settings">
         <label>Number of players</label><InputNumber @bind-value="_numberOfPlayers" DisplayName="Number of players" min="1" max="5" />
         <label>Winning Score</label><InputNumber @bind-value="_winningScore" DisplayName="Winning Score" min="21" max="100" />
@@ -90,15 +90,8 @@
         <label>Dealer can count cards</label><InputCheckbox @bind-value="_dealerCanCountCards" DisplayName="Dealer can count cards" />
     </div>
     <button @onclick="Restart">Apply and Restart</button>
-</div>
+</GameSettings>
 
-<div class="repo-link-card">
-    <FlashCard Rotation="3">
-        <Sticker Bottom="1" Right="1" Text="📁" Scale="3"></Sticker>
-        <h4>The Code</h4>
-        <a class="repo-link" target="_blank" href="https://github.com/Codespirals/Codespirals.CardGames/tree/master/Codespirals.CardGames.Poker">Link to the repository containing the code to this game.</a>
-    </FlashCard>
-</div>
 @code {
     private BlackJackGame _game = BlackJackGame.SetUp(1);
     private BlackJackPlayer _currentPlayerNotDealer => _game.CurrentPlayer == _game.Dealer ? _game.Players[1] : _game.CurrentPlayer;

@@ -14,7 +14,7 @@
     </div>
     @foreach (var item in _links)
     {
-        <NavLink class="nav-link" href="@item.Link" Match="NavLinkMatch.All" tabindex="0">@($"{item.Name.PadRight(17, '.')}{_links.IndexOf(item).ToString().PadLeft(4, '.')}")</NavLink>
+        <NavLink class="nav-link" href="@item.Link" Match="NavLinkMatch.All" tabindex="0" @onclick="ToggleNavMenu">@($"{item.Name.PadRight(17, '.')}{_links.IndexOf(item).ToString().PadLeft(4, '.')}")</NavLink>
     }
 </nav>
 

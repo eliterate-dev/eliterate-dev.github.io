@@ -89,13 +89,21 @@ html, body {
 	margin: 0;
 	font-size: 16px;
 	background-color: var(--color-background);
-	min-width: calc(var(--min-width) + 20);
+	min-width: calc(var(--min-width) + 20px);
+	overflow-x: scroll;
 	height: 100%;
 }
 
 body {
 	font-family: Arial, sans-serif;
 	color: var(--color-foreground);
+}
+
+#app {
+	overflow-x: scroll;
+	min-width: calc(var(--min-width) + 20);
+	height: 100vh;
+	width: 100%;
 }
 
 h1 {
@@ -176,12 +184,6 @@ table {
 
 td {
 	padding: 0;
-}
-
-#app {
-	height: inherit;
-	overflow-x: scroll;
-	min-width: calc(var(--min-width) + 20);
 }
 
 #blazor-error-ui {
