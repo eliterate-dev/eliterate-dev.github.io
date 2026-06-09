@@ -1,8 +1,10 @@
 ### Welcome!
 
+<img class="paper" style="rotate:1deg" loading="lazy" alt="A meme where a person has made something and says 'I made this'. After which another person takes the item, looks at it and says 'You made this?... I made this'" src="../images/pictures/I_made_this.jpg" credit="https://nedroidcomics.tumblr.com/post/41879001445/the-internet"></img>
+
 I made this.
 
-#### Why have I made this?
+### Why have I made this?
 
 Have you ever wanted to do something but you just can't find a good existing tool to do it with?
 
@@ -14,11 +16,9 @@ But I also wanted to write it in C# / .Net, because it wasn't a big enough proje
 
 So I wrote an overly complicated Blazor / WASM app to write a blog to.
 
-<div class="sticker" style="rotate:-12deg;margin-right:4rem;" role="presentation">🛠</div>
-
 As one does.
 
-#### Balancing ease of use and ease of building
+### Balancing ease of use and ease of building
 
 Although I'm mainly a Backend dev, I didn't feel like doing my usual spiel of building an entire API just to fetch some .md files, 
 since this project was supposed to be quick and dirty. Basically a static page, but with just enough automation to simplify general operations.
@@ -27,10 +27,20 @@ Technically this could all be done with JavaScript pretty easily, but I don't en
 
 So I turned to a relative newcommer in Webdev space: WASM (**W**eb **AS**se**M**bly (No I don't know why they abbreviated it this way)).
 
+<div class="sticker" style="rotate:-12deg;" role="presentation">🛠</div>
+
 The .Net framework has the capability to compile my usual C# code directly into WASM, meaning I can just write my code normally - interfaces, services and all, run it through a build and bam, compiled WASM code.
 
-Using to WASM like that almost entierly eliminates the need for JavaScript (apart from maybe a service worker) - to be clear, you don't have to replace any JS. You can still use it anywhere, but *anything done in WASM* is something *I don't need to do in JS*, which is perfect for me.
+Using to WASM like that almost entierly eliminates the need to write JavaScript (apart from maybe a service worker) - to be clear, you don't have to replace any JS. You can still use it anywhere, but *anything done in WASM* is something *I don't need to explicitly write in JS*, which is perfect for me.
 
 Combined with [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor), the current modern .Net framework for frontend stuff, I can comfortably write my code in pretty much just C# and pure HTML / CSS.
 
 As posts are static Markdown files, they're easy to change and reload - however the small downside is that the keeping of metadata (such as the title and tags) is entirely manual. I'm fine with that, but if that's too much hassle for you, this solution won't work.
+
+### Wanna check out the code?
+
+<div class="sticker" style="rotate:5deg;" role="presentation">📂</div>
+
+It's all here in the [GitHub](https://github.com/eliterate-dev/eliterate-dev.github.io) repo!
+
+Feel free to be "inspired by it"!

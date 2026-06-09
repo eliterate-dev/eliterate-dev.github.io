@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "jaiepgQD",
+  "version": "C9r1+WKS",
   "assets": [
     {
       "hash": "sha256-17yPNBa9VRCo0SLOwYV+BSqaXuWqbyXFsFyJakuEdvE=",
@@ -10,7 +10,7 @@ self.assetsManifest = {
       "url": "CNAME"
     },
     {
-      "hash": "sha256-i3zfOkeaUv1Ddr/pDP+aCWYR0nf3mvMz3iauwaOUo2E=",
+      "hash": "sha256-8JYObV1hwTgL6tJ2xZQyxtkmjT/IIA7j+sQN1IrRnaI=",
       "url": "Eliterate.WebAssembly.styles.css"
     },
     {
@@ -18,8 +18,8 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.Base.Shared.096v7rpcvz.wasm"
     },
     {
-      "hash": "sha256-J9inc8LBTdgiUuYRpAKSekUxy6UjTohMjP63EhJAolg=",
-      "url": "_framework/Codespirals.CardGames.FlipSeven.31gku7zr6a.wasm"
+      "hash": "sha256-UVJOb00etneRzyV40os8CeGhEyEp5o66ztDAILRSTuM=",
+      "url": "_framework/Codespirals.CardGames.FlipSeven.b1wyb3kjzw.wasm"
     },
     {
       "hash": "sha256-PImxo3ENXbUH6Tt1l9wHNcFc0IRJQG+3G0qwpBy332M=",
@@ -30,8 +30,8 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.CardGames.Shared.hy9p80o1e7.wasm"
     },
     {
-      "hash": "sha256-cx1kFIKde8tykroahD1mjHNP4SAPqk7r8BrSTfwvaJw=",
-      "url": "_framework/Eliterate.WebAssembly.jc3iscbxyr.wasm"
+      "hash": "sha256-3N965aJpXX8ik5D90nA/4ag5zTvCUG+5vEtAUmX/dQg=",
+      "url": "_framework/Eliterate.WebAssembly.gvbz16ofdf.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
@@ -230,7 +230,7 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-it5TDIbowzqNrnNAwzWY3NaI6Ox1hp+ZQQi2W7KPESQ=",
+      "hash": "sha256-XZXm0MKMIT3fBwrdHyWTaYoxGJNitffVy1OK0DEXD8o=",
       "url": "_framework/dotnet.js"
     },
     {
@@ -258,7 +258,7 @@ self.assetsManifest = {
       "url": "_framework/icudt_no_CJK.lfu7j35m59.dat"
     },
     {
-      "hash": "sha256-hQQ3EPFHhLkKzyWOS8zwhKkKr7evoiSFvDSMLgqoDoU=",
+      "hash": "sha256-iwqJLDx0WXvZqVSihHn6K5gKhDJ4OE0TAAvtnLldrUA=",
       "url": "css/app.css"
     },
     {
@@ -300,6 +300,10 @@ self.assetsManifest = {
     {
       "hash": "sha256-uCzUpUHAZ6HlKw7BNgMsCus1xZDO1VpZah31DfEnsMs=",
       "url": "images/pictures/Cat_on_tower.jpg"
+    },
+    {
+      "hash": "sha256-0uE/v9/LoJw/MWpO/H0hvaVkin7Qtmw0C4BIidnz5+E=",
+      "url": "images/pictures/I_made_this.jpg"
     },
     {
       "hash": "sha256-MnrY6zwdXQYSeX/H0DzQRgSc9gwh/8DWcOiIh6e3YV8=",
@@ -402,11 +406,11 @@ self.assetsManifest = {
       "url": "manifest.webmanifest"
     },
     {
-      "hash": "sha256-c0vf5lN13MAv7skB/tyUD1dqWCyKcoKBvGA0WuSTby0=",
+      "hash": "sha256-yENkuy1OAI0LUBwWVFGdiVcmYZ0oL9uUSsLBbqTN3BY=",
       "url": "post_metadata/metadata.json"
     },
     {
-      "hash": "sha256-5CKXt9QR/OolSuGrm7pvFPha3goaED8P7g4QsXXG6GY=",
+      "hash": "sha256-NJRhYQdc85CaVQtMUlm9i8BtmIrxuZGHxfVwkl6SZ0Y=",
       "url": "posts/About.md"
     },
     {
@@ -418,7 +422,7 @@ self.assetsManifest = {
       "url": "posts/CV.md"
     },
     {
-      "hash": "sha256-35O945UNbqlxGEKslcc1wfiu1lKAG0kFmVgdQWllsfY=",
+      "hash": "sha256-rTklbzqkOT8G1I4knvvUYPNRHDvwQqQv6/urkjeOuSQ=",
       "url": "posts/Design.md"
     },
     {
@@ -438,7 +442,7 @@ self.assetsManifest = {
       "url": "resources/credits.json"
     },
     {
-      "hash": "sha256-LaStK4Y/lRlI6MBBsIhzlaHmhJJ/EH1cSqHR7KtQ/LE=",
+      "hash": "sha256-u1uQty6HXjM3YEfoGiwtAzosURw5Fb5l01TorTHHhQU=",
       "url": "resources/navlinks.json"
     },
     {
