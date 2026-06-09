@@ -1,6 +1,6 @@
 ﻿@inject IContentService ContentService
 
-<h1 class="navbar-brand"><a href="" tabindex="0">Eliterate</a></h1>
+<h1 class="navbar-brand"><NavLink href="/" Match="NavLinkMatch.All" tabindex="0" @onclick="CloseNavMenu">Eliterate</NavLink></h1>
 
 <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
     <div class="line"></div>
@@ -14,7 +14,7 @@
     </div>
     @foreach (var item in _links)
     {
-        <NavLink class="nav-link" href="@item.Link" Match="NavLinkMatch.All" tabindex="0" @onclick="ToggleNavMenu">@($"{item.Name.PadRight(17, '.')}{_links.IndexOf(item).ToString().PadLeft(4, '.')}")</NavLink>
+        <NavLink href="@item.Link" Match="NavLinkMatch.All" tabindex="0" @onclick="CloseNavMenu">@($"{item.Name.PadRight(17, '.')}{_links.IndexOf(item).ToString().PadLeft(4, '.')}")</NavLink>
     }
 </nav>
 
@@ -29,6 +29,11 @@
     {
         CollapseNavMenu = !CollapseNavMenu;
     }
+    private void CloseNavMenu()
+    {
+        CollapseNavMenu = true;
+    }
+
     protected override async Task OnInitializedAsync()
     {
         _links = [.. await ContentService.GetNavItems()];

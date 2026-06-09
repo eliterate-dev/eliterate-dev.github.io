@@ -1,6 +1,6 @@
 ### Welcome!
 
-<img class="paper" style="rotate:1deg" loading="lazy" alt="A meme where a person has made something and says 'I made this'. After which another person takes the item, looks at it and says 'You made this?... I made this'" src="../images/pictures/I_made_this.jpg" credit="https://nedroidcomics.tumblr.com/post/41879001445/the-internet"></img>
+<img class="paper image" style="rotate:1deg" loading="lazy" alt="A meme where a person has made something and says 'I made this'. After which another person takes the item, looks at it and says 'You made this?... I made this'" src="../images/pictures/I_made_this.jpg" credit="https://nedroidcomics.tumblr.com/post/41879001445/the-internet"></img>
 
 I made this.
 
@@ -8,9 +8,11 @@ I made this.
 
 Have you ever wanted to do something but you just can't find a good existing tool to do it with?
 
-I'm sure every software dev who loves what they do know the feeling.
+I'm sure every software dev who loves what they do knows the feeling.
 
-Well, I wanted to start a blog, but I wanted to host it in GitHub Pages, because that's just kinda easy (and free) and I'm not the biggest star at setting up servers and networks and all that jazz.
+Well, I wanted to start a blog, but I wanted to host it in GitHub Pages, because that's just kinda easy (and free) and I'm not the biggest star at setting up servers and networks and all that jazz. I can utilize a network just fine, but setting it up is a skill I sadly have let atrophy for years now.
+
+Containers are giving me a bit of practice, but this blog isn't really even big enough for containers.
 
 But I also wanted to write it in C# / .Net, because it wasn't a big enough project to warrant wrangling a language I rarely use into getting it how I want it.
 

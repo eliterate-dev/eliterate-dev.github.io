@@ -1,6 +1,6 @@
 .navbar-toggler {
 	position: absolute;
-	z-index: 1;
+	z-index: 2;
 	top: 0;
 	right: 0;
 	margin: 0.25rem 0.5rem;
@@ -25,15 +25,12 @@
 }
 
 .navbar-brand {
-	z-index: 1;
-	top: 0;
-	left: 0;
-	padding: 0.25rem 0.5rem;
+	padding: calc(0.25rem + 1px) 0.625rem;
 	margin: 0;
 }
 
 nav {
-	top: 0;
+	position: absolute;
 	min-width: min-content;
 	width: 100%;
 	display: block;
@@ -52,11 +49,14 @@ nav ::deep a {
 	align-items: center;
 }
 
-	nav ::deep a.active {
-		text-decoration: underline;
+	nav ::deep a.active, .navbar-brand ::deep a.active {
+		text-decoration: underline var(--color-primary);
 	}
 
 @media (min-width: 840px) {
+	.navbar-brand {
+		text-align: center;
+	}
 	.navbar-toggler {
 		display: none;
 	}
@@ -67,6 +67,7 @@ nav ::deep a {
 	}
 
 	nav {
+		position: static;
 		border-bottom: 0;
 	}
 

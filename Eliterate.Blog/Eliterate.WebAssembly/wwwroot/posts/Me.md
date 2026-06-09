@@ -1,7 +1,6 @@
 ### About me
 
-<div class="text-with-picture">
-<div>
+<div class="image polaroid" style="rotate:3deg;" role="note"><img loading="lazy" alt="A picture of my cat. He's very adorable." src="../images/pictures/Cat_on_tower.jpg"></img>Not me</div>
 
 Oh hey! Thanks for coming to check me out!
 
@@ -10,11 +9,6 @@ As mentioned on the <a href="" style="rotate:5deg;">front page</a>, I'm Eli.
 I'm a software developer by profession and passion.
 
 I'm a bit of a jack-of-all-trades and I have to try doing, learning, and making anything that catches my interest.
-
-</div>
-
-<div class="polaroid" style="rotate:3deg;" role="note"><img loading="lazy" alt="A picture of my cat. He's very adorable." src="../images/pictures/Cat_on_tower.jpg"></img>Not me</div>
-</div>
 
 #### Stuff I make
 
@@ -40,6 +34,8 @@ I have all the components ready for an Raspberry Pi powered Arcade cabinet, I ju
 
 ##### Travel
 
+<div class="image polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="The charles bridge and the palace in prague" src="../images/pictures/Prague_charles_bridge.jpg"></img>Prague 2026</div>
+
 When I'm not typing away on my keyboard all night, I like to travel to faraway places.
 
 I've been all over Europe having had the luck to be born in the middle of it.
@@ -52,26 +48,17 @@ I don't regeret it though. It's a super fun event with <a href="https://opensauc
 
 I plan to go again this year if family circumstances allow it.
 
-<div class="text-with-picture">
-<div>
-
 My most recent excursion was to Prague for a bit over a week, just to see the city and the streetlights. Apart from the food poisoning I got whle there, it was a very worthwhile trip. It's a beautiful town with buildings seemingly from every era of european history.
 
 That there is a Starbucks **in** the castle is a bit of a gut punch to bring you back to modern times though. 
 
-</div>
-
-<div class="polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="The charles bridge and the palace in prague" src="../images/pictures/Prague_charles_bridge.jpg"></img>Prague 2026</div>
-</div>
-
 ##### Pets
+
+<div class="image polaroid" style="rotate:1deg;" role="note"><img loading="lazy" alt="A picture of my cat biting my foot. He's still very adorable." src="../images/pictures/Cat_biting.jpg"></img>Biting commentary</div>
 
 I love animals and will pet any that allow me.
 
 Although I have a dog and do enjoy taking her on walks in the forest, I'm more of a cat person and cats will always have a special place in my heart.
-
-<div class="text-with-picture">
-<div>
 
 I adore all the cats I've ever had, but I have to say, my current one (the one in the pictures) is a Zoolander-esque male model of a cat. Gorgeous and dumb as a rock. I love him dearly.
 
@@ -79,17 +66,11 @@ He's a little goblin and his hobby is sneaking up on my dog while she's trying t
 
 It's bloody hilarious every time. She hates it.
 
-</div>
-
-<div class="polaroid" style="rotate:1deg;" role="note"><img loading="lazy" alt="A picture of my cat biting my foot. He's still very adorable." src="../images/pictures/Cat_biting.jpg"></img>Biting commentary</div>
-</div>
-
 ##### Music
 
-My taste in music is weird. I listen to a lot of different genres mixed together.
+<div class="image polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="A concert " src="../images/pictures/BOTAR.jpg"></img>BOTAR 2023</div>
 
-<div class="text-with-picture">
-<div>
+My taste in music is weird. I listen to a lot of different genres mixed together.
 
 I have a special fondness for Ska. I know it ain't hip, but I am a sucker for a good horn section.
 
@@ -99,13 +80,11 @@ I have seen them live multiple times now, even though I had to fly to the states
 
 The BOTAR show in Denver was especially mindblowing. Hearing some of your favourite songs with orchestral backing is just an amazing experience.
 
-</div>
-<div class="polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="A concert " src="../images/pictures/BOTAR.jpg"></img>BOTAR 2023</div>
-</div>
-
 Other favourites include anything else by Tomas Kalnoky, Conor Oberst, John Darnielle, Patrick Schneeweis, Theo Hilton, Jesse Sendejas or April Hartman, as well as Gorillaz, Dawes and many others.
 
-##### Learning <div class="sticker" style="rotate:-12deg;" role="presentation">✨</div>
+##### Learning 
+
+<div class="sticker" style="rotate:-12deg;" role="presentation">✨</div>
 
 Saying "learning is a hobby of mine" sounds weird, but it's true. I'm always curious about how things work.
 

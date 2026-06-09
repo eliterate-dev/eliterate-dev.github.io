@@ -1,8 +1,7 @@
 ﻿.book {
 	position: relative;
 	color: var(--color-foreground);
-	margin-top: 2rem;
-	margin-right: 0.25rem;
+	margin: 2rem 0.25rem 0.25rem 0;
 	min-width: var(--min-width);
 }
 
@@ -47,7 +46,7 @@
 	background-color: var(--color-background);
 	background-image: url(../images/textures/notebook-dark.png);
 	text-align: justify;
-	overflow: scroll;
+	overflow-y: auto;
 }
 
 	.book-page-text ::deep a {
@@ -65,11 +64,33 @@
 		margin-bottom: 0.75rem;
 	}
 
+	.book-page-text ::deep .image {
+		user-select: none;
+		min-width: calc(var(--min-width) / 4);
+		max-width: calc(var(--min-width) /1.5);
+		float: right;
+	}
+
+	.book-page-text ::deep .polaroid {
+		margin: 0 0 0.5rem 1rem;
+		padding: 0.25rem;
+		background-color: white;
+		color: black;
+		text-align: center;
+		font-family: var(--font-handwritten);
+		filter: var(--sticker-outline-filter);
+	}
+
+	.book-page-text ::deep img {
+		width: 100%;
+		display: block;
+		border: 1px solid var(--color-shadow);
+	}
+
 	.book-page-text ::deep .paper {
 		margin-left: 1rem;
 		max-width: calc(var(--min-width) / 2);
 		float: right;
-		border: 1px solid var(--color-shadow);
 		box-shadow: 1px 1px black;
 	}
 
@@ -83,36 +104,7 @@
 
 .book-tag-container {
 	position: absolute;
-	top: -2rem;
+	top: -1.75rem;
 	right: 0;
 	width: max-content;
-	padding: 0.25rem;
 }
-
-::deep .polaroid {
-	height: min-content;
-	margin: 0 0 0.5rem 1rem;
-	padding: 0.25rem;
-	background-color: white;
-	color: black;
-	text-align: center;
-	font-family: var(--font-handwritten);
-	filter: var(--sticker-outline-filter);
-}
-
-	::deep .polaroid img {
-		width: 100%;
-		display: block;
-		margin-bottom: 0.25rem;
-		border: solid 1px black;
-	}
-
-::deep .text-with-picture {
-	display: grid;
-	grid-template-columns: auto auto;
-}
-
-	::deep .text-with-picture div:nth-of-type(2) {
-		min-width: calc(var(--min-width) /3);
-		max-width: calc(var(--min-width) /2);
-	}
