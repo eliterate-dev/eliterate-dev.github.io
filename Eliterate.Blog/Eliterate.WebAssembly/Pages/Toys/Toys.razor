@@ -1,4 +1,5 @@
 ﻿@inject IContentService ContentService
+@inject NavigationManager NavigationManager
 @page "/toys"
 @using Eliterate.WebAssembly.Components.Toys
 
@@ -20,11 +21,14 @@
             <h2>Flip7</h2>
         </div>
     </ToyBox>
-    <ToyBox Name="Sandbox" Scale="1.5">
-        <div class="center-content">
-            <p>Test box, do not click.</p>
-        </div>
-    </ToyBox>
+    @if (NavigationManager.BaseUri.Contains("localhost"))
+    {
+        <ToyBox Name="Sandbox" Scale="1.5">
+            <div class="center-content">
+                <p>Test box, do not click.</p>
+            </div>
+        </ToyBox>
+    }
 </div>
 
 

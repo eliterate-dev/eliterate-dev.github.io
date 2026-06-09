@@ -1,4 +1,4 @@
-﻿<div class="sticker absolute" style="@_fontSize @_rotate @_top @_right @_bottom @_left" role="presentation">
+﻿<div class="sticker absolute" style="@_fontSize @_rotate @_top @_right @_bottom @_left @_zindex" role="presentation">
     @Text
 </div>
 
@@ -17,6 +17,8 @@
     public decimal Scale { get; set; } = 1;
     [Parameter]
     public decimal Rotate { get; set; } = Random.Shared.Next(-400, 400) / 10m;
+    [Parameter]
+    public int? ZIndex { get; set; }
 
     private string _fontSize => $"font-size:{Scale}rem;";
     private string _rotate => $"rotate:{Rotate}deg;";
@@ -24,4 +26,5 @@
     private string _right => Right is null ? string.Empty : $"right:{Right}rem;";
     private string _bottom => Bottom is null ? string.Empty : $"bottom:{Bottom}rem;";
     private string _left => Left is null ? string.Empty : $"left:{Left}rem;";
+    private string _zindex => ZIndex is null ? string.Empty : $"z-index:{ZIndex};";
 }
