@@ -1,0 +1,21 @@
+﻿.table {
+	--total-players: 1;
+	--current-player: 0;
+	--board-hue: 14;
+	width: min(100vh, 100vw);
+	height: min(100vh, 100vw);
+	padding: 1rem;
+}
+
+.game-board {
+	position: relative;
+	--rotate-per-player: calc(360deg / var(--total-player));
+	rotate: calc(var(--rotate-per-player) * var(--current-player));
+	width: calc(100% - 4rem);
+	height: calc(100% - 4rem);
+	background-color: hsl(var(--board-hue), 100%, 50%);
+	background-image: url(../images/textures/diagmonds.png);
+	border: solid 1rem darkred;
+	border-radius: 50%;
+	box-shadow: 2px 2px 4px black;
+}
