@@ -36,9 +36,9 @@
                     </div>
                     <div class="card-footer">
                         <div class="card-tags">
-                            <a class="card-tag" href="posts" style="background-color:aquamarine;rotate:3deg;" tabindex="0">Posts</a>
-                            <a class="card-tag" href="posts/about" style="background-color:lightpink;rotate:-2deg;" tabindex="0">About</a>
-                            <a class="card-tag" href="@mailLink" style="background-color:lightsalmon;rotate:2deg;" tabindex="0">Contact</a>
+                            <Tag Name="Posts" Classes="card-tag" Color="aquamarine" Rotate="3"></Tag>
+                            <Tag Name="About" Classes="card-tag" Link="posts/about" Color="lightpink" Rotate="-2"></Tag>
+                            <Tag Name="Contact" Classes="card-tag" Link="@mailLink" Color="lightsalmon" Rotate="2"></Tag>
                         </div>
                     </div>
                 </FlashCard>
@@ -68,7 +68,7 @@
                     {
                         <div class="card-footer">
                             <div class="card-tags">
-                                <a class="card-tag" target="_blank" href="@tagline.YouTubeLink" style="background-color:#FF0000;color:white;rotate:-2deg;" tabindex="0">YouTube</a>
+                                <Tag Name="YouTube" Classes="card-tag" Link="@tagline.YouTubeLink" Color="#FF0000" Rotate="-2" OpenInNewWindow="true"></Tag>
                             </div>
                         </div>
                     }

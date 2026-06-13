@@ -52,3 +52,6 @@
 		transition: bottom 0.5s;
 		bottom: -9rem;
 	}
+	.peek-card ::deep .card-tag {
+		color: white;
+	}

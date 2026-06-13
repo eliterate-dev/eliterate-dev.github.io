@@ -5,58 +5,62 @@
 
 <PageTitle>Eliterate - Toy Sandbox</PageTitle>
 
-<CardGameBoard TotalPlayers="_game.Players.Except([_game.Dealer]).Count()" CurrentPlayerIndex="_game.GetPlayerIndex(_game.CurrentPlayer)">
-    @foreach (var player in _game.Players.Except([_game.Dealer]))
-    {
-        <div class="player-container" style="@($"rotate:{360 / _numberOfPlayers * _game.GetPlayerIndex(player)}deg;")">
-            <div class="hand-container" style="@($"--card-width:{_cardScale * 20}px;")">
-                <ul>
-                    <li>Current Player: @player.Name</li>
-                    <li>Value of Cards: @_game.CalculateHandValue(player)</li>
-                    <li>Cash: @player.TotalPoints</li>
-                </ul>
+<div class="game-board-container">
+    <CardGameBoard TotalPlayers="_game.Players.Except([_game.Dealer]).Count()" CurrentPlayerIndex="_game.GetPlayerIndex(_game.CurrentPlayer) - 1">
+        @foreach (var player in _game.Players.Except([_game.Dealer]))
+        {
+            <div class="player-container" style="@($"rotate:-{360 / _numberOfPlayers * (_game.GetPlayerIndex(player) - 1)}deg;")">
+                <div class="player @(_game.CurrentPlayer == player ? "active" : "")">
+                    <div class="hand-container">
+                        <Hand>
+                            @foreach (var card in player.Hand)
+                            {
+                                <PokerCard Model="card"></PokerCard>
+                            }
+                        </Hand>
+                    </div>
+                    <h3 class="center-text">@player.Name</h3>
+                </div>
+            </div>
+        }
+    </CardGameBoard>
+    <div class="dealer-container center-content">
+        <div class="dealer">
+            <h3 class="center-text">@_game.Dealer.Name</h3>
+            <div class="hand-container">
                 <Hand>
-                    @foreach (var card in player.Hand)
+                    <PokerCard Model="_game.Dealer.Hand.First()"></PokerCard>
+                    @foreach (var card in _game.Dealer.Hand.Skip(1))
                     {
-                        <PokerCard Model="card" Scale="_cardScale"></PokerCard>
+                        <PokerCard Model="null"></PokerCard>
                     }
                 </Hand>
             </div>
         </div>
-    }
-</CardGameBoard>
-
-<div class="game-controls">
-    <h4 class="prompt">@_game.Prompt</h4>
-    <button @onclick="Stand" disabled="@(!_game.RoundActive || _game.GameOver)">Stand</button>
-    <button @onclick="Hit" disabled="@(!_game.RoundActive || _game.GameOver)">Hit Me</button>
-
-    <button class="right" @onclick="StartNextRound" disabled="@(_game.RoundActive || _game.GameOver)">Start Next Round</button>
-</div>
-
-<div class="feed-container">
-    <div class="player-overview">
-        <h4>Player overview:</h4>
-        <ul>
-            @foreach (var player in _game.Players.Except([_game.Dealer]))
-            {
-                <li class="overview-player @(_game.CurrentPlayer == player ? "active" : "")">
-                    <div>
-                        @player.Name | @_game.CalculateHandValue(player)
-                    </div>
-                    <div class="overview-cards">
-                        @foreach (var card in player.Hand)
-                        {
-                            <PokerCard Model="card" Scale="2"></PokerCard>
-                        }
-                    </div>
-                </li>
-            }
-        </ul>
     </div>
 </div>
 
-<GameLog Model="_game" CurrentRound="_game.CurrentRound"></GameLog>
+<div class="game-controls-container">
+    <FlashCard Rotation="1">
+        <div class="card-header">
+            <h4 class="card-title prompt">@_game.Prompt</h4>
+        </div>
+        <div class="card-body">
+            <ul>
+                <li>Current Player: @_currentPlayerNotDealer.Name</li>
+                <li>Value of Cards: @_game.CalculateHandValue(_currentPlayerNotDealer)</li>
+                <li>Cash: @_currentPlayerNotDealer.TotalPoints</li>
+            </ul>
+        </div>
+        <div class="card-footer">
+            <button @onclick="Stand" disabled="@(!_game.RoundActive || _game.GameOver)">Stand</button>
+            <button @onclick="Hit" disabled="@(!_game.RoundActive || _game.GameOver)">Hit Me</button>
+
+            <button class="right" @onclick="StartNextRound" disabled="@(_game.RoundActive || _game.GameOver)">Start Next Round</button>
+        </div>
+    </FlashCard>
+    <GameLog Model="_game" CurrentRound="_game.CurrentRound"></GameLog>
+</div>
 
 <GameSettings RepoLink="https://github.com/Codespirals/Codespirals.CardGames/tree/master/Codespirals.CardGames.Poker">
     <div class="game-settings">
@@ -78,7 +82,7 @@
     private int _cardScale = 3;
 
     //settings
-    private int _numberOfPlayers = 4;
+    private int _numberOfPlayers = 3;
     private int _drawAtStartOfRound = 2;
     private int _minBet = 1;
     private int _winningScore = 21;

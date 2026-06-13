@@ -1,14 +1,11 @@
-﻿<div class="playing-card @Class" style="@_size">
+﻿<div class="playing-card @Class">
     @ChildContent
 </div>
 
 @code {
-    private string _size => $"height:{Scale * 28}px;width:{Scale * 20}px;font-size:{Scale * 14}px;";
 
     [Parameter]
     public Codespirals.CardGames.ICard? Model { get; set; }
-    [Parameter]
-    public int Scale { get; set; } = 1;
     [Parameter]
     public string Class { get; set; } = "";
     [Parameter]

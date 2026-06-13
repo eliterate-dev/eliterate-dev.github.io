@@ -8,12 +8,15 @@
         <div class="repo-link-card">
             <FlashCard Rotation="1.5m">
                 <Sticker Bottom="1" Right="1" Text="📁" Scale="3"></Sticker>
-                <h4>The Code</h4>
-                <p>Link to the repository containing the code to this game:</p>
-
+                <div class="card-header">
+                    <h4 class="card-title">The Code</h4>
+                </div>
+                <div class="card-text">
+                    <p>This game is open source. That means the code for this game is freely available for anyone to copy and play with as they wish! Simply click on the GitHub link below.</p>
+                </div>
                 <div class="card-footer">
                     <div class="card-tags">
-                        <a class="card-tag" href="@RepoLink" style="background-color:#0FBF3E;rotate:-2deg;" tabindex="0">Github</a>
+                        <Tag Name="GitHub" Classes="card-tag" Link="@RepoLink" Color="#0FBF3E" Rotate="-2"></Tag>
                     </div>
                 </div>
             </FlashCard>

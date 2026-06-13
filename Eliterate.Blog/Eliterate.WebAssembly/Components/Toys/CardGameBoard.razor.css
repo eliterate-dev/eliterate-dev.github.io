@@ -2,20 +2,36 @@
 	--total-players: 1;
 	--current-player: 0;
 	--board-hue: 14;
-	width: min(100vh, 100vw);
-	height: min(100vh, 100vw);
-	padding: 1rem;
+	--board-padding: 20px;
+	width: calc(min(100vh, 100vw) - var(--board-padding) * 2);
+	max-width: 600px;
+	min-width: calc(var(--min-width) + var(--board-padding));
+	overflow-x: hidden;
+	height: calc(min(100vh, 100vw) - var(--board-padding) * 2);
+	max-height: 600px;
+	min-height: calc(var(--min-width) + var(--board-padding));
+	overflow-y: hidden;
+	padding: var(--board-padding);
+	margin: calc(var(--board-padding) * -1)
+}
+
+.game-board-shadow {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	box-shadow: 3px 3px 3px black;
 }
 
 .game-board {
+	--rotate-per-player: calc(360deg / var(--total-players));
 	position: relative;
-	--rotate-per-player: calc(360deg / var(--total-player));
 	rotate: calc(var(--rotate-per-player) * var(--current-player));
-	width: calc(100% - 4rem);
-	height: calc(100% - 4rem);
+	width: calc(100% - var(--board-padding) * 2 + 2px);
+	height: calc(100% - var(--board-padding) * 2 + 2px);
 	background-color: hsl(var(--board-hue), 100%, 50%);
 	background-image: url(../images/textures/diagmonds.png);
-	border: solid 1rem darkred;
+	border: solid var(--board-padding) hsl(var(--board-hue), 100%, 20%);
 	border-radius: 50%;
-	box-shadow: 2px 2px 4px black;
+	animation: 1s;
 }
