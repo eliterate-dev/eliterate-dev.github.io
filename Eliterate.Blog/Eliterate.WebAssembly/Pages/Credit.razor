@@ -14,10 +14,12 @@
             </tr>
         }
     </table>
-    <Sticker Text="📱" Left="2" Top="1" Scale="3" Rotate="20"></Sticker>
-    <Sticker Text="🪫" Right="1" Bottom="4" Scale="3" Rotate="-23"></Sticker>
 
-    <div class="bottom-right">&copy @DateTime.UtcNow.Year Eliterate</div>
+    <div class="qr-code"><img src="/images/pictures/eliterate_qr.png" srcset="/images/pictures/eliterate.svg" alt="▣" /></div>
+    <div class="copyright">&copy @DateTime.UtcNow.Year Eliterate</div>
+
+    <Sticker Text="📱" Right="2" Top="1" Scale="3" Rotate="20"></Sticker>
+    <Sticker Text="🪫" Left="5" Bottom="1.75m" Scale="3" Rotate="86"></Sticker>
 </ClosedBook>
 
 @code

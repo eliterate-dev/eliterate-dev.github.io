@@ -1,0 +1,30 @@
+﻿<div class="cuboid" style="@_size @_color @_rotation">
+    <div class="cuboid-bottom">
+        <div class="cuboid-top">
+            @ChildContent
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _size => $"--x:{X}px;--y:{Y}px;--z:{Z}px;";
+    private string _rotation => $"--rotate-x:{RotateX}px;--rotate-y:{RotateY}px;--rotate-z:{RotateZ}px;";
+    private string _color => string.IsNullOrWhiteSpace(Color) ? $"--color:#fff;" : $"--color:#{Color};";
+
+    [Parameter]
+    public double X { get; set; } = 10;
+    [Parameter]
+    public double Y { get; set; } = 10;
+    [Parameter]
+    public double Z { get; set; } = 10;
+    [Parameter]
+    public double RotateX { get; set; } = 10;
+    [Parameter]
+    public double RotateY { get; set; } = 10;
+    [Parameter]
+    public double RotateZ { get; set; } = 10;
+    [Parameter]
+    public string Color { get; set; } = "";
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

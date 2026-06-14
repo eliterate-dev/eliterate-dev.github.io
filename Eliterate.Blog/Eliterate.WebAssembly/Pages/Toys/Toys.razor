@@ -21,13 +21,18 @@
             <h2>Flip7</h2>
         </div>
     </ToyBox>
-    @if (NavigationManager.BaseUri.Contains("localhost"))
+    @if (NavigationManager.Uri.Contains("localhost"))
     {
         <ToyBox Name="Sandbox" Scale="1.5">
             <div class="center-content">
                 <p>Test box, do not click.</p>
             </div>
         </ToyBox>
+
+
+        <Cuboid>
+
+        </Cuboid>
     }
 </div>
 

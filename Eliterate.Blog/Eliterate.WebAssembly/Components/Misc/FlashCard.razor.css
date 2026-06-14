@@ -23,7 +23,7 @@
 ::deep .card-body {
 	max-width: 380px;
 	height: max-content;
-	margin-bottom: 2.5rem;
+	margin-bottom: 3rem;
 }
 
 ::deep .card-text {
