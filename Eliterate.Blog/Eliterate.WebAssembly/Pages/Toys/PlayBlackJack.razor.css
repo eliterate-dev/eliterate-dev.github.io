@@ -14,7 +14,7 @@
 }
 
 .player-container {
-	--card-width: min(max(12vw, 40px), 100px);
+	--card-width: min(max(10vw, 35px), 72px);
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -24,23 +24,29 @@
 
 .player {
 	position: absolute;
-	bottom: -2.5rem;
+	bottom: -2rem;
 	width: 100%;
 }
 
-	.player.active {
+	.player-container.active {
 		--card-width: min(max(18vw, 60px), 140px);
+		z-index: 2;
 	}
 
 .dealer-container {
-	--card-width: min(max(12vw, 40px), 80px);
+	--card-width: min(max(11vw, 40px), 90px);
 	min-width: calc(var(--min-width) - 4rem);
 	position: absolute;
 	top: 0;
 	right: 0;
-	bottom: 0;
+	bottom: 2rem;
 	left: 0;
 }
+
+	.dealer-container.single-player {
+		--card-width: min(max(18vw, 60px), 140px);
+		top: 4rem;
+	}
 
 .hand-container {
 	position: relative;
