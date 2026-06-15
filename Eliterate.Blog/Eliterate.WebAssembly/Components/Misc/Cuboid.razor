@@ -1,30 +1,43 @@
-﻿<div class="cuboid" style="@_size @_color @_rotation">
+﻿<div class="cuboid" style="@_size @_position @_color @_rotation">
     <div class="cuboid-bottom">
         <div class="cuboid-top">
-            @ChildContent
+            <div class="cuboid-label">
+                @ChildContent
+            </div>
         </div>
     </div>
 </div>
 
 @code {
     private string _size => $"--x:{X}px;--y:{Y}px;--z:{Z}px;";
-    private string _rotation => $"--rotate-x:{RotateX}px;--rotate-y:{RotateY}px;--rotate-z:{RotateZ}px;";
-    private string _color => string.IsNullOrWhiteSpace(Color) ? $"--color:#fff;" : $"--color:#{Color};";
+    private string _position => $"--move-x:{MoveX}px;--move-y:{MoveY}px;--move-z:{MoveZ}px;";
+    private string _rotation => $"--rotate-x:{RotateX}deg;--rotate-y:{RotateY}deg;--rotate-z:{RotateZ}deg;";
+    private string _color => $"--color:hsl({Math.Clamp(Hue, 0, 360)},{Math.Clamp(Saturation, 0, 100)}%,{Math.Clamp(Lightness, 0, 100)}%);";
 
     [Parameter]
-    public double X { get; set; } = 10;
+    public double X { get; set; } = 100;
     [Parameter]
-    public double Y { get; set; } = 10;
+    public double Y { get; set; } = 100;
     [Parameter]
-    public double Z { get; set; } = 10;
+    public double Z { get; set; } = 100;
     [Parameter]
-    public double RotateX { get; set; } = 10;
+    public double MoveX { get; set; }
     [Parameter]
-    public double RotateY { get; set; } = 10;
+    public double MoveY { get; set; }
     [Parameter]
-    public double RotateZ { get; set; } = 10;
+    public double MoveZ { get; set; }
     [Parameter]
-    public string Color { get; set; } = "";
+    public double RotateX { get; set; }
+    [Parameter]
+    public double RotateY { get; set; }
+    [Parameter]
+    public double RotateZ { get; set; }
+    [Parameter]
+    public int Hue { get; set; } = 14;
+    [Parameter]
+    public int Saturation { get; set; } = 100;
+    [Parameter]
+    public int Lightness { get; set; } = 50;
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 }

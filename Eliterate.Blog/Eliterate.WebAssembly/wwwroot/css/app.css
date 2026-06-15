@@ -255,6 +255,15 @@ code {
 	display: grid;
 	grid-template-columns: 1fr min-content;
 }
+
+.fill {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
 .center-content {
 	display: flex;
 	justify-content: center;

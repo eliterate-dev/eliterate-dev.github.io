@@ -1,18 +1,32 @@
 ﻿<div class="book">
-    <div class="cuboid cuboid-top top-cover-bottom">
-        <div class="top-cover-top"></div>
-    </div>
-    <div class="pages-bottom">
-        <div class="pages-top"></div>
-    </div>
-    <div class="spine-bottom">
-        <div class="spine-top"></div>
-    </div>
-    <div class="bottom-cover-bottom">
-        <div class="bottom-cover-top"></div>
-    </div>
+    @* Cover *@
+    <Cuboid X="300" Y="420" Z="10">
+        @ChildContent
+    </Cuboid>
+    @* Spine *@
+    <Cuboid>
+    </Cuboid>
+    @* Pages *@
+    <Cuboid>
+    </Cuboid>
+    @* Back *@
+    <Cuboid X="300" Y="420" Z="10">
+    </Cuboid>
 </div>
 
 @code {
-
+    [Parameter]
+    public double RotateX { get; set; }
+    [Parameter]
+    public double RotateY { get; set; }
+    [Parameter]
+    public double RotateZ { get; set; }
+    [Parameter]
+    public int Hue { get; set; } = 14;
+    [Parameter]
+    public int Saturation { get; set; } = 100;
+    [Parameter]
+    public int Lightness { get; set; } = 50;
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
 }
