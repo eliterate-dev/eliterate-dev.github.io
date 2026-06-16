@@ -1,4 +1,42 @@
 ﻿
+.credit-container {
+	min-height: 500px;
+	overflow-y: scroll;
+	display: flex;
+	justify-content: center;
+	padding: 2rem 0;
+}
+
+::deep .book {
+	box-shadow: -5px -5px 10px var(--color-shadow);
+	color: white;
+}
+
+::deep .book-back, ::deep .book-spine, ::deep .book-top {
+	--color: var(--color-book-cover);
+	background-image: url(../images/textures/dark-leather.png);
+}
+
+::deep .book-pages {
+	border: 1px solid black;
+	box-shadow: -3px -3px 5px var(--color-shadow);
+}
+
+::deep .book-cover {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border: 2px solid var(--color-shadow);
+	padding: 1rem;
+	rotate: 180deg;
+}
+
+h1 {
+	text-decoration: overline var(--color-primary);
+}
+
 table {
 	font-size: 0.8rem;
 }
@@ -7,3 +45,21 @@ td:first-of-type {
 	list-style-type: none;
 	padding: 0 1rem 0 0;
 }
+
+.copyright {
+	position: absolute;
+	bottom: 1rem;
+	left: 1rem;
+}
+
+.qr-code {
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
+	font-size: 2rem;
+	max-width: 100px;
+	max-height: 100px;
+}
+	.qr-code > img {
+		width: 100%;
+	}

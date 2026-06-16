@@ -22,7 +22,7 @@ public class ContentService(HttpClient client) : IContentService
 
     public async Task<IEnumerable<PostMetadata>> GetMetadata()
     {
-        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
+        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"posts/metadata.json");
         if (metadata is null)
             return [];
         var posts = new List<PostMetadata>();
@@ -37,7 +37,7 @@ public class ContentService(HttpClient client) : IContentService
 
     public async Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tagId)
     {
-        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
+        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"posts/metadata.json");
         if (metadata is null)
             return [];
         var posts = new List<PostMetadata>();
@@ -52,7 +52,7 @@ public class ContentService(HttpClient client) : IContentService
 
     public async Task<BlogPost?> GetPost(string title)
     {
-        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
+        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"posts/metadata.json");
         var post = metadata?.FirstOrDefault(m => m.Id == title);
         if (post is null)
             return null;
@@ -63,7 +63,7 @@ public class ContentService(HttpClient client) : IContentService
     }
     public async Task<BlogPost?> GetLatest()
     {
-        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
+        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"posts/metadata.json");
         var post = metadata?.OrderByDescending(p => p.Created).FirstOrDefault();
         if (post is null)
             return null;
@@ -74,7 +74,7 @@ public class ContentService(HttpClient client) : IContentService
     }
     public async Task<int> GetPostCount()
     {
-        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"post_metadata/metadata.json");
+        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"posts/metadata.json");
         if (metadata is null)
             return 0;
         return metadata.Count();

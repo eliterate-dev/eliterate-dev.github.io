@@ -1,10 +1,10 @@
-﻿@page "/"
+﻿@page "/playground"
 @inject IContentService ContentService
 
-<PageTitle>Eliterate</PageTitle>
+<h3>Playground</h3>
 
-<div class="home-container fill">
-    <Book X="300" Y="420" Z="50" RotateX="15" RotateY="-10" RotateZ="3">
+<div class="fill center-content">
+    <Book X="300" Y="420" Z="50" RotateX="15" RotateZ="3">
         <h2 class="center-text" tabindex="0">Eliterate</h2>
         @if (tagline is not null)
         {
@@ -16,7 +16,7 @@
     </Book>
     <div class="post-grid-cell">
         <div class="post-wrapper">
-            <FlashCard>
+            <FlashCard Rotation="1.5m">
                 <div class="card-header">
                     <div class="grid-container-dash-dot">
                         <h2 class="card-title" tabindex="0" role="heading">Hi! I'm Eli</h2>
@@ -43,39 +43,7 @@
             </FlashCard>
         </div>
     </div>
-    @if (tagline is not null)
-    {
-        <div class="peek-card-container">
-            <div class="peek-card @showSourceCssClass" @onclick="ToggleShowSource">
-                <FlashCard Rotation="-5">
-                    <div class="card-header">
-                        <div class="grid-container-dash-dot">
-                            <h2 class="card-title" tabindex="0" role="heading">Tagline Source</h2>
-                            <Sticker Text="💿" Top="0.25m" Right="0.5m" Rotate="3" Scale="1.5m"></Sticker>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-text" tabindex="0" role="document">
-                            <p>
-                                Artist: @tagline.Artist<br>
-                                Song: @tagline.Song
-                            </p>
-                        </div>
-                    </div>
-                    @if (tagline.YouTubeLink is not null)
-                    {
-                        <div class="card-footer">
-                            <div class="card-tags">
-                                <Tag Name="YouTube" Classes="card-tag" Link="@tagline.YouTubeLink" Color="#FF0000" Rotate="-2" OpenInNewWindow="true"></Tag>
-                            </div>
-                        </div>
-                    }
-                </FlashCard>
-            </div>
-        </div>
-    }
 </div>
-
 
 @code {
     private SongQuote? tagline;

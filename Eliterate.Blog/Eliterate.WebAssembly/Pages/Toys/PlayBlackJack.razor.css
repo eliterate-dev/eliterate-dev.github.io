@@ -1,0 +1,84 @@
+﻿ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.game-board-container {
+	color: white;
+	position: relative;
+	min-width: calc(var(--min-width) + 2rem);
+	max-width: 600px;
+	width: max-content;
+	margin: 1.5rem auto;
+}
+
+.player-container {
+	--card-width: min(max(10vw, 35px), 72px);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.player {
+	position: absolute;
+	bottom: -2rem;
+	width: 100%;
+}
+
+	.player-container.active {
+		--card-width: min(max(18vw, 60px), 140px);
+		z-index: 2;
+	}
+
+.dealer-container {
+	--card-width: min(max(11vw, 40px), 90px);
+	min-width: calc(var(--min-width) - 4rem);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 2rem;
+	left: 0;
+}
+
+	.dealer-container.single-player {
+		--card-width: min(max(18vw, 60px), 140px);
+		top: 4rem;
+	}
+
+.hand-container {
+	position: relative;
+	width: max-content;
+	display: block;
+	margin: 0 auto;
+}
+
+.game-controls-container {
+	width: max-content;
+	display: grid;
+	grid-template-columns: min-content;
+	margin: 0 auto;
+	padding: 1rem;
+	text-align: center;
+}
+
+	.game-controls-container ::deep > .flashcard {
+		height: max-content;
+		width: min-content;
+		margin-right: 0.5rem;
+	}
+	.game-controls-container ::deep .card-footer {
+		margin: 0.5rem auto;
+	}
+
+::deep .card-body > ul {
+	padding: 1rem;
+}
+
+@media(min-width: 840px) {
+	.game-controls-container {
+		grid-template-columns: min-content auto;
+	}
+}

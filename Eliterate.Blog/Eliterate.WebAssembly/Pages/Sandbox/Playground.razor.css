@@ -1,0 +1,28 @@
+﻿
+::deep .book-back, ::deep .book-spine, ::deep .book-top {
+	--color: #841;
+}
+::deep .book-pages {
+	border: 1px solid black;
+	box-shadow: 3px 3px 5px var(--color-shadow);
+}
+
+::deep .book {
+	box-shadow: 5px 5px 10px var(--color-shadow);
+}
+
+::deep .book-cover {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border: 2px solid var(--color-shadow);
+	padding: 2rem;
+}
+
+.post-grid-cell {
+	position: absolute;
+	margin-top: 6rem;
+	translate: 0 0 105px;
+}

@@ -3,86 +3,75 @@
 
 @page "/toys/blackjack"
 
-<PageTitle>Eliterate - Blackjack</PageTitle>
+<PageTitle>Eliterate - Toy Sandbox</PageTitle>
 
-<h2 class="toy-page-title"><span class="sticker">Play Blackjack</span></h2>
-
-<div class="blackjack-game">
-    <div class="blackjack-container">
-        <div class="dealer-container">
-            <ul>
-                <li>@_game.Dealer.Name</li>
-            </ul>
-            <Hand>
-                <PokerCard Model="_game.Dealer.Hand.First()" Scale="8">
-                </PokerCard>
-                @if (_game.RoundActive)
-                {
+<div class="game-board-container">
+    <CardGameBoard TotalPlayers="_game.Players.Count()" CurrentPlayerIndex="_game.GetPlayerIndex(_game.CurrentPlayer) - 1">
+        @foreach (var player in _game.Players)
+        {
+            <div class="player-container @(_currentPlayerNotDealer == player ? "active" : "")" style="@($"rotate:-{360 / _game.Players.Except([_game.Dealer]).Count() * (_game.GetPlayerIndex(player) - 1)}deg;")">
+                <div class="player">
+                    <div class="hand-container">
+                        <Hand>
+                            @foreach (var card in player.Hand)
+                            {
+                                <PokerCard Model="card"></PokerCard>
+                            }
+                        </Hand>
+                    </div>
+                    <h3 class="center-text">@player.Name</h3>
+                </div>
+            </div>
+        }
+    </CardGameBoard>
+    <div class="dealer-container @_moreThanOnePlayer">
+        <div class="dealer">
+            <h3 class="center-text">@_game.Dealer.Name</h3>
+            <div class="hand-container">
+                <Hand>
+                    <PokerCard Model="_game.Dealer.Hand.First()"></PokerCard>
                     @foreach (var card in _game.Dealer.Hand.Skip(1))
                     {
-                        <PokerCard Model="null" Scale="8">
-
-                        </PokerCard>
+                        if (_game.RoundActive)
+                        {
+                            <PokerCard Model="null"></PokerCard>
+                        }
+                        else
+                        {
+                            <PokerCard Model="card"></PokerCard>
+                        }
                     }
-                }
-                else
-                {
-                    @foreach (var card in _game.Dealer.Hand.Skip(1))
-                    {
-                        <PokerCard Model="card" Scale="8">
-                        </PokerCard>
-                    }
-                }
-            </Hand>
+                </Hand>
+            </div>
         </div>
-        <div class="player-container">
-            <h4 class="prompt">@_game.Prompt</h4>
-            <Hand>
-                @foreach (var card in _currentPlayerNotDealer.Hand)
-                {
-                    <PokerCard Model="card" Scale="8"></PokerCard>
-                }
-            </Hand>
+    </div>
+</div>
+
+<div class="game-controls-container">
+    <FlashCard Rotation="1">
+        <div class="card-header">
+            <h4 class="card-title prompt">@_game.Prompt</h4>
+        </div>
+        <div class="card-body">
             <ul>
                 <li>Current Player: @_currentPlayerNotDealer.Name</li>
                 <li>Value of Cards: @_game.CalculateHandValue(_currentPlayerNotDealer)</li>
                 <li>Cash: @_currentPlayerNotDealer.TotalPoints</li>
             </ul>
         </div>
-        <div class="game-controls">
+        <div class="card-footer">
             <button @onclick="Stand" disabled="@(!_game.RoundActive || _game.GameOver)">Stand</button>
             <button @onclick="Hit" disabled="@(!_game.RoundActive || _game.GameOver)">Hit Me</button>
 
             <button class="right" @onclick="StartNextRound" disabled="@(_game.RoundActive || _game.GameOver)">Start Next Round</button>
         </div>
-    </div>
-    <div class="feed-container">
-        <div class="player-overview">
-            <h4>Player overview:</h4>
-            <ul>
-                @foreach (var player in _game.Players.Except([_game.Dealer]))
-                {
-                    <li class="overview-player @(_game.CurrentPlayer == player ? "active" : "")">
-                        <div>
-                            @player.Name | @_game.CalculateHandValue(player)
-                        </div>
-                        <div class="overview-cards">
-                            @foreach (var card in player.Hand)
-                            {
-                                <PokerCard Model="card" Scale="2"></PokerCard>
-                            }
-                        </div>
-                    </li>
-                }
-            </ul>
-        </div>
-        <GameLog Model="_game" CurrentRound="_game.CurrentRound"></GameLog>
-    </div>
+    </FlashCard>
+    <GameLog Model="_game" CurrentRound="_game.CurrentRound"></GameLog>
 </div>
 
 <GameSettings RepoLink="https://github.com/Codespirals/Codespirals.CardGames/tree/master/Codespirals.CardGames.Poker">
     <div class="game-settings">
-        <label>Number of players</label><InputNumber @bind-value="_numberOfPlayers" DisplayName="Number of players" min="1" max="5" />
+        <label>Number of players</label><InputNumber @bind-value="_numberOfPlayers" DisplayName="Number of players" min="1" max="8" />
         <label>Winning Score</label><InputNumber @bind-value="_winningScore" DisplayName="Winning Score" min="21" max="100" />
         <label>Starting Buy-in</label><InputNumber @bind-value="_minBet" DisplayName="Starting Buy-in" min="1" max="100" />
         <label>Starting Cash</label><InputNumber @bind-value="_startingCash" DisplayName="Starting Cash" min="1" max="1000000" />
@@ -93,9 +82,13 @@
 </GameSettings>
 
 @code {
-    private BlackJackGame _game = BlackJackGame.SetUp(1);
-    private BlackJackPlayer _currentPlayerNotDealer => _game.CurrentPlayer == _game.Dealer ? _game.Players[1] : _game.CurrentPlayer;
+    private BlackJackGame _game = BlackJackGame.SetUp(4);
+    private BlackJackPlayer _currentPlayerNotDealer => _game.CurrentPlayer == _game.Dealer ? _game.Players.First() : _game.CurrentPlayer;
 
+    private string _moreThanOnePlayer => _game.Players.Count > 1 ? "center-content" : "single-player";
+
+
+    //settings
     private int _numberOfPlayers = 1;
     private int _drawAtStartOfRound = 2;
     private int _minBet = 1;

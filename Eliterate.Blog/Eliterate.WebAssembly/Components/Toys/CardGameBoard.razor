@@ -1,17 +1,18 @@
-﻿@typeparam TCard where TCard : Codespirals.CardGames.ICard
-@typeparam TPLayer where TPLayer : Codespirals.CardGames.IPlayer<TCard>
-
-<div class="table">
-    <div class="game-board">
-        @foreach (var player in Players)
-        {
-            
-        }
+﻿<div class="table">
+    <div class="game-board-shadow">
+        <div class="game-board" style="@_cssVars">
+            @ChildContent
+        </div>
     </div>
 </div>
 
-
 @code {
+    private string _cssVars => $"--total-players:{TotalPlayers};--current-player:{CurrentPlayerIndex};";
+
     [Parameter]
-    public IEnumerable<TPLayer> Players { get; set; }
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public int TotalPlayers { get; set; }
+    [Parameter]
+    public int CurrentPlayerIndex { get; set; }
 }

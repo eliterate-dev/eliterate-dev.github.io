@@ -1,4 +1,4 @@
-﻿<a class="tag @Classes" href="posts/tags/@_id" style="@_color @_rotate" tabindex="0">@Name</a>
+﻿<a class="tag @Classes" href="@_link" style="@_color @_rotate" tabindex="0" target="@_openInNewWindow">@Name</a>
 
 @code {
     [Parameter]
@@ -7,8 +7,15 @@
     public string Classes { get; set; } = "";
     [Parameter]
     public decimal Rotate { get; set; }
+    [Parameter]
+    public string? Color { get; set; }
+    [Parameter]
+    public string? Link { get; set; }
+    [Parameter]
+    public bool OpenInNewWindow { get; set; }
 
     private string _rotate => $"rotate:{Rotate}deg;";
-    private string _color => $"background-color:hsl({Name.GetIntFromString(360)}, 100%, 80%);";
-    private string _id => Name.ToUrlSafeString();
+    private string _color => Color is null ? $"background-color:hsl({Name.GetIntFromString(360)}, 100%, 80%);" : $"background-color:{Color};";
+    private string _link => Link is null ? $"posts/tags/{Name.ToUrlSafeString()}" : Link;
+    private string _openInNewWindow => OpenInNewWindow ? "_blank" : "_self";
 }
