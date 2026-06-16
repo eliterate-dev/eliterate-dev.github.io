@@ -3,24 +3,27 @@
 
 <PageTitle>Eliterate - Credit</PageTitle>
 
-<ClosedBook Back="true">
-    <h2 class="center-text">Credit</h2>
-    <table>
-        @foreach (var item in credits)
-        {
-            <tr>
-                <td>@(item.Description ?? "Thanks")</td>
-                <td><a href="@item.Link" target="_blank" tabindex="0">@item.Name ↗</a></td>
-            </tr>
-        }
-    </table>
+<div class="credit-container fill">
+    <Book X="300" Y="420" Z="50" RotateX="15" RotateY="-10" RotateZ="183">
+        <h2 class="center-text">Credit</h2>
+        <table>
+            @foreach (var item in credits)
+            {
+                <tr>
+                    <td>@(item.Description ?? "Thanks")</td>
+                    <td><a href="@item.Link" target="_blank" tabindex="0">@item.Name ↗</a></td>
+                </tr>
+            }
+        </table>
 
-    <div class="qr-code"><img src="/images/pictures/eliterate_qr.png" srcset="/images/pictures/eliterate.svg" alt="▣" /></div>
-    <div class="copyright">&copy @DateTime.UtcNow.Year Eliterate</div>
+        <div class="qr-code"><img src="/images/pictures/eliterate_qr.png" srcset="/images/pictures/eliterate.svg" alt="▣" /></div>
+        <div class="copyright">&copy @DateTime.UtcNow.Year Eliterate</div>
 
-    <Sticker Text="📱" Right="2" Top="1" Scale="3" Rotate="20"></Sticker>
-    <Sticker Text="🪫" Left="5" Bottom="1.75m" Scale="3" Rotate="86"></Sticker>
-</ClosedBook>
+        <Sticker Text="📱" Right="1.5m" Top="0.5m" Scale="3" Rotate="20"></Sticker>
+        <Sticker Text="🪫" Left="5" Bottom="0.875m" Scale="3" Rotate="80"></Sticker>
+    </Book>
+</div>
+
 
 @code
 {

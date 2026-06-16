@@ -1,32 +1,39 @@
-﻿<div class="book">
-    @* Cover *@
-    <Cuboid X="300" Y="420" Z="10">
-        @ChildContent
-    </Cuboid>
-    @* Spine *@
-    <Cuboid>
-    </Cuboid>
-    @* Pages *@
-    <Cuboid>
-    </Cuboid>
-    @* Back *@
-    <Cuboid X="300" Y="420" Z="10">
+﻿<div class="book" style="position:absolute;transform-style:preserve-3d;@_size @_rotation">
+    <!-- Back -->
+    <Cuboid X="X" Y="Y" Z="CoverThickness" ExtraClasses="book-back">
+        <!-- Spine -->
+        <Cuboid X="CoverThickness" Y="Y" Z="Z" MoveX="CoverThickness * -0.5" MoveZ="CoverThickness * -0.5" ExtraClasses="book-spine">
+        </Cuboid>
+        <!-- Pages -->
+        <Cuboid X="X - CoverThickness" Y="Y - (CoverThickness * 2)" Z="Z - CoverThickness" MoveY="CoverThickness" ExtraClasses="book-pages">
+            <!-- Front -->
+            <Cuboid X="X" Y="Y" Z="CoverThickness" ExtraClasses="book-top" MoveY="-CoverThickness">
+                <div class="book-cover">
+                    @ChildContent
+                </div>
+            </Cuboid>
+        </Cuboid>
     </Cuboid>
 </div>
 
 @code {
+    private string _size => $"width:{X}px;height:{Y}px;";
+    private string _rotation => $"transform:rotateX({RotateX}deg) rotateY({RotateY}deg) rotateZ({RotateZ}deg);";
+
+    [Parameter]
+    public double CoverThickness { get; set; } = 5;
+    [Parameter]
+    public double X { get; set; } = 300;
+    [Parameter]
+    public double Y { get; set; } = 420;
+    [Parameter]
+    public double Z { get; set; } = 100;
     [Parameter]
     public double RotateX { get; set; }
     [Parameter]
     public double RotateY { get; set; }
     [Parameter]
     public double RotateZ { get; set; }
-    [Parameter]
-    public int Hue { get; set; } = 14;
-    [Parameter]
-    public int Saturation { get; set; } = 100;
-    [Parameter]
-    public int Lightness { get; set; } = 50;
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 }

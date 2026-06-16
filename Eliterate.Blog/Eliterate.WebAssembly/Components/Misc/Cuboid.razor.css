@@ -1,4 +1,8 @@
-﻿/* cuboid inspiration from https://miocene.io/post/3d-cube-with-css/ however with some changes*/
+﻿/* cuboid inspiration from https://miocene.io/post/3d-cube-with-css/ 
+	however with some major changes: 
+	- text aligns on all sides now
+	- bottom before and after now handle "back" sides of cube, top handle front
+*/
 .cuboid, 
 .cuboid-bottom, .cuboid-bottom::before, .cuboid-bottom::after, 
 .cuboid-top, .cuboid-top::before, .cuboid-top::after,
@@ -22,7 +26,6 @@
 	transform-origin: 50% 50%;
 	transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) rotateZ(var(--rotate-z));
 	translate: var(--move-x) var(--move-y) var(--move-z);
-	color: black;
 	width: var(--x);
 	height: var(--y);
 }
@@ -37,16 +40,18 @@
 		width: 100%;
 		height: var(--z);
 		background-color: color-mix(in srgb, var(--color) 85%, #333333);
-		transform-origin: top left;
-		rotate: x 90deg;
+		transform-origin: top right;
+		transform: rotateX(270deg);
+		translate: 0 0 var(--z);
 	}
 
 	.cuboid-bottom::after {
-		width: 100%;
+		width: var(--y);
 		height: var(--z);
 		background-color: color-mix(in srgb, var(--color) 95%, #333333);
-		transform-origin: bottom left;
-		rotate: y -90deg;
+		transform-origin: top left;
+		transform: rotateZ(-90deg) rotateX(-90deg);
+		translate: 0 var(--y) var(--z);
 	}
 
 .cuboid-top {
@@ -56,18 +61,20 @@
 	translate: 0 0 var(--z);
 }
 	.cuboid-top::before {
-		width: var(--z);
-		height: 100%;
+		width: var(--x);
+		height: var(--z);
 		background-color: color-mix(in srgb, var(--color) 90%, #333333);
-		transform-origin: bottom center;
-		rotate: x 90deg;
+		transform-origin: top right;
+		rotate: x -90deg;
+		translate: 0 var(--y);
 	}
 	.cuboid-top::after {
-		width: var(--z);
-		height: 100%;
+		height: var(--z);
+		width: var(--y);
 		background-color: color-mix(in srgb, var(--color) 80%, #333333);
-		transform-origin: bottom right;
-		rotate: y -90deg;
+		transform-origin: top left;
+		transform: rotateZ(-90deg) rotateX(-90deg);
+		translate: var(--x) var(--y);
 	}
 
 .cuboid-label {

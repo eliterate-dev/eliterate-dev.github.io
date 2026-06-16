@@ -1,18 +1,63 @@
 ﻿@page "/playground"
+@inject IContentService ContentService
 
 <h3>Playground</h3>
 
-<div class="fill center-content" style="transform-style:preserve-3d;transform:rotateX(45deg) rotateZ(45deg)">
-    <Cuboid Hue="14">
-        <Cuboid Hue="42" MoveX="-50" MoveY="-50" MoveZ="-50">
-            Test
-        </Cuboid>
-    </Cuboid>
-    <Cuboid Hue="28" MoveX="25" MoveY="-75" MoveZ="50">
-        Test
-    </Cuboid>
+<div class="fill center-content">
+    <Book X="300" Y="420" Z="50" RotateX="15" RotateZ="3">
+        <h2 class="center-text" tabindex="0">Eliterate</h2>
+        @if (tagline is not null)
+        {
+            <p class="center-text" tabindex="0">@tagline.Text</p>
+        }
+        <Sticker Text="🔋" Right="1.5m" Top="0.5m" Rotate="-87" Scale="3"></Sticker>
+        <Sticker Text="🎮" Right="2" Top="8m" Rotate="5" Scale="4"></Sticker>
+        <Sticker Text="💻" Left="1" Bottom="1" Rotate="-9" Scale="4"></Sticker>
+    </Book>
+    <div class="post-grid-cell">
+        <div class="post-wrapper">
+            <FlashCard Rotation="1.5m">
+                <div class="card-header">
+                    <div class="grid-container-dash-dot">
+                        <h2 class="card-title" tabindex="0" role="heading">Hi! I'm Eli</h2>
+                    </div>
+                    <Sticker Text="🇨🇭" Top="0.5m" Right="0.5m" Rotate="3" Scale="2"></Sticker>
+                </div>
+                <div class="card-body">
+                    <div class="card-text" tabindex="0" role="document">
+                        <p>
+                            I'm a software developer from Switzerland.<br>
+                            I do full stack development, though I'm much better at backend stuff.<br>
+                            This site is my creative outlet and attempt to get a bit better at frontend design.<br>
+                            Hit me up if you dig it!<br>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-tags">
+                        <Tag Name="Posts" Classes="card-tag" Color="aquamarine" Rotate="3"></Tag>
+                        <Tag Name="About" Classes="card-tag" Link="posts/about" Color="lightpink" Rotate="-2"></Tag>
+                        <Tag Name="Contact" Classes="card-tag" Link="@mailLink" Color="lightsalmon" Rotate="2"></Tag>
+                    </div>
+                </div>
+            </FlashCard>
+        </div>
+    </div>
 </div>
 
 @code {
+    private SongQuote? tagline;
+    private bool showSource = false;
+    private string? showSourceCssClass = "";
+    private string mailLink = $"mailto:{EliterateConstants.EmailContact}";
 
+    protected override async Task OnInitializedAsync()
+    {
+        tagline = await ContentService.GetRandomSongQuote();
+    }
+    private void ToggleShowSource()
+    {
+        showSource = !showSource;
+        showSourceCssClass = showSource ? "showSource" : "hideSource";
+    }
 }
