@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "+Wv0cOO5",
+  "version": "LCy8tikI",
   "assets": [
     {
       "hash": "sha256-17yPNBa9VRCo0SLOwYV+BSqaXuWqbyXFsFyJakuEdvE=",
@@ -10,7 +10,7 @@ self.assetsManifest = {
       "url": "CNAME"
     },
     {
-      "hash": "sha256-a5g7q7u9kovTupfHA9M9++iKT1cu4+Ikvv5amNGcPvQ=",
+      "hash": "sha256-byy1cBLLClQXd2+r6yebjmooCm2/W65DA4eaIWsicd0=",
       "url": "Eliterate.WebAssembly.styles.css"
     },
     {
@@ -18,20 +18,20 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.Base.Shared.096v7rpcvz.wasm"
     },
     {
-      "hash": "sha256-UVJOb00etneRzyV40os8CeGhEyEp5o66ztDAILRSTuM=",
-      "url": "_framework/Codespirals.CardGames.FlipSeven.b1wyb3kjzw.wasm"
+      "hash": "sha256-q1zlGwW5rNMwpuX6GDqiu1LdhpG20VmRpih6u1kCcQA=",
+      "url": "_framework/Codespirals.CardGames.FlipSeven.3aw1retx8i.wasm"
     },
     {
-      "hash": "sha256-rCZzE7ZIS6mFRMQ7YJpJJbO92+8/pqD3HH8Q19tov60=",
-      "url": "_framework/Codespirals.CardGames.Poker.g9sdh6cz0e.wasm"
+      "hash": "sha256-DGzXQQ9l1l01ZYRIzrK18CBVCRTfGpVw7qNlOU2h+8w=",
+      "url": "_framework/Codespirals.CardGames.Poker.cgkycld8y1.wasm"
     },
     {
-      "hash": "sha256-qcYQwtH2tIBjBpfVwf+2yepZVOtwbmMH1Su99B15xa0=",
-      "url": "_framework/Codespirals.CardGames.Shared.hy9p80o1e7.wasm"
+      "hash": "sha256-Z9kGaV1AeXrJYsjWSHPn0ofpctYiC8EI5Ru1RD/Y/CE=",
+      "url": "_framework/Codespirals.CardGames.Shared.psx276d0kn.wasm"
     },
     {
-      "hash": "sha256-1fSVN2LsBNZ750xsSULn+hJ4JVFsYWB6R5p+BE+JT84=",
-      "url": "_framework/Eliterate.WebAssembly.di8z7ybwux.wasm"
+      "hash": "sha256-/e6jywmPPmpNyJuWN9dCu5FProG0gvLQw7JMezRAwkU=",
+      "url": "_framework/Eliterate.WebAssembly.lacrc7z9fx.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
@@ -230,7 +230,7 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-SbCqLAT4Zjz798xPXhGpGoGpeLitoPbJ7JOGd5c7B4k=",
+      "hash": "sha256-axFTDv0qvVSoao8rnKvcJGlJqpZr76EohjU/m6BN0Tk=",
       "url": "_framework/dotnet.js"
     },
     {
@@ -258,7 +258,7 @@ self.assetsManifest = {
       "url": "_framework/icudt_no_CJK.lfu7j35m59.dat"
     },
     {
-      "hash": "sha256-NnKeJztjjUaeLfEzzZRgbY0Noakaqgr9Ol06UlaiMWQ=",
+      "hash": "sha256-ujkOK+XBNg5VRnG3oDLifBKO3ZgoVWP4xv10PfnaELQ=",
       "url": "css/app.css"
     },
     {
@@ -308,6 +308,14 @@ self.assetsManifest = {
     {
       "hash": "sha256-MnrY6zwdXQYSeX/H0DzQRgSc9gwh/8DWcOiIh6e3YV8=",
       "url": "images/pictures/Prague_charles_bridge.jpg"
+    },
+    {
+      "hash": "sha256-RxGrbal1R2UUQIkNalXW0z9EywTvJNfr5/IwRTA/O1o=",
+      "url": "images/pictures/eliterate.svg"
+    },
+    {
+      "hash": "sha256-WjgJSfiFsuy2dhgcw4RLo117cnNnTWmJriA5gEz/Jkw=",
+      "url": "images/pictures/eliterate_qr.png"
     },
     {
       "hash": "sha256-Bqe6j+0dFsSL/CF0XMnl00NSynZHvZtouG7bANslev8=",
@@ -406,10 +414,6 @@ self.assetsManifest = {
       "url": "manifest.webmanifest"
     },
     {
-      "hash": "sha256-yENkuy1OAI0LUBwWVFGdiVcmYZ0oL9uUSsLBbqTN3BY=",
-      "url": "post_metadata/metadata.json"
-    },
-    {
       "hash": "sha256-S1fvYLWdleNf4F9zcv+cYkCMBDWRq1sBm0+/YMRReRI=",
       "url": "posts/About.md"
     },
@@ -438,7 +442,11 @@ self.assetsManifest = {
       "url": "posts/Post_1.md"
     },
     {
-      "hash": "sha256-zdmD2WtnwiqnjA1iMBe0JVBqY3iez+ol4l9CB2SOh0o=",
+      "hash": "sha256-yENkuy1OAI0LUBwWVFGdiVcmYZ0oL9uUSsLBbqTN3BY=",
+      "url": "posts/metadata.json"
+    },
+    {
+      "hash": "sha256-tw4YSDMvM7K9VK89PswJ6FM0ptLX0XdNKvY1EhDNRsQ=",
       "url": "resources/credits.json"
     },
     {

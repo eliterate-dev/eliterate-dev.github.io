@@ -19,7 +19,7 @@
 	--color-contrast-3: #444;
 	--color-shadow: #111;
 	--color-border: #303030;
-	--color-book-cover: #170500;
+	--color-book-cover: hsl(14, 70%, 10%);
 	--post-list-columns: 1fr;
 	--tearoff-height: 8rem;
 	--font-handwritten: 'Lucida Handwriting', 'Brush Script MT', cursive;
@@ -255,6 +255,15 @@ code {
 	display: grid;
 	grid-template-columns: 1fr min-content;
 }
+
+.fill {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
 .center-content {
 	display: flex;
 	justify-content: center;
