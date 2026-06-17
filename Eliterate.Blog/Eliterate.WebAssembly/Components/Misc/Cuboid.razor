@@ -13,6 +13,7 @@
     private string _position => $"--move-x:{MoveX}px;--move-y:{MoveY}px;--move-z:{MoveZ}px;";
     private string _rotation => $"--rotate-x:{RotateX}deg;--rotate-y:{RotateY}deg;--rotate-z:{RotateZ}deg;";
     private string _sideLabel => $"--label:'{SideLabel}';";
+    private string _color => $"--color:{Color}";
 
     [Parameter]
     public double X { get; set; } = 100;
@@ -32,6 +33,8 @@
     public double RotateY { get; set; }
     [Parameter]
     public double RotateZ { get; set; }
+    [Parameter]
+    public string Color { get; set; } = "#fff";
     [Parameter]
     public string ExtraClasses { get; set; } = "";
     [Parameter]

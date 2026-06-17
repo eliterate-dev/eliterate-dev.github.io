@@ -18,9 +18,13 @@
 
   <ItemGroup>
     <Compile Remove="wwwroot\lib\**" />
+    <Compile Remove="wwwroot\post_metadata\**" />
     <Content Remove="wwwroot\lib\**" />
+    <Content Remove="wwwroot\post_metadata\**" />
     <EmbeddedResource Remove="wwwroot\lib\**" />
+    <EmbeddedResource Remove="wwwroot\post_metadata\**" />
     <None Remove="wwwroot\lib\**" />
+    <None Remove="wwwroot\post_metadata\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,7 +52,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\fonts\" />
-    <Folder Include="wwwroot\post_metadata\" />
   </ItemGroup>
 
   <ItemGroup>

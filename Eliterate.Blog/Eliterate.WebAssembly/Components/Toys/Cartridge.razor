@@ -1,0 +1,19 @@
+﻿<div class="cartridge-container">
+    <Cuboid X="X" Y="Y-10" Z="Z">
+
+    </Cuboid>
+    <Cuboid X="X-10" Y="Y" Z="Z">
+        @ChildContent
+    </Cuboid>
+</div>
+
+@code {
+    [Parameter]
+    public double X { get; set; } = 100;
+    [Parameter]
+    public double Y { get; set; } = 100;
+    [Parameter]
+    public double Z { get; set; } = 100;
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}
