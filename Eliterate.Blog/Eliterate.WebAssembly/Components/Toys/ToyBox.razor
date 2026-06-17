@@ -1,21 +1,21 @@
 ﻿@using Codespirals.Base.Extensions
 
-<div class="toy-grid-cell" style="@_size">
-    <a class="toy-wrapper" href="toys/@Name.ToLowerInvariant().MakeUrlSafe('_')">
-        <Box Class="@($"{Name.ToLowerInvariant().MakeUrlSafe('-')}-toy")" Scale="Scale" Color="@(Color)" Label="@(Name)">
-            @ChildContent
-        </Box>
-    </a>
-</div>
+<a class="toy-container center-content" style="@_size @_color" href="toys/@Name.ToLowerInvariant().MakeUrlSafe('_')">
+    <Cuboid ExtraClasses="@($"toy-box {Name.ToLowerInvariant().MakeUrlSafe('-')}-toy")" X="200 * Scale" Y="282 * Scale" Z="60 * Scale" RotateX="10" RotateY="-10" RotateZ="90" SideLabel="@Name">
+        @ChildContent
+    </Cuboid>
+</a>
 
 @code {
     private string _size => $"height:{250 * Scale}px;";
+    private string _colorWithHashtag => Color.StartsWith('#') ? Color : $"#{Color}";
+    private string _color => $"--color:{_colorWithHashtag};";
     [Parameter]
     public string Name { get; set; } = "";
     [Parameter]
     public double Scale { get; set; } = 1;
     [Parameter]
-    public string Color { get; set; } = "";
+    public string Color { get; set; } = "#ddd";
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 }
