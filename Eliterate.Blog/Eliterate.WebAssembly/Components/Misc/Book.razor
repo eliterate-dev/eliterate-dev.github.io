@@ -1,13 +1,13 @@
 ﻿<div class="book" style="position:absolute;transform-style:preserve-3d;@_size @_rotation">
     <!-- Back -->
-    <Cuboid X="X" Y="Y" Z="CoverThickness" ExtraClasses="book-back">
+    <Cuboid X="X" Y="Y" Z="CoverThickness" ExtraClasses="book-back" Color="@Color">
         <!-- Spine -->
-        <Cuboid X="CoverThickness" Y="Y" Z="Z" MoveX="CoverThickness * -0.5" MoveZ="CoverThickness * -0.5" ExtraClasses="book-spine">
+        <Cuboid X="CoverThickness" Y="Y" Z="Z" MoveX="CoverThickness * -0.5" MoveZ="CoverThickness * -0.5" ExtraClasses="book-spine" Color="@Color">
         </Cuboid>
         <!-- Pages -->
         <Cuboid X="X - CoverThickness" Y="Y - (CoverThickness * 2)" Z="Z - CoverThickness" MoveY="CoverThickness" ExtraClasses="book-pages">
             <!-- Front -->
-            <Cuboid X="X" Y="Y" Z="CoverThickness" ExtraClasses="book-top" MoveY="-CoverThickness">
+            <Cuboid X="X" Y="Y" Z="CoverThickness" ExtraClasses="book-top" MoveY="-CoverThickness" Color="@Color">
                 <div class="book-cover">
                     @ChildContent
                 </div>
@@ -34,6 +34,8 @@
     public double RotateY { get; set; }
     [Parameter]
     public double RotateZ { get; set; }
+    [Parameter]
+    public string Color { get; set; } = "hsl(14, 70%, 10%)";
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 }

@@ -1,0 +1,26 @@
+﻿.cartridge-container {
+    --color: #808080;
+    --scale: 1;
+    height: calc(65px * var(--scale));
+    width: calc(58px * var(--scale));
+    transform-style: preserve-3d;
+    display: grid;
+    grid-template-rows: max-content;
+}
+
+.cartridge-divet {
+    text-align: center;
+    margin: 5%;
+    padding: 5% 0;
+    width: 90%;
+    background-color: color-mix(in srgb, var(--color) 85%, #333333);
+    height: 10%;
+    border-radius: calc(6px * var(--scale));
+}
+
+.cartridge-label {
+    text-align: center;
+    background-color: color-mix(in srgb, var(--color) 85%, #333333);
+    margin: 5%;
+    height: 60%;
+}

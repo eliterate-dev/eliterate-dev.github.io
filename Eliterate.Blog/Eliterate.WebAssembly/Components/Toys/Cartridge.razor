@@ -1,19 +1,32 @@
-﻿<div class="cartridge-container">
-    <Cuboid X="X" Y="Y-10" Z="Z">
+﻿<div class="cartridge-container" style="@_size @_rotation @_color">
+    <Cuboid X="(Scale * 58) - (Scale * 6)" Y="Scale * 4" Z="Scale * 7.5" Color="@Color">
 
     </Cuboid>
-    <Cuboid X="X-10" Y="Y" Z="Z">
-        @ChildContent
+    <Cuboid X="Scale * 58" Y="Scale * 61" Z="Scale * 7.5" MoveY="Scale * 4" Color="@Color">
+        <div class="cartridge-divet">
+            Eliterate Games
+        </div>
+        <div class="cartridge-label">
+            @ChildContent
+        </div>
     </Cuboid>
 </div>
 
 @code {
+    private string _size => $"--scale:{Scale};";
+    private string _rotation => $"transform:rotateX({RotateX}deg) rotateY({RotateY}deg) rotateZ({RotateZ}deg);";
+    private string _color => $"--color:{Color};";
+
     [Parameter]
-    public double X { get; set; } = 100;
+    public double Scale { get; set; } = 3;
     [Parameter]
-    public double Y { get; set; } = 100;
+    public double RotateX { get; set; } = 15;
     [Parameter]
-    public double Z { get; set; } = 100;
+    public double RotateY { get; set; } = -5;
+    [Parameter]
+    public double RotateZ { get; set; } = 3;
+    [Parameter]
+    public string Color { get; set; } = "hsl(14, 90%, 50%)";
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 }
