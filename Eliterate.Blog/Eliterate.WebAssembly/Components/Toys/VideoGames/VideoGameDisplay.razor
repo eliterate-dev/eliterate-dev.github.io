@@ -1,0 +1,49 @@
+﻿<div class="game-device-container fill">
+    <div class="game-device">
+        <div class="screen">
+            <div class="game-content">
+                @ChildContent
+            </div>
+            <div class="power-led">
+                <span class="@_powerOn">●</span>
+                <span>Battery</span>
+            </div>
+        </div>
+        <div class="device-controls">
+            <span>Eliterate GAMES</span>
+            <div class="buttons">
+                <div class="d-pad">
+                    ✚
+                </div>
+                <div class="a-b-buttons">
+                    <span class="round-button"></span>
+                    <span class="round-button"></span>
+                    <span>B</span>
+                    <span>A</span>
+                </div>
+                <div class="select-start-buttons">
+                    <span class="pill-button"></span>
+                    <span class="pill-button"></span>
+                    <span>SELECT</span>
+                    <span>START</span>
+                </div>
+            </div>
+        </div>
+        <div class="speakers">
+            <hr />
+            <hr />
+            <hr />
+            <hr />
+            <hr />
+            <hr />
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _powerOn => PoweredOn ? $"power-on" : "power-off";
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public bool PoweredOn { get; set; }
+}

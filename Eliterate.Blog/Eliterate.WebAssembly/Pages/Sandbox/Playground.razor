@@ -1,12 +1,15 @@
 ﻿@page "/playground"
 @using Eliterate.WebAssembly.Components.Toys
+@using Eliterate.WebAssembly.Components.Toys.VideoGames
 @inject IContentService ContentService
 <PageTitle>Playground</PageTitle>
 
 <h3>Playground</h3>
 
 <div class="fill center-content">
-    <Cartridge Scale="3">Test Game 1</Cartridge>
+    <VideoGameDisplay>
+
+    </VideoGameDisplay>
 </div>
 
 @code {
