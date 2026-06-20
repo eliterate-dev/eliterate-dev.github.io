@@ -1,0 +1,10 @@
+﻿::deep .book-pages > .cuboid-bottom::after, ::deep .book-pages > .cuboid-bottom::before,
+::deep .book-pages > .cuboid-bottom > .cuboid-top::after, ::deep .book-pages > .cuboid-bottom > .cuboid-top::before {
+    background-image: url(../images/textures/lined-paper.png);
+    background-size: 300px 22px;
+}
+.spine-text {
+    color: white;
+    text-shadow: 2px 2px black;
+    font-size: calc(var(--y) / 2);
+}

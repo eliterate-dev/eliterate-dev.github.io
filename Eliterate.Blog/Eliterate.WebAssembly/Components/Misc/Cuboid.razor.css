@@ -3,8 +3,8 @@
 	- text aligns on all sides now
 	- bottom before and after now handle "back" sides of cube, top handle front
 */
-.cuboid, 
-.cuboid-bottom, .cuboid-bottom::before, .cuboid-bottom::after, 
+.cuboid,
+.cuboid-bottom, .cuboid-bottom::before, .cuboid-bottom::after,
 .cuboid-top, .cuboid-top::before, .cuboid-top::after,
 .cuboid-label {
 	content: '';
@@ -22,7 +22,7 @@
 	--rotate-x: 10deg;
 	--rotate-y: 10deg;
 	--rotate-z: 10deg;
-	--color: #fff;
+	--label: '';
 	transform-origin: 50% 50%;
 	transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) rotateZ(var(--rotate-z));
 	translate: var(--move-x) var(--move-y) var(--move-z);
@@ -60,6 +60,7 @@
 	background-color: var(--color);
 	translate: 0 0 var(--z);
 }
+
 	.cuboid-top::before {
 		width: var(--x);
 		height: var(--z);
@@ -68,6 +69,7 @@
 		rotate: x -90deg;
 		translate: 0 var(--y);
 	}
+
 	.cuboid-top::after {
 		height: var(--z);
 		width: var(--y);
@@ -75,6 +77,14 @@
 		transform-origin: top left;
 		transform: rotateZ(-90deg) rotateX(-90deg);
 		translate: var(--x) var(--y);
+		content: var(--label);
+	}
+
+
+	.cuboid-bottom::before, .cuboid-bottom::after,
+	.cuboid-top::before, .cuboid-top::after {
+		font-size: calc(var(--z) * 0.5);
+		text-align: center;
 	}
 
 .cuboid-label {

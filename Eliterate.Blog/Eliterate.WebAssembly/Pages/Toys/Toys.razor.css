@@ -50,3 +50,15 @@
 	height: calc(80% - (1.8 * var(--border-size)));
 	border: var(--border-size) solid #e9cb49;
 }
+
+.toy-cartridge {
+	transform-style: preserve-3d;
+	width: max-content;
+	margin: 0 auto;
+	transition: 0.5s;
+}
+
+.toy-cartridge:hover {
+	transform: rotateX(-10deg) rotateY(10deg) rotateZ(0deg);
+	translate: 0 0 200px;
+}
