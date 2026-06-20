@@ -4,11 +4,11 @@
 		"Link": "posts"
 	},
 	{
-		"Name": "Introduction",
-		"Link": "posts/introduction"
+		"Name": "About me",
+		"Link": "posts/who_made_this"
 	},
 	{
-		"Name": "About",
+		"Name": "About this site",
 		"Link": "posts/about"
 	},
 	{

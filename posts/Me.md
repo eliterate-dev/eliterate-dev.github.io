@@ -1,6 +1,6 @@
 ### About me
 
-<div class="image polaroid" style="rotate:3deg;" role="note"><img loading="lazy" alt="A picture of my cat. He's very adorable." src="../images/pictures/Cat_on_tower.jpg"></img>Not me</div>
+<div class="image polaroid" style="rotate:-1deg;font-size:0.75rem;" role="note"><img src="../images/memes/trying_to_find_the_guy_who_did_this.jpg" style="rotate:1deg" loading="lazy" alt="Tim Robinson saying that we're all trying to find the guy who did this."></img>We're all trying to find the guy who did this</div>
 
 Oh hey! Thanks for coming to check me out!
 
@@ -95,3 +95,5 @@ I love learning about technologies new and old, from people like <a href="https:
 Of course I also read my fair share. When I don't have the focus to concentrate on my eReader, I usually listen to an audio book on train rides or while chilling at home.
 
 I recently listened to <a href="https://csharpindepth.com/">Jon Skeet's "C# in Depth"</a> as an audio book out of curiosity of how well such a code-dense book would hold up in audio format. It's not something I'd recommend to a beginner, but even without the code examples that a print version would obviously bring, I think it worked decently well. I'll probably get the fifth edition in print, if that ever gets released.
+
+<div class="image polaroid" style="rotate:3deg;" role="note"><img src="../images/pictures/Cat_on_tower.jpg" loading="lazy" alt="A picture of my cat. He's very adorable."></img>Not me</div>

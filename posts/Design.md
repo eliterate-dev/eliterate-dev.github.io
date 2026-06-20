@@ -28,6 +28,56 @@ Finally, because I felt like I should give some sort of short introduction, I de
 
 Good enough.
 
+#### The "Book"
+
+It may be easily overlooked, but you might have noticed the book on the home and credit pages is kinda 3d.
+
+So what? You may think. It's a choppy image of a book.
+
+Well... it's not an image. It's a 3d object created out of pure HTML and CSS!
+
+It's a completely silly construction - only an idiot would put in so much work for a throwaway decorative object most people will overlook.
+
+Well, luckily for us, I'm that idiot.
+
+Let me walk us through how it works.
+
+##### 3D in CSS
+
+The option for 3-dimensionality is built into CSS. Even most beginners will be familiar with the z-index - a value on positioned elements that lets you move one to the "front" of another.
+
+However, in the animation and transformation properties of CSS, you can do so much more!
+
+Give your elements the `transform-style: preserve-3d;` property, and you're halfway there.
+
+Now you can make a rectangle in html and then move it around in 3d space on your page!
+
+	transform: rotateX(10deg) rotateY(10deg) rotateZ(10deg);
+	translate: 10px 10px 10px;
+
+That forms the basis for all the 3d objects I have created for this site.
+
+##### Cuboids
+
+You can build a lot of real world objects in a "good enough" fashion with a bunch of boxes. Minecraft built an entire empire based on that.
+
+So I decided to build a component that is basically a brick. 
+
+To get started, I once again went to ~~steal some code~~ get inspired.
+
+I found [this handy write up by Julia Miocene](https://miocene.io/post/3d-cube-with-css). It was the perfect starting point I needed and I encourage everyone to check it out. It's great.
+
+It was, in concept, almost exactly what I needed. However, I had a few requirements it didn't statisify, so as per usual, I had to write my own implementation (I am the worst code thief imaginable).
+
+- I wanted the ::before and ::after pseudo elements of the bottom to handle the left and back "wall" and the ones on top to handle the right and front.
+- Just rotating the 4 surrounding walls up or down respectively wasn't quire good enough for me. I wanted to potentially display text or textures on the sides, which I wanted to align - so I had to rotate and move them a bit more than the example.
+
+##### Assembling a book
+
+Well now that I have Cuboids, a book is easy: It's just 4 rectangles: A cover, the back, the spine and the pages.
+
+Minor playing around with rotations so that I can write on the spine.
+
 #### Flashcards
 
 Flashcards were initially just a way to have multiple links to posts on one webpage.
@@ -51,6 +101,8 @@ The result is what you see on top of the notebook on the ["Home"](/home) and ["P
 They're simple and look nice when decorated with stickers.
 
 I then wrote a small injected service which can read a metadata Json file and generate the cards based on that, complete with sticker, tags and link to the post in question.
+
+Structurally, the cards are inspired by [Bootstrap cards](https://getbootstrap.com/docs/4.0/components/card/). A component I really liked when using Bootstrap. Though of course, entirely implemented by me.
 
 #### Stickers
 
