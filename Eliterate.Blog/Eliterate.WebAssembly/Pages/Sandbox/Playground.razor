@@ -4,13 +4,11 @@
 @inject IContentService ContentService
 <PageTitle>Playground</PageTitle>
 
-<h3>Playground</h3>
+<RotatingDisplay>
+    <Book SpineText="Test">
 
-<div class="fill center-content">
-    <VideoGameDisplay>
-
-    </VideoGameDisplay>
-</div>
+    </Book>
+</RotatingDisplay>
 
 @code {
     private SongQuote? tagline;

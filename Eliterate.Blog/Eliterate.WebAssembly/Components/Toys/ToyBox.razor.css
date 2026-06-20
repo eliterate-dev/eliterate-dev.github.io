@@ -11,5 +11,5 @@
 
 		::deep .toy-box:hover {
 			transition: 0.5s;
-			transform: rotateX(70deg) rotateY(-10deg) rotateZ(90deg);
+			transform: rotateX(80deg) rotateY(-10deg) rotateZ(90deg);
 		}

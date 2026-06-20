@@ -1,13 +1,16 @@
 ﻿<div class="book" style="position:absolute;transform-style:preserve-3d;@_size @_rotation">
     <!-- Back -->
-    <Cuboid X="X" Y="Y" Z="CoverThickness" ExtraClasses="book-back" Color="@Color">
+    <Cuboid X="X" Y="Y" Z="CoverThickness" ExtraClasses="book-back" Color="@_color">
         <!-- Spine -->
-        <Cuboid X="CoverThickness" Y="Y" Z="Z" MoveX="CoverThickness * -0.5" MoveZ="CoverThickness * -0.5" ExtraClasses="book-spine" Color="@Color">
+        <Cuboid X="Y" Y="Z + CoverThickness" Z="CoverThickness" MoveX="Y / -2" MoveY="(Y - Z - CoverThickness) / 2" MoveZ="(Z - CoverThickness) / 2" RotateY="-90" RotateZ="90" ExtraClasses="book-spine" Color="@($"color-mix(in srgb, {_color} 90%, #000)")">
+            <div class="fill center-content spine-text">
+                @SpineText
+            </div>
         </Cuboid>
         <!-- Pages -->
         <Cuboid X="X - CoverThickness" Y="Y - (CoverThickness * 2)" Z="Z - CoverThickness" MoveY="CoverThickness" ExtraClasses="book-pages">
             <!-- Front -->
-            <Cuboid X="X" Y="Y" Z="CoverThickness" ExtraClasses="book-top" MoveY="-CoverThickness" Color="@Color">
+            <Cuboid X="X" Y="Y" Z="CoverThickness" ExtraClasses="book-top" MoveY="-CoverThickness" Color="@_color">
                 <div class="book-cover">
                     @ChildContent
                 </div>
@@ -19,6 +22,7 @@
 @code {
     private string _size => $"width:{X}px;height:{Y}px;";
     private string _rotation => $"transform:rotateX({RotateX}deg) rotateY({RotateY}deg) rotateZ({RotateZ}deg);";
+    private string _color => $"hsl({Hue},{Saturation}%,{Lightness}%)";
 
     [Parameter]
     public double CoverThickness { get; set; } = 5;
@@ -35,7 +39,13 @@
     [Parameter]
     public double RotateZ { get; set; }
     [Parameter]
-    public string Color { get; set; } = "hsl(14, 70%, 10%)";
+    public int Hue { get; set; } = 14;
+    [Parameter]
+    public int Saturation { get; set; } = 70;
+    [Parameter]
+    public int Lightness { get; set; } = 10;
+    [Parameter]
+    public string? SpineText { get; set; }
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 }

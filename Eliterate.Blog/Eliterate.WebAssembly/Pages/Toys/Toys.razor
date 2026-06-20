@@ -23,12 +23,18 @@
     </ToyBox>
     @if (NavigationManager.Uri.Contains("localhost"))
     {
-        <ToyBox Name="Sandbox" Scale="1.5">
-            <div class="center-content">
+        <ToyBox Name="Sandbox" Scale="1.5" Color="#333">
+            <div class="fill center-content">
                 <p>Test box, do not click.</p>
             </div>
         </ToyBox>
-
+        <a href="toys/flappy" class="toy-cartridge center-content">
+            <Cartridge Color="#666">
+                <div class="fill center-content">
+                    <p>Test game.</p>
+                </div>
+            </Cartridge>
+        </a>
     }
 </div>
 

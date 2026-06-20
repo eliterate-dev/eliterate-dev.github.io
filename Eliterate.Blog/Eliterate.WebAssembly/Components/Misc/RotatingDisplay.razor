@@ -1,0 +1,21 @@
+﻿<div class="fill rotating-display-container">
+    <div class="fill center-content rotating-display @_paused">
+        @ChildContent
+    </div>
+    <button class="toggle-rotation-button" @onclick="ToggleRotation">
+        ⏯
+    </button>
+</div>
+
+@code {
+    private string _paused => Paused ? "paused" : "rotating";
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    public bool Paused { get; set; }
+
+    public void ToggleRotation()
+    {
+        Paused = !Paused;
+    }
+}

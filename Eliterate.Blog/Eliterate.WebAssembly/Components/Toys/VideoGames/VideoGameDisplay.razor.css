@@ -11,8 +11,9 @@
 	max-width: 700px;
 	margin: 0.5rem auto 0 auto;
 	background-color: lightgrey;
-	padding: 2rem 0 0 0;
+	padding: 1.5rem 0 0 0;
 	border-radius: 1rem 1rem 6rem 1rem;
+	user-select: none;
 }
 	.game-device:before {
 		display: block;
@@ -64,6 +65,14 @@
 	font-size: 1.5rem;
 }
 
+.device-name {
+	font-size: 2rem;
+}
+
+small {
+	font-size: 0.75em;
+}
+
 .buttons {
 	position: absolute;
 	width: 100%;
@@ -72,11 +81,14 @@
 
 .d-pad {
 	position: absolute;
-	font-size: 12rem;
-	color: #111;
-	line-height: 1;
-	margin-top: 3rem;
-	text-shadow: 4px 4px 4px grey;
+	margin-top: 5rem;
+	margin-left: 1rem;
+	transform-style: preserve-3d;
+	width: 120px;
+	height: 120px;
+}
+::deep.d-pad > div {
+	box-shadow: 2px 2px 2px grey, 4px 4px 4px grey;
 }
 
 .a-b-buttons {

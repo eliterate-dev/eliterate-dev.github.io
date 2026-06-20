@@ -15,5 +15,6 @@ public class PostMetadata : ICreatable, IEditable, IPostMetadata
     public bool IsActive { get; set; } = true;
     public bool ShowInList { get; set; } = true;
     public string StickerEmoji { get; set; } = "";
+    public int TechnicalDifficulty { get; set; }
     public int? EstimatedReadTimeInMinutes { get; set; }
 }
