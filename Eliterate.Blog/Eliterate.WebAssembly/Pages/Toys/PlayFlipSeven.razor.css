@@ -4,16 +4,6 @@
 	margin: 0.5rem auto;
 }
 
-.blackjack-game {
-	--game-layout-grid: 1fr;
-}
-
-@media (min-width: 820px) {
-	.blackjack-game {
-		--game-layout-grid: 1fr max-content;
-	}
-}
-
 h3, h4 {
 	text-align: center;
 }

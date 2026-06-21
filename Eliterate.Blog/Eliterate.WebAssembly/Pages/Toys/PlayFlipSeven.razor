@@ -15,7 +15,7 @@
                 @{int i = 1;}
                 @foreach (var card in _game.CurrentPlayer.Hand.OrderBy(c => c.CardType).ThenBy(c => c.Value))
                 {
-                    <FlipSevenCard Model="card" Scale="8"></FlipSevenCard>
+                    <FlipSevenCard Model="card"></FlipSevenCard>
                     i++;
                 }
             </Hand>
@@ -48,7 +48,7 @@
                         <div class="overview-cards">
                             @foreach (var card in player.Hand.OrderBy(c => c.CardType).ThenBy(c => c.Value))
                             {
-                                <FlipSevenCard Model="card" Scale="2"></FlipSevenCard>
+                                <FlipSevenCard Model="card"></FlipSevenCard>
                             }
                         </div>
                     </li>
@@ -72,7 +72,7 @@
 <Modal Hideable="false" Visible="@_hasActiveActionCard">
     <div class="target-dialog">
         <h4>@_actionPrompt</h4>
-        <FlipSevenCard Model="_activeActionCard?.Card" Scale="8"></FlipSevenCard>
+        <FlipSevenCard Model="_activeActionCard?.Card"></FlipSevenCard>
         @foreach (var player in _validTargets)
         {
             <div class="target-dialog-row">

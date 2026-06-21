@@ -1,5 +1,5 @@
 ﻿
-<PlayingCard Model="@Model" Scale="@Scale">
+<PlayingCard Model="@Model">
     <div class="flip-seven-card center-content" style="@_accent @_value">
         <div class="flip-seven-card-content center-content @_class">
             <p class="center-text">@Model?.Name</p>
@@ -30,8 +30,6 @@
 
     [Parameter]
     public Codespirals.CardGames.FlipSeven.FlipSevenCard? Model { get; set; }
-    [Parameter]
-    public int Scale { get; set; } = 1;
     [Parameter]
     public int MaxNumber { get; set; } = 12;
 }
