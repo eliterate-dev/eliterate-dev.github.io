@@ -35,3 +35,23 @@
 	border-radius: 50%;
 	animation: 1s;
 }
+
+::deep .player-container {
+	--card-width: min(max(10vw, 35px), 72px);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+::deep .player {
+	position: absolute;
+	bottom: -2rem;
+	width: 100%;
+}
+
+::deep .player-container.active {
+	--card-width: min(max(18vw, 60px), 140px);
+	z-index: 2;
+}

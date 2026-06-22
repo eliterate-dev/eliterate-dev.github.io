@@ -9,7 +9,7 @@
     <CardGameBoard TotalPlayers="_game.Players.Count()" CurrentPlayerIndex="_game.GetPlayerIndex(_game.CurrentPlayer) - 1">
         @foreach (var player in _game.Players)
         {
-            <div class="player-container @(_currentPlayerNotDealer == player ? "active" : "")" style="@($"rotate:-{360 / _game.Players.Except([_game.Dealer]).Count() * (_game.GetPlayerIndex(player) - 1)}deg;")">
+            <div class="player-container @(_currentPlayerNotDealer == player ? "active" : "")" style="@($"rotate:-{360 / _game.Players.Count() * (_game.GetPlayerIndex(player) - 1)}deg;")">
                 <div class="player">
                     <div class="hand-container">
                         <Hand>

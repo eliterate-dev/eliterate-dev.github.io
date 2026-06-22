@@ -1,10 +1,10 @@
-﻿.playing-card-container {
+﻿.hand {
 	width: max-content;
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: calc(var(--card-width) * 0.6);
+	padding-left: calc(var(--card-width) * 0.65);
 }
 
-	.playing-card-container ::deep .playing-card {
-		margin-left: calc(var(--card-width) * -0.6);
+	.hand ::deep .playing-card {
+		margin-left: calc(var(--card-width) * -0.65);
 	}

@@ -1,146 +1,76 @@
-﻿.toy-page-title {
-	text-align: center;
-	rotate: -2deg;
-	margin: 0.5rem auto;
-}
-
-h3, h4 {
-	text-align: center;
-}
-
-ul {
-	margin: 0;
+﻿ul {
+	list-style-type: none;
 	padding: 0;
-	text-align: center;
-	list-style: none;
-}
-
-.blackjack-game {
-	display: grid;
-	padding: 0.25rem 0.5rem 0.25rem 0.25rem;
-	grid-template-columns: var(--game-layout-grid);
-}
-
-.blackjack-container {
-	background-color: red;
-	background-image: url(../images/textures/diagmonds.png);
-	padding: 1rem 0;
-	border: solid 1rem darkred;
-	border-radius: 1rem;
-}
-
-.player-container {
-	color: white;
-}
-
-.playing-card-container {
-	margin: 0 auto;
-	width: max-content;
-}
-
-.player-overview {
-	width: max-content;
-	margin: 1rem auto;
-	padding: 1rem;
-	background-color: var(--color-contrast-1);
-	background-image: url(../images/textures/light-paper-fibers.png);
-	border: 1px solid var(--color-shadow);
-	box-shadow: 2px 2px black;
-}
-
-.overview-player {
-	display: grid;
-	grid-template-columns: max-content max-content;
-}
-.overview-cards {
-	padding: 0.25rem 0.5rem;
-}
-
-.feed-container {
-	padding: 0.5rem;
-}
-.round-feed {
-	margin: 0.5rem auto;
-	padding: 0 1rem;
-	height: 20rem;
-	max-width: 400px;
-	overflow-y: scroll;
-	background-color: var(--color-contrast-1);
-	background-image: url(../images/textures/notebook.png);
-	box-shadow: 2px 2px black;
-}
-
-.feedback {
 	margin: 0;
 }
 
-.active {
-	text-decoration: underline;
+.flip-seven-container {
+	overflow-y: scroll;
 }
 
-.game-controls {
+.game-board-container {
+	color: white;
+	position: relative;
+	min-width: calc(var(--min-width) + 2rem);
+	max-width: 600px;
 	width: max-content;
-	margin: 0 auto;
+	margin: 1.5rem auto;
 }
 
-.game-settings-container {
-	margin: 1rem auto;
-	padding: 1rem;
-	background-color: var(--color-contrast-1);
-	background-image: url(../images/textures/light-paper-fibers.png);
-	border: 1px solid var(--color-shadow);
-	box-shadow: 2px 2px black;
+.game-controls-container {
 	width: max-content;
-}
-
-.game-settings {
 	display: grid;
-	grid-template-columns: 1fr min-content;
+	grid-template-columns: min-content;
+	margin: 0 auto;
+	padding: 1rem;
+	text-align: center;
 }
 
-	.game-settings ::deep label{
-		margin: 0.375rem;
+	.game-controls-container ::deep > .flashcard {
+		height: max-content;
+		width: min-content;
+		margin-right: 0.5rem;
 	}
 
-	.game-settings ::deep input {
-		margin: 0.125rem;
-		width: 50px;
+	.game-controls-container ::deep .card-footer {
+		margin: 0.5rem auto;
 	}
 
-	.game-settings-container ::deep button {
-		width: 100%;
-	}
+::deep .game-board {
+	--board-hue: 150;
+}
+
+::deep .card-body > ul {
+	padding: 1rem;
+}
 
 .target-dialog {
-	padding: 0.5rem;
-	display: grid;
-	grid-template-columns: 1fr;
+	min-width: var(--min-width);
 }
 
-	.target-dialog h4 {
-		margin: 0;
-	}
+.target-dialog > h4 {
+	text-align: center;
+	width: var(--min-width);
+}
 
 .target-dialog ::deep .playing-card {
-	margin: 0.25rem auto;
+	--card-width: 8rem;
+	display: block;
+	margin: 0 auto;
 }
 
 .target-dialog-row {
+	margin-top: 0.5rem;
 	display: grid;
-	grid-template-columns: 1fr min-content;
-	margin-top: 0.25rem;
+	grid-template-columns: auto max-content;
 }
-	.target-dialog-row > div {
-		margin: 0.25rem 0;
-		padding: 0.25rem 0;
+
+.target-dialog-row > div {
+	padding: 0.25rem 0;
+}
+
+	@media(min-width: 840px) {
+		.game-controls-container {
+			grid-template-columns: min-content auto;
+		}
 	}
-
-.repo-link-card {
-	width: var(--min-width);
-	margin: 0 auto;
-}
-
-.repo-link {
-	display: block;
-	padding: 0.5rem;
-}
