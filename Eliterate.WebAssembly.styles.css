@@ -187,12 +187,15 @@
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 100%;
-	height: 100%;
+	bottom: 0;
+	left: 0;
+	min-width: calc(var(--min-width) + 20px);
 	background-color: #222c;
+	
 }
 
 .modal-dialog-content[b-3lbsfabvgk] {
+	min-width: var(--min-width);
 	width: max-content;
 	max-width: 90%;
 	margin: min(200px, 15%) auto auto auto;
@@ -259,7 +262,7 @@
 
 .rotating-display-container[b-2765vu92ap] {
 	transform-origin: 50% 50%;
-	background-color: #222;
+	background-color: #666;
 	overflow: hidden;
 }
 
@@ -633,6 +636,26 @@ a.card-tag:hover[b-ez7k6alu6d], a.card-tag:focus-visible[b-ez7k6alu6d] {
 	border-radius: 50%;
 	animation: 1s;
 }
+
+[b-lx7i8gyfpg] .player-container {
+	--card-width: min(max(10vw, 35px), 72px);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+[b-lx7i8gyfpg] .player {
+	position: absolute;
+	bottom: -2rem;
+	width: 100%;
+}
+
+[b-lx7i8gyfpg] .player-container.active {
+	--card-width: min(max(18vw, 60px), 140px);
+	z-index: 2;
+}
 /* /Components/Toys/CardGames/FlipSevenCard.razor.rz.scp.css */
 .flip-seven-card[b-som9fyey9f] {
 	width: 100%;
@@ -640,12 +663,43 @@ a.card-tag:hover[b-ez7k6alu6d], a.card-tag:focus-visible[b-ez7k6alu6d] {
 }
 
 .flip-seven-card-content[b-som9fyey9f] {
-	height: calc(100% - 0.3em);
-	width: calc(100% - 0.3em);
-	border-radius: 0.05em;
+	height: calc(100% - 20px);
+	width: calc(100% - 20px);
+	border: 6px solid var(--accent-color);
+	border-radius: 10% 4%;
 }
-.flip-seven-card-content > p[b-som9fyey9f] {
-	padding: 0.2em 0;
+
+.card-number[b-som9fyey9f] {
+}
+
+.card-bonus[b-som9fyey9f], .card-mult[b-som9fyey9f], .card-second-chance[b-som9fyey9f], .card-freeze[b-som9fyey9f], .card-flip[b-som9fyey9f] {
+	--accent-color: var(--color-primary);
+}
+
+	.card-bonus[b-som9fyey9f], .card-mult[b-som9fyey9f] {
+		font-size: 0.8em;
+	}
+
+	.card-freeze[b-som9fyey9f] {
+		font-size: 0.45em;
+	}
+
+	.card-flip[b-som9fyey9f] {
+		font-size: 0.5em;
+	}
+
+.card-second-chance[b-som9fyey9f] {
+	font-size: 0.3em;
+}
+
+	.card-second-chance > p[b-som9fyey9f], .card-freeze > p[b-som9fyey9f], -card-flip > p[b-som9fyey9f] {
+		background-color: var(--color-primary);
+		border-radius: 50%;
+		rotate: -30deg;
+	}
+
+.center-text[b-som9fyey9f] {
+	position: absolute;
 }
 
 .pin[b-som9fyey9f] {
@@ -656,43 +710,19 @@ a.card-tag:hover[b-ez7k6alu6d], a.card-tag:focus-visible[b-ez7k6alu6d] {
 	background-color: var(--accent-color);
 	color: white;
 	border-radius: 50%;
-	padding: 0.2em;
+	padding: 3px;
+	text-align: center;
 }
+
 .pin-top[b-som9fyey9f] {
-	top: 0.3em;
-	left: 0.3em;
+	top: 5px;
+	left: 5px;
 }
+
 .pin-bottom[b-som9fyey9f] {
-	bottom: 0.3em;
-	right: 0.3em;
+	bottom: 5px;
+	right: 5px;
 }
-
-.card-number[b-som9fyey9f] {
-	border: 0.1em solid var(--accent-color);
-}
-
-.card-bonus[b-som9fyey9f], .card-mult[b-som9fyey9f], .card-second-chance[b-som9fyey9f], .card-freeze[b-som9fyey9f], .card-flip[b-som9fyey9f] {
-	--accent-color: var(--color-primary);
-	border: 0.1em solid var(--accent-color);
-}
-	.card-bonus > p[b-som9fyey9f], .card-mult > p[b-som9fyey9f] {
-		font-size: 0.7em;
-	}
-
-.card-freeze[b-som9fyey9f] {
-	font-size: 0.45em;
-}
-.card-flip[b-som9fyey9f] {
-	font-size: 0.5em;
-}
-.card-second-chance[b-som9fyey9f] {
-	font-size: 0.3em;
-}
-	.card-second-chance > p[b-som9fyey9f], .card-freeze > p[b-som9fyey9f], -card-flip > p[b-som9fyey9f] {
-		background-color: var(--color-primary);
-		border-radius: 50%;
-		rotate: -30deg;
-	}
 /* /Components/Toys/CardGames/GameLog.razor.rz.scp.css */
 .round-feed-container[b-6axj6a3zva] {
 	height: 420px;
@@ -816,15 +846,15 @@ a.card-tag:hover[b-ez7k6alu6d], a.card-tag:focus-visible[b-ez7k6alu6d] {
 	}
 }
 /* /Components/Toys/CardGames/Hand.razor.rz.scp.css */
-.playing-card-container[b-wz77bsxcy7] {
+.hand[b-wz77bsxcy7] {
 	width: max-content;
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: calc(var(--card-width) * 0.6);
+	padding-left: calc(var(--card-width) * 0.65);
 }
 
-	.playing-card-container[b-wz77bsxcy7]  .playing-card {
-		margin-left: calc(var(--card-width) * -0.6);
+	.hand[b-wz77bsxcy7]  .playing-card {
+		margin-left: calc(var(--card-width) * -0.65);
 	}
 /* /Components/Toys/CardGames/PlayingCard.razor.rz.scp.css */
 .playing-card[b-5ox61rp2mn] {
@@ -1546,162 +1576,82 @@ ul[b-bcecxxhwdg] {
 	}
 }
 /* /Pages/Toys/PlayFlipSeven.razor.rz.scp.css */
-.toy-page-title[b-oeoq3gchar] {
-	text-align: center;
-	rotate: -2deg;
-	margin: 0.5rem auto;
-}
-
-.blackjack-game[b-oeoq3gchar] {
-	--game-layout-grid: 1fr;
-}
-
-@media (min-width: 820px) {
-	.blackjack-game[b-oeoq3gchar] {
-		--game-layout-grid: 1fr max-content;
-	}
-}
-
-h3[b-oeoq3gchar], h4[b-oeoq3gchar] {
-	text-align: center;
-}
-
 ul[b-oeoq3gchar] {
-	margin: 0;
+	list-style-type: none;
 	padding: 0;
-	text-align: center;
-	list-style: none;
-}
-
-.blackjack-game[b-oeoq3gchar] {
-	display: grid;
-	padding: 0.25rem 0.5rem 0.25rem 0.25rem;
-	grid-template-columns: var(--game-layout-grid);
-}
-
-.blackjack-container[b-oeoq3gchar] {
-	background-color: red;
-	background-image: url(../images/textures/diagmonds.png);
-	padding: 1rem 0;
-	border: solid 1rem darkred;
-	border-radius: 1rem;
-}
-
-.player-container[b-oeoq3gchar] {
-	color: white;
-}
-
-.playing-card-container[b-oeoq3gchar] {
-	margin: 0 auto;
-	width: max-content;
-}
-
-.player-overview[b-oeoq3gchar] {
-	width: max-content;
-	margin: 1rem auto;
-	padding: 1rem;
-	background-color: var(--color-contrast-1);
-	background-image: url(../images/textures/light-paper-fibers.png);
-	border: 1px solid var(--color-shadow);
-	box-shadow: 2px 2px black;
-}
-
-.overview-player[b-oeoq3gchar] {
-	display: grid;
-	grid-template-columns: max-content max-content;
-}
-.overview-cards[b-oeoq3gchar] {
-	padding: 0.25rem 0.5rem;
-}
-
-.feed-container[b-oeoq3gchar] {
-	padding: 0.5rem;
-}
-.round-feed[b-oeoq3gchar] {
-	margin: 0.5rem auto;
-	padding: 0 1rem;
-	height: 20rem;
-	max-width: 400px;
-	overflow-y: scroll;
-	background-color: var(--color-contrast-1);
-	background-image: url(../images/textures/notebook.png);
-	box-shadow: 2px 2px black;
-}
-
-.feedback[b-oeoq3gchar] {
 	margin: 0;
 }
 
-.active[b-oeoq3gchar] {
-	text-decoration: underline;
+.flip-seven-container[b-oeoq3gchar] {
+	overflow-y: scroll;
 }
 
-.game-controls[b-oeoq3gchar] {
+.game-board-container[b-oeoq3gchar] {
+	color: white;
+	position: relative;
+	min-width: calc(var(--min-width) + 2rem);
+	max-width: 600px;
 	width: max-content;
-	margin: 0 auto;
+	margin: 1.5rem auto;
 }
 
-.game-settings-container[b-oeoq3gchar] {
-	margin: 1rem auto;
-	padding: 1rem;
-	background-color: var(--color-contrast-1);
-	background-image: url(../images/textures/light-paper-fibers.png);
-	border: 1px solid var(--color-shadow);
-	box-shadow: 2px 2px black;
+.game-controls-container[b-oeoq3gchar] {
 	width: max-content;
-}
-
-.game-settings[b-oeoq3gchar] {
 	display: grid;
-	grid-template-columns: 1fr min-content;
+	grid-template-columns: min-content;
+	margin: 0 auto;
+	padding: 1rem;
+	text-align: center;
 }
 
-	.game-settings[b-oeoq3gchar]  label{
-		margin: 0.375rem;
+	.game-controls-container[b-oeoq3gchar]  > .flashcard {
+		height: max-content;
+		width: min-content;
+		margin-right: 0.5rem;
 	}
 
-	.game-settings[b-oeoq3gchar]  input {
-		margin: 0.125rem;
-		width: 50px;
+	.game-controls-container[b-oeoq3gchar]  .card-footer {
+		margin: 0.5rem auto;
 	}
 
-	.game-settings-container[b-oeoq3gchar]  button {
-		width: 100%;
-	}
+[b-oeoq3gchar] .game-board {
+	--board-hue: 150;
+}
+
+[b-oeoq3gchar] .card-body > ul {
+	padding: 1rem;
+}
 
 .target-dialog[b-oeoq3gchar] {
-	padding: 0.5rem;
-	display: grid;
-	grid-template-columns: 1fr;
+	min-width: var(--min-width);
 }
 
-	.target-dialog h4[b-oeoq3gchar] {
-		margin: 0;
-	}
+.target-dialog > h4[b-oeoq3gchar] {
+	text-align: center;
+	width: var(--min-width);
+}
 
 .target-dialog[b-oeoq3gchar]  .playing-card {
-	margin: 0.25rem auto;
+	--card-width: 8rem;
+	display: block;
+	margin: 0 auto;
 }
 
 .target-dialog-row[b-oeoq3gchar] {
+	margin-top: 0.5rem;
 	display: grid;
-	grid-template-columns: 1fr min-content;
-	margin-top: 0.25rem;
+	grid-template-columns: auto max-content;
 }
-	.target-dialog-row > div[b-oeoq3gchar] {
-		margin: 0.25rem 0;
-		padding: 0.25rem 0;
+
+.target-dialog-row > div[b-oeoq3gchar] {
+	padding: 0.25rem 0;
+}
+
+	@media(min-width: 840px) {
+		.game-controls-container[b-oeoq3gchar] {
+			grid-template-columns: min-content auto;
+		}
 	}
-
-.repo-link-card[b-oeoq3gchar] {
-	width: var(--min-width);
-	margin: 0 auto;
-}
-
-.repo-link[b-oeoq3gchar] {
-	display: block;
-	padding: 0.5rem;
-}
 /* /Pages/Toys/Toys.razor.rz.scp.css */
 .toy-page-title[b-lk2m0eyhvx] {
 	text-align: center;
