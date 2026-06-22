@@ -23,5 +23,10 @@
 		"Description": "Wisdom",
 		"Name": "Grug",
 		"Link": "https://grugbrain.dev"
+	},
+	{
+		"Description": "Hidden art",
+		"Name": "ASCII Art",
+		"Link": "https://www.asciiart.eu"
 	}
 ]

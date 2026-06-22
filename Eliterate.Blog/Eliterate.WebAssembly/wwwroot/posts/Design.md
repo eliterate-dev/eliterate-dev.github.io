@@ -1,6 +1,6 @@
 ### Pure CSS
 
-Although I have some <a href="https://getbootstrap.com/">Bootstrap</a> experience and I think it's a fine framework, I decided against using it for this project.
+Although I have some [Bootstrap](https://getbootstrap.com/) experience and I think it's a fine framework, I decided against using it for this project.
 
 CSS has become quite powerful over the decades, and far too many of us still don't utilize it to the fullest potential.
 
@@ -120,7 +120,7 @@ I wrote my own implementation of them though. I got manners and shit.
 
 It's essentially just few text-shadows and filters. I could have probably done with just one of the two, but I felt I got the most convincing effect by using both.
 
-I grab my unicode emojis from <a href="https://symbl.cc/">Symbl</a> - my go to resource for Unicode, though basically any unicode character list will do.
+I grab my unicode emojis from [Symbl](https://symbl.cc/) - my go to resource for Unicode, though basically any unicode character list will do.
 
 #### Navigation
 
@@ -224,6 +224,22 @@ Can't promise I'll reply right away, but I'll get to it eventually.
 
 Let's make the web weird again.
 
-### Footnotes
+<div style="color:var(--color-background);">
 
-[^1]: DOM or Document Object Model is the "layout" of the html page not as it's being rendered, but as it's actually written. Most of the time, the two are the same, but sometimes it makes sense to place something where it's not in the DOM to help screenreaders, for example. 
+### WIP
+
+Ohhh hey, perceptive, aren't you?
+
+You found one of the easter eggs I've hidden on the site!
+
+You see, for this website I don't do proper separation of environments (dev, test, prod). I just toss everything up on Github.
+
+To not have the site cluttered with work in progress though, I make certain things only show up if the url contains the word "localhost".
+
+That way, I always see everything when I run things locally, but it's hidden by default when it's live.
+
+I could have made it so I only look for localhost in the domain, so this would truly only work locally, but I thought it would be fun to expose this on the live site as well.
+
+If you want to see some things I'm currently working on, simply add "localhost" as a query argument to the url.
+
+</div>

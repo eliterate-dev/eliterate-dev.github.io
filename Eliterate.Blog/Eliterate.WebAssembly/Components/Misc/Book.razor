@@ -1,16 +1,16 @@
 ﻿<div class="book" style="position:absolute;transform-style:preserve-3d;@_size @_rotation">
     <!-- Back -->
-    <Cuboid X="X" Y="Y" Z="CoverThickness" ExtraClasses="book-back" Color="@_color">
+    <Cuboid X="X" Y="Y" Z="_coverThickness" ExtraClasses="book-back" Color="@_color">
         <!-- Spine -->
-        <Cuboid X="Y" Y="Z + CoverThickness" Z="CoverThickness" MoveX="Y / -2" MoveY="(Y - Z - CoverThickness) / 2" MoveZ="(Z - CoverThickness) / 2" RotateY="-90" RotateZ="90" ExtraClasses="book-spine" Color="@($"color-mix(in srgb, {_color} 90%, #000)")">
+        <Cuboid X="Y" Y="Z + 2" Z="_coverThickness" MoveX="(Y / -2) + 1" MoveY="Math.Ceiling((Y - Z - _coverThickness) / 2) + 1" MoveZ="Math.Ceiling((Z - _coverThickness + 1) / 2)" RotateY="-90" RotateZ="90" ExtraClasses="book-spine" Color="@($"color-mix(in srgb, {_color} 90%, #000)")">
             <div class="fill center-content spine-text">
                 @SpineText
             </div>
         </Cuboid>
         <!-- Pages -->
-        <Cuboid X="X - CoverThickness" Y="Y - (CoverThickness * 2)" Z="Z - CoverThickness" MoveY="CoverThickness" ExtraClasses="book-pages">
+        <Cuboid X="X - _coverThickness" Y="Y - (_coverThickness * 2)" Z="Z - _coverThickness" MoveY="_coverThickness" ExtraClasses="book-pages">
             <!-- Front -->
-            <Cuboid X="X" Y="Y" Z="CoverThickness" ExtraClasses="book-top" MoveY="-CoverThickness" Color="@_color">
+            <Cuboid X="X" Y="Y" Z="_coverThickness" ExtraClasses="book-top" MoveY="-_coverThickness - 1" Color="@_color">
                 <div class="book-cover">
                     @ChildContent
                 </div>
@@ -23,6 +23,8 @@
     private string _size => $"width:{X}px;height:{Y}px;";
     private string _rotation => $"transform:rotateX({RotateX}deg) rotateY({RotateY}deg) rotateZ({RotateZ}deg);";
     private string _color => $"hsl({Hue},{Saturation}%,{Lightness}%)";
+
+    private double _coverThickness => Math.Clamp(CoverThickness, 1, int.MaxValue);
 
     [Parameter]
     public double CoverThickness { get; set; } = 5;

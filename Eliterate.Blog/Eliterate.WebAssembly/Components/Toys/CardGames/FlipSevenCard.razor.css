@@ -4,12 +4,43 @@
 }
 
 .flip-seven-card-content {
-	height: calc(100% - 0.3em);
-	width: calc(100% - 0.3em);
-	border-radius: 0.05em;
+	height: calc(100% - 20px);
+	width: calc(100% - 20px);
+	border: 6px solid var(--accent-color);
+	border-radius: 10% 4%;
 }
-.flip-seven-card-content > p {
-	padding: 0.2em 0;
+
+.card-number {
+}
+
+.card-bonus, .card-mult, .card-second-chance, .card-freeze, .card-flip {
+	--accent-color: var(--color-primary);
+}
+
+	.card-bonus, .card-mult {
+		font-size: 0.8em;
+	}
+
+	.card-freeze {
+		font-size: 0.45em;
+	}
+
+	.card-flip {
+		font-size: 0.5em;
+	}
+
+.card-second-chance {
+	font-size: 0.3em;
+}
+
+	.card-second-chance > p, .card-freeze > p, -card-flip > p {
+		background-color: var(--color-primary);
+		border-radius: 50%;
+		rotate: -30deg;
+	}
+
+.center-text {
+	position: absolute;
 }
 
 .pin {
@@ -20,40 +51,16 @@
 	background-color: var(--accent-color);
 	color: white;
 	border-radius: 50%;
-	padding: 0.2em;
+	padding: 3px;
+	text-align: center;
 }
+
 .pin-top {
-	top: 0.3em;
-	left: 0.3em;
+	top: 5px;
+	left: 5px;
 }
+
 .pin-bottom {
-	bottom: 0.3em;
-	right: 0.3em;
+	bottom: 5px;
+	right: 5px;
 }
-
-.card-number {
-	border: 0.1em solid var(--accent-color);
-}
-
-.card-bonus, .card-mult, .card-second-chance, .card-freeze, .card-flip {
-	--accent-color: var(--color-primary);
-	border: 0.1em solid var(--accent-color);
-}
-	.card-bonus > p, .card-mult > p {
-		font-size: 0.7em;
-	}
-
-.card-freeze {
-	font-size: 0.45em;
-}
-.card-flip {
-	font-size: 0.5em;
-}
-.card-second-chance {
-	font-size: 0.3em;
-}
-	.card-second-chance > p, .card-freeze > p, -card-flip > p {
-		background-color: var(--color-primary);
-		border-radius: 50%;
-		rotate: -30deg;
-	}
