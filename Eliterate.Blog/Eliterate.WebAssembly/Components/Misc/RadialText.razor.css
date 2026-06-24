@@ -1,0 +1,17 @@
+﻿.radial-text {
+	font: var(--font-size) Monaco, MonoSpace;
+	transform-origin: bottom left;
+	rotate: calc(var(--angle) * -0.5);
+	height: var(--radius);
+	width: var(--radius);
+	border-radius: 50%;
+}
+
+.radial-letter {
+	rotate: calc(var(--rotate-per-letter) * var(--letter-number));
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform-origin: bottom center;
+	height: var(--radius);
+}

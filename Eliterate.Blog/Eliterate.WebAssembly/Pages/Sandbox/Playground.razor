@@ -1,28 +1,21 @@
 ﻿@page "/playground"
-@using Eliterate.WebAssembly.Components.Toys
-@using Eliterate.WebAssembly.Components.Toys.VideoGames
-@inject IContentService ContentService
 <PageTitle>Playground</PageTitle>
 
-<RotatingDisplay>
-    <Book SpineText="Test">
+<div style="position:relative;z-index:2;display:grid;grid-template-columns:max-content 1fr;">
+    <label>Text</label> <InputText DisplayName="Text" @bind-value="_text" />
+    <label>Font Size</label><InputNumber DisplayName="Font Size" @bind-value="_fontSize"></InputNumber>
+    <label>Radius</label><InputNumber DisplayName="Radius" @bind-value="_radius"></InputNumber>
+    <label>Angle</label><InputNumber DisplayName="Angle" @bind-value="_angle"></InputNumber>
+</div>
 
-    </Book>
-</RotatingDisplay>
+<div class="fill center-content">
+    <RadialText Text="@_text" FontSize="_fontSize" Radius="_radius" Angle="_angle"></RadialText>
+</div>
+
 
 @code {
-    private SongQuote? tagline;
-    private bool showSource = false;
-    private string? showSourceCssClass = "";
-    private string mailLink = $"mailto:{EliterateConstants.EmailContact}";
-
-    protected override async Task OnInitializedAsync()
-    {
-        tagline = await ContentService.GetRandomSongQuote();
-    }
-    private void ToggleShowSource()
-    {
-        showSource = !showSource;
-        showSourceCssClass = showSource ? "showSource" : "hideSource";
-    }
+    private string _text = "Testing Radial Text";
+    private int _fontSize = 16;
+    private int _radius = 50;
+    private int _angle = 45;
 }
