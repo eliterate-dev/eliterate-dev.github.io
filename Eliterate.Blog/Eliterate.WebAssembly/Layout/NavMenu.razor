@@ -19,7 +19,8 @@
     }
     @if (NavigationManager.Uri.Contains("localhost"))
     {
-        <NavLink href="/playground" Match="NavLinkMatch.All" tabindex="0" @onclick="CloseNavMenu">@($"{"WIP".PadRight(17, '.')}{"?".ToString().PadLeft(4, '.')}")</NavLink>
+        <NavLink href="/playground" Match="NavLinkMatch.All" tabindex="0" @onclick="CloseNavMenu">@($"{"WIP".PadRight(17, '.')}{"".ToString().PadLeft(4, '.')}")</NavLink>
+        <NavLink href="/components" Match="NavLinkMatch.All" tabindex="0" @onclick="CloseNavMenu">@($"{"Components".PadRight(17, '.')}{"".ToString().PadLeft(4, '.')}")</NavLink>
     }
 </nav>
 

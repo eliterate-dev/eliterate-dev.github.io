@@ -1,6 +1,25 @@
 ﻿@page "/components"
 <PageTitle>Components</PageTitle>
 
-@code {
+@switch (_selected)
+{
+    case Component.RotatingDisplay:
+        <RotatingDisplay>
 
+        </RotatingDisplay>
+        break;
+    default:
+        break;
+}
+
+@code {
+    private Component _selected;
+
+    private enum Component
+    {
+        None,
+        Cuboid,
+        RotatingDisplay,
+        RadialText
+    }
 }
