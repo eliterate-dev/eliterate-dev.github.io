@@ -1,4 +1,5 @@
 ﻿@using Codespirals.CardGames.FlipSeven
+@using Eliterate.WebAssembly.Components.Generic
 @using Eliterate.WebAssembly.Components.Toys.CardGames
 
 @page "/toys/flip_seven"
@@ -74,8 +75,8 @@
     </div>
 </Modal>
 <GameOverModal Visible="_game.GameOver" HasWinner="true">
-    <div>
-        <div>Congratulations!</div>
+    <div class="center-content">
+        <div class="center-text">Congratulations!</div>
         <div>@(_game.GetWinner()?.Name ?? "Nobody") won the game!</div>
         <button @onclick="Restart"> Restart</button>
     </div>

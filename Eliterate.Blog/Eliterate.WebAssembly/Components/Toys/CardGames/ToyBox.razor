@@ -1,4 +1,5 @@
 ﻿@using Codespirals.Base.Extensions
+@using Eliterate.WebAssembly.Components.Generic
 
 <a class="toy-container center-content" style="@_size @_color" href="toys/@Name.ToLowerInvariant().MakeUrlSafe('_')">
     <Cuboid ExtraClasses="@($"toy-box {Name.ToLowerInvariant().MakeUrlSafe('-')}-toy")" X="200 * Scale" Y="282 * Scale" Z="60 * Scale" RotateX="20" RotateY="-5" RotateZ="90" SideLabel="@Name" Color="@_colorWithHashtag">

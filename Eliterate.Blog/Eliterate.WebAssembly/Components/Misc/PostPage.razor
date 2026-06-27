@@ -12,7 +12,7 @@ else
                 <div class="book-page-header">
                     <div class="grid-container-dash-dot">
                         <h2 class="book-page-title" tabindex="0" role="heading">@Model.Metadata.Title</h2>
-                        <Date Model="Model.Metadata"></Date>
+                        <EditOrCreateDate Model="Model.Metadata"></EditOrCreateDate>
                     </div>
                 </div>
                 <Sticker Text="@Model.Metadata.StickerEmoji" Top="0.5m" Right="5.5m" Scale="2" Rotate="@Model.Metadata.Title.GetRandomValueFromString(20)"></Sticker>
