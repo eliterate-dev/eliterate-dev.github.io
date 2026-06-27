@@ -1,16 +1,53 @@
 ﻿@page "/components"
+@using Eliterate.WebAssembly.Components.Generic
+
 <PageTitle>Components</PageTitle>
 
-@switch (_selected)
-{
-    case Component.RotatingDisplay:
-        <RotatingDisplay>
+<div style="position:absolute;top:0;right:0;">
+    <InputSelect @bind-Value="_selected">
+        @foreach (var item in Enum.GetValues(typeof(Component)).Cast<Component>())
+        {
+            <option value="@item">@item</option>
+        }
+    </InputSelect>
+</div>
+<div class="fill" style="margin:2rem;padding:1rem;border:10px inset darkgrey;background-color:ghostwhite">
+    @switch (_selected)
+    {
+        case Component.Cuboid:
+            <div class="fill center-content">
+                <Cuboid RotateX="25" RotateY="45" Color="#aaa"></Cuboid>
+            </div>
+            break;
+        case Component.Book:
+            <div class="fill center-content">
+                <Book RotateX="25" RotateY="45">
+                    <div class="fill">
+                        <h3 style="text-align:center;margin-top:4rem;">I can't read</h3>
+                    </div>
+                </Book>
+            </div>
+            break;
+        case Component.RotatingDisplay:
+            <RotatingDisplay>
+                <Cuboid></Cuboid>
+            </RotatingDisplay>
+            break;
+        case Component.RadialText:
+            <div class="fill center-content">
+                <RadialText Text="Radial Text Example" Angle="180" Size="250" FontSize="25">
+                    <img src="images/pictures/Cat_on_tower.jpg" />
+                </RadialText>
+            </div>
+            break;
+        default:
+            <div class="fill center-content">
+                <p>Nothing selected</p>
+            </div>
+            break;
+    }
+</div>
 
-        </RotatingDisplay>
-        break;
-    default:
-        break;
-}
 
 @code {
     private Component _selected;
@@ -19,6 +56,7 @@
     {
         None,
         Cuboid,
+        Book,
         RotatingDisplay,
         RadialText
     }

@@ -1,4 +1,5 @@
-﻿
+﻿@using Codespirals.CardGames.FlipSeven
+
 <PlayingCard Model="@Model">
     <div class="flip-seven-card center-content" style="@_accent @_value">
         <div class="flip-seven-card-content center-content @_class">
@@ -16,12 +17,12 @@
 @code {
     private string _class => Model?.CardType switch
     {
-        Codespirals.CardGames.FlipSeven.CardType.Number => "card-number",
-        Codespirals.CardGames.FlipSeven.CardType.BonusAdd => "card-bonus",
-        Codespirals.CardGames.FlipSeven.CardType.Multiplier => "card-mult",
-        Codespirals.CardGames.FlipSeven.CardType.SecondChance => "card-second-chance",
-        Codespirals.CardGames.FlipSeven.CardType.Freeze => "card-freeze",
-        Codespirals.CardGames.FlipSeven.CardType.Flip => "card-flip",
+        CardType.Number => "card-number",
+        CardType.BonusAdd => "card-bonus",
+        CardType.Multiplier => "card-mult",
+        CardType.SecondChance => "card-second-chance",
+        CardType.Freeze => "card-freeze",
+        CardType.Flip => "card-flip",
         _ => "card-number"
     };
     private int _hue => 360 / (MaxNumber + 1)  * (Model?.Value ?? 1);
