@@ -3,7 +3,7 @@
 
 <PageTitle>Components</PageTitle>
 
-<div style="position:absolute;top:0;right:0;">
+<div style="position:absolute;top:0.25rem;right:2rem;">
     <InputSelect @bind-Value="_selected">
         @foreach (var item in Enum.GetValues(typeof(Component)).Cast<Component>())
         {
@@ -11,31 +11,61 @@
         }
     </InputSelect>
 </div>
-<div class="fill" style="margin:2rem;padding:1rem;border:10px inset darkgrey;background-color:ghostwhite">
+<div class="fill" style="margin:2rem;padding:1rem 0.5rem 0.5rem 0.5rem;border:10px inset dimgrey;background-color:darkgrey;">
     @switch (_selected)
     {
         case Component.Cuboid:
+            <div style="position:absolute;top:0;right:0;z-index:1;display:grid;grid-template-columns:max-content max-content max-content max-content;">
+                <label>X</label> <InputNumber @bind-value="_x" />
+                <label>Rotate X</label> <InputNumber @bind-value="_rotateX" />
+                <label>Y</label> <InputNumber @bind-value="_y" />
+                <label>Rotate Y</label> <InputNumber @bind-value="_rotateY" />
+                <label>Z</label> <InputNumber @bind-value="_z" />
+                <label>Rotate Z</label> <InputNumber @bind-value="_rotateZ" />
+            </div>
             <div class="fill center-content">
-                <Cuboid RotateX="25" RotateY="45" Color="#aaa"></Cuboid>
+                <Cuboid X="_x" Y="_y" Z="_z" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ" SideLabel="Side Text"></Cuboid>
             </div>
             break;
         case Component.Book:
+            <div style="position:absolute;top:0;right:0;z-index:1;display:grid;grid-template-columns:max-content max-content max-content max-content;">
+                <label>X</label> <InputNumber @bind-value="_x" />
+                <label>Rotate X</label> <InputNumber @bind-value="_rotateX" />
+                <label>Y</label> <InputNumber @bind-value="_y" />
+                <label>Rotate Y</label> <InputNumber @bind-value="_rotateY" />
+                <label>Z</label> <InputNumber @bind-value="_z" />
+                <label>Rotate Z</label> <InputNumber @bind-value="_rotateZ" />
+            </div>
             <div class="fill center-content">
-                <Book RotateX="25" RotateY="45">
+                <Book X="_x" Y="_y" Z="_z" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ">
                     <div class="fill">
-                        <h3 style="text-align:center;margin-top:4rem;">I can't read</h3>
+                        <h3 style="text-align:center;margin-top:10%;color:white;">I can't read</h3>
                     </div>
                 </Book>
             </div>
             break;
         case Component.RotatingDisplay:
+            <div style="position:absolute;top:0;right:0;z-index:1;display:grid;grid-template-columns:max-content max-content max-content max-content;">
+                <label>X</label> <InputNumber @bind-value="_x" />
+                <label>Rotate X</label> <InputNumber @bind-value="_rotateX" />
+                <label>Y</label> <InputNumber @bind-value="_y" />
+                <label>Rotate Y</label> <InputNumber @bind-value="_rotateY" />
+                <label>Z</label> <InputNumber @bind-value="_z" />
+                <label>Rotate Z</label> <InputNumber @bind-value="_rotateZ" />
+            </div>
             <RotatingDisplay>
-                <Cuboid></Cuboid>
+                <Cuboid X="_x" Y="_y" Z="_z" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ" SideLabel="Side Text"></Cuboid>
             </RotatingDisplay>
             break;
         case Component.RadialText:
+            <div style="position:absolute;top:0;right:0;z-index:1;display:grid;grid-template-columns:max-content 1fr;">
+                <label>Text</label> <InputText DisplayName="Text" @bind-value="_text" />
+                <label>Font Size</label><InputNumber DisplayName="Font Size" @bind-value="_fontSize"></InputNumber>
+                <label>Size</label><InputNumber DisplayName="Size" @bind-value="_size"></InputNumber>
+                <label>Angle</label><InputNumber DisplayName="Angle" @bind-value="_angle"></InputNumber>
+            </div>
             <div class="fill center-content">
-                <RadialText Text="Radial Text Example" Angle="180" Size="250" FontSize="25">
+                <RadialText Text="@_text" FontSize="_fontSize" Size="_size" Angle="_angle">
                     <img src="images/pictures/Cat_on_tower.jpg" />
                 </RadialText>
             </div>
@@ -51,6 +81,20 @@
 
 @code {
     private Component _selected;
+
+    // cuboid controls
+    private int _x = 100;
+    private int _y = 100;
+    private int _z = 100;
+    private int _rotateX = 60;
+    private int _rotateY = 0;
+    private int _rotateZ = 45;
+
+    // Radial text controls
+    private string _text = "Testing Radial Text";
+    private int _fontSize = 16;
+    private int _size = 200;
+    private int _angle = 180;
 
     private enum Component
     {
