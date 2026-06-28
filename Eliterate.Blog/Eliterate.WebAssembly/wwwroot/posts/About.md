@@ -27,13 +27,13 @@ since this project was supposed to be quick and dirty. Basically a static page, 
 
 Technically this could all be done with JavaScript pretty easily, but I don't enjoy writing JavaScript code all that much. No shade to anyone using it, I just think the language is a bit of a mess.
 
-So I turned to a relative newcommer in Webdev space: WASM (**W**eb **AS**se**M**bly (No I don't know why they abbreviated it this way)).
+So I turned to a relative newcomer in Webdev space: WASM (**W**eb **AS**se**M**bly (No I don't know why they abbreviated it this way)).
 
 <div class="sticker" style="rotate:-12deg;" role="presentation">🛠</div>
 
 The .Net framework has the capability to compile my usual C# code directly into WASM, meaning I can just write my code normally - interfaces, services and all, run it through a build and bam, compiled WASM code.
 
-Using to WASM like that almost entierly eliminates the need to write JavaScript (apart from maybe a service worker) - to be clear, you don't have to replace any JS. You can still use it anywhere, but *anything done in WASM* is something *I don't need to explicitly write in JS*, which is perfect for me.
+Using to WASM like that almost entirely eliminates the need to write JavaScript (apart from maybe a service worker) - to be clear, you don't have to replace any JS. You can still use it anywhere, but *anything done in WASM* is something *I don't need to explicitly write in JS*, which is perfect for me.
 
 Combined with [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor), the current modern .Net framework for frontend stuff, I can comfortably write my code in pretty much just C# and pure HTML / CSS.
 
