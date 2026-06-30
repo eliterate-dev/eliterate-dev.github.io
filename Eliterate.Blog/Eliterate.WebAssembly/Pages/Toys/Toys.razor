@@ -23,6 +23,14 @@
             <h2>Flip7</h2>
         </div>
     </ToyBox>
+    <a href="toys/minesweeper" class="toy-cartridge center-content">
+        <Cartridge Color="#666">
+            <div class="fill center-content">
+                <p>Mine Sweeper</p>
+                <p>💣</p>
+            </div>
+        </Cartridge>
+    </a>
     @if (NavigationManager.Uri.Contains("localhost"))
     {
         <ToyBox Name="Sandbox" Scale="1.5" Color="#333">
@@ -30,13 +38,6 @@
                 <p>Test box, do not click.</p>
             </div>
         </ToyBox>
-        <a href="toys/flappy" class="toy-cartridge center-content">
-            <Cartridge Color="#666">
-                <div class="fill center-content">
-                    <p>Test game.</p>
-                </div>
-            </Cartridge>
-        </a>
     }
 </div>
 

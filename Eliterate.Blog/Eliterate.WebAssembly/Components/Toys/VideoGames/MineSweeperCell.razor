@@ -1,0 +1,21 @@
+﻿
+<div class="mine-sweeper-cell @_covered @_flagged" @oncontextmenu:preventDefault="true" @oncontextmenu="Flag" @onclick="Reveal">
+    <span>@Model.Value</span>
+</div>
+
+@code {
+    private string _covered => !Model.IsRevealed ? "covered" : "";
+    private string _flagged => !Model.IsFlagged ? "flagged" : "";
+
+    [Parameter]
+    public Codespirals.VideoGames.MineSweeper.MineSweeperGame Game { get; set; }
+
+    [Parameter]
+    public Codespirals.VideoGames.MineSweeper.Cell Model { get; set; }
+
+    private void Reveal(MouseEventArgs args)
+        => Game.RevealCell(Model);
+
+    private void Flag(MouseEventArgs args)
+        => Game.ToggleFlagOnCell(Model);
+}

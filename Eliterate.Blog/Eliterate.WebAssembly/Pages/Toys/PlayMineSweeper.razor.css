@@ -1,0 +1,25 @@
+﻿.mine-sweeper-container {
+	display: grid;
+	grid-template-columns: repeat(var(--grid-size), 1fr);
+	grid-template-rows: repeat(var(--grid-size), 1fr);
+}
+
+::deep .mine-sweeper-cell {
+	position: relative;
+	border: 3px solid white;
+	width: calc(100% - 5px);
+	height: calc(100% - 5px);
+}
+	::deep .mine-sweeper-cell:hover {
+		border-color: var(--color-primary);
+	}
+	::deep .mine-sweeper-cell.flagged {
+		border-color: red;
+	}
+
+	::deep .mine-sweeper-cell.covered {
+		background-color: #333;
+	}
+
+	::deep .mine-sweeper-cell > span {
+	}

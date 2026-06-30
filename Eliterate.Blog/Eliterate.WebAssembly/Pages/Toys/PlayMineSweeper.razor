@@ -1,0 +1,24 @@
+﻿@using Codespirals.VideoGames.MineSweeper
+@using Eliterate.WebAssembly.Components.Toys.VideoGames
+@page "/toys/minesweeper"
+
+<PageTitle>Eliterate - Flip Seven</PageTitle>
+
+<VideoGameDisplay PoweredOn="true">
+    <div class="fill mine-sweeper-container" style="@_gridSize">
+        @foreach (var row in _game.GameBoard.Cells)
+        {
+            @foreach (var cell in row)
+            {
+                <MineSweeperCell Model="cell"></MineSweeperCell>
+            }
+        }
+    </div>
+</VideoGameDisplay>
+
+@code {
+    private string _gridSize => $"--grid-size:{_game.GameBoard.Width}";
+
+    private MineSweeperGame _game = MineSweeperGame.SetUp();
+
+}
