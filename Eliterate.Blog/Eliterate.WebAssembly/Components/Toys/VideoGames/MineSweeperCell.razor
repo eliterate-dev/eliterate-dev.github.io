@@ -1,11 +1,12 @@
 ﻿
 <div class="mine-sweeper-cell @_covered @_flagged" @oncontextmenu:preventDefault="true" @oncontextmenu="Flag" @onclick="Reveal">
-    <span>@Model.Value</span>
+    <span>@_cell.Value</span>
 </div>
 
 @code {
     private string _covered => !Model.IsRevealed ? "covered" : "";
     private string _flagged => !Model.IsFlagged ? "flagged" : "";
+    private Codespirals.VideoGames.MineSweeper.Cell _cell => Model;
 
     [Parameter]
     public Codespirals.VideoGames.MineSweeper.MineSweeperGame Game { get; set; }
