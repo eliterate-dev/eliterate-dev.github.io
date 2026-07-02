@@ -1,4 +1,7 @@
 ﻿@using Codespirals.VideoGames.MineSweeper
+@using Eliterate.WebAssembly.Components.Generic
+@using Eliterate.WebAssembly.Components.Toys.CardGames
+@using Eliterate.WebAssembly.Components.Toys.Misc
 @using Eliterate.WebAssembly.Components.Toys.VideoGames
 @page "/toys/minesweeper"
 
@@ -6,19 +9,92 @@
 
 <VideoGameDisplay PoweredOn="true">
     <div class="fill mine-sweeper-container" style="@_gridSize">
-        @foreach (var row in _game.GameBoard.Cells)
-        {
-            @foreach (var cell in row)
+        <div class="mine-sweeper-grid">
+            @foreach (var row in _game.Grid)
             {
-                <MineSweeperCell Model="cell" Game="_game"></MineSweeperCell>
+                @foreach (var cell in row)
+                {
+                    <div class="mine-sweeper-cell" @oncontextmenu:preventDefault="true" @oncontextmenu="(x => FlagCell(cell))" @onclick="(x => RevealCell(cell))">
+                        @if (cell.IsFlagged)
+                        {
+                            <div class="cell-content flagged">
+                                <span>🚩</span>
+                            </div>
+                        }
+                        else if (!cell.IsRevealed)
+                        {
+                            <div class="cell-content covered">
+                            </div>
+                        }
+                        else if (cell.HasBomb == true)
+                        {
+                            <div class="cell-content bomb">
+                                <span class="">💣</span>
+                            </div>
+                        }
+                        else if (cell.AdjacientBombs > 0)
+                        {
+                            <div class="cell-content">
+                                <span>@cell.AdjacientBombs</span>
+                            </div>
+                        }
+                    </div>
+                }
             }
-        }
+            <GameOverModal Visible="_game.GameOver" HasWinner="!_game.IsBlownUp">
+                <div class="mine-sweeper-modal">
+                    @if (_game.IsBlownUp)
+                    {
+                        <p>Oof... you lost.</p>
+                    }
+                    else
+                    {
+                        <p>Congratulations! You win!</p>
+                    }
+                    <button @onclick="Restart">Restart</button>
+                </div>
+            </GameOverModal>
+        </div>
+        <div class="mine-sweeper-controls">
+            <div class="mine-sweeper-log">
+                <div>💣: @_game.TotalBombs</div>
+                <div>🚩: @_flagCount</div>
+            </div>
+            <div></div>
+            <div class="mine-sweeper-settings">
+                <label>Width</label>
+                <label>Height</label>
+                <label>Difficulty</label>
+                <InputNumber @bind-Value="_width"></InputNumber>
+                <InputNumber @bind-Value="_height"></InputNumber>
+                <InputSelect @bind-Value="_difficulty">
+                @foreach (var item in Enum.GetValues(typeof(Difficulty)).Cast<Difficulty>())
+                {
+                    <option value="@item">@item</option>
+                }
+                </InputSelect>
+            </div>
+            <button @onclick="Restart">Restart</button>
+        </div>
     </div>
 </VideoGameDisplay>
 
 @code {
-    private string _gridSize => $"--grid-size:{_game.GameBoard.Width}";
+    private int _width = 10;
+    private int _height = 9;
+    private Difficulty _difficulty = Difficulty.Easy;
 
-    private MineSweeperGame _game = MineSweeperGame.SetUp();
+    private string _gridSize => $"--grid-width:{_game.Width};--grid-height:{_game.Height};";
+    private string _flagCount => _game.FlagCount.ToString();
 
+    private MineSweeperGame _game = MineSweeperGame.SetUp(10, 9, Difficulty.Easy);
+
+    private void Restart()
+        => _game.Restart(_width, _height, _difficulty);
+
+    private void FlagCell(Cell cell)
+        => _game.ToggleFlagOnCell(cell);
+
+    private void RevealCell(Cell cell)
+        => _game.RevealCell(cell);
 }

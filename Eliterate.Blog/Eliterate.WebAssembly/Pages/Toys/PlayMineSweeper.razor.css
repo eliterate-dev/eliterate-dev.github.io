@@ -1,25 +1,85 @@
 ﻿.mine-sweeper-container {
 	display: grid;
-	grid-template-columns: repeat(var(--grid-size), 1fr);
-	grid-template-rows: repeat(var(--grid-size), 1fr);
+	grid-template-rows: 90% 10%;
+	overflow: hidden;
 }
 
-::deep .mine-sweeper-cell {
-	position: relative;
-	border: 3px solid white;
-	width: calc(100% - 5px);
-	height: calc(100% - 5px);
+.mine-sweeper-grid {
+	height: 100%;
+	aspect-ratio: 10/9;
+	display: grid;
+	grid-template-columns: repeat(var(--grid-width), calc(100% / var(--grid-width)));
+	grid-template-rows: repeat(var(--grid-height), calc(100% / var(--grid-height)));
 }
-	::deep .mine-sweeper-cell:hover {
+
+.mine-sweeper-cell {
+	height: 100%;
+	aspect-ratio: 1/1;
+}
+
+.cell-content {
+	width: calc(100% - 3px);
+	height: calc(100% - 3px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid white;
+}
+
+	.cell-content:hover {
 		border-color: var(--color-primary);
 	}
-	::deep .mine-sweeper-cell.flagged {
+
+	.cell-content.flagged {
 		border-color: red;
 	}
 
-	::deep .mine-sweeper-cell.covered {
-		background-color: #333;
+	.cell-content.covered {
+		background-color: #888;
+	}
+	.cell-content.bomb {
+		background-color: red;
 	}
 
-	::deep .mine-sweeper-cell > span {
+
+.mine-sweeper-controls {
+	height: 100%;
+	aspect-ratio: 10/1;
+	display: grid;
+	grid-template-columns: min-content auto max-content min-content;
+	font-size: 12px;
+}
+	.mine-sweeper-controls > button {
+		border-radius: 0;
 	}
+
+	.mine-sweeper-log {
+		padding: 0 4px;
+		border: 2px solid var(--color-primary);
+		width: max-content;
+	}
+
+.mine-sweeper-settings {
+	display: grid;
+	grid-template-columns: repeat(3, 60px);
+	grid-template-rows: 20px;
+}
+	.mine-sweeper-settings ::deep input {
+		margin-top: -4px;
+		font-size: 10px;
+		height: 14px;
+	}
+	.mine-sweeper-settings ::deep select {
+		margin-top: -4px;
+		height: 20px;
+		font-size: 10px;
+	}
+	.mine-sweeper-settings > label {
+		padding: 1px 0;
+		text-align: center;
+	}
+
+.mine-sweeper-modal {
+	display: grid;
+	grid-template-columns: auto;
+}
