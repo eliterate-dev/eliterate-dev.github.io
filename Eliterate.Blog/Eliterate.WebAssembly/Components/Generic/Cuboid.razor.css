@@ -41,8 +41,9 @@
 		height: var(--z);
 		background-color: color-mix(in srgb, var(--color) 85%, #333333);
 		transform-origin: top right;
-		transform: rotateX(270deg);
-		translate: 0 0 var(--z);
+		transform: rotateX(270deg) rotateY(180deg);
+		translate: calc(var(--x) * -1) 0 var(--z);
+		content: var(--label);
 	}
 
 	.cuboid-bottom::after {
@@ -50,8 +51,9 @@
 		height: var(--z);
 		background-color: color-mix(in srgb, var(--color) 95%, #333333);
 		transform-origin: top left;
-		transform: rotateZ(-90deg) rotateX(-90deg);
-		translate: 0 var(--y) var(--z);
+		transform: rotateZ(90deg) rotateX(-90deg);
+		translate: 0 0 var(--z);
+		content: var(--label);
 	}
 
 .cuboid-top {
@@ -66,8 +68,9 @@
 		height: var(--z);
 		background-color: color-mix(in srgb, var(--color) 90%, #333333);
 		transform-origin: top right;
-		rotate: x -90deg;
+		transform: rotateX(-90deg);
 		translate: 0 var(--y);
+		content: var(--label);
 	}
 
 	.cuboid-top::after {
@@ -76,14 +79,14 @@
 		background-color: color-mix(in srgb, var(--color) 80%, #333333);
 		transform-origin: top left;
 		transform: rotateZ(-90deg) rotateX(-90deg);
-		translate: var(--x) var(--y);
 		content: var(--label);
+		translate: var(--x) var(--y);
 	}
 
 
 	.cuboid-bottom::before, .cuboid-bottom::after,
 	.cuboid-top::before, .cuboid-top::after {
-		font-size: calc(var(--z) * 0.5);
+		font-size: calc(var(--z) * 0.2);
 		text-align: center;
 	}
 

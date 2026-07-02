@@ -1,24 +1,14 @@
 ﻿@page "/playground"
-@using Eliterate.WebAssembly.Components.Generic
+@using Eliterate.WebAssembly.Components.Toys.VideoGames
+@using Codespirals.VideoGames.MineSweeper
 <PageTitle>Playground</PageTitle>
 
-<div style="position:relative;z-index:2;display:grid;grid-template-columns:max-content 1fr;">
-    <label>Text</label> <InputText DisplayName="Text" @bind-value="_text" />
-    <label>Font Size</label><InputNumber DisplayName="Font Size" @bind-value="_fontSize"></InputNumber>
-    <label>Size</label><InputNumber DisplayName="Size" @bind-value="_size"></InputNumber>
-    <label>Angle</label><InputNumber DisplayName="Angle" @bind-value="_angle"></InputNumber>
-</div>
+<VideoGameDisplay>
+    <div>
 
-<div class="fill center-content">
-    <RadialText Text="@_text" FontSize="_fontSize" Size="_size" Angle="_angle">
-        <img src="images/pictures/Cat_on_tower.jpg" />
-    </RadialText>
-</div>
-
+    </div>
+</VideoGameDisplay>
 
 @code {
-    private string _text = "Testing Radial Text";
-    private int _fontSize = 16;
-    private int _size = 200;
-    private int _angle = 180;
+
 }

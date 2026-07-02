@@ -1,3 +1,11 @@
+### The Name
+
+First of all, I only recently noticed that the name of this website can be read as "elite rate" or something similar. I want to make clear that I'm sometimes very stupid and did not notice this for several months while working on this site basically every day.
+
+I have neither the intention to rate anything, nor do I consider myself to be "elite" in any way shape or form.
+
+It's simply supposed to be a funny portmanteau of "Eli" (my name) and "literate" (because I like books), as well as an equally funny homophone of the word "illiterate", because, as my obliviousness in this case shows, I can be kinda dumb at times.
+
 ### Pure CSS
 
 Although I have some [Bootstrap](https://getbootstrap.com/) experience and I think it's a fine framework, I decided against using it for this project.
@@ -22,7 +30,7 @@ I imagine this website kind of like a personal notebook. So I tried to style it 
 
 That means stickers and probably some scribbles. My notebooks were messy...
 
-The "tagline" is randomly selected from a few songquotes in a .json file. Since my taste in music is all over the place I made sure to put the source in the bottom right corner of the page.
+The "tagline" is randomly selected from a few song quotes in a .json file. Since my taste in music is all over the place I made sure to put the source in the bottom right corner of the page.
 
 Finally, because I felt like I should give some sort of short introduction, I decided to put a flashcard with an intro loosely on the top.
 
