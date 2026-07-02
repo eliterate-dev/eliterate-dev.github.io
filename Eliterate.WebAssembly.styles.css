@@ -42,8 +42,9 @@
 		height: var(--z);
 		background-color: color-mix(in srgb, var(--color) 85%, #333333);
 		transform-origin: top right;
-		transform: rotateX(270deg);
-		translate: 0 0 var(--z);
+		transform: rotateX(270deg) rotateY(180deg);
+		translate: calc(var(--x) * -1) 0 var(--z);
+		content: var(--label);
 	}
 
 	.cuboid-bottom[b-mquwfy81x3]::after {
@@ -51,8 +52,9 @@
 		height: var(--z);
 		background-color: color-mix(in srgb, var(--color) 95%, #333333);
 		transform-origin: top left;
-		transform: rotateZ(-90deg) rotateX(-90deg);
-		translate: 0 var(--y) var(--z);
+		transform: rotateZ(90deg) rotateX(-90deg);
+		translate: 0 0 var(--z);
+		content: var(--label);
 	}
 
 .cuboid-top[b-mquwfy81x3] {
@@ -67,8 +69,9 @@
 		height: var(--z);
 		background-color: color-mix(in srgb, var(--color) 90%, #333333);
 		transform-origin: top right;
-		rotate: x -90deg;
+		transform: rotateX(-90deg);
 		translate: 0 var(--y);
+		content: var(--label);
 	}
 
 	.cuboid-top[b-mquwfy81x3]::after {
@@ -77,14 +80,14 @@
 		background-color: color-mix(in srgb, var(--color) 80%, #333333);
 		transform-origin: top left;
 		transform: rotateZ(-90deg) rotateX(-90deg);
-		translate: var(--x) var(--y);
 		content: var(--label);
+		translate: var(--x) var(--y);
 	}
 
 
 	.cuboid-bottom[b-mquwfy81x3]::before, .cuboid-bottom[b-mquwfy81x3]::after,
 	.cuboid-top[b-mquwfy81x3]::before, .cuboid-top[b-mquwfy81x3]::after {
-		font-size: calc(var(--z) * 0.5);
+		font-size: calc(var(--z) * 0.2);
 		text-align: center;
 	}
 
@@ -168,11 +171,6 @@
 	height: var(--radius);
 }
 /* /Components/Generic/RotatingDisplay.razor.rz.scp.css */
-@keyframes rotate-content-b-83r5fvg3ob {
-	to {
-		transform: rotateX(30deg) rotateZ(calc(45deg + 1turn));
-	}
-}
 
 .toggle-rotation-button[b-83r5fvg3ob] {
 	position: absolute;
@@ -188,17 +186,29 @@
 	transform-origin: 50% 50%;
 	background-color: #666;
 	overflow: hidden;
+	--rotate-x: 30deg;
+	--rotate-y: 0deg;
+	--rotate-z: 45deg;
 }
 
 .rotating-display[b-83r5fvg3ob] {
 	transform-origin: 50% 50%;
+}
+
+[b-83r5fvg3ob] .rotating-display > * {
 	transform-style: preserve-3d;
-	transform: rotateX(30deg) rotateY(0deg) rotateZ(45deg);
+	transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) rotateZ(var(--rotate-z));
 	animation: rotate-content-b-83r5fvg3ob 5s linear infinite;
 }
 
-.paused[b-83r5fvg3ob] {
+[b-83r5fvg3ob] .paused > * {
 	animation-play-state: paused;
+}
+
+@keyframes rotate-content-b-83r5fvg3ob {
+	to {
+		transform: rotateX(var(--rotate-x)) rotateZ(calc(var(--rotate-z) + 1turn));
+	}
 }
 /* /Components/Misc/Book.razor.rz.scp.css */
 [b-4gpoyfe0jg] .book-pages > .cuboid-bottom::after, [b-4gpoyfe0jg] .book-pages > .cuboid-bottom::before,
@@ -810,35 +820,6 @@ a.card-tag:hover[b-ez7k6alu6d], a.card-tag:focus-visible[b-ez7k6alu6d] {
 	position: absolute;
 	right: 0.5rem;
 }
-/* /Components/Toys/CardGames/GameOverModal.razor.rz.scp.css */
-.modal-dialog[b-iozqg3h71k] {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 100%;
-	height: 100%;
-	background-color: #222c;
-}
-
-.modal-dialog-content[b-iozqg3h71k] {
-	width: max-content;
-	max-width: 90%;
-	margin: min(200px, 15%) auto auto auto;
-	background-color: var(--color-background);
-	padding: 0.25rem;
-	border: 2px solid var(--color-primary-tint);
-	border-radius: 0.5rem;
-}
-
-.confetti-wrapper[b-iozqg3h71k] {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	pointer-events: none; /* Prevent interaction */
-	overflow: hidden;
-}
 /* /Components/Toys/CardGames/GameSettings.razor.rz.scp.css */
 
 .misc-container[b-osk7p68x9a] {
@@ -963,8 +944,8 @@ a.card-tag:hover[b-ez7k6alu6d], a.card-tag:focus-visible[b-ez7k6alu6d] {
 			transition: 0.5s;
 			transform: rotateX(80deg) rotateY(-10deg) rotateZ(90deg);
 		}
-/* /Components/Toys/Confetti.razor.rz.scp.css */
-@keyframes confetti-fall-b-jh020nmkyg {
+/* /Components/Toys/Misc/Confetti.razor.rz.scp.css */
+@keyframes confetti-fall-b-ggrsezo07q {
 	0% {
 		transform: translateY(-100%);
 		opacity: 1;
@@ -1011,16 +992,45 @@ a.card-tag:hover[b-ez7k6alu6d], a.card-tag:focus-visible[b-ez7k6alu6d] {
 	}
 }
 
-.confetti-piece[b-jh020nmkyg] {
+.confetti-piece[b-ggrsezo07q] {
 	position: absolute;
 	width: 10px;
 	height: 10px;
 	background: var(--confetti-color, red);
 	opacity: 0.9;
-	animation: confetti-fall-b-jh020nmkyg var(--fall-duration, 4s) linear infinite;
+	animation: confetti-fall-b-ggrsezo07q var(--fall-duration, 4s) linear infinite;
 	transform-style: preserve-3d;
 /*	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 */}
+/* /Components/Toys/Misc/GameOverModal.razor.rz.scp.css */
+.modal-dialog[b-sye7l2317s] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #222c;
+}
+
+.modal-dialog-content[b-sye7l2317s] {
+	width: max-content;
+	max-width: 90%;
+	margin: min(200px, 15%) auto auto auto;
+	background-color: var(--color-background);
+	padding: 0.25rem;
+	border: 2px solid var(--color-primary-tint);
+	border-radius: 0.5rem;
+}
+
+.confetti-wrapper[b-sye7l2317s] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none; /* Prevent interaction */
+	overflow: hidden;
+}
 /* /Components/Toys/VideoGames/Cartridge.razor.rz.scp.css */
 .cartridge-container[b-4o9atuqnly] {
     --color: #808080;
@@ -1088,6 +1098,7 @@ a.card-tag:hover[b-ez7k6alu6d], a.card-tag:focus-visible[b-ez7k6alu6d] {
 }
 
 .game-content[b-l04l65mo1y] {
+	position: relative;
 	aspect-ratio: 1/1;
 }
 
@@ -1708,6 +1719,92 @@ ul[b-oeoq3gchar] {
 			grid-template-columns: min-content auto;
 		}
 	}
+/* /Pages/Toys/PlayMineSweeper.razor.rz.scp.css */
+.mine-sweeper-container[b-efxvcjnhm7] {
+	display: grid;
+	grid-template-rows: 90% 10%;
+	overflow: hidden;
+}
+
+.mine-sweeper-grid[b-efxvcjnhm7] {
+	height: 100%;
+	aspect-ratio: 10/9;
+	display: grid;
+	grid-template-columns: repeat(var(--grid-width), calc(100% / var(--grid-width)));
+	grid-template-rows: repeat(var(--grid-height), calc(100% / var(--grid-height)));
+}
+
+.mine-sweeper-cell[b-efxvcjnhm7] {
+	height: 100%;
+	aspect-ratio: 1/1;
+}
+
+.cell-content[b-efxvcjnhm7] {
+	width: calc(100% - 3px);
+	height: calc(100% - 3px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid white;
+}
+
+	.cell-content:hover[b-efxvcjnhm7] {
+		border-color: var(--color-primary);
+	}
+
+	.cell-content.flagged[b-efxvcjnhm7] {
+		border-color: red;
+	}
+
+	.cell-content.covered[b-efxvcjnhm7] {
+		background-color: #888;
+	}
+	.cell-content.bomb[b-efxvcjnhm7] {
+		background-color: red;
+	}
+
+
+.mine-sweeper-controls[b-efxvcjnhm7] {
+	height: 100%;
+	aspect-ratio: 10/1;
+	display: grid;
+	grid-template-columns: min-content auto max-content min-content;
+	font-size: 12px;
+}
+	.mine-sweeper-controls > button[b-efxvcjnhm7] {
+		border-radius: 0;
+	}
+
+	.mine-sweeper-log[b-efxvcjnhm7] {
+		padding: 0 4px;
+		border: 2px solid var(--color-primary);
+		width: max-content;
+	}
+
+.mine-sweeper-settings[b-efxvcjnhm7] {
+	display: grid;
+	grid-template-columns: repeat(3, 60px);
+	grid-template-rows: 20px;
+}
+	.mine-sweeper-settings[b-efxvcjnhm7]  input {
+		margin-top: -4px;
+		font-size: 10px;
+		height: 14px;
+	}
+	.mine-sweeper-settings[b-efxvcjnhm7]  select {
+		margin-top: -4px;
+		height: 20px;
+		font-size: 10px;
+	}
+	.mine-sweeper-settings > label[b-efxvcjnhm7] {
+		padding: 1px 0;
+		text-align: center;
+	}
+
+.mine-sweeper-modal[b-efxvcjnhm7] {
+	display: grid;
+	grid-template-columns: auto;
+}
 /* /Pages/Toys/Toys.razor.rz.scp.css */
 .toy-page-title[b-lk2m0eyhvx] {
 	text-align: center;
