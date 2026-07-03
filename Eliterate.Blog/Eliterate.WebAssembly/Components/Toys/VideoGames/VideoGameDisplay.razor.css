@@ -1,14 +1,14 @@
 ﻿.game-device-container {
 	overflow: hidden;
+	top: -2rem;
 	right: -100%;
 	left: -100%;
 }
 
 .game-device {
 	position: relative;
-	min-width: calc(var(--min-width) + 13rem);
-	width: 96vw;
-	max-width: 700px;
+	min-width: calc(var(--min-width) + 5rem);
+	width: max-content;
 	margin: 0.5rem auto 0 auto;
 	background-color: lightgrey;
 	padding: 1.5rem 0 0 0;
@@ -25,6 +25,7 @@
 .screen {
 	position: relative;
 	min-width: var(--min-width);
+	width: min(85vh, 90vw);
 	margin: 0 1rem 0 1rem;
 	background-color: black;
 	border: 2rem solid darkgrey;
@@ -152,3 +153,9 @@ small {
 		margin-top: 1rem;
 		border: 3px solid #333;
 	}
+
+@media only screen and (orientation: landscape) {
+	.game-device-container {
+		top: -5rem;
+	}
+}

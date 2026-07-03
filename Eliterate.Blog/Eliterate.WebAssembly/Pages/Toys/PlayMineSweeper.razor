@@ -1,13 +1,11 @@
 ﻿@using Codespirals.VideoGames.MineSweeper
-@using Eliterate.WebAssembly.Components.Generic
-@using Eliterate.WebAssembly.Components.Toys.CardGames
-@using Eliterate.WebAssembly.Components.Toys.Misc
+@using Eliterate.WebAssembly.Components.Toys.Shared
 @using Eliterate.WebAssembly.Components.Toys.VideoGames
 @page "/toys/minesweeper"
 
-<PageTitle>Eliterate - Flip Seven</PageTitle>
+<PageTitle>Eliterate - Minesweeper</PageTitle>
 
-<VideoGameDisplay PoweredOn="true">
+<VideoGameDisplay PoweredOn="!_game.GameOver">
     <div class="fill mine-sweeper-container" style="@_gridSize">
         <div class="mine-sweeper-grid">
             @foreach (var row in _game.Grid)
@@ -63,10 +61,8 @@
             <div></div>
             <div class="mine-sweeper-settings">
                 <label>Width</label>
-                <label>Height</label>
                 <label>Difficulty</label>
                 <InputNumber @bind-Value="_width"></InputNumber>
-                <InputNumber @bind-Value="_height"></InputNumber>
                 <InputSelect @bind-Value="_difficulty">
                 @foreach (var item in Enum.GetValues(typeof(Difficulty)).Cast<Difficulty>())
                 {
@@ -81,7 +77,7 @@
 
 @code {
     private int _width = 10;
-    private int _height = 9;
+    private int _clampedWidth => Math.Clamp(_width, 4, 20); 
     private Difficulty _difficulty = Difficulty.Easy;
 
     private string _gridSize => $"--grid-width:{_game.Width};--grid-height:{_game.Height};";
@@ -90,11 +86,12 @@
     private MineSweeperGame _game = MineSweeperGame.SetUp(10, 9, Difficulty.Easy);
 
     private void Restart()
-        => _game.Restart(_width, _height, _difficulty);
+        => _game.Restart(_clampedWidth, (int)Math.Ceiling(_clampedWidth * 0.9d), _difficulty);
 
     private void FlagCell(Cell cell)
         => _game.ToggleFlagOnCell(cell);
 
     private void RevealCell(Cell cell)
         => _game.RevealCell(cell);
+
 }

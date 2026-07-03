@@ -5,11 +5,12 @@
 }
 
 .mine-sweeper-grid {
-	height: 100%;
+	position: relative;
 	aspect-ratio: 10/9;
 	display: grid;
 	grid-template-columns: repeat(var(--grid-width), calc(100% / var(--grid-width)));
 	grid-template-rows: repeat(var(--grid-height), calc(100% / var(--grid-height)));
+	padding-bottom: 1px;
 }
 
 .mine-sweeper-cell {
@@ -43,7 +44,6 @@
 
 
 .mine-sweeper-controls {
-	height: 100%;
 	aspect-ratio: 10/1;
 	display: grid;
 	grid-template-columns: min-content auto max-content min-content;
@@ -53,28 +53,33 @@
 		border-radius: 0;
 	}
 
-	.mine-sweeper-log {
-		padding: 0 4px;
-		border: 2px solid var(--color-primary);
-		width: max-content;
-	}
+.mine-sweeper-log {
+	padding: 0 4px;
+	border: 2px solid var(--color-primary);
+	width: max-content;
+	grid-template-columns: 1fr;
+	font-size: 14px;
+}
 
 .mine-sweeper-settings {
 	display: grid;
-	grid-template-columns: repeat(3, 60px);
+	grid-template-columns: repeat(2, 80px);
 	grid-template-rows: 20px;
 }
 	.mine-sweeper-settings ::deep input {
 		margin-top: -4px;
+		margin-right: 0.5rem;
 		font-size: 10px;
 		height: 14px;
 	}
 	.mine-sweeper-settings ::deep select {
 		margin-top: -4px;
+		margin-right: 0.5rem;
 		height: 20px;
 		font-size: 10px;
 	}
 	.mine-sweeper-settings > label {
+		margin-right: 0.5rem;
 		padding: 1px 0;
 		text-align: center;
 	}
@@ -82,4 +87,29 @@
 .mine-sweeper-modal {
 	display: grid;
 	grid-template-columns: auto;
+}
+.mine-sweeper-modal > button {
+	margin-top: 0.5rem;
+}
+
+@media only screen and (orientation: portrait) and (max-width: 388px) {
+	.mine-sweeper-settings {
+		grid-template-rows: 14px 14px;
+	}
+
+	.mine-sweeper-log {
+		font-size: 9px;
+	}
+
+	.mine-sweeper-settings ::deep input {
+		font-size: 8px;
+	}
+
+	.mine-sweeper-settings ::deep select {
+		font-size: 8px;
+	}
+
+	.mine-sweeper-settings > label {
+		font-size: 8px;
+	}
 }
