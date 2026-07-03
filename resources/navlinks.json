@@ -4,24 +4,16 @@
 		"Link": "posts"
 	},
 	{
+		"Name": "Latest",
+		"Link": "latest"
+	},
+	{
 		"Name": "About me",
 		"Link": "posts/who_made_this"
 	},
 	{
 		"Name": "About this site",
 		"Link": "posts/about"
-	},
-	{
-		"Name": "Design",
-		"Link": "posts/design"
-	},
-	{
-		"Name": "Latest",
-		"Link": "latest"
-	},
-	{
-		"Name": "AI Statement",
-		"Link": "posts/on_ai"
 	},
 	{
 		"Name": "Toys",

@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "8wKol7xY",
+  "version": "oPZ17r2C",
   "assets": [
     {
       "hash": "sha256-Tp5DMyNGSdN59rh4JSxgN4hxdNdoUukTyibnS+ajzT0=",
@@ -10,7 +10,7 @@ self.assetsManifest = {
       "url": "CNAME"
     },
     {
-      "hash": "sha256-x4Pzik/y5TV5UvNatT4fF39WIf4RYXQ/+tfloRc8fJk=",
+      "hash": "sha256-k3/cbP+NLEqbQYmln13nG0nS5g7X6JA4oMdiJXOv5IE=",
       "url": "Eliterate.WebAssembly.styles.css"
     },
     {
@@ -34,8 +34,8 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.VideoGames.MineSweeper.xf7qbegxc2.wasm"
     },
     {
-      "hash": "sha256-8AoLY7fNOGNhI95kPbvyM95LcoKFJz8a+sgTj+g1vCs=",
-      "url": "_framework/Eliterate.WebAssembly.sh3hnyenhb.wasm"
+      "hash": "sha256-SeoXx3ajn71X7jC+zaa0c+JbdR/gHXy3i6coH9nRHv8=",
+      "url": "_framework/Eliterate.WebAssembly.xujfwmacx3.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
@@ -234,7 +234,7 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-Ft9fk3R1ObzPuYTb94o2OAj8fm7AEVZDIijMtM/C/7Q=",
+      "hash": "sha256-d+v2umcjkofQP8fkoMm2UiwZB5/BDS3qQkQ8d8WyxmQ=",
       "url": "_framework/dotnet.js"
     },
     {
@@ -466,7 +466,7 @@ self.assetsManifest = {
       "url": "resources/credits.json"
     },
     {
-      "hash": "sha256-iifVtGhKZ1nMFmzKrkPTVHTM+fx+oD9kegn7+YQWyoI=",
+      "hash": "sha256-hgE/ccWauN5ezSojAMLgW3wDFAhKaGMQPlW/pz91/fw=",
       "url": "resources/navlinks.json"
     },
     {
