@@ -1,12 +1,15 @@
 ﻿@page "/playground"
+@using Eliterate.WebAssembly.Components.Generic
 <PageTitle>Playground</PageTitle>
 
 <div class="fill center-content">
-    <div>
-        There is nothing here at the moment.
-    </div>
+    <InputWithLabel Label="Test Label" 
+        Description="This is a description of this field. It's long and winding and almost nobody actually reads it, but hey maybe it helps someone." 
+        Warning="This is an additional warning about this field. It should be short and snappy.">
+        <InputText @bind-Value="_input"></InputText>
+    </InputWithLabel>
 </div>
 
 @code {
-
+    private string _input = "";
 }

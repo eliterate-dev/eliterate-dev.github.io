@@ -1,0 +1,13 @@
+﻿.input-with-label {
+    border: solid 1px red;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.input-description, .input-warning {
+    grid-column: 1 / span 2;
+}
+
+    .input-warning:before {
+        content: '⚠';
+        padding: 0 0.25rem;
+    }

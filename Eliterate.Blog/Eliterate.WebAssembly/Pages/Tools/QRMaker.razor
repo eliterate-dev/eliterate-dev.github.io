@@ -6,7 +6,7 @@
 <PageTitle>Eliterate - Tools - QR</PageTitle>
 
 <div>
-    <InputSelect @bind-Value="_selected">
+    <InputSelect @bind-Value="_selectedQRType">
         @foreach (var item in Enum.GetValues(typeof(QRType)).Cast<QRType>())
         {
             <option value="@item">@item</option>
@@ -16,7 +16,7 @@
 
 <div class="fill center-content">
     <div class="qr-data-form">
-        @switch (_selected)
+        @switch (_selectedQRType)
         {
             case QRType.Url:
                 <label>Url to encode:</label><InputText @bind-Value="_input"></InputText>
@@ -25,12 +25,21 @@
                     Basically all QR readers are programmed to read these and open a tab in your default browser bringing you directly to the website in the code.
                 </p>
                 <p role="alert">
-                    Because
+                    While QR codes are quick and convenient, they are also an easy way to have you open a malicious link. 
+                    Most QR code readers display the URL before they open your browser.
+                    Just like a link you'd recieve in an email, always check the URL and make sure it leads you to a site you feel you can trust.
                 </p>
                 break;
             default:
                 break;
         }
+        <label>Save </label>
+        <InputSelect @bind-Value="_selectedSaveFileType">
+            @foreach (var item in Enum.GetValues(typeof(SaveFileType)).Cast<SaveFileType>())
+            {
+                <option value="@item">@item</option>
+            }
+        </InputSelect>
         <InputSelect @bind-Value="_errorCorrectionLevel">
             @foreach (var item in Enum.GetValues(typeof(QRCodeGenerator.ECCLevel)).Cast<QRCodeGenerator.ECCLevel>())
             {
@@ -50,8 +59,11 @@
 
 @code {
     private string _input = "";
-    private QRType _selected = QRType.Url;
+    private QRType _selectedQRType = QRType.Url;
+    private SaveFileType _selectedSaveFileType = SaveFileType.png;
     private QRCodeGenerator.ECCLevel _errorCorrectionLevel = QRCodeGenerator.ECCLevel.Default;
+    private byte[]? _generatedQRCodeImage;
+    private string? _generatedQRCodeSvg;
 
     [Parameter]
     public string? UrlToEncode { get; set; }
@@ -61,6 +73,11 @@
     {
         Url
     }
+    private enum SaveFileType
+    {
+        png,
+        svg
+    }
 
     private void GenerateCode()
     {
@@ -69,21 +86,17 @@
         QRCodeData data = generator.CreateQrCode(payload, QRCodeGenerator.ECCLevel.H, forceUtf8: true);
     }
 
-    static void SaveAsPng(string saveFilePath, string name, QRCodeData data)
+    private void SaveAsPng(string saveFilePath, string name, QRCodeData data)
     {
         // PNG bytes (no System.Drawing required)
         var pngQr = new PngByteQRCode(data);
-        byte[] pngBytes = pngQr.GetGraphic(pixelsPerModule: 10); // scale
+        _generatedQRCodeImage = pngQr.GetGraphic(pixelsPerModule: 10); // scale
 
-        File.WriteAllBytes($"{saveFilePath}/{name}.png", pngBytes);
-        System.Console.WriteLine($"Saved to {saveFilePath}/{name}.png");
     }
 
-    static void SaveAsSvg(string saveFilePath, string name, QRCodeData data)
+    private void SaveAsSvg(string saveFilePath, string name, QRCodeData data)
     {
         var svgQr = new SvgQRCode(data);
-        string svg = svgQr.GetGraphic(pixelsPerModule: 10);
-        File.WriteAllText($"{saveFilePath}/{name}.svg", svg);
-        System.Console.WriteLine($"Saved to {saveFilePath}/{name}.svg");
+        _generatedQRCodeSvg = svgQr.GetGraphic(pixelsPerModule: 10);
     }
 }

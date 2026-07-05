@@ -1,0 +1,23 @@
+﻿<div class="input-with-label">
+    <label>@Label</label>
+    @ChildContent
+    @if (Description is not null)
+    {
+        <p class="input-description" role="note">@Description</p>
+    }
+    @if (Warning is not null)
+    {
+        <p class="input-warning" role="alert">@Warning</p>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public required string Label { get; set; }
+    [Parameter]
+    public required RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public string? Description { get; set; }
+    [Parameter]
+    public string? Warning { get; set; }
+}
