@@ -66,9 +66,41 @@
             </div>
             <div class="fill center-content">
                 <RadialText Text="@_text" FontSize="_fontSize" Size="_size" Angle="_angle">
-                    <img src="images/pictures/Cat_on_tower.jpg" />
+                    <img src="images/photos/Cat_on_tower.jpg" />
                 </RadialText>
             </div>
+            break;
+        case Component.InputWithLabel:
+            <InputWithLabel Label="Test Label"
+                            Description="This is a description of this field. It's long and winding and almost nobody actually reads it, but hey maybe it helps someone."
+                            Warning="This is an additional warning about this field. It should be short and snappy.">
+                <InputText @bind-Value="_textInput"></InputText>
+            </InputWithLabel>
+            <InputWithLabel Label="Test Label"
+                            Description="This is a description of this field. It's long and winding and almost nobody actually reads it, but hey maybe it helps someone."
+                            Warning="This is an additional warning about this field. It should be short and snappy.">
+                <InputNumber @bind-Value="_numberInput"></InputNumber>
+            </InputWithLabel>
+            <InputWithLabel Label="Test Label"
+                            Description="This is a description of this field. It's long and winding and almost nobody actually reads it, but hey maybe it helps someone."
+                            Warning="This is an additional warning about this field. It should be short and snappy.">
+                <InputCheckbox @bind-Value="_boolInput"></InputCheckbox>
+            </InputWithLabel>
+            <InputWithLabel Label="Test Label"
+                            Description="This is a description of this field. It's long and winding and almost nobody actually reads it, but hey maybe it helps someone."
+                            Warning="This is an additional warning about this field. It should be short and snappy.">
+                <InputDate @bind-Value="_dateInput"></InputDate>
+            </InputWithLabel>
+            <InputWithLabel Label="Test Label"
+                            Description="This is a description of this field. It's long and winding and almost nobody actually reads it, but hey maybe it helps someone."
+                            Warning="This is an additional warning about this field. It should be short and snappy.">
+                <InputSelect @bind-Value="_selectInput">
+                    @foreach (var item in _selectOptions)
+                    {
+                        <option value="@item">@item</option>
+                    }
+                </InputSelect>
+            </InputWithLabel>
             break;
         default:
             <div class="fill center-content">
@@ -96,12 +128,22 @@
     private int _size = 200;
     private int _angle = 180;
 
+    // Input with labels
+    private string _textInput = "";
+    private int _numberInput = 1;
+    private bool _boolInput;
+    private DateTime _dateInput = DateTime.UtcNow;
+    private string _selectInput = "";
+
+    private string[] _selectOptions = ["A", "B", "C"];
+
     private enum Component
     {
         None,
         Cuboid,
         Book,
         RotatingDisplay,
-        RadialText
+        RadialText,
+        InputWithLabel
     }
 }
