@@ -1,6 +1,8 @@
 ﻿<div class="input-with-label">
     <label>@Label</label>
-    @ChildContent
+    <div class="input-field">
+        @ChildContent
+    </div>
     @if (Description is not null)
     {
         <p class="input-description" role="note">@Description</p>

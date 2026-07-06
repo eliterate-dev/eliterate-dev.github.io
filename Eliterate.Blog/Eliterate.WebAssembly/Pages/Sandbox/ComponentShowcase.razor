@@ -11,7 +11,7 @@
         }
     </InputSelect>
 </div>
-<div class="fill" style="margin:2rem;padding:1rem 0.5rem 0.5rem 0.5rem;border:10px inset dimgrey;background-color:darkgrey;">
+<div class="fill component-showcase" style="margin:2rem;border:10px inset dimgrey;background-color:darkgrey;overflow-y:scroll;">
     @switch (_selected)
     {
         case Component.Cuboid:
@@ -71,29 +71,46 @@
             </div>
             break;
         case Component.InputWithLabel:
-            <InputWithLabel Label="Test Label"
-                            Description="This is a description of this field. It's long and winding and almost nobody actually reads it, but hey maybe it helps someone."
-                            Warning="This is an additional warning about this field. It should be short and snappy.">
+            <div style="display:grid;grid-template-columns:max-content 1fr;">
+                <label>Description</label><InputTextArea @bind-Value="_description"></InputTextArea>
+                <label>Warning</label><InputTextArea @bind-Value="_warning"></InputTextArea>
+            </div>
+            <InputWithLabel Label="Test Text"
+                            Description="@_description"
+                            Warning="@_warning">
                 <InputText @bind-Value="_textInput"></InputText>
             </InputWithLabel>
-            <InputWithLabel Label="Test Label"
-                            Description="This is a description of this field. It's long and winding and almost nobody actually reads it, but hey maybe it helps someone."
-                            Warning="This is an additional warning about this field. It should be short and snappy.">
+            <InputWithLabel Label="Test Number"
+                            Description="@_description"
+                            Warning="@_warning">
                 <InputNumber @bind-Value="_numberInput"></InputNumber>
             </InputWithLabel>
-            <InputWithLabel Label="Test Label"
-                            Description="This is a description of this field. It's long and winding and almost nobody actually reads it, but hey maybe it helps someone."
-                            Warning="This is an additional warning about this field. It should be short and snappy.">
+            <InputWithLabel Label="Test Checkbox"
+                            Description="@_description"
+                            Warning="@_warning">
                 <InputCheckbox @bind-Value="_boolInput"></InputCheckbox>
             </InputWithLabel>
-            <InputWithLabel Label="Test Label"
-                            Description="This is a description of this field. It's long and winding and almost nobody actually reads it, but hey maybe it helps someone."
-                            Warning="This is an additional warning about this field. It should be short and snappy.">
+            <InputWithLabel Label="Test Radio"
+                            Description="@_description"
+                            Warning="@_warning">
+                <InputRadioGroup @bind-Value="_radioInput">
+                    @foreach (var item in _selectOptions)
+                    {
+                        <label>
+                            <InputRadio Value="item"></InputRadio>
+                            @item
+                        </label>
+                    }
+                </InputRadioGroup>
+            </InputWithLabel>
+            <InputWithLabel Label="Test Date"
+                            Description="@_description"
+                            Warning="@_warning">
                 <InputDate @bind-Value="_dateInput"></InputDate>
             </InputWithLabel>
-            <InputWithLabel Label="Test Label"
-                            Description="This is a description of this field. It's long and winding and almost nobody actually reads it, but hey maybe it helps someone."
-                            Warning="This is an additional warning about this field. It should be short and snappy.">
+            <InputWithLabel Label="Test Select"
+                            Description="@_description"
+                            Warning="@_warning">
                 <InputSelect @bind-Value="_selectInput">
                     @foreach (var item in _selectOptions)
                     {
@@ -129,11 +146,14 @@
     private int _angle = 180;
 
     // Input with labels
+    private string _description = "This is a description of this field. It's long and winding and almost nobody actually reads it, but hey maybe it helps someone.";
+    private string _warning = "This is an additional warning about this field. It should be short and snappy.";
     private string _textInput = "";
     private int _numberInput = 1;
     private bool _boolInput;
     private DateTime _dateInput = DateTime.UtcNow;
-    private string _selectInput = "";
+    private string _selectInput = "A";
+    private string _radioInput = "A";
 
     private string[] _selectOptions = ["A", "B", "C"];
 
