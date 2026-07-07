@@ -13,30 +13,42 @@ label {
 .input-with-label {
 }
 
-.input-field > ::deep input,
-.input-field > ::deep input[type=number],
-.input-field > ::deep input[type=date] {
-	width: calc(100% - 8px);
+.input-field {
+	overflow: hidden;
 }
 
-.input-field > ::deep input[type=checkbox],
-.input-field > ::deep input[type=radio] {
-	width: min-content;
-}
+	.input-field > ::deep input,
+	.input-field > ::deep textarea,
+	.input-field > ::deep input[type=number],
+	.input-field > ::deep input[type=date] {
+		width: calc(100% - 8px);
+		margin: 0.25rem;
+	}
 
-.input-field > ::deep label {
-	display: block;
-	width: 100%;
+		.input-field > ::deep input[type=checkbox] {
+			width: max-content;
+		}
+
+	.input-field > ::deep .radio-option {
+		display: grid;
+		grid-template-columns: min-content auto;
+	}
+
+::deep .radio-option > input[type=radio] {
+	margin: 0.25rem;
 }
 
 .input-field > ::deep select {
 	width: max-content;
+	max-width: 100%;
+	margin: 0.25rem;
 }
 
 .input-field > ::deep input[type=checkbox],
 .input-field > ::deep label > input[type=radio] {
-	margin: 0;
+	margin: 0.25rem;
 }
+
 .input-field > ::deep input[type=radio] {
 	grid-column: min-content;
 }
@@ -48,9 +60,11 @@ label {
 .input-warning {
 	border: solid 1px var(--color-primary);
 	border-radius: 0.25rem;
+	padding: 0 0.25rem;
 }
 
 	.input-warning:before {
+		color: var(--color-primary);
 		content: '⚠';
-		padding: 0 0.25rem;
+		padding-right: 0.25rem;
 	}

@@ -11,7 +11,7 @@
         }
     </InputSelect>
 </div>
-<div class="fill component-showcase" style="margin:2rem;border:10px inset dimgrey;background-color:darkgrey;overflow-y:scroll;">
+<div class="fill component-showcase" style="margin:2rem 0.5rem;padding-right:0.5rem;border:10px inset dimgrey;background-color:darkgrey;overflow-y:scroll;">
     @switch (_selected)
     {
         case Component.Cuboid:
@@ -74,11 +74,17 @@
             <div style="display:grid;grid-template-columns:max-content 1fr;">
                 <label>Description</label><InputTextArea @bind-Value="_description"></InputTextArea>
                 <label>Warning</label><InputTextArea @bind-Value="_warning"></InputTextArea>
+                <label>Options (;)</label><InputTextArea @bind-Value="_options"></InputTextArea>
             </div>
             <InputWithLabel Label="Test Text"
                             Description="@_description"
                             Warning="@_warning">
                 <InputText @bind-Value="_textInput"></InputText>
+            </InputWithLabel>
+            <InputWithLabel Label="Test Textarea"
+                            Description="@_description"
+                            Warning="@_warning">
+                <InputTextArea @bind-Value="_textInput"></InputTextArea>
             </InputWithLabel>
             <InputWithLabel Label="Test Number"
                             Description="@_description"
@@ -94,12 +100,13 @@
                             Description="@_description"
                             Warning="@_warning">
                 <InputRadioGroup @bind-Value="_radioInput">
+                    @{ var i = 0; }
                     @foreach (var item in _selectOptions)
                     {
-                        <label>
-                            <InputRadio Value="item"></InputRadio>
-                            @item
-                        </label>
+                        <div class="radio-option">
+                            <InputRadio Value="i++"></InputRadio>
+                            <label>@item</label>
+                        </div>
                     }
                 </InputRadioGroup>
             </InputWithLabel>
@@ -112,9 +119,10 @@
                             Description="@_description"
                             Warning="@_warning">
                 <InputSelect @bind-Value="_selectInput">
+                    @{ var i = 0;  }
                     @foreach (var item in _selectOptions)
                     {
-                        <option value="@item">@item</option>
+                        <option value="@i++">@item</option>
                     }
                 </InputSelect>
             </InputWithLabel>
@@ -148,14 +156,16 @@
     // Input with labels
     private string _description = "This is a description of this field. It's long and winding and almost nobody actually reads it, but hey maybe it helps someone.";
     private string _warning = "This is an additional warning about this field. It should be short and snappy.";
+    private string _options = "A;B;C";
+    private string[] _selectOptions => _options.Split(';');
+
     private string _textInput = "";
     private int _numberInput = 1;
     private bool _boolInput;
     private DateTime _dateInput = DateTime.UtcNow;
-    private string _selectInput = "A";
-    private string _radioInput = "A";
+    private int _selectInput;
+    private int _radioInput;
 
-    private string[] _selectOptions = ["A", "B", "C"];
 
     private enum Component
     {
