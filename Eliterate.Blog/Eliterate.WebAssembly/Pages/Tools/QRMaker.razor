@@ -1,67 +1,100 @@
-﻿@using QRCoder
+﻿@using Eliterate.WebAssembly.Components.Generic.Inputs
+@using QRCoder
 
 @page "/tools/qr"
 @page "/tools/qr/{urlToEncode?}"
 
 <PageTitle>Eliterate - Tools - QR</PageTitle>
 
-<div>
-    <InputSelect @bind-Value="_selectedQRType">
-        @foreach (var item in Enum.GetValues(typeof(QRType)).Cast<QRType>())
-        {
-            <option value="@item">@item</option>
-        }
-    </InputSelect>
+<div class="url-type-tags">
+    @foreach (var item in Enum.GetValues(typeof(QRType)).Cast<QRType>())
+    {
+        <div @onclick="(x => SetQrType(item))">@item</div>
+    }
 </div>
 
-<div class="fill center-content">
-    <div class="qr-data-form">
-        @switch (_selectedQRType)
-        {
-            case QRType.Url:
-                <label>Url to encode:</label><InputText @bind-Value="_input"></InputText>
-                <p role="note">
-                    The most common type of QR codes: A simple representation of an internet URL (a link).
-                    Basically all QR readers are programmed to read these and open a tab in your default browser bringing you directly to the website in the code.
-                </p>
-                <p role="alert">
-                    While QR codes are quick and convenient, they are also an easy way to have you open a malicious link. 
-                    Most QR code readers display the URL before they open your browser.
-                    Just like a link you'd recieve in an email, always check the URL and make sure it leads you to a site you feel you can trust.
-                </p>
-                break;
-            default:
-                break;
-        }
-        <label>Save </label>
-        <InputSelect @bind-Value="_selectedSaveFileType">
-            @foreach (var item in Enum.GetValues(typeof(SaveFileType)).Cast<SaveFileType>())
+<div class="fill">
+    <Paper>
+        <div class="qr-data-form">
+            @switch (_selectedQRType)
             {
-                <option value="@item">@item</option>
+                case QRType.Url:
+                    <InputWithLabel 
+                        Label="Url to encode"
+                        Description="The most common type of QR codes: A simple representation of an internet URL (a link).
+                            Basically all QR readers are programmed to read these and open a tab in your default browser bringing you directly to the website in the code."
+                        Warning="While QR codes are quick and convenient, they are also an easy way to have you open a malicious link.
+                        Most QR code readers display the URL before they open your browser.
+                        Just like a link you'd recieve in an email, always check the URL and make sure it leads you to a site you feel you can trust.">
+                        <InputText @bind-Value="_input"></InputText>
+                    </InputWithLabel>
+                    break;
+                default:
+                    break;
             }
-        </InputSelect>
-        <InputSelect @bind-Value="_errorCorrectionLevel">
-            @foreach (var item in Enum.GetValues(typeof(QRCodeGenerator.ECCLevel)).Cast<QRCodeGenerator.ECCLevel>())
-            {
-                <option value="@item">@item</option>
-            }
-        </InputSelect>
-        <p role="note">
-            The Error Correction Code (ECC) of a QR code describes how much of a QR code is redundant data.
-            That means, with a higher ECC level, there is intentional duplication of data in a QR code.
-            Thanks to this error correction data, a high ECC QR code can be partially obscured and still be read by a QR reader.
-            When you see QR codes that have a company logo in the middle, for example, that is "obscuring" part of the QR code, thus requiring a higher ECC level.
+            <SelectWithLabel 
+                TValue="SafeFileType"
+                Value="_selectedSaveFileType"
+                Label="Save file type"
+                Description="The safe file type. A png is a simple image. It's simple to use, but it can get blurry when you resize it. An svg is a mathematically constructed image. You might not be able to use it everywhere, but you can resize it without worry anywhere you use it."
+                Options="_safeFileTypes">
+            </SelectWithLabel>
+            <SelectWithLabel
+                Value="_selectedECC"
+                Label="ECC"
+                Description="The Error Correction Code (ECC) of a QR code describes how much of a QR code is redundant data.
+                    That means, with a higher ECC level, there is intentional duplication of data in a QR code.
+                    Thanks to this error correction data, a high ECC QR code can be partially obscured and still be read by a QR reader.
+                    When you see QR codes that have a company logo in the middle, for example, that is 'obscuring' part of the QR code, thus requiring a higher ECC level."
+                Warning="The secondary effect of this is, that because a high ECC QR code encodes more information, they look 'noisier' - more, smaller little black squares than on a QR code with less encoded information or a lower ECC."
+                Options="_errorCorrectionLevels">
+            </SelectWithLabel>
+        </div>
+        <div class="qr-generator-controls">
+            <button>Generate QR Code</button>
+        </div>
+    </Paper>
+</div>
 
-            The secondary effect of this is, that because a high ECC QR code encodes more information, they look "noisier" - more, smaller little black squares than on a QR code with less encoded information or a lower ECC.
-        </p>
+@if (_generatedQRCodeImage is not null && _generatedQRCodeSvg is not null)
+{
+    <div class="qr-generator-result">
+        @if (_generatedQRCodeImage is not null)
+        {
+            <img  src="images/photos/Cat_on_tower.jpg"/>
+        }
+        else
+        {
+            <svg ></svg>
+        }
     </div>
-</div>
+}
 
 @code {
+    // resources
+    private Dictionary<QRCodeGenerator.ECCLevel, string> _errorCorrectionLevels =
+            new Dictionary<QRCodeGenerator.ECCLevel, string>
+            {
+                {QRCodeGenerator.ECCLevel.L, "Low (7%)"},
+                {QRCodeGenerator.ECCLevel.M, "Medium (15%)"},
+                {QRCodeGenerator.ECCLevel.Q, "Quartile (25%)"},
+                {QRCodeGenerator.ECCLevel.H, "High (30%)"}
+            };
+
+    private Dictionary<SafeFileType, string> _safeFileTypes =
+            new Dictionary<SafeFileType, string>
+            {
+                {SafeFileType.png, ".png"},
+                {SafeFileType.svg, ".svg"}
+            };
+
+    // selections
     private string _input = "";
     private QRType _selectedQRType = QRType.Url;
-    private SaveFileType _selectedSaveFileType = SaveFileType.png;
-    private QRCodeGenerator.ECCLevel _errorCorrectionLevel = QRCodeGenerator.ECCLevel.Default;
+    private SafeFileType _selectedSaveFileType = SafeFileType.png;
+    private QRCodeGenerator.ECCLevel _selectedECC = QRCodeGenerator.ECCLevel.L;
+
+    // results
     private byte[]? _generatedQRCodeImage;
     private string? _generatedQRCodeSvg;
 
@@ -73,11 +106,15 @@
     {
         Url
     }
-    private enum SaveFileType
+    private enum SafeFileType
     {
         png,
         svg
     }
+
+    // functions
+    private void SetQrType(QRType type)
+        => _selectedQRType = type;
 
     private void GenerateCode()
     {

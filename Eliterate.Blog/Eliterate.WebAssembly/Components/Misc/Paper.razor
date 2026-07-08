@@ -1,49 +1,58 @@
-﻿@if (Model is not null)
-{
-    <div class="paper-container">
-        <div class="paper @(_hasTearoff ? "has-tearoffs" : "")" style="@_rotate">
+﻿
+<div class="paper-container">
+    <div class="paper @(_hasTearoff ? "has-tearoffs" : "")" style="@_rotate">
+        @if (HasPins)
+        {
             <div class="pins">
                 <Pin Left="true" Top="true"></Pin>
                 <Pin Right="true" Top="true"></Pin>
             </div>
-            <div class="paper-spacer@(_hasTearoff ? "-with-tearoffs" : "")"></div>
-            <div class="paper-content">
-                <div class="paper-text">
-                    <h2>@Model.Title</h2>
-                    @((MarkupString)(Model.Description ?? "Description missing..."))
-                </div>
+        }
+        <div class="paper-spacer@(_hasTearoff ? "-with-tearoffs" : "")"></div>
+        <div class="paper-content">
+            <div class="paper-text">
+                @ChildContent
             </div>
-            @if (_hasTearoff)
-            {
-                <div class="tearoff-container">
-                    @for (int i = 0; i < 6; i++)
-                    {
-                        if (i == _skip || i == _skip2)
-                        {
-                            <div class="tearoff tearoff-empty">
-                            </div>
-                        }
-                        else
-                        {
-                            <a class="tearoff" href="@Model.Link">
-                                <div class="tearoff-text">
-                                    @Model.LinkText
-                                </div>
-                            </a>
-                        }
-                    }
-                </div>
-            }
         </div>
+        @if (_hasTearoff)
+        {
+            <div class="tearoff-container">
+                @for (int i = 0; i < 6; i++)
+                {
+                    if (i == _skip || i == _skip2)
+                    {
+                        <div class="tearoff tearoff-empty">
+                        </div>
+                    }
+                    else
+                    {
+                        <a class="tearoff" href="@Link">
+                            <div class="tearoff-text">
+                                @LinkText
+                            </div>
+                        </a>
+                    }
+                }
+            </div>
+        }
     </div>
-}
+</div>
 
 @code {
     [Parameter]
-    public FutureIdea? Model { get; set; }
-    private decimal _rand => Model?.Title.GetRandomValueFromString(20) ?? 0;
-    private string _rotate => $"rotate:{_rand / 5}deg;";
+    public required string Link { get; set; }
+    [Parameter]
+    public required string LinkText { get; set; }
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public bool HasPins { get; set; }
+    [Parameter]
+    public bool Rotate { get; set; }
+
+    private decimal _rand => Random.Shared.Next(5) - 2;
+    private string _rotate => Rotate ? $"rotate:{_rand / 5}deg;" : "";
     private int _skip = Random.Shared.Next(6);
     private int _skip2 = Random.Shared.Next(6);
-    private bool _hasTearoff => Model?.Link is not null;
+    private bool _hasTearoff => Link is not null;
 }
