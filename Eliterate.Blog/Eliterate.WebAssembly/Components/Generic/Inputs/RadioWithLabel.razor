@@ -1,0 +1,28 @@
+﻿@typeparam TValue where TValue : notnull
+
+<InputWithLabel Label="Test Select"
+                Description="@Description"
+                Warning="@Warning">
+    <InputRadioGroup @bind-Value="Value">
+        @foreach (var item in Options)
+        {
+            <div class="radio-option" tabindex="0">
+                <InputRadio Value="item.Key"></InputRadio>
+                <label>@item.Value</label>
+            </div>
+        }
+    </InputRadioGroup>
+</InputWithLabel>
+
+@code {
+    [Parameter]
+    public required string Label { get; set; }
+    [Parameter]
+    public Dictionary<TValue, string> Options { get; set; } = [];
+    [Parameter]
+    public required TValue Value { get; set; }
+    [Parameter]
+    public string? Description { get; set; }
+    [Parameter]
+    public string? Warning { get; set; }
+}

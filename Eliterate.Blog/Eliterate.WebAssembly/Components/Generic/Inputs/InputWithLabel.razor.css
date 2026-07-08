@@ -1,19 +1,15 @@
 ﻿.input-with-label {
-	background-color: var(--color-background);
 	display: grid;
 	grid-template-columns: 50% auto;
-	background-color: var(--color-background);
-	padding: 0.25rem;
+	padding: 0;
 }
 
-label {
-	background-color: var(--color-background);
-}
-
-.input-with-label {
-}
+	.input-with-label > label {
+		padding: 0.25rem;
+	}
 
 .input-field {
+	width: 100%;
 	overflow: hidden;
 }
 
@@ -21,8 +17,8 @@ label {
 	.input-field > ::deep textarea,
 	.input-field > ::deep input[type=number],
 	.input-field > ::deep input[type=date] {
-		width: calc(100% - 8px);
-		margin: 0.25rem;
+		width: calc(100% - 16px);
+		margin: 0.125rem;
 	}
 
 		.input-field > ::deep input[type=checkbox] {
@@ -34,37 +30,35 @@ label {
 		grid-template-columns: min-content auto;
 	}
 
-::deep .radio-option > input[type=radio] {
-	margin: 0.25rem;
-}
 
 .input-field > ::deep select {
 	width: max-content;
 	max-width: 100%;
-	margin: 0.25rem;
+	margin: 0.125rem;
 }
 
-.input-field > ::deep input[type=checkbox],
-.input-field > ::deep label > input[type=radio] {
-	margin: 0.25rem;
+.input-field > ::deep input[type=checkbox] {
+	margin: 0.125rem;
 }
 
-.input-field > ::deep input[type=radio] {
-	grid-column: min-content;
+::deep .radio-option > input[type=radio], 
+::deep .radio-option > label {
+	margin: 0.125rem;
 }
 
 .input-description, .input-warning {
 	grid-column: 1 / span 2;
+	padding: 0 0.25rem;
 }
 
 .input-warning {
 	border: solid 1px var(--color-primary);
 	border-radius: 0.25rem;
-	padding: 0 0.25rem;
+	margin: 0 0.375rem 0 0.25rem;
 }
 
 	.input-warning:before {
 		color: var(--color-primary);
 		content: '⚠';
-		padding-right: 0.25rem;
+		padding-right: 0.125rem;
 	}
