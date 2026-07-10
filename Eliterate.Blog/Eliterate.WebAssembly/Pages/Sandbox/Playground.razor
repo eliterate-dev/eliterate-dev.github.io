@@ -1,11 +1,10 @@
 ﻿@page "/playground"
 @using Eliterate.WebAssembly.Components.Generic
-@using Eliterate.WebAssembly.Components.Generic.Inputs
 @using Eliterate.WebAssembly.Components.Generic.Shapes
 <PageTitle>Playground</PageTitle>
 
-<RotatingDisplay>
-    <Wedge></Wedge>
+<RotatingDisplay Paused="true">
+    <PolaroidCamera RotateX="60" RotateZ="135"></PolaroidCamera>
 </RotatingDisplay>
 
 @code {

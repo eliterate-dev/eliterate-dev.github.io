@@ -59,6 +59,22 @@
                 <Cuboid X="_x" Y="_y" Z="_z" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ" SideLabel="Side Text"></Cuboid>
             </RotatingDisplay>
             break;
+        case Component.Wedge:
+            <div style="position:absolute;top:0;right:0;z-index:1;display:grid;grid-template-columns:max-content max-content max-content max-content;">
+                <label>X</label> <InputNumber @bind-value="_x" />
+                <label>Rotate X</label> <InputNumber @bind-value="_rotateX" />
+                <label>Y</label> <InputNumber @bind-value="_y" />
+                <label>Rotate Y</label> <InputNumber @bind-value="_rotateY" />
+                <label>Rotate Z</label> <InputNumber @bind-value="_rotateZ" />
+            </div>
+            <RotatingDisplay Paused="true">
+                <Wedge X="_x" Y="_y" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ">
+                    <div class="fill center-content">
+                        <span style="font-size:calc(var(--x) * 0.3); width:min-content;color:black;">DO A FLIP!</span>
+                    </div>
+                </Wedge>
+            </RotatingDisplay>
+            break;
         case Component.RadialText:
             <div style="position:absolute;top:0;right:0;z-index:1;display:grid;grid-template-columns:max-content 1fr;">
                 <label>Text</label> <InputText DisplayName="Text" @bind-value="_text" />
@@ -163,6 +179,7 @@
         None,
         Cuboid,
         Book,
+        Wedge,
         RotatingDisplay,
         RadialText,
         InputWithLabel

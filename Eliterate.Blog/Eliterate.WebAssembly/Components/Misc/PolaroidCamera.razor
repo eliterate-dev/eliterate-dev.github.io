@@ -1,0 +1,48 @@
+﻿@using Eliterate.WebAssembly.Components.Generic.Shapes
+<div class="polaroid-camera" style="@_size @_position @_rotation @_color">
+    <Cuboid X="X" Y="X" Z="(X / 4)" Color="#111">
+        <Cuboid X="X" Y="(X / 3)" Z="(X / 12)">
+            <Cuboid X="X" Y="(X / 2)" Z="(X / 20)" MoveY="(X / 12.5)" MoveZ="(X / 4)" RotateX="90">
+            </Cuboid>
+            <Cuboid X="X" Y="(X / 2)" Z="(X / 20)" MoveY="(X / 12.5)" MoveZ="(X / 4)" RotateX="90">
+                <div class="fill center-content">
+                    <div class="stripe"></div>
+                    <div class="lens">
+                    </div>
+                </div>
+            </Cuboid>
+        <div class="fill center-content">
+            <div class="stripe"></div>
+        </div>
+        </Cuboid>
+        <Cuboid X="X" Y="(X / 5)" Z="(X / 1.7)" MoveY="(X / 3)" Color="#111">
+        </Cuboid>
+        <Wedge X="(X / 2)" Y="(X / 2)">
+
+        </Wedge>
+    </Cuboid>
+</div>
+
+@code {
+    private string _size => $"--x:{X}px;";
+    private string _position => $"--move-x:{MoveX}px;--move-y:{MoveY}px;--move-z:{MoveZ}px;";
+    private string _rotation => $"--rotate-x:{RotateX}deg;--rotate-y:{RotateY}deg;--rotate-z:{RotateZ}deg;";
+    private string _color => $"--color:{Color}";
+
+    [Parameter]
+    public double X { get; set; } = 200;
+    [Parameter]
+    public double MoveX { get; set; }
+    [Parameter]
+    public double MoveY { get; set; }
+    [Parameter]
+    public double MoveZ { get; set; }
+    [Parameter]
+    public double RotateX { get; set; }
+    [Parameter]
+    public double RotateY { get; set; }
+    [Parameter]
+    public double RotateZ { get; set; }
+    [Parameter]
+    public string Color { get; set; } = "#fff";
+}

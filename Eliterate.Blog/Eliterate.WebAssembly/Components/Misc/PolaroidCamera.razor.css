@@ -1,0 +1,41 @@
+﻿.polaroid-camera {
+	width: var(--x);
+	height: var(--y);
+	position: absolute;
+	transform-style: preserve-3d;
+}
+.lens {
+	background-color: black;
+	width: calc(var(--x) / 3);
+	height: calc(var(--x) / 3);
+	border-radius: 50%;
+	border: 5px solid white;
+	outline: 2px solid black;
+	z-index: 1;
+}
+	.lens:before {
+		content: '';
+		position: absolute;
+		width: calc(var(--x) / 4);
+		height: calc(var(--x) / 4);
+		border: 8px double grey;
+		border-radius: 50%;
+		background-color: black;
+	}
+	.lens:after {
+		content: '';
+		position: absolute;
+		width: calc(var(--x) / 9);
+		height: calc(var(--x) / 9);
+		border-radius: 50%;
+		background-color: white;
+		top: 45%;
+		right: 48%;
+	}
+.stripe {
+	position: absolute;
+	display: block;
+	width: calc(var(--x) / 5);
+	height: var(--y);
+	background-image: linear-gradient(to left, #00a3e2 0%, #00a3e2 20%, #1ba548 20%, #1ba548 40%, #fdc800 40%, #fdc800 60%, #f1860e 60%, #f1860e 80%, #e41b13 80%, #e41b13 100%);
+}
