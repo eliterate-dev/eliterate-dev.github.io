@@ -1,11 +1,3 @@
-### The Name
-
-First of all, I only recently noticed that the name of this website can be read as "elite rate" or something similar. I want to make clear that I'm sometimes very stupid and did not notice this for several months while working on this site basically every day.
-
-I have neither the intention to rate anything, nor do I consider myself to be "elite" in any way shape or form.
-
-It's simply supposed to be a funny portmanteau of "Eli" (my name) and "literate" (because I like books), as well as an equally funny homophone of the word "illiterate", because, as my obliviousness in this case shows, I can be kinda dumb at times.
-
 ### Pure CSS
 
 Although I have some [Bootstrap](https://getbootstrap.com/) experience and I think it's a fine framework, I decided against using it for this project.
@@ -232,7 +224,7 @@ Can't promise I'll reply right away, but I'll get to it eventually.
 
 Let's make the web weird again.
 
-<div style="color:var(--color-background);">
+<div style="color:var(--color-background);cursor:default;">
 
 ### WIP
 

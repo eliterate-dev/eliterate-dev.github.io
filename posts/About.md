@@ -1,6 +1,6 @@
 ### Welcome!
 
-<img class="paper image" style="rotate:1deg" loading="lazy" alt="A meme where a person has made something and says 'I made this'. After which another person takes the item, looks at it and says 'You made this?... I made this'" src="../images/pictures/I_made_this.jpg" credit="https://nedroidcomics.tumblr.com/post/41879001445/the-internet"></img>
+<img class="paper image" style="rotate:1deg" loading="lazy" alt="A meme where a person has made something and says 'I made this'. After which another person takes the item, looks at it and says 'You made this?... I made this'" src="../images/memes/I_made_this.jpg" credit="https://nedroidcomics.tumblr.com/post/41879001445/the-internet"></img>
 
 I made this.
 
@@ -19,6 +19,14 @@ But I also wanted to write it in C# / .Net, because it wasn't a big enough proje
 So I wrote an overly complicated Blazor / WASM app to write a blog to.
 
 As one does.
+
+### The Name
+
+First of all, I only recently noticed that the name of this website can be read as "elite rate" or something similar. I want to make clear that I'm sometimes very stupid and did not notice this for several months while working on this site basically every day.
+
+I have neither the intention to rate anything, nor do I consider myself to be "elite" in any way shape or form.
+
+It's simply supposed to be a funny portmanteau of "Eli" (my name) and "literate" (because I like books), as well as an equally funny homophone of the word "illiterate", because, as my obliviousness in this case shows, I can be kinda dumb at times.
 
 ### Balancing ease of use and ease of building
 
