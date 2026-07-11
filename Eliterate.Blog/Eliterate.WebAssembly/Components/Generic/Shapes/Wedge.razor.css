@@ -53,7 +53,7 @@
 }
 
 	.wedge-slope::before {
-		border-right: var(--border) solid color-mix(in srgb, var(--color) 65%, #333333);
+		border-right: var(--border) solid color-mix(in srgb, var(--color) 60%, #333333);
 		border-top: var(--border) solid transparent;
 		border-bottom: var(--border) solid transparent;
 		transform-origin: bottom left;
@@ -62,7 +62,7 @@
 	}
 
 	.wedge-slope::after {
-		border-right: var(--border) solid color-mix(in srgb, var(--color) 65%, #333333);
+		border-right: var(--border) solid color-mix(in srgb, var(--color) 85%, #333333);
 		border-top: var(--border) solid transparent;
 		border-bottom: var(--border) solid transparent;
 		transform-origin: top left;
