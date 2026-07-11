@@ -584,9 +584,10 @@
 /* /Components/Misc/PolaroidCamera.razor.rz.scp.css */
 .polaroid-camera[b-u4l1htg0x4] {
 	width: var(--x);
-	height: var(--y);
+	height: var(--x);
 	position: absolute;
 	transform-style: preserve-3d;
+	transform-origin: 50% 50%;
 }
 .lens[b-u4l1htg0x4] {
 	background-color: black;
