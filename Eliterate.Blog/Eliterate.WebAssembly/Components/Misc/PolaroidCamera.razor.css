@@ -1,8 +1,9 @@
 ﻿.polaroid-camera {
 	width: var(--x);
-	height: var(--y);
+	height: var(--x);
 	position: absolute;
 	transform-style: preserve-3d;
+	transform-origin: 50% 50%;
 }
 .lens {
 	background-color: black;
