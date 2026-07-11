@@ -6,7 +6,12 @@
     <div class="corkboard">
         @foreach (var item in _ideas)
         {
-            <Paper Model="item"></Paper>
+            <Paper Link="@item.Link" LinkText="@item.LinkText" Rotate="true" HasPins="true">
+                <h2>@item.Title</h2>
+                <p>
+                    @((MarkupString)(item.Description ?? "No text..."))
+                </p>
+            </Paper>
         }
     </div>
 </div>

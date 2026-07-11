@@ -1,5 +1,7 @@
 ﻿@page "/components"
 @using Eliterate.WebAssembly.Components.Generic
+@using Eliterate.WebAssembly.Components.Generic.Inputs
+@using Eliterate.WebAssembly.Components.Generic.Shapes
 
 <PageTitle>Components</PageTitle>
 
@@ -11,7 +13,7 @@
         }
     </InputSelect>
 </div>
-<div class="fill" style="margin:2rem;padding:1rem 0.5rem 0.5rem 0.5rem;border:10px inset dimgrey;background-color:darkgrey;">
+<div class="fill component-showcase" style="margin:2rem 0.5rem;padding-right:0.5rem;border:10px inset dimgrey;background-color:var(--color-background);overflow-y:scroll;">
     @switch (_selected)
     {
         case Component.Cuboid:
@@ -57,6 +59,22 @@
                 <Cuboid X="_x" Y="_y" Z="_z" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ" SideLabel="Side Text"></Cuboid>
             </RotatingDisplay>
             break;
+        case Component.Wedge:
+            <div style="position:absolute;top:0;right:0;z-index:1;display:grid;grid-template-columns:max-content max-content max-content max-content;">
+                <label>X</label> <InputNumber @bind-value="_x" />
+                <label>Rotate X</label> <InputNumber @bind-value="_rotateX" />
+                <label>Y</label> <InputNumber @bind-value="_y" />
+                <label>Rotate Y</label> <InputNumber @bind-value="_rotateY" />
+                <label>Rotate Z</label> <InputNumber @bind-value="_rotateZ" />
+            </div>
+            <RotatingDisplay Paused="true">
+                <Wedge X="_x" Y="_y" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ">
+                    <div class="fill center-content">
+                        <span style="font-size:calc(var(--x) * 0.3); width:min-content;color:black;">DO A FLIP!</span>
+                    </div>
+                </Wedge>
+            </RotatingDisplay>
+            break;
         case Component.RadialText:
             <div style="position:absolute;top:0;right:0;z-index:1;display:grid;grid-template-columns:max-content 1fr;">
                 <label>Text</label> <InputText DisplayName="Text" @bind-value="_text" />
@@ -66,9 +84,55 @@
             </div>
             <div class="fill center-content">
                 <RadialText Text="@_text" FontSize="_fontSize" Size="_size" Angle="_angle">
-                    <img src="images/pictures/Cat_on_tower.jpg" />
+                    <img src="images/photos/Cat_on_tower.jpg" />
                 </RadialText>
             </div>
+            break;
+        case Component.InputWithLabel:
+            <div style="position:sticky;top:0;background-color:black;color:white;display:grid;grid-template-columns:max-content 1fr;">
+                <label>Description</label><InputTextArea @bind-Value="_description"></InputTextArea>
+                <label>Warning</label><InputTextArea @bind-Value="_warning"></InputTextArea>
+                <label>Options (;)</label><InputTextArea @bind-Value="_options"></InputTextArea>
+            </div>
+            <InputWithLabel Label="Test Text"
+                            Description="@_description"
+                            Warning="@_warning">
+                <InputText @bind-Value="_textInput"></InputText>
+            </InputWithLabel>
+            <InputWithLabel Label="Test Textarea"
+                            Description="@_description"
+                            Warning="@_warning">
+                <InputTextArea @bind-Value="_textInput"></InputTextArea>
+            </InputWithLabel>
+            <InputWithLabel Label="Test Number"
+                            Description="@_description"
+                            Warning="@_warning">
+                <InputNumber @bind-Value="_numberInput"></InputNumber>
+            </InputWithLabel>
+            <InputWithLabel Label="Test Checkbox"
+                            Description="@_description"
+                            Warning="@_warning">
+                <InputCheckbox @bind-Value="_boolInput"></InputCheckbox>
+            </InputWithLabel>
+            <RadioWithLabel Label="Text Radio"
+                            Description="@_description"
+                            Warning="@_warning"
+                            TValue="int"
+                            Value="_radioInput"
+                            Options="_selectOptions.Select(x => new KeyValuePair<int, string>(_selectOptions.IndexOf(x), x)).ToDictionary()">
+            </RadioWithLabel>
+            <InputWithLabel Label="Test Date"
+                            Description="@_description"
+                            Warning="@_warning">
+                <InputDate @bind-Value="_dateInput"></InputDate>
+            </InputWithLabel>
+            <SelectWithLabel Label="Text Radio"
+                            Description="@_description"
+                            Warning="@_warning"
+                            TValue="int"
+                            Value="_radioInput"
+                            Options="_selectOptions.Select(x => new KeyValuePair<int, string>(_selectOptions.IndexOf(x), x)).ToDictionary()">
+            </SelectWithLabel>
             break;
         default:
             <div class="fill center-content">
@@ -96,12 +160,28 @@
     private int _size = 200;
     private int _angle = 180;
 
+    // Input with labels
+    private string _description = "This is a description of this field. It's long and winding and almost nobody actually reads it, but hey maybe it helps someone.";
+    private string _warning = "This is an additional warning about this field. It should be short and snappy.";
+    private string _options = "A;B;C";
+    private string[] _selectOptions => _options.Split(';');
+
+    private string _textInput = "";
+    private int _numberInput = 1;
+    private bool _boolInput;
+    private DateTime _dateInput = DateTime.UtcNow;
+    private int _selectInput;
+    private int _radioInput;
+
+
     private enum Component
     {
         None,
         Cuboid,
         Book,
+        Wedge,
         RotatingDisplay,
-        RadialText
+        RadialText,
+        InputWithLabel
     }
 }

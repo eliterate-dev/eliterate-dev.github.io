@@ -1,12 +1,12 @@
 ﻿@page "/playground"
+@using Eliterate.WebAssembly.Components.Generic
+@using Eliterate.WebAssembly.Components.Generic.Shapes
 <PageTitle>Playground</PageTitle>
 
-<div class="fill center-content">
-    <div>
-        There is nothing here at the moment.
-    </div>
-</div>
+<RotatingDisplay Paused="true">
+    <PolaroidCamera RotateX="60" RotateZ="135"></PolaroidCamera>
+</RotatingDisplay>
 
 @code {
-
+    private string _input = "";
 }

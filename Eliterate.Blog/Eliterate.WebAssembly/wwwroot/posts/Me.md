@@ -45,7 +45,7 @@ I have all the components ready for an Raspberry Pi powered Arcade cabinet, I ju
 
 ##### Travel
 
-<div class="image polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="The charles bridge and the palace in prague" src="../images/pictures/Prague_charles_bridge.jpg"></img>Prague 2026</div>
+<div class="image polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="The charles bridge and the palace in prague" src="../images/photos/Prague_charles_bridge.jpg"></img>Prague 2026</div>
 
 When I'm not typing away on my keyboard all night, I like to travel to faraway places.
 
@@ -65,7 +65,7 @@ That there is a Starbucks **in** the castle is a bit of a gut punch to bring you
 
 ##### Pets
 
-<div class="image polaroid" style="rotate:1deg;" role="note"><img loading="lazy" alt="A picture of my cat biting my foot." src="../images/pictures/Cat_biting.jpg"></img>Biting commentary</div>
+<div class="image polaroid" style="rotate:1deg;" role="note"><img loading="lazy" alt="A picture of my cat biting my foot." src="../images/photos/Cat_biting.jpg"></img>Biting commentary</div>
 
 I love animals and will pet any that allow me.
 
@@ -75,7 +75,7 @@ I adore all the cats I've ever had, but I have to say, my current one (the one i
 
 He's a little goblin and his hobby is sneaking up on my dog while she's trying to pee, jumping up on her and scaring the piss out of her. 
 
-<div class="image polaroid" style="rotate:3deg;" role="note"><img src="../images/pictures/Cat_on_tower.jpg" loading="lazy" alt="A picture of my cat. He's very adorable."></img>Not me</div>
+<div class="image polaroid" style="rotate:3deg;" role="note"><img src="../images/photos/Cat_on_tower.jpg" loading="lazy" alt="A picture of my cat. He's very adorable."></img>Not me</div>
 
 It's bloody hilarious every time. She hates it.
 
@@ -87,7 +87,7 @@ I have a special fondness for Ska. I know it ain't hip, but I am a sucker for a 
 
 [Streetlight Manifesto](https://music.youtube.com/watch?v=A-UTPKL-UGY) is the GOAT. I'm so hyped for the new album ~~that~~ whose second half will be released shortly after the heat death of the universe. (Halfway there!!)
 
-<div class="image polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="A concert " src="../images/pictures/BOTAR.jpg"></img>BOTAR 2023</div>
+<div class="image polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="A concert " src="../images/photos/BOTAR.jpg"></img>BOTAR 2023</div>
 
 I have seen them live multiple times now, even though I had to fly to the states to do so.
 
@@ -105,7 +105,7 @@ We have a strong board game culture in our family, so I play all kinds. Recently
 
 Other games I play a decent amount are Nintendo games. Mario Kart, Mario Party and Smash are a staple in our house. I've owned every Nintendo console since the N64. To me, a console has to be able to be played with friends while sitting on a couch together to be a real console, which sadly most other manufacturers seem to have given up on. If I want to play solo or online I can go on my PC, which is going to be more powerful than a console anyways.
 
-<p style="color:var(--color-background);">I have a tattoo of a game character on my arm - I've hidden the character somewhere on this entire website - the first person to [email me](mailto:contact@eliterate.blog) the 6 digit code next to him I will send a $20 steam gift card to.</p>
+<p style="color:var(--color-background);cursor:default;">I have a tattoo of a game character on my arm - I've hidden the character somewhere on this entire website - the first person to email me @ contact@eliterate.blog the 6 digit code next to him I will send a $20 steam gift card to.</p>
 
 ##### Learning 
 

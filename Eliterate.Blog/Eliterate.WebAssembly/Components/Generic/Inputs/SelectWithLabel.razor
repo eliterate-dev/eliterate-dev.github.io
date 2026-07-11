@@ -1,0 +1,25 @@
+﻿@typeparam TValue where TValue : notnull
+
+<InputWithLabel Label="@Label"
+                Description="@Description"
+                Warning="@Warning">
+    <InputSelect @bind-Value="Value">
+        @foreach (var item in Options)
+        {
+            <option value="@item.Key" tabindex="0">@item.Value</option>
+        }
+    </InputSelect>
+</InputWithLabel>
+
+@code {
+    [Parameter]
+    public required string Label { get; set; }
+    [Parameter]
+    public Dictionary<TValue, string> Options { get; set; } = [];
+    [Parameter]
+    public required TValue Value { get; set; }
+    [Parameter]
+    public string? Description { get; set; }
+    [Parameter]
+    public string? Warning { get; set; }
+}

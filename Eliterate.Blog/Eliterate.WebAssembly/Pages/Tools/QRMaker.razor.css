@@ -1,0 +1,36 @@
+﻿.url-type-tags {
+	max-width: 85%;
+	height: 2rem;
+	margin-right: auto;
+	margin-left: auto;
+}
+	.url-type-tags > div {
+		width: max-content;
+		float: right;
+	}
+
+::deep .paper-container {
+	margin-top: 2rem;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 90%;
+	max-height: 80%;
+}
+
+::deep .paper {
+
+}
+::deep .paper-text {
+	max-height: 85%;
+	overflow-y: scroll;
+}
+
+.qr-data-form {
+	max-height: 80%;
+}
+
+.qr-generator-controls {
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
+}
