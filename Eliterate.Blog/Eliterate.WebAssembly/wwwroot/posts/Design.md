@@ -1,3 +1,19 @@
+### Organic Design
+
+This page is titled "Design", but to be honest, most of the site isn't "designed" in the traditional sense.
+
+Usually I just have an idea for a *thing* I want to make or create. Sometimes that's a game, sometimes it's a tool, sometimes it's a small feature, sometimes an entire site.
+
+From there, ideas evolve. Every piece of code on this site probably has had a few revisions. I enjoy the iterative process of working on something and revising it over and over until you're statisfied with it.
+
+I never **am** statisfied, of course, but that's beside the point.
+
+Over the years I have learned that the old adage "perfect is the enemy of good" certainly holds true in code.
+
+It wasn't easy to get to a point that I can release stuff like this site that's **quite obviously** far from perfect and still be happy with it, but I got there and I'm glad I did.
+
+So while nothing I do will ever be perfect, I'll at least try to elucidate on how I got to this point on this website.
+
 ### Pure CSS
 
 Although I have some [Bootstrap](https://getbootstrap.com/) experience and I think it's a fine framework, I decided against using it for this project.
@@ -10,7 +26,7 @@ Since I have decided on the name "Eliterate", I chose to go with a book theme fo
 
 ...that makes sense or something, right?
 
-<div class="sticker" style="rotate:9deg;" role="presentation">📂</div>
+<div class="sticker" style="rotate:9deg;" role="presentation">📕</div>
 
 #### Home
 
@@ -28,7 +44,7 @@ Finally, because I felt like I should give some sort of short introduction, I de
 
 Good enough.
 
-#### The "Book"
+##### The "Book"
 
 It may be easily overlooked, but you might have noticed the book on the home and credit pages is kinda 3d.
 
@@ -106,6 +122,8 @@ Structurally, the cards are inspired by [Bootstrap cards](https://getbootstrap.c
 
 #### Stickers
 
+<div class="sticker" style="rotate:9deg;" role="presentation">💖</div>
+
 I like stickers. They're a nice, simple medium to give drab, mass produced items a bit of individuality. You should see my laptop or my travelling suitcase!
 
 So obviously I wanted stickers on my digital book and my posts.
@@ -124,6 +142,8 @@ I grab my unicode emojis from [Symbl](https://symbl.cc/) - my go to resource for
 
 #### Navigation
 
+<div class="sticker" style="rotate:9deg;" role="presentation">📖</div>
+
 I went through a few iterations of navigation designs before I settled on the current one.
 
 At first I wanted the Nav menu to be a book spine, but you don't really put "chapters" or similar on a spine - not to mention it didn't really fit into the mobile view.
@@ -140,7 +160,7 @@ However, just having a consistent number of characters does not mean every line 
 
 Thankfully, there are [monospace fonts](https://en.wikipedia.org/wiki/List_of_monospaced_typefaces), which, as their name suggests, exist exactly to fix this problem. They make sure every character used in the font has the same width. So I applied one of those to the nav links and now all my lines (which all have the same amount of characters thanks to `.PadRight(20, '.')`) are of equal width.
 
-#### Posts (Pages)
+#### Posts (Book "Pages")
 
 <div class="sticker" style="rotate:-8deg;" role="presentation">📝</div>
 
@@ -154,6 +174,8 @@ A service injected through [dependency injection](https://learn.microsoft.com/en
 
 #### Pictures
 
+<div class="sticker" style="rotate:14deg;" role="presentation">🖼</div>
+
 There are different styles of how I chose to display images within my "pages".
 
 I'm a millenial and basic af, so I like polaroids and they also fit the scrapbook / notebook look of the project very well, so naturally, that's one style I wanted to emulate.
@@ -165,6 +187,8 @@ I'm using a different font on the polaroids, to give them a bit more of a handwr
 For other images like memes I wanted to post, I decided to go with a very simple "paper" look. Like I printed the meme and glued it into my book. Damn... Imagine actually printing a meme. Funny thought.
 
 #### Tags
+
+<div class="sticker" style="rotate:14deg;" role="presentation">📎</div>
 
 I wanted a way to filter posts, so tags were the obvious path to take.
 
@@ -194,25 +218,27 @@ At first I simply styled all tags as stickers.
 
 They did not have any functionality yet at that point, and I thought I'd use them more as a gag (like the "Why not?" tag at the top of this page).
 
-<div class="sticker" style="rotate:14deg;" role="presentation">📎</div>
-
 I quickly decided however, that they would make for a good way to filter posts a bit. Not that there were any posts to filter yet, but I do often suffer from premature optimization.
 
 So I made an easy to use component out of the stickers and added a link to them.
 
-##### Tag "Notes"
+##### Tag "Sticky Notes"
+
+<div class="sticker" style="rotate:-8deg;" role="presentation">🔖</div>
 
 For content pages I went for the little sticky-notes you put in a book to remember where important stuff is. I liked the look of that.
 
 It was a tad tedious to have to place the tags at the bottom of the post (you can see that by using inspect on this page) and then fix them to the top with `position:absolute;`, but I felt like prioritzing logical dom[^1] and tab order over small inconvinences for myself.
 
-#### The idea board
+#### The Idea Board
 
 The spark for the ["plans"](/plans) page came partially from real world post boards in my area, and partially again from [Evelyn Woods](https://eev.ee/), who's whole home page is basically that concept. Though as before, the implementation is entirely my own.
 
 Brick, cork and paper textures are, like all my textures, from [Transparent Textures](https://www.transparenttextures.com/), wheras the pins are just a repurposed form of the "emojis as stickers" concept - they're pin emojis.
 
 ### Any questions? Anything unclear?
+
+<div class="sticker" style="rotate:-8deg;" role="presentation">🎓</div>
 
 The entire code is open source and viewable [here](https://github.com/eliterate-dev/eliterate-dev.github.io).
 
