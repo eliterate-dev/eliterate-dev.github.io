@@ -32,10 +32,16 @@
             <div class="camera-front">
                 <div class="logo">ELITERATE LAND CAMERA</div>
                 <div class="print-slot"></div>
-                @if (Print is not null)
+                @if (PrintBytes is not null)
                 {
-                    <div class="polaroid">
-                        <div class="print" style="background:url(data:image/jpeg;base64,@Convert.ToBase64String(Print))"></div>
+                    <div class="print polaroid">
+                        <div style="background:url(data:image/jpeg;base64,@Convert.ToBase64String(PrintBytes))"></div>
+                    </div>
+                }
+                @if (PrintSVG is not null)
+                {
+                    <div class="print polaroid">
+                        @PrintSVG
                     </div>
                 }
             </div>
@@ -66,5 +72,7 @@
     [Parameter]
     public string Color { get; set; } = "#fff";
     [Parameter]
-    public byte[]? Print { get; set; }
+    public byte[]? PrintBytes { get; set; }
+    [Parameter]
+    public string? PrintSVG { get; set; }
 }
