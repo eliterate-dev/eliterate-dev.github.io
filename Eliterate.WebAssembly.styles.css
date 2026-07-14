@@ -1840,11 +1840,15 @@ td:first-of-type[b-kis47zz0cb] {
 	display: grid;
 	height: 100%;
 	grid-template-columns: 1fr;
-	grid-template-rows: 80% 20%;
+	grid-template-rows: 70% 30%;
 }
 	.split[b-heubgljzp1] >  div {
 		position: relative;
 	}
+
+p[b-heubgljzp1] {
+	margin-top: 0.5rem;
+}
 /* /Pages/Tools/QRMaker.razor.rz.scp.css */
 .url-type-tags[b-ilbhhnbv0s] {
 	max-width: 85%;
