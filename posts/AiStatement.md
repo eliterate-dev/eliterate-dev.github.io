@@ -28,11 +28,11 @@ So yeah, I don't use AI to write regular words at all. I don't see the point. If
 
 However I can't say AI hasn't influenced my writing... I used to use em-dashes. I don't anymore, for some reason.
 
-It also took writing in rules of three from me! Or 
+It also took writing in rules of three from me!
 
 It's not just annoying, it's downright unfair! 
 
-^(That was a joke, intentionally written. I'm still not AI)^
+*(That was a joke, intentionally written. I'm still not AI)*
 
 #### Is AI a bad thing?
 
