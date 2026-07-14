@@ -28,10 +28,19 @@
         </Cuboid>
     </Cuboid>
     <Cuboid X="X" Y="(X / 4)" Z="(X / 20)" MoveY="(X * -0.08)" MoveZ="(X / 8)" RotateX="90" Color="#111">
-        <div class="fill center-content">
+        <div class="fill center-content" style="transform-style: preserve-3d;">
             <div class="camera-front">
                 <div class="logo">ELITERATE LAND CAMERA</div>
-                <div class="print-slot"></div>
+                <div class="print-slot">
+                    <div class="printer">
+                        @if (ChildContent is not null)
+                        {
+                            <div class="polaroid">
+                                @ChildContent
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     </Cuboid>
@@ -59,4 +68,6 @@
     public double RotateZ { get; set; }
     [Parameter]
     public string Color { get; set; } = "#fff";
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
 }

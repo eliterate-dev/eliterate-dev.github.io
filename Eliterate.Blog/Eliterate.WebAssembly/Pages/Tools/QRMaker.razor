@@ -59,16 +59,19 @@
 
 @if (_generatedQRCodeImage is not null && _generatedQRCodeSvg is not null)
 {
-    <div class="qr-generator-result">
+    <PolaroidCamera>
         @if (_generatedQRCodeImage is not null)
         {
-            <img  src="images/photos/Cat_on_tower.jpg"/>
+            <div style="background:url(data:image/jpeg;base64,@Convert.ToBase64String(_generatedQRCodeImage))"></div>
         }
-        else
+        else if (_generatedQRCodeSvg is not null)
         {
-            <svg ></svg>
+            @_generatedQRCodeSvg
         }
-    </div>
+    </PolaroidCamera>
+    <FlashCard>
+
+    </FlashCard>
 }
 
 @code {
@@ -89,11 +92,13 @@
                 {SafeFileType.svg, ".svg"}
             };
 
-    // selections
+    // options QR 
     private string _input = "";
     private QRType _selectedQRType = QRType.Url;
     private SafeFileType _selectedSaveFileType = SafeFileType.png;
     private QRCodeGenerator.ECCLevel _selectedECC = QRCodeGenerator.ECCLevel.L;
+
+    // options download
 
     // results
     private byte[]? _generatedQRCodeImage;
@@ -124,6 +129,16 @@
         var generator = new QRCodeGenerator();
         var payload = Console.ReadLine() ?? throw new Exception("No url set.");
         QRCodeData data = generator.CreateQrCode(payload, QRCodeGenerator.ECCLevel.H, forceUtf8: true);
+        if (_selectedSaveFileType == SafeFileType.png)
+        {
+            var pngQr = new PngByteQRCode(data);
+            _generatedQRCodeImage = pngQr.GetGraphic(pixelsPerModule: 10); // scale
+        }
+        else
+        {
+            var svgQr = new SvgQRCode(data);
+            _generatedQRCodeSvg = svgQr.GetGraphic(pixelsPerModule: 10);
+        }
     }
 
     private void SaveAsPng(string saveFilePath, string name, QRCodeData data)
@@ -131,7 +146,6 @@
         // PNG bytes (no System.Drawing required)
         var pngQr = new PngByteQRCode(data);
         _generatedQRCodeImage = pngQr.GetGraphic(pixelsPerModule: 10); // scale
-
     }
 
     private void SaveAsSvg(string saveFilePath, string name, QRCodeData data)

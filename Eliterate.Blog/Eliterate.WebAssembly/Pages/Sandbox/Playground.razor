@@ -1,11 +1,20 @@
 ﻿@page "/playground"
 @using Eliterate.WebAssembly.Components.Generic
-@using Eliterate.WebAssembly.Components.Generic.Shapes
 <PageTitle>Playground</PageTitle>
 
-<RotatingDisplay Paused="true">
-    <PolaroidCamera RotateX="60" RotateZ="135"></PolaroidCamera>
-</RotatingDisplay>
+<div class="split">
+    <div>
+        <RotatingDisplay Paused="true">
+            <PolaroidCamera RotateX="60" RotateZ="135">
+                <img src="images/photos/Cat_on_tower.jpg" />
+            </PolaroidCamera>
+        </RotatingDisplay>
+    </div>
+    <div style="background-color:var(--color-background);padding:1rem;overflow-y:scroll;">
+        <p>Did I build an entire 3d polaroid camera "model" in pure HTML/CSS just so I could pretend to print QR codes in the QR code generator I'm working on? That would be deeply idiotic! So much work for such little pay off... </p>
+        <p style="margin-top:1rem;">Yeah. That's exactly what I did.</p>
+    </div>
+</div>
 
 @code {
     private string _input = "";
