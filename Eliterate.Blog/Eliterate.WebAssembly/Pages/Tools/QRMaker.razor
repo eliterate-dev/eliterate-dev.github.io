@@ -14,20 +14,40 @@
 
 <div class="fill">
     <Paper>
-        <h2>QR Code Generation Form</h2>
+        <h2>QR Code Generation Form - @_selectedQRType</h2>
         <label>Please fill out the form</label>
         <div class="qr-data-form">
             @switch (_selectedQRType)
             {
                 case QRType.Url:
+                    <p>The most common type of QR codes: A simple representation of an internet URL (a link).</p>
+                    <p>Basically all QR readers are programmed to read these and open a tab in your default browser bringing you directly to the website in the code.</p>
                     <InputWithLabel 
                         Label="Url to encode"
-                        Description="The most common type of QR codes: A simple representation of an internet URL (a link).
-                            Basically all QR readers are programmed to read these and open a tab in your default browser bringing you directly to the website in the code."
-                        Warning="While QR codes are quick and convenient, they are also an easy way to have you open a malicious link.
+                        Description="The url (address) of the specific web resource you want the QR code to lead to."
+                        ShowDescription="true"
+                        Warning="While QR code links are quick and convenient, they are also an easy way to have you open a malicious link.
                         Most QR code readers display the URL before they open your browser.
                         Just like a link you'd recieve in an email, always check the URL and make sure it leads you to a site you feel you can trust.">
                         <InputText @bind-Value="_input"></InputText>
+                    </InputWithLabel>
+                    break;
+                case QRType.WIFI:
+                    <p>WI-FI access, at the click of a button!</p>
+                    <p>Well... scan of a code.</p>
+                    <p>Either way, this type of QR code is simply an encoding of WI-FI access data into QR form.</p>
+                    <InputWithLabel
+                        Label="Network name">
+
+                    </InputWithLabel>
+                    <InputWithLabel
+                        Label="Password"
+                        Description="The password that grants access to the WI-FI point."
+                        ShowDescription="true"
+                        ShowWarning="true"
+                        Warning="This password is visible in plain text to anyone who reads the QR code! Only generate QR codes where you're allowed to share this password, 
+                            and only display the code in places where only people you want to have access can see it.">
+                        <InputText></InputText>
                     </InputWithLabel>
                     break;
                 default:
@@ -59,7 +79,7 @@
 
 @if (_generatedQRCodeImage is not null && _generatedQRCodeSvg is not null)
 {
-    <PolaroidCamera>
+    <PolaroidCamera X="200" RotateX="20" RotateY="-5" RotateZ="170">
         @if (_generatedQRCodeImage is not null)
         {
             <div style="background:url(data:image/jpeg;base64,@Convert.ToBase64String(_generatedQRCodeImage))"></div>
@@ -112,7 +132,10 @@
 
     private enum QRType
     {
-        Url
+        Url,
+        Contact,
+        WIFI,
+        Banking
     }
     private enum SafeFileType
     {
