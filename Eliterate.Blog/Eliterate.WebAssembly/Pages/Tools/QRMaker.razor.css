@@ -1,20 +1,30 @@
-﻿.url-type-tags {
-	max-width: 85%;
-	height: 2rem;
+﻿.qr-generator {
+	display: grid;
+	grid-template-rows: 2rem auto auto;
+}
+
+.url-type-tags {
+	width: 95%;
+	max-width: 700px;
 	margin-right: auto;
 	margin-left: auto;
 }
 	.url-type-tags > div {
+		color: black;
+		position: relative;
+		bottom: 0;
 		width: max-content;
 		float: right;
+		padding: 0.25rem;
+		margin-top: 0.5rem;
+		margin-right: 0.25rem;
 	}
 
 ::deep .paper-container {
-	margin-top: 2rem;
 	margin-right: auto;
 	margin-left: auto;
-	max-width: 90%;
-	max-height: 80%;
+	width: 95%;
+	max-width: 700px;
 }
 
 ::deep .paper {
@@ -33,4 +43,29 @@
 	position: absolute;
 	bottom: 1rem;
 	right: 1rem;
+}
+
+.qr-output {
+	height: 300px;
+	width: 100%;
+	position: relative;
+}
+	.qr-output > ::deep :last-child {
+		top: 0;
+		transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) rotateZ(var(--rotate-z));
+	}
+	.qr-output > ::deep .flashcard {
+		margin-top: 2rem;
+		margin-left: 210px;
+		max-width: 250px;
+		animation: slideIn 1s ease;
+	}
+
+@keyframes slideIn {
+	0% {
+		margin-left: 120%;
+	}
+	100% {
+		margin-left: 210px;
+	}
 }

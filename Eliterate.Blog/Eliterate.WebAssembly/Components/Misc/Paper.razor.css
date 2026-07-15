@@ -1,5 +1,5 @@
 ﻿.paper-container {
-	margin: 0 auto calc(var(--tearoff-height) + 1.5rem) auto;
+	margin: 0 auto var(--tearoff-height) auto;
 	width: 100%;
 }
 
@@ -31,6 +31,7 @@
 .paper-content {
 	background-color: var(--color-contrast-1);
 	background-image: var(--texture-paper);
+	background-size: 276px;
 	position: absolute;
 	top: 0;
 	right: 0;

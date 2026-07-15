@@ -21,7 +21,6 @@
 	--color-border: #303030;
 	--color-book-cover: hsl(14, 70%, 10%);
 	--post-list-columns: 1fr;
-	--tearoff-height: 8rem;
 	--font-handwritten: 'Lucida Handwriting', 'Brush Script MT', cursive;
 	--sticker-outline: 1px 0px white, -1px 0px white, 0px -1px white, 0px 1px white;
 	--sticker-outline-filter: drop-shadow(1px 0px white) drop-shadow(-1px 0px white) drop-shadow(0px -1px white) drop-shadow(0px 1px white) drop-shadow(1px 1px 1px var(--color-shadow));
