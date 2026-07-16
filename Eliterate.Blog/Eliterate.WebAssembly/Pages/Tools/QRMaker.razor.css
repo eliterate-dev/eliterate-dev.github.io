@@ -37,6 +37,7 @@
 
 .qr-data-form {
 	max-height: 80%;
+	padding-bottom: 2rem;
 }
 
 .qr-generator-controls {
@@ -46,26 +47,45 @@
 }
 
 .qr-output {
-	height: 300px;
 	width: 100%;
 	position: relative;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 340px;
 }
-	.qr-output > ::deep :last-child {
-		top: 0;
-		transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) rotateZ(var(--rotate-z));
+	.qr-output > div {
+		transform-style: preserve-3d;
+		width: 100%;
 	}
-	.qr-output > ::deep .flashcard {
-		margin-top: 2rem;
-		margin-left: 210px;
-		max-width: 250px;
-		animation: slideIn 1s ease;
+
+::deep .flashcard {
+	animation: slideIn 1s ease;
+	max-width: 250px;
+	margin-right: 20px;
+	margin-top: 20px;
+}
+
+::deep .polaroid-camera {
+	transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) rotateZ(var(--rotate-z));
+	transform-style: preserve-3d;
+	top: -20px;
+	left: -10px;
+}
+
+@media (min-width: 500px) {
+	.qr-output {
+		grid-template-columns: 250px auto;
 	}
+	::deep .flashcard {
+		margin-right: 50px;
+	}
+}
 
 @keyframes slideIn {
 	0% {
 		margin-left: 120%;
 	}
 	100% {
-		margin-left: 210px;
+		margin-left: 0;
 	}
 }

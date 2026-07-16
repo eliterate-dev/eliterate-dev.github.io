@@ -96,17 +96,28 @@
 .polaroid {
 	position: absolute;
 	width: 95%;
+	min-height: var(--x);
 	padding: 0.375rem;
 	background-color: white;
 	translate: 0 0 -1px;
 	animation-name: printPolaroid;
 	animation-duration: 4s;
 }
-	.polaroid > ::deep * {
-		width: 100%;
-		display: block;
-		border: 1px solid var(--color-shadow);
-		margin-bottom: 1.25rem;
+.polaroid-image {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1/1;
+	border: 1px solid var(--color-shadow);
+	overflow: hidden;
+}
+
+	.polaroid-image ::deep > * {
+		position: absolute;
+		top: -15px;
+		left: -15px;
+		width: calc(100% + 40px);
+		height: calc(100% + 40px);
+		background-size: calc(var(--x) + 2px) !important;
 	}
 
 @keyframes printPolaroid {

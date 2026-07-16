@@ -7,19 +7,19 @@
 
 <div class="fill qr-generator">
     <div class="url-type-tags">
-        @foreach (var item in Enum.GetValues(typeof(QRType)).Cast<QRType>())
+        @foreach (var item in _qrTypes.Reverse())
         {
-            <div @onclick="(x => SetQrType(item))" style="@($"background-color:hsl({item.ToString().GetIntFromString(360)}, 100%, 80%);")">@item</div>
+            <div @onclick="(x => SetQrType(item.Key))" style="@($"background-color:hsl({item.Value.GetIntFromString(360)}, 100%, 80%);")">@item.Value</div>
         }
     </div>
     <div>
         <Paper>
-            <h2>QR Code Generation Form - @_selectedQRType</h2>
+            <h2>QR Code Generation Form - @_qrTypes.First(x => x.Key == _selectedQRType).Value</h2>
             <label>Please fill out the form</label>
             <div class="qr-data-form">
                 @switch (_selectedQRType)
                 {
-                    case QRType.Url:
+                    case QRType.url:
                         <p>The most common type of QR codes: A simple representation of an internet URL (a link).</p>
                         <p>Basically all QR readers are programmed to read these and open a tab in your default browser bringing you directly to the website in the code.</p>
                         <InputWithLabel Label="Url to encode"
@@ -31,7 +31,7 @@
                             <InputText @bind-Value="_input"></InputText>
                         </InputWithLabel>
                         break;
-                    case QRType.WIFI:
+                    case QRType.wifi:
                         <p>WI-FI access, at the click of a button!</p>
                         <p>Well... scan of a code.</p>
                         <p>Either way, this type of QR code is simply an encoding of WI-FI access data into QR form.</p>
@@ -43,7 +43,7 @@
                                         ShowDescription="true"
                                         ShowWarning="true"
                                         Warning="This password is visible in plain text to anyone who reads the QR code! Only generate QR codes where you're allowed to share this password,
-                            and only display the code in places where only people you want to have access can see it.">
+                                            and only display the code in places where only people you want to have access can see it.">
                             <InputText></InputText>
                         </InputWithLabel>
                         break;
@@ -56,12 +56,13 @@
                                  Description="The safe file type. A png is a simple image. It's simple to use, but it can get blurry when you resize it. An svg is a mathematically constructed image. You might not be able to use it everywhere, but you can resize it without worry anywhere you use it."
                                  Options="_safeFileTypes">
                 </SelectWithLabel>
-                <SelectWithLabel Value="_selectedECC"
+                <SelectWithLabel TValue="QRCodeGenerator.ECCLevel"
+                                 Value="_selectedECC"
                                  Label="ECC"
                                  Description="The Error Correction Code (ECC) of a QR code describes how much of a QR code is redundant data.
-                    That means, with a higher ECC level, there is intentional duplication of data in a QR code.
-                    Thanks to this error correction data, a high ECC QR code can be partially obscured and still be read by a QR reader.
-                    When you see QR codes that have a company logo in the middle, for example, that is 'obscuring' part of the QR code, thus requiring a higher ECC level."
+                                    That means, with a higher ECC level, there is intentional duplication of data in a QR code.
+                                    Thanks to this error correction data, a high ECC QR code can be partially obscured and still be read by a QR reader.
+                                    When you see QR codes that have a company logo in the middle, for example, that is 'obscuring' part of the QR code, thus requiring a higher ECC level."
                                  Warning="The secondary effect of a high ECC QR code is, that because encodes more information, they look 'noisier' - more, smaller little black squares than on a QR code with less encoded information or a lower ECC."
                                  Options="_errorCorrectionLevels">
                 </SelectWithLabel>
@@ -72,34 +73,53 @@
         </Paper>
     </div>
     <div class="qr-output">
+        <div>
+            <PolaroidCamera X="200" RotateX="20" RotateY="-8" RotateZ="175" PngData="@_generatedQRCodePng" SvgData="@_generatedQRCodeSvg">
+            </PolaroidCamera>
+        </div>
         @if (_generatedQRCodePng is not null || _generatedQRCodeSvg is not null)
         {
-            <FlashCard Rotation="3">
-                <div class="card-header">
-                    <div class="grid-container-dash-dot">
-                        <h2 class="card-title">Save this QR code?</h2>
+            <div>
+                <FlashCard Rotation="3">
+                    <div class="card-header">
+                        <div class="grid-container-dash-dot">
+                            <h2 class="card-title">Save this QR code?</h2>
+                        </div>
+                        <Sticker Text="💾" Top="1.25m" Right="0.5m" Rotate="3" Scale="1.5m"></Sticker>
                     </div>
-                    <Sticker Text="💾" Top="1.25m" Right="0.5m" Rotate="5" Scale="1.5m"></Sticker>
-                </div>
-                <div class="card-body">
-                    <div class="card-text">
-                        <p>This site does not save any data.</p>
-                        <p>Refresh and it's all gone.</p>
-                        <p>If you want to keep this QR code you have to download it.</p>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <p>This site does not save any data.</p>
+                            <p>Refresh and it's all gone.</p>
+                            <p>If you want to keep this QR code you have to download it.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card-footer">
-                    <button style="float:right;margin:0 0.5rem 0.5rem 0;">Download</button>
-                </div>
-            </FlashCard>
+                    <div class="card-footer">
+                        <button  style="float:right;margin:0 0.5rem 0.5rem 0;">Download</button>
+                    </div>
+                </FlashCard>
+            </div>
         }
-        <PolaroidCamera X="200" RotateX="20" RotateY="-5" RotateZ="170" MoveY="-100" PngData="@_generatedQRCodePng" SvgData="@_generatedQRCodeSvg">
-        </PolaroidCamera>
     </div>
 </div>
 
+<script>
+    window.downloadFileFromStream = async (fileName, contentStreamReference) => {
+      const arrayBuffer = await contentStreamReference.arrayBuffer();
+      const blob = new Blob([arrayBuffer]);
+      const url = URL.createObjectURL(blob);
+      const anchorElement = document.createElement('a');
+      anchorElement.href = url;
+      anchorElement.download = fileName ?? '';
+      anchorElement.click();
+      anchorElement.remove();
+      URL.revokeObjectURL(url);
+    }
+</script>
+
 @code {
     // resources
+    private QRCodeGenerator _qrCodeGenerator = new QRCodeGenerator();
     private Dictionary<QRCodeGenerator.ECCLevel, string> _errorCorrectionLevels =
             new Dictionary<QRCodeGenerator.ECCLevel, string>
             {
@@ -115,10 +135,16 @@
                 {SafeFileType.png, ".png"},
                 {SafeFileType.svg, ".svg"}
             };
+    private Dictionary<QRType, string> _qrTypes =
+            new Dictionary<QRType, string>
+            {
+                {QRType.url, "Url"},
+                {QRType.wifi, "WI-FI"}
+            };
 
     // options QR 
     private string _input = "";
-    private QRType _selectedQRType = QRType.Url;
+    private QRType _selectedQRType = QRType.url;
     private SafeFileType _selectedSaveFileType = SafeFileType.png;
     private QRCodeGenerator.ECCLevel _selectedECC = QRCodeGenerator.ECCLevel.L;
 
@@ -136,10 +162,8 @@
 
     private enum QRType
     {
-        Url,
-        Contact,
-        WIFI,
-        Banking
+        url,
+        wifi,
     }
     private enum SafeFileType
     {
@@ -153,10 +177,11 @@
 
     private void GenerateCode()
     {
-        var generator = new QRCodeGenerator();
+        _generatedQRCodePng = null;
+        _generatedQRCodeSvg = null;
         var payload = _input;
-        Console.WriteLine(_input);
-        QRCodeData data = generator.CreateQrCode(payload, _selectedECC, forceUtf8: true);
+        Console.WriteLine($"{payload} - ECC: {_selectedECC} | Save As: {_selectedSaveFileType}");
+        QRCodeData data = _qrCodeGenerator.CreateQrCode(payload, _selectedECC, forceUtf8: true);
         switch (_selectedSaveFileType)
         {
             case SafeFileType.png:
