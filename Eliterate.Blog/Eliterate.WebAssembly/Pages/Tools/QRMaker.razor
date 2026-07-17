@@ -35,8 +35,10 @@
                         <p>WI-FI access, at the click of a button!</p>
                         <p>Well... scan of a code.</p>
                         <p>Either way, this type of QR code is simply an encoding of WI-FI access data into QR form.</p>
-                        <InputWithLabel Label="Network name">
-
+                        <InputWithLabel Label="Network name"
+                                        Description="The network name - also known as SSID."
+                                        ShowDescription="true">
+                            <InputText @bind-Value="_ssid"></InputText>
                         </InputWithLabel>
                         <InputWithLabel Label="Password"
                                         Description="The password that grants access to the WI-FI point."
@@ -44,10 +46,20 @@
                                         ShowWarning="true"
                                         Warning="This password is visible in plain text to anyone who reads the QR code! Only generate QR codes where you're allowed to share this password,
                                             and only display the code in places where only people you want to have access can see it.">
-                            <InputText></InputText>
+                            <input type="password" @bind-value="_password"/>
                         </InputWithLabel>
                         break;
+                    case QRType.text:
                     default:
+                        <p>A QR code can just contain simple text!</p>
+                        <p>Ever wanted to tell a friend they're a dick but also make them go through the extra step of having to scan something to find out?</p>
+                        <p>Well you're in luck!</p>
+                        <InputWithLabel Label="Text"
+                                        Description="This text should be less than 2953 bytes. That's the max a QR code can handle. 
+                                            Depending on what character set you use that's anywhere between 1800 (Kanji) to 7000 characters (just numbers).
+                                            Try to keep it below 1800 characters and you'll be fine.">
+                            <InputTextArea @bind-Value="_text"></InputTextArea>
+                        </InputWithLabel>
                         break;
                 }
                 <InputWithLabel Label="Save file type"
@@ -151,8 +163,9 @@
             new Dictionary<QRType, string>
             {
                 {QRType.url, "Url"},
-                {QRType.wifi, "WI-FI"},
-                {QRType.text, "Text"}
+                {QRType.text, "Text"},
+                {QRType.wifi, "WIFI"},
+                {QRType.contact, "Contact"}
             };
 
     private PayloadGenerator.WiFi.Authentication _selectedWifiAuthentication = PayloadGenerator.WiFi.Authentication.WPA2;
@@ -166,6 +179,8 @@
             };
 
     // options QR 
+    private string _text = "";
+
     private string _url = "";
 
     private string _ssid = "";
@@ -210,7 +225,11 @@
         _generatedQRCodePng = null;
         _generatedQRCodeSvg = null;
         PayloadGenerator.Payload? payload = GeneratePayload();
-        QRCodeData data = _qrCodeGenerator.CreateQrCode(payload);
+
+        QRCodeData data = payload is null 
+            ? _qrCodeGenerator.CreateQrCode(_text, _selectedECC, forceUtf8:true) 
+            : _qrCodeGenerator.CreateQrCode(payload);
+
         switch (_selectedSaveFileType)
         {
             case SafeFileType.png:
@@ -226,13 +245,13 @@
         }
     }
 
-    private PayloadGenerator.Payload GeneratePayload()
+    private PayloadGenerator.Payload? GeneratePayload()
         => _selectedQRType switch
         {
             QRType.url => new PayloadGenerator.Url(_url),
             QRType.wifi => new PayloadGenerator.WiFi(_ssid, _password, _selectedWifiAuthentication),
             QRType.contact => new PayloadGenerator.ContactData(PayloadGenerator.ContactData.ContactOutputType.VCard4, _firstName, _lastName, _nickName, email:_email, website:_website),
-            _ => new PayloadGenerator.Url("")
+            _ => null
         };
 
 
