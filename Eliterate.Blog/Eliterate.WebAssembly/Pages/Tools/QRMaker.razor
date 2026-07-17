@@ -200,24 +200,7 @@
     {
         _generatedQRCodePng = null;
         _generatedQRCodeSvg = null;
-        PayloadGenerator.Payload? payload = null;
-        switch (_selectedQRType)
-        {
-            case QRType.url:
-                payload = new PayloadGenerator.Url(_input);
-                break;
-            case QRType.wifi:
-                payload = new PayloadGenerator.WiFi(_input, _password, PayloadGenerator.WiFi.Authentication.WPA2);
-                break;
-            case QRType.contact:
-                payload = new PayloadGenerator.WhatsAppMessage
-            default:
-                break;
-        }
-        if (payload is null)
-        {
-            return;
-        }
+        PayloadGenerator.Payload? payload = GeneratePayload();
         QRCodeData data = _qrCodeGenerator.CreateQrCode(payload);
         switch (_selectedSaveFileType)
         {
@@ -238,7 +221,7 @@
         => _selectedQRType switch
         {
             QRType.url => new PayloadGenerator.Url(_input),
-            QRType.wifi => new PayloadGenerator.WiFi(_input, _password,)
+            QRType.wifi => new PayloadGenerator.WiFi(_input, _password, _selectedWifiAuthentication),
             _ => new PayloadGenerator.Url(_input)
         };
 
