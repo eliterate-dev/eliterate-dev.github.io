@@ -50,22 +50,29 @@
                     default:
                         break;
                 }
-                <SelectWithLabel TValue="SafeFileType"
-                                 Value="_selectedSaveFileType"
-                                 Label="Save file type"
-                                 Description="The safe file type. A png is a simple image. It's simple to use, but it can get blurry when you resize it. An svg is a mathematically constructed image. You might not be able to use it everywhere, but you can resize it without worry anywhere you use it."
-                                 Options="_safeFileTypes">
-                </SelectWithLabel>
-                <SelectWithLabel TValue="QRCodeGenerator.ECCLevel"
-                                 Value="_selectedECC"
-                                 Label="ECC"
+                <InputWithLabel Label="Save file type"
+                                 Description="The safe file type. A png is a simple image. It's simple to use, but it can get blurry when you resize it.
+                                    An svg is a mathematically constructed image. You might not be able to use it everywhere, but you can resize it without worry anywhere you use it.">
+                    <select @bind="_selectedSaveFileType">
+                        @foreach (var item in _safeFileTypes)
+                        {
+                            <option value="@item.Key">@item.Value</option>
+                        }
+                    </select>
+                </InputWithLabel>
+                <InputWithLabel Label="ECC"
                                  Description="The Error Correction Code (ECC) of a QR code describes how much of a QR code is redundant data.
                                     That means, with a higher ECC level, there is intentional duplication of data in a QR code.
                                     Thanks to this error correction data, a high ECC QR code can be partially obscured and still be read by a QR reader.
                                     When you see QR codes that have a company logo in the middle, for example, that is 'obscuring' part of the QR code, thus requiring a higher ECC level."
-                                 Warning="The secondary effect of a high ECC QR code is, that because encodes more information, they look 'noisier' - more, smaller little black squares than on a QR code with less encoded information or a lower ECC."
-                                 Options="_errorCorrectionLevels">
-                </SelectWithLabel>
+                                 Warning="The secondary effect of a high ECC QR code is, that because encodes more information, they look 'noisier' - more, smaller little black squares than on a QR code with less encoded information or a lower ECC.">
+                    <select @bind="_selectedECC">
+                        @foreach (var item in _errorCorrectionLevels)
+                        {
+                            <option value="@item.Key">@item.Value</option>
+                        }
+                    </select>
+                </InputWithLabel>
             </div>
             <div class="qr-generator-controls">
                 <button @onclick="GenerateCode">Generate QR Code</button>
@@ -135,6 +142,7 @@
                 {SafeFileType.png, ".png"},
                 {SafeFileType.svg, ".svg"}
             };
+
     private Dictionary<QRType, string> _qrTypes =
             new Dictionary<QRType, string>
             {
