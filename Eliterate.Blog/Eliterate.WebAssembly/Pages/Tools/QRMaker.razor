@@ -127,6 +127,8 @@
 @code {
     // resources
     private QRCodeGenerator _qrCodeGenerator = new QRCodeGenerator();
+
+    private QRCodeGenerator.ECCLevel _selectedECC = QRCodeGenerator.ECCLevel.L;
     private Dictionary<QRCodeGenerator.ECCLevel, string> _errorCorrectionLevels =
             new Dictionary<QRCodeGenerator.ECCLevel, string>
             {
@@ -136,6 +138,7 @@
                 {QRCodeGenerator.ECCLevel.H, "High (30%)"}
             };
 
+    private SafeFileType _selectedSaveFileType = SafeFileType.png;
     private Dictionary<SafeFileType, string> _safeFileTypes =
             new Dictionary<SafeFileType, string>
             {
@@ -143,6 +146,7 @@
                 {SafeFileType.svg, ".svg"}
             };
 
+    private QRType _selectedQRType = QRType.url;
     private Dictionary<QRType, string> _qrTypes =
             new Dictionary<QRType, string>
             {
@@ -150,11 +154,19 @@
                 {QRType.wifi, "WI-FI"}
             };
 
+    private PayloadGenerator.WiFi.Authentication _selectedWifiAuthentication = PayloadGenerator.WiFi.Authentication.WPA2;
+    private Dictionary<PayloadGenerator.WiFi.Authentication, string> _wifiAuthenticationTypes =
+            new Dictionary<PayloadGenerator.WiFi.Authentication, string>
+            {
+                {PayloadGenerator.WiFi.Authentication.nopass, "No Password"},
+                {PayloadGenerator.WiFi.Authentication.WEP, "WEP"},
+                {PayloadGenerator.WiFi.Authentication.WPA, "WPA"},
+                {PayloadGenerator.WiFi.Authentication.WPA2, "WPA2"}
+            };
+
     // options QR 
     private string _input = "";
-    private QRType _selectedQRType = QRType.url;
-    private SafeFileType _selectedSaveFileType = SafeFileType.png;
-    private QRCodeGenerator.ECCLevel _selectedECC = QRCodeGenerator.ECCLevel.L;
+    private string _password = "";
 
     // options download
 
@@ -172,6 +184,7 @@
     {
         url,
         wifi,
+        contact
     }
     private enum SafeFileType
     {
@@ -187,9 +200,25 @@
     {
         _generatedQRCodePng = null;
         _generatedQRCodeSvg = null;
-        var payload = _input;
-        Console.WriteLine($"{payload} - ECC: {_selectedECC} | Save As: {_selectedSaveFileType}");
-        QRCodeData data = _qrCodeGenerator.CreateQrCode(payload, _selectedECC, forceUtf8: true);
+        PayloadGenerator.Payload? payload = null;
+        switch (_selectedQRType)
+        {
+            case QRType.url:
+                payload = new PayloadGenerator.Url(_input);
+                break;
+            case QRType.wifi:
+                payload = new PayloadGenerator.WiFi(_input, _password, PayloadGenerator.WiFi.Authentication.WPA2);
+                break;
+            case QRType.contact:
+                payload = new PayloadGenerator.WhatsAppMessage
+            default:
+                break;
+        }
+        if (payload is null)
+        {
+            return;
+        }
+        QRCodeData data = _qrCodeGenerator.CreateQrCode(payload);
         switch (_selectedSaveFileType)
         {
             case SafeFileType.png:
@@ -204,6 +233,15 @@
                 break;
         }
     }
+
+    private PayloadGenerator.Payload GeneratePayload()
+        => _selectedQRType switch
+        {
+            QRType.url => new PayloadGenerator.Url(_input),
+            QRType.wifi => new PayloadGenerator.WiFi(_input, _password,)
+            _ => new PayloadGenerator.Url(_input)
+        };
+
 
     private void Save(string saveFilePath, string name, QRCodeData data)
     {
