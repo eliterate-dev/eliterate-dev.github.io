@@ -1,18 +1,22 @@
 ﻿@using Eliterate.WebAssembly.Components.Generic.Inputs
 @using QRCoder
+@inject IJSRuntime JS
 
 @page "/tools/qr"
 
 <PageTitle>Eliterate - Tools - QR</PageTitle>
 
 <div class="fill qr-generator">
-    <div class="url-type-tags">
-        @foreach (var item in _qrTypes.Reverse())
-        {
-            <div @onclick="(x => SetQrType(item.Key))" style="@($"background-color:hsl({item.Value.GetIntFromString(360)}, 100%, 80%);")">@item.Value</div>
-        }
-    </div>
     <div>
+        <div class="loose-paper" style="rotate:-1deg;"></div>
+        <div class="loose-paper" style="rotate:2deg;"></div>
+        <div class="loose-paper" style="rotate:-2deg;"></div>
+        <div class="url-type-tags">
+            @foreach (var item in _qrTypes.Reverse())
+            {
+                <div class="@(_selectedQRType == item.Key ? "active" : "")" @onclick="(x => SetQrType(item.Key))" style="@($"background-color:hsl({item.Value.GetIntFromString(360)}, 100%, 80%);rotate:{Random.Shared.Next(-4, 4)}deg;")">@item.Value</div>
+            }
+        </div>
         <Paper>
             <h2>QR Code Generation Form - @_qrTypes.First(x => x.Key == _selectedQRType).Value</h2>
             <label>Please fill out the form</label>
@@ -62,7 +66,8 @@
                         </InputWithLabel>
                         break;
                 }
-                <InputWithLabel Label="Save file type"
+                <hr />
+                @* <InputWithLabel Label="Save file type"
                                  Description="The safe file type. A png is a simple image. It's simple to use, but it can get blurry when you resize it.
                                     An svg is a mathematically constructed image. You might not be able to use it everywhere, but you can resize it without worry anywhere you use it.">
                     <select @bind="_selectedSaveFileType">
@@ -71,7 +76,7 @@
                             <option value="@item.Key">@item.Value</option>
                         }
                     </select>
-                </InputWithLabel>
+                </InputWithLabel> *@
                 <InputWithLabel Label="ECC"
                                  Description="The Error Correction Code (ECC) of a QR code describes how much of a QR code is redundant data.
                                     That means, with a higher ECC level, there is intentional duplication of data in a QR code.
@@ -111,10 +116,13 @@
                             <p>This site does not save any data.</p>
                             <p>Refresh and it's all gone.</p>
                             <p>If you want to keep this QR code you have to download it.</p>
+                            <InputWithLabel Label="File Name">
+                                <InputText @bind-Value="_fileName"></InputText>
+                            </InputWithLabel>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button  style="float:right;margin:0 0.5rem 0.5rem 0;">Download</button>
+                        <button  style="float:right;margin:0 0.5rem 0.5rem 0;" @onclick="DownloadQrCode">Download</button>
                     </div>
                 </FlashCard>
             </div>
@@ -164,8 +172,7 @@
             {
                 {QRType.url, "Url"},
                 {QRType.text, "Text"},
-                {QRType.wifi, "WIFI"},
-                {QRType.contact, "Contact"}
+                {QRType.wifi, "WIFI"}
             };
 
     private PayloadGenerator.WiFi.Authentication _selectedWifiAuthentication = PayloadGenerator.WiFi.Authentication.WPA2;
@@ -192,6 +199,7 @@
     private string _email = "";
     private string _website = "";
 
+    private string _fileName = "";
 
     // results
     private byte[]? _generatedQRCodePng;
@@ -255,8 +263,16 @@
         };
 
 
-    private void Save(string saveFilePath, string name, QRCodeData data)
+    private async void DownloadQrCode()
     {
-        
+        if (_generatedQRCodePng is null)
+            return;
+        var fileStream = new MemoryStream(_generatedQRCodePng);
+
+        var fileName = string.IsNullOrWhiteSpace(_fileName) ? $"qr_{DateTime.Now.ToString("yyMMdd_HHmmss")}.png" : $"{_fileName.Replace('.', '_')}.png";
+
+        using var streamRef = new DotNetStreamReference(stream: fileStream);
+
+        await JS.InvokeVoidAsync("downloadFileFromStream", fileName, streamRef);
     }
 }

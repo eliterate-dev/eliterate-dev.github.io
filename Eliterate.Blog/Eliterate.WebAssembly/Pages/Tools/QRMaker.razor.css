@@ -1,6 +1,6 @@
 ﻿.qr-generator {
 	display: grid;
-	grid-template-rows: 2rem auto auto;
+	grid-template-rows: auto auto;
 }
 
 .url-type-tags {
@@ -12,13 +12,28 @@
 	.url-type-tags > div {
 		color: black;
 		position: relative;
-		bottom: 0;
+		bottom: -1.25rem;
 		width: max-content;
 		float: right;
 		padding: 0.25rem;
-		margin-top: 0.5rem;
+		padding-bottom: 1.25rem;
 		margin-right: 0.25rem;
+		border: 1px solid black;
 	}
+	.url-type-tags > div.active {
+		rotate: 0deg !important;
+		z-index: 1;
+	}
+
+		.url-type-tags > div:not(.active):hover {
+			border-color: var(--color-primary);
+			text-decoration: underline;
+		}
+
+hr {
+	border-color: var(--color-primary);
+	margin: 0.125rem 0 0 0;
+}
 
 ::deep .paper-container {
 	margin-right: auto;
@@ -28,11 +43,29 @@
 }
 
 ::deep .paper {
-
+	border: 1px solid black;
 }
 ::deep .paper-text {
 	max-height: 85%;
 	overflow-y: scroll;
+}
+
+.loose-paper {
+	background-color: var(--color-contrast-2);
+	background-image: var(--texture-paper);
+	border: 1px solid black;
+	box-shadow: 1px 1px 1px black;
+	background-size: 276px;
+	position: absolute;
+	margin-right: auto;
+	margin-left: auto;
+	width: 95%;
+	max-width: 700px;
+	aspect-ratio: 1/1.41;
+	top: 3rem;
+	right: 0;
+	left: 0;
+	z-index: 0;
 }
 
 .qr-data-form {
@@ -51,7 +84,7 @@
 	position: relative;
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 340px;
+	grid-template-rows: 440px;
 }
 	.qr-output > div {
 		transform-style: preserve-3d;
@@ -61,20 +94,23 @@
 ::deep .flashcard {
 	animation: slideIn 1s ease;
 	max-width: 250px;
-	margin-right: 20px;
 	margin-top: 20px;
+	margin-left: 0;
 }
 
 ::deep .polaroid-camera {
+	position: absolute;
 	transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) rotateZ(var(--rotate-z));
-	transform-style: preserve-3d;
-	top: -20px;
-	left: -10px;
+	top: 50px;
+	left: 20px;
 }
 
 @media (min-width: 500px) {
 	.qr-output {
 		grid-template-columns: 250px auto;
+	}
+	::deep .polaroid-camera {
+		top: -20px;
 	}
 	::deep .flashcard {
 		margin-right: 50px;
