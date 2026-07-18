@@ -19,7 +19,8 @@
         </div>
         <Paper>
             <h2>QR Code Generation Form - @_qrTypes.First(x => x.Key == _selectedQRType).Value</h2>
-            <label>Please fill out the form</label>
+            <label>Please fill out the form:</label>
+            <hr />
             <div class="qr-data-form">
                 @switch (_selectedQRType)
                 {
@@ -40,7 +41,7 @@
                         <p>Well... scan of a code.</p>
                         <p>Either way, this type of QR code is simply an encoding of WI-FI access data into QR form.</p>
                         <InputWithLabel Label="Network name"
-                                        Description="The network name - also known as SSID."
+                                        Description="The network name - sometimes written as SSID (Service Set Identifier)."
                                         ShowDescription="true">
                             <InputText @bind-Value="_ssid"></InputText>
                         </InputWithLabel>
