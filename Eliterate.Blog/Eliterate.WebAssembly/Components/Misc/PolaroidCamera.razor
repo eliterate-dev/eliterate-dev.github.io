@@ -1,7 +1,7 @@
 ﻿@using Eliterate.WebAssembly.Components.Generic.Shapes
 <div class="polaroid-camera" style="@_size @_position @_rotation @_color">
     <Cuboid X="X" Y="X" Z="(X / 4)" Color="#111">
-        <Cuboid X="X" Y="(X / 2.9)" Z="(X / 12)" MoveY="(X * -0.01)">
+        <Cuboid X="X" Y="(X / 2.9)" Z="(X / 12)" MoveY="(X * -0.01)" Color="@Color">
             <Cuboid X="X" Y="(X / 2)" Z="(X / 20)" MoveY="(X / 10)" MoveZ="(X / 4)" RotateX="90" Color="@Color">
                 <div class="fill center-content">
                     <div class="stripe"></div>
@@ -33,10 +33,20 @@
                 <div class="logo">ELITERATE LAND CAMERA</div>
                 <div class="print-slot">
                     <div class="printer">
-                        @if (ChildContent is not null)
+                        @if (PngData is not null)
                         {
                             <div class="polaroid">
-                                @ChildContent
+                                <div class="polaroid-image">
+                                    <div style="background:url(data:image/jpeg;base64,@Convert.ToBase64String(PngData))"></div>
+                                </div>
+                            </div>
+                        }
+                        else if (SvgData is not null)
+                        {
+                            <div class="polaroid">
+                                <div class="polaroid-image">
+                                    <img src="@SvgData" />
+                                </div>
                             </div>
                         }
                     </div>
@@ -67,7 +77,9 @@
     [Parameter]
     public double RotateZ { get; set; }
     [Parameter]
-    public string Color { get; set; } = "#fff";
+    public string Color { get; set; } = "#e6e9e0";
     [Parameter]
-    public RenderFragment? ChildContent { get; set; }
+    public byte[]? PngData { get; set; }
+    [Parameter]
+    public string? SvgData { get; set; }
 }

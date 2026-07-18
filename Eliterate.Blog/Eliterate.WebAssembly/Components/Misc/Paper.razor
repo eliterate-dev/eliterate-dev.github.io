@@ -1,5 +1,5 @@
 ﻿
-<div class="paper-container">
+<div class="paper-container" style="@_tearoffHeight">
     <div class="paper @(_hasTearoff ? "has-tearoffs" : "")" style="@_rotate">
         @if (HasPins)
         {
@@ -55,4 +55,5 @@
     private int _skip = Random.Shared.Next(6);
     private int _skip2 = Random.Shared.Next(6);
     private bool _hasTearoff => Link is not null;
+    private string _tearoffHeight => _hasTearoff ? "--tearoff-height:8rem;" : "--tearoff-height:0rem;";
 }

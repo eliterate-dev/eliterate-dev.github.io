@@ -1,11 +1,11 @@
 ﻿<div class="input-with-label">
     <label>
         @Label
-        @if (Description is not null)
+        @if (Description is not null && !ShowDescription)
         {
             <span @onclick="ToggleDescription">?</span>
         }
-        @if (Warning is not null)
+        @if (Warning is not null && !ShowWarning)
         {
             <span @onclick="ToggleWarning">!</span>
         }
@@ -24,10 +24,11 @@
 </div>
 
 @code {
-    private bool _isDescriptionOpen;
-    private bool _isWarningOpen;
-    private string _openDescription => _isDescriptionOpen ? "open" : "";
-    private string _openWarning => _isWarningOpen ? "open" : "";
+    private bool _showWarning;
+    private bool _showDescription;
+
+    private string _openDescription => _showDescription ? "open" : "";
+    private string _openWarning => _showWarning ? "open" : "";
 
     [Parameter]
     public required string Label { get; set; }
@@ -37,7 +38,17 @@
     public string? Description { get; set; }
     [Parameter]
     public string? Warning { get; set; }
+    [Parameter]
+    public bool ShowDescription { get; init; }
+    [Parameter]
+    public bool ShowWarning { get; init; }
 
-    private void ToggleDescription() => _isDescriptionOpen = !_isDescriptionOpen;
-    private void ToggleWarning() => _isWarningOpen = !_isWarningOpen;
+    private void ToggleDescription() => _showDescription = !_showDescription;
+    private void ToggleWarning() => _showWarning = !_showWarning;
+
+    protected override void OnParametersSet()
+    {
+        _showDescription = ShowDescription;
+        _showWarning = ShowWarning;
+    }
 }

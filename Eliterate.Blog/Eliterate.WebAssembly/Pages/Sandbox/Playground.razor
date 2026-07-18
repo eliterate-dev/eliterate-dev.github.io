@@ -5,8 +5,8 @@
 <div class="split">
     <div>
         <RotatingDisplay Paused="true">
-            <PolaroidCamera RotateX="60" RotateZ="135">
-                <img src="images/photos/Cat_on_tower.jpg" />
+            <PolaroidCamera RotateX="60" RotateZ="135" SvgData="images/qrcodes/eliterate.svg">
+                
             </PolaroidCamera>
         </RotatingDisplay>
     </div>
@@ -19,4 +19,5 @@
 
 @code {
     private string _input = "";
+    private string svgData = "";
 }
