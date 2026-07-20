@@ -33,21 +33,30 @@
                 <div class="logo">ELITERATE LAND CAMERA</div>
                 <div class="print-slot">
                     <div class="printer">
-                        @if (PngData is not null)
+                        @if (PngData is not null || ImageLink is not null)
                         {
-                            <div class="polaroid">
-                                <div class="polaroid-image">
-                                    <div style="background:url(data:image/jpeg;base64,@Convert.ToBase64String(PngData))"></div>
-                                </div>
-                            </div>
-                        }
-                        else if (SvgData is not null)
-                        {
-                            <div class="polaroid">
-                                <div class="polaroid-image">
-                                    <img src="@SvgData" />
-                                </div>
-                            </div>
+                            <Cuboid X="(X * 0.90)" Y="X * 1" Z="1" Color="#fff">
+                                @if (PngData is not null)
+                                {
+                                    <div class="polaroid">
+                                        <div class="polaroid-image">
+                                            <div class="polaroid-image-content">
+                                                <div style="background:url(data:image/jpeg;base64,@Convert.ToBase64String(PngData))"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else if (ImageLink is not null)
+                                {
+                                    <div class="polaroid">
+                                        <div class="polaroid-image">
+                                            <div class="polaroid-image-content">
+                                                <img src="@ImageLink" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </Cuboid>
                         }
                     </div>
                 </div>
@@ -81,5 +90,5 @@
     [Parameter]
     public byte[]? PngData { get; set; }
     [Parameter]
-    public string? SvgData { get; set; }
+    public string? ImageLink { get; set; }
 }

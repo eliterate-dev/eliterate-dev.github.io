@@ -56,6 +56,13 @@
                 <label>Z</label> <InputNumber @bind-value="_z" />
             </div>
             break;
+        case Component.RotatableDisplay:
+            <RotatableDisplay ContentSize="200">
+                <PolaroidCamera X="200" ImageLink="images/photos/Cat_on_tower.jpg">
+
+                </PolaroidCamera>
+            </RotatableDisplay>
+            break;
         case Component.Wedge:
             <RotatingDisplay Paused="true">
                 <Wedge X="_x" Y="_y" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ">
@@ -186,6 +193,7 @@
         Book,
         Wedge,
         RotatingDisplay,
+        RotatableDisplay,
         RadialText,
         InputWithLabel
     }

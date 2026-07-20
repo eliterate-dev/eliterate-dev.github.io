@@ -1,0 +1,37 @@
+﻿
+<div class="fill center-content rotatable-display" style="@_size @_rotate" @onmousemove="Rotate" @onmousemove:preventDefault="true" @onmousedown="SetCoordinates">
+    <div class="rotatable-display-content">
+        @ChildContent
+    </div>
+</div>
+
+@code {
+    private string _size => $"--size:{ContentSize}px;";
+    private string _rotate => $"--rotate-content-x:{_deltaX}deg;--rotate-content-y:{_deltaY}deg;";
+
+    private double _mouseX = 0;
+    private double _mouseY = 0;
+
+    private double _deltaY = 60;
+    private double _deltaX = 150;
+
+    [Parameter]
+    public double ContentSize { get; set; } = 100;
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    private void Rotate(MouseEventArgs e)
+    {
+        if (!Codespirals.Base.Extensions.BinaryIntegerExtensions.CheckBitAtPosition(e.Buttons, 0))
+            return;
+
+        _deltaX += (_mouseX - e.ScreenX) / 4;
+        _deltaY += (_mouseY - e.ScreenY) / 4;
+        SetCoordinates(e);
+    }
+    private void SetCoordinates(MouseEventArgs e)
+    {
+        _mouseX = e.ScreenX;
+        _mouseY = e.ScreenY;
+    }
+}
