@@ -88,45 +88,57 @@
 .printer {
 	position: absolute;
 	width: 100%;
-	height: var(--x);
 	transform-style: preserve-3d;
 	transform-origin: top center;
 	transform: rotateX(90deg);
 }
+	.printer > ::deep div {
+		animation-name: printPolaroid;
+		animation-duration: 4s;
+	}
+
 .polaroid {
-	position: absolute;
-	width: 95%;
-	min-height: var(--x);
-	padding: 0.375rem;
-	background-color: white;
-	translate: 0 0 -1px;
-	animation-name: printPolaroid;
-	animation-duration: 4s;
-}
-.polaroid-image {
 	position: relative;
-	width: 100%;
-	aspect-ratio: 1/1;
-	border: 1px solid var(--color-shadow);
-	overflow: hidden;
+	background-color: white;
+	padding: 0.375rem;
+	padding-bottom: 2rem;
 }
 
-	.polaroid-image ::deep > * {
-		position: absolute;
-		top: -15px;
-		left: -15px;
-		width: calc(100% + 40px);
-		height: calc(100% + 40px);
-		background-size: calc(var(--x) + 2px) !important;
-	}
+.polaroid-image {
+	position: absolute;
+	border: 1px solid var(--color-shadow);
+	width: calc(100% - 0.75rem);
+	aspect-ratio: 1/1;
+	overflow: hidden;
+}
+.polaroid-image-content {
+	width: calc(var(--x) * 2);
+	height: calc(var(--x) * 2);
+	margin-top: calc((var(--x) * -0.5) - 0.375rem);
+	margin-left: calc((var(--x) * -0.5) - 0.375rem);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+::deep.polaroid-image-content > div {
+	height: calc(var(--x) + 20px);
+	aspect-ratio: 1/1;
+	background-size: calc(var(--x) + 20px) !important;
+	object-fit: cover;
+}
+::deep .polaroid-image-content > img {
+	height: calc(var(--x) + 20px);
+	aspect-ratio: 1/1;
+}
 
 @keyframes printPolaroid {
 	0% {
-		translate: 0 calc(var(--x) * -1) -1px;
+		translate:  0 calc(var(--x) * -1);
 		filter: grayscale(100%);
 	}
 	50% {
-		translate: 0 0 -1px;
+		translate:  0 0;
 		filter: grayscale(100%);
 	}
 	100% {

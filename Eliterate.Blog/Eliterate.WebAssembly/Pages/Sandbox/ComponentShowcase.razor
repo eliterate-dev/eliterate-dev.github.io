@@ -5,7 +5,7 @@
 
 <PageTitle>Components</PageTitle>
 
-<div style="position:absolute;top:0.25rem;right:2rem;">
+<div style="position:absolute;top:0.25rem;right:0.5rem;">
     <InputSelect @bind-Value="_selected">
         @foreach (var item in Enum.GetValues(typeof(Component)).Cast<Component>())
         {
@@ -13,31 +13,23 @@
         }
     </InputSelect>
 </div>
-<div class="fill component-showcase" style="margin:2rem 0.5rem;padding-right:0.5rem;border:10px inset dimgrey;background-color:var(--color-background);overflow-y:scroll;">
+<div class="fill component-showcase" style="margin:1.75rem 0.5rem 0.5rem 0.5rem;padding:0 0.5rem;border:10px inset dimgrey;background-color:var(--color-background);overflow-y:scroll;">
     @switch (_selected)
     {
         case Component.Cuboid:
-            <div style="position:absolute;top:0;right:0;z-index:1;display:grid;grid-template-columns:max-content max-content max-content max-content;">
+            <div class="fill center-content">
+                <Cuboid X="_x" Y="_y" Z="_z" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ"></Cuboid>
+            </div>
+            <div style="position:absolute;top:0;right:0;display:grid;grid-template-columns:max-content max-content max-content max-content;">
                 <label>X</label> <InputNumber @bind-value="_x" />
                 <label>Rotate X</label> <InputNumber @bind-value="_rotateX" />
                 <label>Y</label> <InputNumber @bind-value="_y" />
                 <label>Rotate Y</label> <InputNumber @bind-value="_rotateY" />
                 <label>Z</label> <InputNumber @bind-value="_z" />
                 <label>Rotate Z</label> <InputNumber @bind-value="_rotateZ" />
-            </div>
-            <div class="fill center-content">
-                <Cuboid X="_x" Y="_y" Z="_z" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ" SideLabel="Side Text"></Cuboid>
             </div>
             break;
         case Component.Book:
-            <div style="position:absolute;top:0;right:0;z-index:1;display:grid;grid-template-columns:max-content max-content max-content max-content;">
-                <label>X</label> <InputNumber @bind-value="_x" />
-                <label>Rotate X</label> <InputNumber @bind-value="_rotateX" />
-                <label>Y</label> <InputNumber @bind-value="_y" />
-                <label>Rotate Y</label> <InputNumber @bind-value="_rotateY" />
-                <label>Z</label> <InputNumber @bind-value="_z" />
-                <label>Rotate Z</label> <InputNumber @bind-value="_rotateZ" />
-            </div>
             <div class="fill center-content">
                 <Book X="_x" Y="_y" Z="_z" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ">
                     <div class="fill">
@@ -45,9 +37,7 @@
                     </div>
                 </Book>
             </div>
-            break;
-        case Component.RotatingDisplay:
-            <div style="position:absolute;top:0;right:0;z-index:1;display:grid;grid-template-columns:max-content max-content max-content max-content;">
+            <div style="position:absolute;top:0;right:0;display:grid;grid-template-columns:max-content max-content max-content max-content;">
                 <label>X</label> <InputNumber @bind-value="_x" />
                 <label>Rotate X</label> <InputNumber @bind-value="_rotateX" />
                 <label>Y</label> <InputNumber @bind-value="_y" />
@@ -55,18 +45,25 @@
                 <label>Z</label> <InputNumber @bind-value="_z" />
                 <label>Rotate Z</label> <InputNumber @bind-value="_rotateZ" />
             </div>
+            break;
+        case Component.RotatingDisplay:
             <RotatingDisplay>
                 <Cuboid X="_x" Y="_y" Z="_z" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ" SideLabel="Side Text"></Cuboid>
             </RotatingDisplay>
+            <div style="position:absolute;top:0;right:0;display:grid;grid-template-columns:max-content max-content;">
+                <label>X</label> <InputNumber @bind-value="_x" />
+                <label>Y</label> <InputNumber @bind-value="_y" />
+                <label>Z</label> <InputNumber @bind-value="_z" />
+            </div>
+            break;
+        case Component.RotatableDisplay:
+            <RotatableDisplay ContentSize="200">
+                <PolaroidCamera X="200" ImageLink="images/photos/Cat_on_tower.jpg">
+
+                </PolaroidCamera>
+            </RotatableDisplay>
             break;
         case Component.Wedge:
-            <div style="position:absolute;top:0;right:0;z-index:1;display:grid;grid-template-columns:max-content max-content max-content max-content;">
-                <label>X</label> <InputNumber @bind-value="_x" />
-                <label>Rotate X</label> <InputNumber @bind-value="_rotateX" />
-                <label>Y</label> <InputNumber @bind-value="_y" />
-                <label>Rotate Y</label> <InputNumber @bind-value="_rotateY" />
-                <label>Rotate Z</label> <InputNumber @bind-value="_rotateZ" />
-            </div>
             <RotatingDisplay Paused="true">
                 <Wedge X="_x" Y="_y" RotateX="_rotateX" RotateY="_rotateY" RotateZ="_rotateZ">
                     <div class="fill center-content">
@@ -74,18 +71,22 @@
                     </div>
                 </Wedge>
             </RotatingDisplay>
+            <div style="position:absolute;top:0;right:0;display:grid;grid-template-columns:max-content max-content;">
+                <label>X</label> <InputNumber @bind-value="_x" />
+                <label>Y</label> <InputNumber @bind-value="_y" />
+            </div>
             break;
         case Component.RadialText:
-            <div style="position:absolute;top:0;right:0;z-index:1;display:grid;grid-template-columns:max-content 1fr;">
-                <label>Text</label> <InputText DisplayName="Text" @bind-value="_text" />
-                <label>Font Size</label><InputNumber DisplayName="Font Size" @bind-value="_fontSize"></InputNumber>
-                <label>Size</label><InputNumber DisplayName="Size" @bind-value="_size"></InputNumber>
-                <label>Angle</label><InputNumber DisplayName="Angle" @bind-value="_angle"></InputNumber>
-            </div>
             <div class="fill center-content">
                 <RadialText Text="@_text" FontSize="_fontSize" Size="_size" Angle="_angle">
                     <img src="images/photos/Cat_on_tower.jpg" />
                 </RadialText>
+            </div>
+            <div style="position:absolute;top:0;right:0;display:grid;grid-template-columns:max-content 1fr;">
+                <label>Text</label> <InputText DisplayName="Text" @bind-value="_text" />
+                <label>Font Size</label><InputNumber DisplayName="Font Size" @bind-value="_fontSize"></InputNumber>
+                <label>Size</label><InputNumber DisplayName="Size" @bind-value="_size"></InputNumber>
+                <label>Angle</label><InputNumber DisplayName="Angle" @bind-value="_angle"></InputNumber>
             </div>
             break;
         case Component.InputWithLabel:
@@ -114,25 +115,36 @@
                             Warning="@_warning">
                 <InputCheckbox @bind-Value="_boolInput"></InputCheckbox>
             </InputWithLabel>
-            <RadioWithLabel Label="Text Radio"
-                            Description="@_description"
-                            Warning="@_warning"
-                            TValue="int"
-                            Value="_radioInput"
-                            Options="_selectOptions.Select(x => new KeyValuePair<int, string>(_selectOptions.IndexOf(x), x)).ToDictionary()">
-            </RadioWithLabel>
             <InputWithLabel Label="Test Date"
                             Description="@_description"
                             Warning="@_warning">
                 <InputDate @bind-Value="_dateInput"></InputDate>
             </InputWithLabel>
-            <SelectWithLabel Label="Text Radio"
+            <InputWithLabel Label="Test Radio"
                             Description="@_description"
-                            Warning="@_warning"
-                            TValue="int"
-                            Value="_radioInput"
-                            Options="_selectOptions.Select(x => new KeyValuePair<int, string>(_selectOptions.IndexOf(x), x)).ToDictionary()">
-            </SelectWithLabel>
+                            Warning="@_warning">
+                <InputRadioGroup @bind-value="_radioInput">
+                    @foreach (var item in _selectOptions.Select(x => new KeyValuePair<int, string>(_selectOptions.IndexOf(x), x)).ToDictionary())
+                    {
+                        <div>
+                            <label>
+                                <InputRadio Value="@item.Key" />
+                                @item.Value
+                            </label>
+                        </div>
+                    }
+                </InputRadioGroup>
+            </InputWithLabel>
+            <InputWithLabel Label="Test Select"
+                            Description="@_description"
+                            Warning="@_warning">
+                <InputSelect @bind-value="_selectInput">
+                    @foreach (var item in _selectOptions.Select(x => new KeyValuePair<int, string>(_selectOptions.IndexOf(x), x)).ToDictionary())
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </InputSelect>
+            </InputWithLabel>
             break;
         default:
             <div class="fill center-content">
@@ -181,6 +193,7 @@
         Book,
         Wedge,
         RotatingDisplay,
+        RotatableDisplay,
         RadialText,
         InputWithLabel
     }

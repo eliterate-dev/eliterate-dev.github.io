@@ -20,15 +20,17 @@
 
 .rotating-display {
 	transform-origin: 50% 50%;
+	touch-action: pan-x;
 }
 
 ::deep .rotating-display > * {
 	transform-style: preserve-3d;
 	transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) rotateZ(var(--rotate-z));
 	animation: rotateContent 5s linear infinite;
+	user-select: none; 
 }
 
-::deep .paused > * {
+.paused > ::deep * {
 	animation-play-state: paused;
 }
 
