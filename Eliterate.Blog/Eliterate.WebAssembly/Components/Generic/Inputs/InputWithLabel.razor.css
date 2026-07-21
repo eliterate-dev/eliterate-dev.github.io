@@ -66,9 +66,19 @@
 	margin-bottom: 0.25rem;
 }
 	.input-description:before {
-		color: #bbb;
+		color: var(--color-background);
+		background-color: var(--color-foreground);
+		vertical-align: middle;
+		display: inline-block;
+		margin-right: 0.125rem;
+		font-size: 0.875rem;
+		line-height: 0.75rem;
+		height: 0.75rem;
+		aspect-ratio: 1/1;
+		text-align: center;
+		align-content: center;
 		content: 'ℹ';
-		padding-right: 0.125rem;
+		border-radius: 50%; 
 	}
 
 .input-description, .input-warning {

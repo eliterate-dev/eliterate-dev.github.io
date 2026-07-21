@@ -185,7 +185,6 @@
     private int _selectInput;
     private int _radioInput;
 
-
     private enum Component
     {
         None,
@@ -197,4 +196,10 @@
         RadialText,
         InputWithLabel
     }
+
+    [SupplyParameterFromQuery]
+    [Parameter]
+    public int? InitialComponent { get; set; }
+
+    protected override void OnParametersSet() => _selected = InitialComponent is null ? Component.None : (Component)InitialComponent;
 }
