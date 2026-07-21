@@ -1,5 +1,7 @@
 ﻿
-<div class="fill center-content rotatable-display" style="@_size @_rotate" @onmousemove="Rotate" @onmousemove:preventDefault="true" @onmousedown="SetCoordinates">
+<div class="fill center-content rotatable-display" style="@_size @_rotate" 
+    @ontouchstart="SetCoordinates" @ontouchmove="Rotate" @ontouchmove:preventDefault="true"
+    @onmousedown="SetCoordinates" @onmousemove="Rotate" @onmousemove:preventDefault="true">
     <div class="rotatable-display-content">
         @ChildContent
     </div>
@@ -20,6 +22,11 @@
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
+    private void SetCoordinates(MouseEventArgs e)
+    {
+        _mouseX = e.ScreenX;
+        _mouseY = e.ScreenY;
+    }
     private void Rotate(MouseEventArgs e)
     {
         if (!Codespirals.Base.Extensions.BinaryIntegerExtensions.CheckBitAtPosition(e.Buttons, 0))
@@ -29,9 +36,16 @@
         _deltaY += (_mouseY - e.ScreenY) / 4;
         SetCoordinates(e);
     }
-    private void SetCoordinates(MouseEventArgs e)
+    private void SetCoordinates(TouchEventArgs e)
     {
-        _mouseX = e.ScreenX;
-        _mouseY = e.ScreenY;
+        _mouseX = e.Touches.First().ScreenX;
+        _mouseY = e.Touches.First().ScreenY;
+    }
+    private void Rotate(TouchEventArgs e)
+    {
+        _deltaX += (_mouseX - e.Touches.First().ScreenX) / 4;
+        _deltaY += (_mouseY - e.Touches.First().ScreenY) / 4;
+        Console.WriteLine($"X:{_mouseX}|Y:{_mouseY}|DX:{_deltaX}|DY:{_deltaY}");
+        SetCoordinates(e);
     }
 }

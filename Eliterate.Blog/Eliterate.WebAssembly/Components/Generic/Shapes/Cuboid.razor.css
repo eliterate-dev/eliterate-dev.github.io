@@ -33,7 +33,7 @@
 .cuboid-bottom {
 	width: var(--x);
 	height: var(--y);
-	background-color: color-mix(in srgb, var(--color) 60%, #333333);
+	background-color: color-mix(in srgb, var(--color) 90%, #333333);
 }
 
 	.cuboid-bottom::before {

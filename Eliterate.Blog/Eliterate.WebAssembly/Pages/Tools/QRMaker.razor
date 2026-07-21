@@ -1,4 +1,5 @@
 ﻿@using Eliterate.WebAssembly.Components.Generic.Inputs
+@using Codespirals.Base.Extensions;
 @using QRCoder
 @inject IJSRuntime JS
 
@@ -210,7 +211,7 @@
     [Parameter]
     public string? Url { get; set; }
 
-    protected override void OnParametersSet() => _url = Url ?? "https://eliterate.blog/playground";
+    protected override void OnParametersSet() => _url = Url ?? "";
 
     private enum QRType
     {
