@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "477JooIz",
+  "version": "2Sfbw/6N",
   "assets": [
     {
       "hash": "sha256-Tp5DMyNGSdN59rh4JSxgN4hxdNdoUukTyibnS+ajzT0=",
@@ -10,7 +10,7 @@ self.assetsManifest = {
       "url": "CNAME"
     },
     {
-      "hash": "sha256-c0Tfy09RHGBJosdEnFPXqS18I9jh9SDJdDTotcvS8S4=",
+      "hash": "sha256-gJ7xZrn9Xj5wSKdwnh5/+vBn3g2ctbpNKzfWD3ePfUc=",
       "url": "Eliterate.WebAssembly.styles.css"
     },
     {
@@ -34,8 +34,8 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.VideoGames.MineSweeper.xf7qbegxc2.wasm"
     },
     {
-      "hash": "sha256-JxignUSd69Ak1ipAGEQecCPB4us5iUe7pUd5uKoaQD8=",
-      "url": "_framework/Eliterate.WebAssembly.74xam3lpoj.wasm"
+      "hash": "sha256-eXz5Qf2ElZq8h4kHqQHDYAG53XkMVWW0q9y1FMc22Mw=",
+      "url": "_framework/Eliterate.WebAssembly.394gawwtbv.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
@@ -46,8 +46,8 @@ self.assetsManifest = {
       "url": "_framework/Microsoft.AspNetCore.Components.Forms.ilstdubmvo.wasm"
     },
     {
-      "hash": "sha256-svInujaPM+46K7Y2gp4MQpumqxyl8dxDD3rE4SgUn9U=",
-      "url": "_framework/Microsoft.AspNetCore.Components.Web.aas6ij6xf7.wasm"
+      "hash": "sha256-/j4oo/vzCRDmpgRDqZBSQQg7eDFWjRoSNRJFeGsZquw=",
+      "url": "_framework/Microsoft.AspNetCore.Components.Web.epfyhr0511.wasm"
     },
     {
       "hash": "sha256-mYE15Q+tfM2fHGq72S80Mlq6BF5piCMbb5tjPEPhwEM=",
@@ -270,7 +270,7 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-T+/DOAvzv2iAxiOvdJ4UFH8h0u1b0xB8XSYTO4MWdns=",
+      "hash": "sha256-ZW1BPAG6odxfhArzFpZb88FY+bHhEKPV41nwbWAX+Jo=",
       "url": "_framework/dotnet.js"
     },
     {
