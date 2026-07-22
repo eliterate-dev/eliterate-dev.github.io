@@ -2,11 +2,30 @@
 <PageTitle>Eliterate - Tools</PageTitle>
 
 <div class="tool-list">
-    <FlashCard>
-        <a class="fill center-content" href="tools/qr">
-            <h1 style="width:max-content;">QR Maker</h1>
-        </a>
-    </FlashCard>
+    <div class="tool">
+        <div class="tool-description center-content">
+            <FlashCard Rotation="-2">
+                <a class="fill" href="tools/qr">
+                    <div class="card-header">
+                        <div class="grid-container-dash-dot">
+                            <h2 class="card-title">QR Code Generator</h2>
+                        </div>
+                        <Sticker Text="🖺" Top="1.25m" Right="0.5m" Rotate="2" Scale="1.5m"></Sticker>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text" tabindex="0" role="document">
+                            Generate your own QR codes and download them!
+                        </div>
+                    </div>
+                </a>
+            </FlashCard>
+        </div>
+        <div class="tool-object center-content">
+            <PolaroidCamera RotateX="10" RotateY="3" RotateZ="190">
+
+            </PolaroidCamera>
+        </div>
+    </div>
 </div>
 
 @code {

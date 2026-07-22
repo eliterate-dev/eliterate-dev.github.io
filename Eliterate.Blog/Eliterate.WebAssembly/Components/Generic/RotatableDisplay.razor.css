@@ -5,6 +5,7 @@
 }
 
 .rotatable-display-content {
+	user-select: none;
 	position: absolute;
 	height: var(--size);
 	width: var(--size);

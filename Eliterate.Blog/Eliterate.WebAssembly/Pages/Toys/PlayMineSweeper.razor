@@ -15,13 +15,13 @@
                     <div class="mine-sweeper-cell" @oncontextmenu:preventDefault="true" @oncontextmenu="(x => FlagCell(cell))" @onclick="(x => RevealCell(cell))">
                         @if (cell.IsFlagged)
                         {
-                            <div class="cell-content flagged">
+                            <div class="cell-content flagged" @oncontextmenu:preventDefault="true" @ontouchstart:preventDefault="true">
                                 <span>🚩</span>
                             </div>
                         }
                         else if (!cell.IsRevealed)
                         {
-                            <div class="cell-content covered">
+                            <div class="cell-content covered" @oncontextmenu:preventDefault="true" @ontouchstart:preventDefault="true">
                             </div>
                         }
                         else if (cell.HasBomb == true)

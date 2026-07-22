@@ -1,5 +1,17 @@
-﻿
-.tool-list > ::deep div {
-	width: min-content;
-	margin: 1rem auto;
+﻿.tool-list {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 250px;
+}
+	.tool {
+		display: grid;
+		grid-template-columns: auto 40%;
+	}
+
+.tool-description {
+	max-width: var(--min-width);
+	margin: 0 auto;
+}
+.tool-object {
+	transform-style: preserve-3d;
 }
