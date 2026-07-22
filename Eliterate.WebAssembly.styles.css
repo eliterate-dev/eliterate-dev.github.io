@@ -192,6 +192,7 @@
 }
 
 .rotatable-display-content[b-avimmnq429] {
+	user-select: none;
 	position: absolute;
 	height: var(--size);
 	width: var(--size);
@@ -441,11 +442,12 @@
 /* /Components/Misc/FlashCard.razor.rz.scp.css */
 .flashcard[b-2putsf1dm1] {
 	min-width: var(--min-width);
-	min-height: calc(var(--min-width) * 0.6);
+	min-height: calc(var(--min-width) * 0.5);
 	color: var(--color-foreground);
 	background-color: var(--color-contrast-1);
 	background-image: url(../images/textures/notebook.png);
 	margin-bottom: 0.5rem;
+	padding-bottom: 2.75rem;
 	border: 1px solid var(--color-shadow);
 	border-radius: 0.125rem;
 	box-shadow: 2px 2px black;
@@ -464,7 +466,6 @@
 [b-2putsf1dm1] .card-body {
 	max-width: 380px;
 	height: max-content;
-	margin-bottom: 3rem;
 }
 
 [b-2putsf1dm1] .card-text {
@@ -625,6 +626,7 @@
 	position: absolute;
 	transform-style: preserve-3d;
 	transform-origin: 50% 50%;
+	transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) rotateZ(var(--rotate-z));
 }
 .lens[b-u4l1htg0x4] {
 	background-color: black;
@@ -713,7 +715,8 @@
 	transform-origin: top center;
 	transform: rotateX(90deg);
 }
-	.printer[b-u4l1htg0x4] >  div {
+	.printer[b-u4l1htg0x4] >  .print {
+		top: 0;
 		animation-name: printPolaroid-b-u4l1htg0x4;
 		animation-duration: 4s;
 	}
@@ -742,24 +745,26 @@
 	align-items: center;
 }
 
-[b-u4l1htg0x4].polaroid-image-content > div {
+[b-u4l1htg0x4] .polaroid-image-content > div {
+	user-select: none;
 	height: calc(var(--x) + 20px);
 	aspect-ratio: 1/1;
 	background-size: calc(var(--x) + 20px) !important;
 	object-fit: cover;
 }
 [b-u4l1htg0x4] .polaroid-image-content > img {
+	user-select: none;
 	height: calc(var(--x) + 20px);
 	aspect-ratio: 1/1;
 }
 
 @keyframes printPolaroid-b-u4l1htg0x4 {
 	0% {
-		translate:  0 calc(var(--x) * -1);
+		top: calc(var(--x) * -1);
 		filter: grayscale(100%);
 	}
 	50% {
-		translate:  0 0;
+		top: 0;
 		filter: grayscale(100%);
 	}
 	100% {
@@ -1930,6 +1935,7 @@ p[b-heubgljzp1] {
 		padding: 0.25rem;
 		padding-bottom: 1.25rem;
 		margin-right: 0.25rem;
+		margin-top: 0.25rem;
 		border: 1px solid black;
 	}
 	.url-type-tags > div.active[b-ilbhhnbv0s] {
@@ -1938,8 +1944,9 @@ p[b-heubgljzp1] {
 	}
 
 		.url-type-tags > div:not(.active):hover[b-ilbhhnbv0s] {
-			border-color: var(--color-primary);
-			text-decoration: underline;
+			margin-top: 0;
+			color: var(--color-primary-shade);
+			box-shadow: 1px -1px 2px var(--color-shadow), 1px 0px 2px var(--color-shadow);
 		}
 
 hr[b-ilbhhnbv0s] {
@@ -1974,7 +1981,7 @@ hr[b-ilbhhnbv0s] {
 	width: 95%;
 	max-width: 700px;
 	aspect-ratio: 1/1.41;
-	top: 3rem;
+	top: 3.25rem;
 	right: 0;
 	left: 0;
 	z-index: 0;
@@ -2038,10 +2045,22 @@ hr[b-ilbhhnbv0s] {
 	}
 }
 /* /Pages/Tools/Tools.razor.rz.scp.css */
+.tool-list[b-gmlof3136y] {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 250px;
+}
+	.tool[b-gmlof3136y] {
+		display: grid;
+		grid-template-columns: auto 40%;
+	}
 
-.tool-list[b-gmlof3136y] >  div {
-	width: min-content;
-	margin: 1rem auto;
+.tool-description[b-gmlof3136y] {
+	max-width: var(--min-width);
+	margin: 0 auto;
+}
+.tool-object[b-gmlof3136y] {
+	transform-style: preserve-3d;
 }
 /* /Pages/Toys/PlayBlackJack.razor.rz.scp.css */
 ul[b-bcecxxhwdg] {

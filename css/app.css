@@ -140,7 +140,7 @@ a {
 	text-decoration: none;
 }
 
-	a:hover, a:focus-visible {
+	a:hover {
 		cursor: pointer;
 		color: var(--color-primary-tint);
 	}
@@ -154,7 +154,7 @@ button {
 	box-shadow: 2px 2px 1px black;
 }
 
-	button:hover, button:focus-visible {
+	button:hover {
 		cursor: pointer;
 		color: var(--color-primary-tint);
 		box-shadow: 1px 1px 1px black;
