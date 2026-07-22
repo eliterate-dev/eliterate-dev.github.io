@@ -4,6 +4,7 @@
 	position: absolute;
 	transform-style: preserve-3d;
 	transform-origin: 50% 50%;
+	transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) rotateZ(var(--rotate-z));
 }
 .lens {
 	background-color: black;
@@ -92,7 +93,8 @@
 	transform-origin: top center;
 	transform: rotateX(90deg);
 }
-	.printer > ::deep div {
+	.printer > ::deep .print {
+		top: 0;
 		animation-name: printPolaroid;
 		animation-duration: 4s;
 	}
@@ -121,24 +123,26 @@
 	align-items: center;
 }
 
-::deep.polaroid-image-content > div {
+::deep .polaroid-image-content > div {
+	user-select: none;
 	height: calc(var(--x) + 20px);
 	aspect-ratio: 1/1;
 	background-size: calc(var(--x) + 20px) !important;
 	object-fit: cover;
 }
 ::deep .polaroid-image-content > img {
+	user-select: none;
 	height: calc(var(--x) + 20px);
 	aspect-ratio: 1/1;
 }
 
 @keyframes printPolaroid {
 	0% {
-		translate:  0 calc(var(--x) * -1);
+		top: calc(var(--x) * -1);
 		filter: grayscale(100%);
 	}
 	50% {
-		translate:  0 0;
+		top: 0;
 		filter: grayscale(100%);
 	}
 	100% {

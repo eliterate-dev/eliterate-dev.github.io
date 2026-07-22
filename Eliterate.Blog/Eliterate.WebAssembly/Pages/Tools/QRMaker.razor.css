@@ -18,6 +18,7 @@
 		padding: 0.25rem;
 		padding-bottom: 1.25rem;
 		margin-right: 0.25rem;
+		margin-top: 0.25rem;
 		border: 1px solid black;
 	}
 	.url-type-tags > div.active {
@@ -26,8 +27,9 @@
 	}
 
 		.url-type-tags > div:not(.active):hover {
-			border-color: var(--color-primary);
-			text-decoration: underline;
+			margin-top: 0;
+			color: var(--color-primary-shade);
+			box-shadow: 1px -1px 2px var(--color-shadow), 1px 0px 2px var(--color-shadow);
 		}
 
 hr {
@@ -62,7 +64,7 @@ hr {
 	width: 95%;
 	max-width: 700px;
 	aspect-ratio: 1/1.41;
-	top: 3rem;
+	top: 3.25rem;
 	right: 0;
 	left: 0;
 	z-index: 0;

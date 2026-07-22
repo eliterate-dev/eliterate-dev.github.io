@@ -46,7 +46,7 @@
     private void ToggleDescription() => _showDescription = !_showDescription;
     private void ToggleWarning() => _showWarning = !_showWarning;
 
-    protected override void OnParametersSet()
+    protected override void OnInitialized()
     {
         _showDescription = ShowDescription;
         _showWarning = ShowWarning;
