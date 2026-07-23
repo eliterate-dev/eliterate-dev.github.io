@@ -65,5 +65,17 @@
 		"IsActive": true,
 		"ShowInList": true, 
 		"EstimatedReadTimeInMinutes": 10
+	},
+	{
+		"Title": "QR codes are not scary",
+		"Group": "posts",
+		"Description": "QR codes are actually pretty cool. This is a short explanation of how they work, so you don't have to be scared to use them.",
+		"Tags": [ "QR", "Explanations" ],
+		"Created": "2026-07-23",
+		"ContentUrl": "posts/QR.md",
+		"StickerEmoji": "🙾",
+		"IsActive": true,
+		"ShowInList": true,
+		"EstimatedReadTimeInMinutes": 20
 	}
 ]
