@@ -10,7 +10,7 @@ After you've read this, go and make some QR codes of your own.
 
 I mean, they're not entirely without danger, sure. Just like any link you'd get in an email, do not click (or scan) anything shady.
 
-But any QR scanner worth it's salt will display the url you're about to open before opening it - always make sure it's one you marginally trust.
+But any QR scanner worth it's salt will display the URL you're about to open before opening it - always make sure it's one you marginally trust.
 
 Anyways, I find that usually people are afraid of things they don't understand, so let's try to demystify QR codes.
 
@@ -82,4 +82,27 @@ Let's just do some head math: If the one dimensional barcodes encoded 95 bits on
 
 That's a whooping 9025 bits of information.
 
-With so much more *space* available to work with, of course the clever designers of the QR standrd 
+With so much more *space* available to work with, of course the clever designers of the QR standard applied some clever math to make even more data fit.
+
+The current standard is split into 40 "Versions". When creating a QR code you define what version you want to use from 1 to 40.
+
+A misnomer, in my opinion, as it simply determines their size.
+
+The length of a side of a QR code square is simply 4 * "Version Number" + 17.
+
+| Version | Side  | + 17  |
+|---------|-------|-------|
+| 1       | 4     | 21    |
+| 2       | 8     | 25    |
+| 3       | 12    | 36    | 
+|...      |...    |...    |
+|40       | 160   | 177   |
+
+Now, if we again approach this naively, it would seem that the total information in a square is simply that side length... well squared.
+
+However, just like with the barcode's guard patterns, we need to give the scanners a way to recognize where they should start scanning and decoding the data.
+
+If you've ever looked at a QR code, I'm sure you have noticed the big ▣ looking blocks in the corners. That's what they are for. They tell your scanner "Hey, this is really a QR code and you can scan between these squares."
+
+All QR codes have the 3 obvious ones in the top right, top left and bottom left corners. However Version 2 and beyond also have additional, smaller such "guard pattern squares" further inside the code. 
+

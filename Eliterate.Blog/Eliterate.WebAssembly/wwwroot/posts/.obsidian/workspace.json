@@ -4,44 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "0b6bb5a70eff67a6",
+        "id": "3ce45a85181215f2",
         "type": "tabs",
         "children": [
           {
-            "id": "350e96bbc1c5f90f",
+            "id": "22eb09d0ee8976dd",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Design.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Design"
-            },
-            "group": "954cc4111ece212b"
-          }
-        ]
-      },
-      {
-        "id": "5dc75ca16964550a",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "c9a4dffc9f5dc345",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Design.md",
+                "file": "QR.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Design"
-            },
-            "group": "954cc4111ece212b"
+              "title": "QR"
+            }
           }
         ]
       }
@@ -116,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Design.md",
+                "file": "QR.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Design"
+              "title": "Backlinks for QR"
             }
           },
           {
@@ -204,10 +182,50 @@
       "bases:Create new base": false
     }
   },
-  "active": "c9a4dffc9f5dc345",
+  "floating": {
+    "id": "934f2f32e0f567a3",
+    "type": "floating",
+    "children": [
+      {
+        "id": "be6c8122d43a0b64",
+        "type": "window",
+        "children": [
+          {
+            "id": "9c45c8c7ba008159",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "350e96bbc1c5f90f",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "QR.md",
+                    "mode": "preview",
+                    "source": true
+                  },
+                  "icon": "lucide-file",
+                  "title": "QR"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 1449,
+        "y": 221,
+        "width": 601,
+        "height": 721,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "22eb09d0ee8976dd",
   "lastOpenFiles": [
-    "About.md",
+    "QR.md",
     "Design.md",
+    "About.md",
     "Me.md",
     "toys.md"
   ]

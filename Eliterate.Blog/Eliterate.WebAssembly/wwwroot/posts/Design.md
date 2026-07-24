@@ -4,9 +4,9 @@ This page is titled "Design", but to be honest, most of the site isn't "designed
 
 Usually I just have an idea for a *thing* I want to make or create. Sometimes that's a game, sometimes it's a tool, sometimes it's a small feature, sometimes an entire site.
 
-From there, ideas evolve. Every piece of code on this site probably has had a few revisions. I enjoy the iterative process of working on something and revising it over and over until you're statisfied with it.
+From there, ideas evolve. Every piece of code on this site probably has had a few revisions. I enjoy the iterative process of working on something and revising it over and over until you're satisfied with it.
 
-I never **am** statisfied, of course, but that's beside the point.
+I never **am** satisfied, of course, but that's beside the point.
 
 Over the years I have learned that the old adage "perfect is the enemy of good" certainly holds true in code.
 
@@ -79,7 +79,7 @@ You can build a lot of real world objects in a "good enough" fashion with a bunc
 
 So I decided to build a component that is basically a brick. 
 
-To get started, I once again went to ~~steal some code~~ get inspired.
+To get started, I once again went to ~~~steal some code~~~ get inspired.
 
 I found [this handy write up by Julia Miocene](https://miocene.io/post/3d-cube-with-css). It was the perfect starting point I needed and I encourage everyone to check it out. It's great.
 
