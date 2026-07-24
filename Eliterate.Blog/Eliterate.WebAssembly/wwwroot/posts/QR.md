@@ -22,7 +22,7 @@ Unless that comes up as an answer on "Who wants to be a millionaire?" though, yo
 
 What QR codes actually are, is the logical progression up from their 1-dimensional counterpart - the barcode.
 
-##### Barcodes
+#### Barcodes
 
 While QR codes are very common nowadays, barcodes are certainly still ubiquitus. I'm sure I don't have to explain what a barcode **is**. 
 
@@ -38,7 +38,7 @@ Well, to be honest, it's not *exactly* binary...
 
 You can't naively take a number in its binary representation and make a barcode out of it. The whitespace distribution would be totally whack.
 
-**The most common standard** for barcodes instead does the following:
+**The most common standard** for barcodes, UPC, instead does the following:
 
 <img class="paper image" style="rotate:-2deg" loading="lazy" alt="An image of the table of encodings." src="../images/misc/barcode_encoding.png" credit="Wikipedia"></img>
 
@@ -58,11 +58,11 @@ So for example, a barcode representing a 12 digit number is constructed like thi
 - 6 digits as the assigned inverse 7 bit sequence (6 * 7 bars)
 - End guard pattern (3 bars)
 
-For a total of 95 bars.
+For a total of 95 bars - that's all a barcode really is. 95 thin black or white bars.
 
 To our human eyes, it's of course difficult to distinguish where one black or white bar ends and another begins, but for a scanner that's no problem.
 
-As this most common type of barcode can encode 12 digits, it's obviously enough to assign a unique number to a lot of products (1 trillion, to be exact).
+As this most common type of barcode can encode 12 digits, it's obviously enough to assign a unique number to a lot of products (1 trillion products, to be exact).
 
 That was enough for us for a long time.
 
@@ -76,3 +76,10 @@ The folklore is, that as he was thinking about the problem of how to encode more
 
 Such tales are usually apocryphal (like Newton and the apple), but as I don't see the claims overly aggrandized as they usually are, and Go is certainly popular in Japan, this one seems plausible to me.
 
+Well, whether it's true or not, the new QR code standard resulting from his invention is certainly a big improvement over barcodes.
+
+Let's just do some head math: If the one dimensional barcodes encoded 95 bits on a line, then in a square that's already 95^2^ bits!
+
+That's a whooping 9025 bits of information.
+
+With so much more *space* available to work with, of course the clever designers of the QR standrd 
