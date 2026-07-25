@@ -79,7 +79,7 @@ You can build a lot of real world objects in a "good enough" fashion with a bunc
 
 So I decided to build a component that is basically a brick. 
 
-To get started, I once again went to ~~~steal some code~~~ get inspired.
+To get started, I once again went to ~~steal some code~~ get inspired.
 
 I found [this handy write up by Julia Miocene](https://miocene.io/post/3d-cube-with-css). It was the perfect starting point I needed and I encourage everyone to check it out. It's great.
 
@@ -112,7 +112,7 @@ I'm technically showing the location of "pages" not "books" on them, but let's n
 
 After another google image binge for creative stimulation (and halfway into an attempt of writing my own Dewey Decimal categorizer), I decided on a simple flashcard design instead.
 
-The result is what you see on top of the notebook on the ["Home"](/home) and ["Posts"](/posts) pages.
+The result is what you see on top of the notebook on the ["Home"](/home) page and basically all of the ["Posts"](/posts) page.
 
 They're simple and look nice when decorated with stickers.
 

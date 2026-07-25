@@ -18,7 +18,7 @@ else
                 <Sticker Text="@Model.Metadata.StickerEmoji" Top="0.5m" Right="5.5m" Scale="2" Rotate="@Model.Metadata.Title.GetRandomValueFromString(20)"></Sticker>
                 <div class="book-page-body">
                     <article id="top-of-page" class="book-page-text" tabindex="0">
-                        @((MarkupString)(Model.Text ?? "Text not found."))
+                        @((MarkupString)Markdig.Markdown.ToHtml(Model.Text ?? "Text not found.", _pipeline))
                     </article>
                 </div>
             </div>
@@ -35,6 +35,8 @@ else
 }
 
 @code {
+    private Markdig.MarkdownPipeline _pipeline = new Markdig.MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
+
     [Parameter]
     public BlogPost? Model { get; set; }
     public DateTime Date => Model?.Metadata.Edited ?? Model?.Metadata.Created ?? DateTime.UtcNow;

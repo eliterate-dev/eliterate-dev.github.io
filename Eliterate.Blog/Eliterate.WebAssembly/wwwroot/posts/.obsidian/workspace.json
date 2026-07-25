@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "QR.md",
+                "file": "Design.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "QR"
+              "title": "Design"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "QR.md",
+                "file": "Design.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for QR"
+              "title": "Backlinks for Design"
             }
           },
           {
@@ -187,15 +187,15 @@
     "type": "floating",
     "children": [
       {
-        "id": "be6c8122d43a0b64",
+        "id": "fe9ab60cb8cf1107",
         "type": "window",
         "children": [
           {
-            "id": "9c45c8c7ba008159",
+            "id": "d2bc2f53d8a551af",
             "type": "tabs",
             "children": [
               {
-                "id": "350e96bbc1c5f90f",
+                "id": "833c255da386b411",
                 "type": "leaf",
                 "state": {
                   "type": "markdown",
@@ -212,10 +212,10 @@
           }
         ],
         "direction": "vertical",
-        "x": 1449,
-        "y": 221,
-        "width": 601,
-        "height": 721,
+        "x": 1440,
+        "y": 195,
+        "width": 600,
+        "height": 673,
         "maximize": false,
         "zoom": 0
       }
@@ -225,6 +225,10 @@
   "lastOpenFiles": [
     "QR.md",
     "Design.md",
+    "hjejceml.lz5~",
+    "as2mky1p.enb~",
+    "r1cwtaib.jrs~",
+    "eqocdxro.uom~",
     "About.md",
     "Me.md",
     "toys.md"

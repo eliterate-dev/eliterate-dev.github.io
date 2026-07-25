@@ -34,14 +34,26 @@ It's not just annoying, it's downright unfair!
 
 *(That was a joke, intentionally written. I'm still not AI)*
 
+You can be 100% sure that none of the articles on this site are written by AI.
+
+It's all my own words... ramblings. 
+
 #### Is AI a bad thing?
 
 Not inherently, but I don't like how it's being handled. 
 
-The technology is interesting. I can see local, efficient, *specific-purpose* neural networks becoming part of the general toolkit. Like as a better IntelliSense.
+The technology is interesting. I think it would make a good search engine. Using natural language to search for things sounds like a good idea.
 
 However I do not subscribe to the hype.
 
 The AI market is an unsustainable bubble, and the popping or even just deflating of it will hurt a lot of regular people.
 
 Not to *mention* how the datacenter scramble is fucking over prices for RAM and GPUs for consumers.
+
+I enjoyed building my own PCs, I would love for people in the future to experience the joy of building a PC too.
+
+But I don't think the industry for that will live through this bubble. At least it will be very different than it used to be.
+
+So yeah, I'm not all in on the AI train.
+
+Should the worst come to pass, I feel like it'll be easier to pick up "prompting" should that become unavoidable, than to relearn all my coding skills, so I'm sticking to programming by hand and with passion for now.
