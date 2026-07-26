@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Design.md",
+                "file": "QR.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Design"
+              "title": "QR"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Design.md",
+                "file": "QR.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Design"
+              "title": "Backlinks for QR"
             }
           },
           {
@@ -212,19 +212,19 @@
           }
         ],
         "direction": "vertical",
-        "x": 1440,
-        "y": 195,
-        "width": 600,
-        "height": 673,
+        "x": 0,
+        "y": 0,
+        "width": 638,
+        "height": 852,
         "maximize": false,
         "zoom": 0
       }
     ]
   },
-  "active": "22eb09d0ee8976dd",
+  "active": "833c255da386b411",
   "lastOpenFiles": [
-    "QR.md",
     "Design.md",
+    "QR.md",
     "hjejceml.lz5~",
     "as2mky1p.enb~",
     "r1cwtaib.jrs~",

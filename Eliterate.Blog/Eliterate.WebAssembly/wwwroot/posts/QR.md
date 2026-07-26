@@ -14,7 +14,7 @@ Unless that comes up as an answer on "Who wants to be a millionaire?" though, yo
 
 What QR codes actually are, is the logical progression up from their 1-dimensional counterpart - the barcode.
 
-#### A short tangent on Barcodes
+#### A not so short tangent on Barcodes
 
 While QR codes are very common nowadays, barcodes are certainly still ubiquitous. I'm sure I don't have to explain what a barcode **is**. 
 
@@ -24,9 +24,69 @@ They work on a very simple principle: You have a line. A thick line. You could c
 
 Anyone who's ever had anything to do with programming or just computers in general might spot something familiar in that.
 
-That's right, it's our old friend (foe?) <a href="https://en.wikipedia.org/wiki/Binary_number" target="_blank">binary</a>!
+That's right, t's a <a href="https://en.wikipedia.org/wiki/Binary_number" target="_blank">binary</a> system!
 
-Well, to be honest, it's not *exactly* binary...
+A system for conveying data with only 2 distinct states. In the traditional binary number system, that's 0 and 1, but it can be any system with exactly 2 states.
+
+In your computer, it's "on" or "off" (or to be more precise "high" or "low").
+
+For our purpose today, it's "black" or "white".
+
+Given enough space, we can represent any information in such a binary system, we just have to rethink how we "count" things.
+
+Let's compare it with what we're familiar with: The decimal system.
+
+For comparison, let's dissect the number 107:
+
+The number 107 has 0 Thousands, 1 Hundreds, 0 Tens and 7 Ones.
+
+This is most easily visualized in a table:
+
+<table>
+    <tr>
+        <th>Thousands</th>
+        <th>Hundreds</th>
+        <th>Tens</th>
+        <th>Ones</th>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>7</td>
+    </tr>
+</table>
+
+As we can see, every step in this number system is x10 the last number. Ones, Tens, Hundreds, Thousands, etc.
+
+Binary, as the name implies, instead increases x2, instead of x10.
+
+That sound a bit abstract, so let's build our table again to make things clearer:
+
+<table>
+    <tr>
+        <th>128</th>
+        <th>64</th>
+        <th>32</th>
+        <th>16</th>
+        <th>8</th>
+        <th>4</th>
+        <th>2</th>
+        <th>1</th>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+</table>
+
+If you add those numbers together, you get 107. 
 
 We can't naively take a number in its binary representation and make a barcode out of it. The whitespace distribution would be totally whack.
 
