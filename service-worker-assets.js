@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "79GCxmOS",
+  "version": "uuRGMAQp",
   "assets": [
     {
       "hash": "sha256-Tp5DMyNGSdN59rh4JSxgN4hxdNdoUukTyibnS+ajzT0=",
@@ -34,8 +34,8 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.VideoGames.MineSweeper.xf7qbegxc2.wasm"
     },
     {
-      "hash": "sha256-J5OMoEpxH2i9gsjQnNH+K5QYNNz6N9FFEzNIiiysg1c=",
-      "url": "_framework/Eliterate.WebAssembly.l98ckh05yz.wasm"
+      "hash": "sha256-7XZuUkBaYWutdI61Jt/kt4N+78q6VE3VaF50O6WtNAI=",
+      "url": "_framework/Eliterate.WebAssembly.3w90fu3m71.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
@@ -270,7 +270,7 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-Nx+wBIqTAh+9hgbyIgIUdQJ/7QoB65iROWldp4mQ6dc=",
+      "hash": "sha256-gk3TAzv6u5steU9AJOr3wS1mzgCY74w/aApr8WJat+w=",
       "url": "_framework/dotnet.js"
     },
     {
