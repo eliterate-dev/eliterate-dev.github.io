@@ -1,15 +1,14 @@
 ﻿.paper-container {
 	margin: 0 auto var(--tearoff-height) auto;
-	width: 100%;
+	aspect-ratio: 100/141
 }
 
 .paper {
+	width: 100%;
 	position: relative;
 	display: inline-block;
 	min-width: calc(var(--min-width) - 4rem);
-	width: 100%;
 	box-shadow: 3px 2px 3px black;
-	overflow-y: visible;
 }
 
 .has-tearoffs {
@@ -88,7 +87,8 @@
 }
 
 .tearoff-text {
-	padding: 0.5rem 0;
+	padding: 1rem 0;
+	height: calc(100% - 2rem);
 	width: 100%;
 	display: flex;
 	justify-content: center;
