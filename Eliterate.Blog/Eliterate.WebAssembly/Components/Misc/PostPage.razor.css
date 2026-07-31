@@ -67,7 +67,7 @@
 	.book-page-text ::deep .image {
 		user-select: none;
 		min-width: calc(var(--min-width) / 4);
-		max-width: calc(var(--min-width) /1.5);
+		max-width: 30%;
 		float: right;
 	}
 
@@ -89,7 +89,6 @@
 
 	.book-page-text ::deep .paper {
 		margin-left: 1rem;
-		max-width: calc(var(--min-width) / 2);
 		float: right;
 		box-shadow: 1px 1px black;
 	}

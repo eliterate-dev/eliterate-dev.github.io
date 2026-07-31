@@ -1,5 +1,6 @@
 ﻿.paper-container {
-	margin: 0 auto var(--tearoff-height) auto;
+	margin: 0 auto;
+	padding-bottom: 1rem;
 	aspect-ratio: 100/141
 }
 
@@ -77,8 +78,9 @@
 
 	.tearoff:hover {
 		position: relative;
-		top: 1rem;
+		top: 0.75rem;
 		left: 0.5rem;
+		z-index: 1;
 	}
 
 .tearoff-empty {
@@ -87,8 +89,8 @@
 }
 
 .tearoff-text {
-	padding: 1rem 0;
-	height: calc(100% - 2rem);
+	padding: 0.5rem 0;
+	height: calc(100% - 1rem);
 	width: 100%;
 	display: flex;
 	justify-content: center;

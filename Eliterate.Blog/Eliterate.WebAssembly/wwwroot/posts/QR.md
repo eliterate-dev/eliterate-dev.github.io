@@ -97,7 +97,7 @@ Now that would be a confusing amount of *empty* in your barcode, wouldn't it?
 
 **The most common standard** for barcodes, UPC (Universal Product Code), instead does the following:
 
-<img class="paper image" style="rotate:-2deg" loading="lazy" alt="An image of the table of encodings." src="../images/misc/barcode_encoding.png" credit="Wikipedia"></img>
+<img class="paper image" style="rotate:1deg" loading="lazy" alt="An image of the table of encodings." src="../images/misc/barcode_encoding.png" credit="Wikipedia"></img>
 
 Like the image shows, each number was assigned a 7 bit sequence and its inverse (e.g. 0011001 & 1100110 for number "1").
 
@@ -125,7 +125,7 @@ That was enough for us for a long time.
 
 #### Stepping up the dimensions
 
-<img class="paper image" style="rotate:-2deg" loading="lazy" alt="An image of a Go board." src="../images/misc/go_board.jpg"></img>
+<img class="paper image" style="rotate:-1deg" loading="lazy" alt="An image of a Go board." src="../images/misc/go_board.jpg"></img>
 
 Well, <a href="https://en.wikipedia.org/wiki/Masahiro_Hara" target="_blank">some Japanese dude</a> thought that just digits is boring.
 
@@ -204,7 +204,7 @@ Because we now have 2 dimensions, we can do some fun little math on it to correc
 
 The actual math is fascinating, but a bit outside the scope of this post (and, to be honest, outside my teaching skill) if you want to learn the details, read up on [Reed-Solomon error correction](https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction). 
 
-<img class="paper image" style="rotate:-2deg" loading="lazy" alt="A nonogram number puzzle and its solution." src="../images/misc/nonogram.png"></img>
+<img class="paper image" style="rotate:1deg" loading="lazy" alt="A nonogram number puzzle and its solution." src="../images/misc/nonogram.png"></img>
 
 If I were to abstract it to the point that a proper mathematician would probably like to strangle me, I like to imagine it a bit like a [Nonogram](https://en.wikipedia.org/wiki/Nonogram).
 
