@@ -1,18 +1,21 @@
 ﻿@inject IContentService ContentService
 @page "/plans"
+@using Eliterate.WebAssembly.Components.Generic
 <PageTitle>Eliterate - Plans & Ideas</PageTitle>
 
 <div class="brick-wall">
     <div class="corkboard">
-        @foreach (var item in _ideas)
-        {
-            <Paper Link="@item.Link" LinkText="@item.LinkText" Rotate="true" HasPins="true">
-                <h2>@item.Title</h2>
-                <p>
-                    @((MarkupString)(item.Description ?? "No text..."))
-                </p>
-            </Paper>
-        }
+        <HorizontalScroller>
+            @foreach (var item in _ideas)
+            {
+                <Paper Link="@item.Link" LinkText="@item.LinkText" Rotate="true" HasPins="true">
+                    <h2>@item.Title</h2>
+                    <p>
+                        @((MarkupString)(item.Description ?? "No text..."))
+                    </p>
+                </Paper>
+            }
+        </HorizontalScroller>
     </div>
 </div>
 

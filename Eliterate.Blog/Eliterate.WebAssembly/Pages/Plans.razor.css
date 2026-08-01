@@ -9,24 +9,10 @@
 }
 
 .corkboard {
-	margin: 0;
-	width: calc(100% - 2rem);
+	width: calc(100% - 1rem);
 	height: calc(100% - 1rem);
-	overflow-x: scroll;
-	overflow-y: hidden;
 	background-color: #4d2400;
 	background-image: url(../images/textures/wine-cork.png);
 	border: inset 0.5rem var(--color-wood);
 	box-shadow: 2px 2px 4px black;
-	padding: 0.5rem;
-	display: inline-block;
-	white-space: nowrap;
-}
-
-::deep .corkboard > div {
-	max-width: calc(var(--min-width) * 1.5);
-	padding: 0.5rem 1rem 0 0;
-	display: inline-block;
-	white-space: wrap;
-	vertical-align: top;
 }

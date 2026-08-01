@@ -1,7 +1,7 @@
 ﻿.paper-container {
 	margin: 0 auto;
 	padding-bottom: 1rem;
-	aspect-ratio: 100/141
+	aspect-ratio: 100/141;
 }
 
 .paper {
@@ -37,6 +37,7 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
+	overflow-y: scroll;
 }
 
 .paper-text {
@@ -80,7 +81,6 @@
 		position: relative;
 		top: 0.75rem;
 		left: 0.5rem;
-		z-index: 1;
 	}
 
 .tearoff-empty {

@@ -75,7 +75,7 @@
 		"ContentUrl": "posts/QR.md",
 		"StickerEmoji": "🙾",
 		"IsActive": true,
-		"ShowInList": true,
+		"ShowInList": false,
 		"EstimatedReadTimeInMinutes": 20
 	}
 ]
