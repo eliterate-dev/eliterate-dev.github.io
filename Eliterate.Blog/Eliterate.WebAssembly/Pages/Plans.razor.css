@@ -16,3 +16,40 @@
 	border: inset 0.5rem var(--color-wood);
 	box-shadow: 2px 2px 4px black;
 }
+
+.image {
+	user-select: none;
+	min-width: calc(var(--min-width) / 4);
+	max-width: 40%;
+	float: right;
+	margin: 1rem;
+}
+
+.polaroid {
+	padding: 1% 1% 7% 1%;
+	background-color: white;
+	color: black;
+	text-align: center;
+	font-family: var(--font-handwritten);
+	filter: var(--sticker-outline-filter);
+}
+
+img {
+	width: calc(100% - 2px);
+	display: block;
+	border: 1px solid var(--color-shadow);
+}
+
+.paper {
+	margin-left: 1rem;
+	float: right;
+	box-shadow: 1px 1px black;
+}
+
+.sticker {
+	float: right;
+	margin-right: 0;
+	margin-left: 0.5rem;
+	margin-top: -1rem;
+	font-size: 2.5rem;
+}

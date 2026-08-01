@@ -12,7 +12,7 @@ public interface IContentService
     Task<SongQuote?> GetRandomSongQuote();
     Task<IEnumerable<LinkItem>> GetNavItems();
     Task<IEnumerable<LinkItem>> GetCredits();
-    Task<IEnumerable<FutureIdea >> GetPlans();
+    Task<IEnumerable<Plan >> GetPlans();
     Task<IEnumerable<PostMetadata>> GetToys();
 }
 
@@ -99,9 +99,9 @@ public class ContentService(HttpClient client) : IContentService
             return [];
         return credits;
     }
-    public async Task<IEnumerable<FutureIdea>> GetPlans()
+    public async Task<IEnumerable<Plan>> GetPlans()
     {
-        var plans = await _client.GetFromJsonAsync<IEnumerable<FutureIdea>>($"resources/plans.json");
+        var plans = await _client.GetFromJsonAsync<IEnumerable<Plan>>($"resources/plans.json");
         if (plans is null)
             return [];
         return plans;

@@ -6,13 +6,17 @@
 <div class="brick-wall">
     <div class="corkboard">
         <HorizontalScroller>
-            @foreach (var item in _ideas)
+            @foreach (var idea in _ideas)
             {
-                <Paper Link="@item.Link" LinkText="@item.LinkText" Rotate="true" HasPins="true">
-                    <h2>@item.Title</h2>
+                <Paper Link="@idea.Link" LinkText="@idea.LinkText" Rotate="true" HasPins="true">
+                    <h2>@idea.Title</h2>
                     <p>
-                        @((MarkupString)(item.Description ?? "No text..."))
+                        @((MarkupString)(idea.Description ?? "No text..."))
                     </p>
+                    @if (!string.IsNullOrWhiteSpace(idea.Image))
+                    {
+                        <div class="image polaroid" role="note" style="@($"rotate:{Random.Shared.Next(4) - 2}deg;")"><img loading="lazy" alt="@idea.ImageAlt" src="@idea.Image" /></div>
+                    }
                 </Paper>
             }
         </HorizontalScroller>
@@ -20,7 +24,7 @@
 </div>
 
 @code {
-    private IEnumerable<FutureIdea> _ideas = [];
+    private IEnumerable<Plan> _ideas = [];
 
     protected override async Task OnInitializedAsync()
     {

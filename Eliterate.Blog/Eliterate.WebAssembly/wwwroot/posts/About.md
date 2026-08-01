@@ -1,6 +1,6 @@
 ### Welcome!
 
-<img class="paper image" style="rotate:1deg" loading="lazy" alt="A meme where a person has made something and says 'I made this'. After which another person takes the item, looks at it and says 'You made this?... I made this'" src="../images/memes/I_made_this.jpg" credit="https://nedroidcomics.tumblr.com/post/41879001445/the-internet"></img>
+<img class="paper image" style="rotate:1deg" loading="lazy" alt="A meme where a person has made something and says 'I made this'. After which another person takes the item, looks at it and says 'You made this?... I made this'" src="../images/memes/I_made_this.jpg" credit="https://nedroidcomics.tumblr.com/post/41879001445/the-internet" />
 
 I made this.
 
