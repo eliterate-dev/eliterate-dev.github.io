@@ -15,7 +15,7 @@
 	{
 		"Title": "About",
 		"Group": "posts",
-		"Description": "How and mostly why this site exists.<br> I had a lot of fun making it, but it was also frustrating at times.",
+		"Description": "How and mostly why this site exists. I had a lot of fun making it, but it was also frustrating at times.",
 		"Tags": [ "Welcome", "Explanations", "Why not?" ],
 		"Created": "2026-03-10",
 		"Edited": "2026-06-08",
@@ -65,5 +65,17 @@
 		"IsActive": true,
 		"ShowInList": true, 
 		"EstimatedReadTimeInMinutes": 10
+	},
+	{
+		"Title": "What even are QR codes?",
+		"Group": "posts",
+		"Description": "QR codes are actually pretty cool. <br>This is a short explanation of how they work.",
+		"Tags": [ "QR", "Explanations", "Learn" ],
+		"Created": "2026-07-23",
+		"ContentUrl": "posts/QR.md",
+		"StickerEmoji": "🙾",
+		"IsActive": true,
+		"ShowInList": false,
+		"EstimatedReadTimeInMinutes": 20
 	}
 ]
