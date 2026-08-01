@@ -88,6 +88,7 @@ html, body {
 	margin: 0;
 	font-size: 16px;
 	background-color: var(--color-background);
+	scrollbar-color: var(--color-primary) var(--color-background);
 }
 
 body {
@@ -242,10 +243,8 @@ td {
 	}
 
 code {
-	padding: 0.125rem 0.25rem;
 	background-color: var(--color-contrast-0);
 	color: var(--color-foreground-muted);
-	border-radius: 0.25rem;
 }
 
 /* Common classes */

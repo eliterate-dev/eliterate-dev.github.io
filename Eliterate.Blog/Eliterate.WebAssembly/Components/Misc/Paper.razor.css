@@ -1,15 +1,15 @@
 ﻿.paper-container {
-	margin: 0 auto var(--tearoff-height) auto;
-	width: 100%;
+	margin: 0 auto;
+	padding-bottom: 1rem;
+	aspect-ratio: 100/141;
 }
 
 .paper {
+	width: 100%;
 	position: relative;
 	display: inline-block;
 	min-width: calc(var(--min-width) - 4rem);
-	width: 100%;
 	box-shadow: 3px 2px 3px black;
-	overflow-y: visible;
 }
 
 .has-tearoffs {
@@ -37,6 +37,7 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
+	overflow-y: scroll;
 }
 
 .paper-text {
@@ -78,7 +79,7 @@
 
 	.tearoff:hover {
 		position: relative;
-		top: 1rem;
+		top: 0.75rem;
 		left: 0.5rem;
 	}
 
@@ -89,6 +90,7 @@
 
 .tearoff-text {
 	padding: 0.5rem 0;
+	height: calc(100% - 1rem);
 	width: 100%;
 	display: flex;
 	justify-content: center;

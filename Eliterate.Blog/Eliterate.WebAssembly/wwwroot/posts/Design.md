@@ -4,9 +4,9 @@ This page is titled "Design", but to be honest, most of the site isn't "designed
 
 Usually I just have an idea for a *thing* I want to make or create. Sometimes that's a game, sometimes it's a tool, sometimes it's a small feature, sometimes an entire site.
 
-From there, ideas evolve. Every piece of code on this site probably has had a few revisions. I enjoy the iterative process of working on something and revising it over and over until you're statisfied with it.
+From there, ideas evolve. Every piece of code on this site probably has had a few revisions. I enjoy the iterative process of working on something and revising it over and over until you're satisfied with it.
 
-I never **am** statisfied, of course, but that's beside the point.
+I never **am** satisfied, of course, but that's beside the point.
 
 Over the years I have learned that the old adage "perfect is the enemy of good" certainly holds true in code.
 
@@ -112,7 +112,7 @@ I'm technically showing the location of "pages" not "books" on them, but let's n
 
 After another google image binge for creative stimulation (and halfway into an attempt of writing my own Dewey Decimal categorizer), I decided on a simple flashcard design instead.
 
-The result is what you see on top of the notebook on the ["Home"](/home) and ["Posts"](/posts) pages.
+The result is what you see on top of the notebook on the ["Home"](/home) page and basically all of the ["Posts"](/posts) page.
 
 They're simple and look nice when decorated with stickers.
 

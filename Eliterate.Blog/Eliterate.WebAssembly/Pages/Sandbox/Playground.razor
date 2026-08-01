@@ -1,19 +1,19 @@
 ﻿@page "/playground"
 @using Eliterate.WebAssembly.Components.Generic
+@using Eliterate.WebAssembly.Components.Generic.Shapes
 <PageTitle>Playground</PageTitle>
 
 <div class="split">
-    <div>
-        <RotatableDisplay ContentSize="200">
-            <PolaroidCamera X="200" ImageLink="images/photos/Cat_drinking.jpg">
-                
-            </PolaroidCamera>
-        </RotatableDisplay>
+    <div style="width:100%;height:100%;">
+        <HorizontalScroller>
+            @for (int i = 0; i < 20; i++)
+            {
+                <Paper Link="" LinkText="test">Test Page</Paper>
+            }
+        </HorizontalScroller>
     </div>
     <div style="background-color:var(--color-background);padding:0.5rem 0.5rem 4rem 0.5rem;overflow-y:scroll;">
-        <p>Did I build an entire 3d polaroid camera "model" in pure HTML/CSS just so I could pretend to print QR codes in the QR code generator I'm working on?</p>
-        <p>That would be deeply idiotic! So much work for such little pay off... </p>
-        <p>Yeah. That's exactly what I did.</p>
+        <p>I didn't like how my "plans" page looked, so i'm designing a component for horizontal scrolling.</p>
     </div>
 </div>
 

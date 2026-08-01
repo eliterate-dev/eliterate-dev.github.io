@@ -1,5 +1,13 @@
 [
 	{
+		"Title": "A card game API",
+		"Description": "I'm currently working on an API to make it easier to implement multiplayer card games, because otherwise I can only make card games that play with open cards."
+	},
+	{
+		"Title": "A pixel drawing tool",
+		"Description": "I plan to add a pixel drawing tool to this site, because it would fit the style of this site and I frequently use them and want one I can trust."
+	},
+	{
 		"Title": "Zine Site?",
 		"Description": "A website in this style where people can post zines. <br>I had images of zines in mind a lot while making this site. <br>I think it would fit quite well.",
 		"Link": "mailto:contact@eliterate.blog",
