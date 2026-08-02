@@ -1,6 +1,6 @@
 ### About me
 
-<div class="image polaroid" style="rotate:-1deg;font-size:0.75rem;" role="note"><img src="../images/memes/trying_to_find_the_guy_who_did_this.jpg" style="rotate:1deg" loading="lazy" alt="Tim Robinson saying that we're all trying to find the guy who did this." />We're all trying to find the guy who did this
+<div class="image polaroid" style="rotate:-1deg;font-size:0.75rem;" role="note"><img src="../images/memes/trying_to_find_the_guy_who_did_this.jpg" loading="lazy" alt="Tim Robinson saying that we're all trying to find the guy who did this." />We're all trying to find the guy who did this
 </div>
 
 Oh hey! Thanks for coming to check me out!

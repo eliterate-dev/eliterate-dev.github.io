@@ -40,11 +40,11 @@
 
 @code {
     [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
     public required string Link { get; set; }
     [Parameter]
     public required string LinkText { get; set; }
-    [Parameter]
-    public RenderFragment? ChildContent { get; set; }
     [Parameter]
     public bool HasPins { get; set; }
     [Parameter]

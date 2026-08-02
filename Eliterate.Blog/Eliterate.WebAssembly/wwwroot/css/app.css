@@ -276,14 +276,6 @@ code {
 	text-align: center;
 }
 
-.collapse {
-	display: collapse;
-}
-
-.absolute {
-	position: absolute;
-}
-
 .bottom-right {
 	position: absolute;
 	bottom: 1.5rem;

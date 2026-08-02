@@ -1,4 +1,17 @@
-﻿
+﻿.rotating-display-container {
+	transform-origin: 50% 50%;
+	background-color: #333;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	--rotate-x: 30deg;
+	--rotate-y: 0deg;
+	--rotate-z: 45deg;
+}
+
 .toggle-rotation-button {
 	position: absolute;
 	top: 0.5rem;
@@ -9,16 +22,15 @@
 	text-align: center;
 }
 
-.rotating-display-container {
-	transform-origin: 50% 50%;
-	background-color: #333;
-	overflow: hidden;
-	--rotate-x: 30deg;
-	--rotate-y: 0deg;
-	--rotate-z: 45deg;
-}
-
 .rotating-display {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	transform-origin: 50% 50%;
 	touch-action: pan-x;
 }

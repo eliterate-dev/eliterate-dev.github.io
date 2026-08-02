@@ -1,4 +1,5 @@
-﻿@inject IJSRuntime javaScript
+﻿@using Eliterate.WebAssembly.Components.Generic.Decorations
+@inject IJSRuntime javaScript
 
 @if (Model is null)
 {
@@ -15,7 +16,7 @@ else
                         <EditOrCreateDate Model="Model.Metadata"></EditOrCreateDate>
                     </div>
                 </div>
-                <Sticker Text="@Model.Metadata.StickerEmoji" Top="0.5m" Right="5.5m" Scale="2" Rotate="@Model.Metadata.Title.GetRandomValueFromString(20)"></Sticker>
+                <TextSticker Text="@Model.Metadata.StickerEmoji" Top="0.5m" Right="5.5m" Scale="2" Rotate="@Model.Metadata.Title.GetRandomValueFromString(20)"></TextSticker>
                 <div class="book-page-body">
                     <article id="top-of-page" class="book-page-text" tabindex="0">
                         @((MarkupString)_htmlFromMarkdown)

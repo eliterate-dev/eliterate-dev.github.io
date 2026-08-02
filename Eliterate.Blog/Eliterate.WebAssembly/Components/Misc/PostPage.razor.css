@@ -101,6 +101,13 @@
 		font-size: 2.5rem;
 	}
 
+	.book-page-text::deep th, .book-page-text::deep td {
+		padding: 0 0.125rem 0 0.25rem;
+		text-align: end;
+		border: 1px solid var(--color-foreground);
+		border-collapse: collapse;
+	}
+
 .book-tag-container {
 	position: absolute;
 	top: -1.75rem;
@@ -108,8 +115,3 @@
 	width: max-content;
 }
 
-::deep th, ::deep td {
-	padding: 0 0.125rem 0 0.25rem;
-	text-align: end;
-	border: 1px solid var(--color-foreground);
-}
