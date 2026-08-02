@@ -543,6 +543,7 @@
 	position: relative;
 	display: inline-block;
 	min-width: calc(var(--min-width) - 4rem);
+	border: 1px solid black;
 	box-shadow: 3px 2px 3px black;
 }
 
@@ -587,29 +588,27 @@
 .tearoff-container[b-5yl3dqj43b] {
 	width: 100%;
 	position: absolute;
-	bottom: calc(var(--tearoff-height) * -1 - 1px);
+	left: -1px;
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
-	overflow: visible;
 }
-
-	.tearoff-container :first-child[b-5yl3dqj43b] {
-		border-left: none;
-	}
-
-	.tearoff-container :last-child[b-5yl3dqj43b] {
-		border-right: none;
-	}
 
 .tearoff[b-5yl3dqj43b] {
 	height: var(--tearoff-height);
 	border: 1px dashed grey;
-	border-bottom: none;
+	border-bottom: 1px solid black;
 	background-color: var(--color-contrast-1);
 	background-image: var(--texture-paper);
 	box-shadow: 3px 2px 2px black;
-	width: calc(100% - 1px);
+	width: 100%;
 }
+	.tearoff:first-child[b-5yl3dqj43b] {
+		border-left: 1px solid black;
+	}
+
+	.tearoff:last-child[b-5yl3dqj43b] {
+		border-right: 1px solid black;
+	}
 
 	.tearoff:hover[b-5yl3dqj43b] {
 		position: relative;
@@ -1906,6 +1905,43 @@ td:first-of-type[b-kis47zz0cb] {
 	background-image: url(../images/textures/wine-cork.png);
 	border: inset 0.5rem var(--color-wood);
 	box-shadow: 2px 2px 4px black;
+}
+
+.image[b-s7o7uf68lo] {
+	user-select: none;
+	min-width: calc(var(--min-width) / 4);
+	max-width: 40%;
+	float: right;
+	margin: 1rem;
+}
+
+.polaroid[b-s7o7uf68lo] {
+	padding: 1% 1% 7% 1%;
+	background-color: white;
+	color: black;
+	text-align: center;
+	font-family: var(--font-handwritten);
+	filter: var(--sticker-outline-filter);
+}
+
+img[b-s7o7uf68lo] {
+	width: calc(100% - 2px);
+	display: block;
+	border: 1px solid var(--color-shadow);
+}
+
+.paper[b-s7o7uf68lo] {
+	margin-left: 1rem;
+	float: right;
+	box-shadow: 1px 1px black;
+}
+
+.sticker[b-s7o7uf68lo] {
+	float: right;
+	margin-right: 0;
+	margin-left: 0.5rem;
+	margin-top: -1rem;
+	font-size: 2.5rem;
 }
 /* /Pages/PostList.razor.rz.scp.css */
 .post-list[b-gesebqxkkw] {

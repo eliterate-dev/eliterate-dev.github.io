@@ -1,6 +1,6 @@
 ### About me
 
-<div class="image polaroid" style="rotate:-1deg;font-size:0.75rem;" role="note"><img src="../images/memes/trying_to_find_the_guy_who_did_this.jpg" style="rotate:1deg" loading="lazy" alt="Tim Robinson saying that we're all trying to find the guy who did this."></img>We're all trying to find the guy who did this
+<div class="image polaroid" style="rotate:-1deg;font-size:0.75rem;" role="note"><img src="../images/memes/trying_to_find_the_guy_who_did_this.jpg" style="rotate:1deg" loading="lazy" alt="Tim Robinson saying that we're all trying to find the guy who did this." />We're all trying to find the guy who did this
 </div>
 
 Oh hey! Thanks for coming to check me out!
@@ -45,7 +45,7 @@ I have all the components ready for an Raspberry Pi powered Arcade cabinet, I ju
 
 ##### Travel
 
-<div class="image polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="The charles bridge and the palace in prague" src="../images/photos/Prague_charles_bridge.jpg"></img>Prague 2026</div>
+<div class="image polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="The charles bridge and the palace in prague" src="../images/photos/Prague_charles_bridge.jpg" />Prague 2026</div>
 
 When I'm not typing away on my keyboard all night, I like to travel to faraway places.
 
@@ -65,7 +65,7 @@ That there is a Starbucks **in** the castle is a bit of a gut punch to bring you
 
 ##### Pets
 
-<div class="image polaroid" style="rotate:1deg;" role="note"><img loading="lazy" alt="A picture of my cat biting my foot." src="../images/photos/Cat_biting.jpg"></img>Biting commentary</div>
+<div class="image polaroid" style="rotate:1deg;" role="note"><img loading="lazy" alt="A picture of my cat biting my foot." src="../images/photos/Cat_biting.jpg" />Biting commentary</div>
 
 I love animals and will pet any that allow me.
 
@@ -75,7 +75,7 @@ I adore all the cats I've ever had, but I have to say, my current one (the one i
 
 He's a little goblin and his hobby is sneaking up on my dog while she's trying to pee, jumping up on her and scaring the piss out of her. 
 
-<div class="image polaroid" style="rotate:3deg;" role="note"><img src="../images/photos/Cat_on_tower.jpg" loading="lazy" alt="A picture of my cat. He's very adorable."></img>Not me</div>
+<div class="image polaroid" style="rotate:3deg;" role="note"><img src="../images/photos/Cat_on_tower.jpg" loading="lazy" alt="A picture of my cat. He's very adorable." />Not me</div>
 
 It's bloody hilarious every time. She hates it.
 
@@ -87,7 +87,7 @@ I have a special fondness for Ska. I know it ain't hip, but I am a sucker for a 
 
 [Streetlight Manifesto](https://music.youtube.com/watch?v=A-UTPKL-UGY) is the GOAT. I'm so hyped for the new album ~~that~~ whose second half will be released shortly after the heat death of the universe. (Halfway there!!)
 
-<div class="image polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="A concert " src="../images/photos/BOTAR.jpg"></img>BOTAR 2023</div>
+<div class="image polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="A concert " src="../images/photos/BOTAR.jpg" />BOTAR 2023</div>
 
 I have seen them live multiple times now, even though I had to fly to the states to do so.
 
