@@ -12,7 +12,7 @@ public interface IContentService
     Task<SongQuote?> GetRandomSongQuote();
     Task<IEnumerable<LinkItem>> GetNavItems();
     Task<IEnumerable<LinkItem>> GetCredits();
-    Task<IEnumerable<FutureIdea >> GetPlans();
+    Task<IEnumerable<Plan >> GetPlans();
     Task<IEnumerable<PostMetadata>> GetToys();
 }
 
@@ -25,14 +25,7 @@ public class ContentService(HttpClient client) : IContentService
         var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"posts/metadata.json");
         if (metadata is null)
             return [];
-        var posts = new List<PostMetadata>();
-        foreach (var item in metadata)
-        {
-            if (item is null || !item.IsActive || !item.ShowInList)
-                continue;
-            posts.Add(item);
-        }
-        return [.. posts.OrderByDescending(p => p.Edited ?? p.Created)];
+        return [.. metadata.Where(p => p.IsActive && p.ShowInList).OrderByDescending(p => p.Edited ?? p.Created)];
     }
 
     public async Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tagId)
@@ -40,14 +33,7 @@ public class ContentService(HttpClient client) : IContentService
         var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"posts/metadata.json");
         if (metadata is null)
             return [];
-        var posts = new List<PostMetadata>();
-        foreach (var item in metadata)
-        {
-            if (item is null || !item.IsActive || !item.Tags.Any(t => t.ToUrlSafeString() == tagId))
-                continue;
-            posts.Add(item);
-        }
-        return [.. posts.OrderByDescending(p => p.Edited ?? p.Created)];
+        return [.. metadata.Where(p => p.IsActive && p.ShowInList && !p.Tags.Any(t => t.ToUrlSafeString() == tagId)).OrderByDescending(p => p.Edited ?? p.Created)];
     }
 
     public async Task<BlogPost?> GetPost(string title)
@@ -64,7 +50,7 @@ public class ContentService(HttpClient client) : IContentService
     public async Task<BlogPost?> GetLatest()
     {
         var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"posts/metadata.json");
-        var post = metadata?.OrderByDescending(p => p.Created).FirstOrDefault();
+        var post = metadata?.Where(p => p.IsActive).OrderByDescending(p => p.Created).FirstOrDefault();
         if (post is null)
             return null;
         var markdown = await _client.GetStringAsync(post.ContentUrl);
@@ -99,9 +85,9 @@ public class ContentService(HttpClient client) : IContentService
             return [];
         return credits;
     }
-    public async Task<IEnumerable<FutureIdea>> GetPlans()
+    public async Task<IEnumerable<Plan>> GetPlans()
     {
-        var plans = await _client.GetFromJsonAsync<IEnumerable<FutureIdea>>($"resources/plans.json");
+        var plans = await _client.GetFromJsonAsync<IEnumerable<Plan>>($"resources/plans.json");
         if (plans is null)
             return [];
         return plans;

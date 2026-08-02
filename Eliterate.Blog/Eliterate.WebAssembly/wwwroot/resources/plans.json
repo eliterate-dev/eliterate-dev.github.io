@@ -5,7 +5,9 @@
 	},
 	{
 		"Title": "A pixel drawing tool",
-		"Description": "I plan to add a pixel drawing tool to this site, because it would fit the style of this site and I frequently use them and want one I can trust."
+		"Description": "I plan to add a pixel drawing tool to this site, because it would fit the style of this site and I frequently use them and want one I can trust.",
+		"Image": "/images/photos/Cat_drinking.jpg",
+		"ImageAlt": "A cat drinking"
 	},
 	{
 		"Title": "Zine Site?",
