@@ -74,7 +74,7 @@
 		"Created": "2026-07-23",
 		"ContentUrl": "posts/QR.md",
 		"StickerEmoji": "🙾",
-		"IsActive": true,
+		"IsActive": false,
 		"ShowInList": false,
 		"EstimatedReadTimeInMinutes": 20
 	}
