@@ -1,11 +1,11 @@
 ﻿@inject IContentService ContentService
 @page "/plans"
-@using Eliterate.WebAssembly.Components.Generic
+@using Eliterate.WebAssembly.Components.Generic.Presentation
 <PageTitle>Eliterate - Plans & Ideas</PageTitle>
 
 <div class="brick-wall">
-    <div class="corkboard">
-        <HorizontalScroller>
+    <HorizontalScroller>
+        <div class="corkboard">
             @foreach (var idea in _ideas)
             {
                 <Paper Link="@idea.Link" LinkText="@idea.LinkText" Rotate="true" HasPins="true">
@@ -19,8 +19,8 @@
                     }
                 </Paper>
             }
-        </HorizontalScroller>
-    </div>
+        </div>
+    </HorizontalScroller>
 </div>
 
 @code {

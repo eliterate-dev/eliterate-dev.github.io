@@ -1,15 +1,17 @@
 ﻿@page "/playground"
-@using Eliterate.WebAssembly.Components.Generic
-@using Eliterate.WebAssembly.Components.Generic.Shapes
+@using Eliterate.WebAssembly.Components.Generic.Presentation
 <PageTitle>Playground</PageTitle>
 
 <div class="split">
-    <div style="width:100%;height:100%;">
+    <div style="width:100vw;height:100%;">
         <HorizontalScroller>
-            @for (int i = 0; i < 20; i++)
-            {
-                <Paper Link="" LinkText="test">Test Page</Paper>
-            }
+            <div class="scroller-content">
+                @for (int i = 0; i < 5; i++)
+                {
+                    var x = i + 1;
+                    <Paper Link="" LinkText="test">Test Page @x</Paper>
+                }
+            </div>
         </HorizontalScroller>
     </div>
     <div style="background-color:var(--color-background);padding:0.5rem 0.5rem 4rem 0.5rem;overflow-y:scroll;">

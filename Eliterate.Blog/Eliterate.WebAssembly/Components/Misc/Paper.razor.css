@@ -1,6 +1,6 @@
 ﻿.paper-container {
 	margin: 0 auto;
-	padding-bottom: 1rem;
+	padding-bottom: 2rem;
 	aspect-ratio: 100/141;
 }
 
@@ -9,8 +9,10 @@
 	position: relative;
 	display: inline-block;
 	min-width: calc(var(--min-width) - 4rem);
+	max-width: 500px;
 	border: 1px solid black;
 	box-shadow: 3px 2px 3px black;
+	white-space: wrap;
 }
 
 .has-tearoffs {

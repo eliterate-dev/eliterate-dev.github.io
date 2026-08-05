@@ -12,3 +12,18 @@
 p {
 	margin-top: 0.5rem;
 }
+
+
+.scroller-content {
+	width: max-content;
+	height: 100%;
+	padding: 0 0 0 0.5rem;
+	margin: 0 1rem;
+}
+
+	.scroller-content > ::deep * {
+		vertical-align: top;
+		margin: 1rem 1rem 0 0;
+		display: inline-block;
+		height: calc(100% - 3rem);
+	}
