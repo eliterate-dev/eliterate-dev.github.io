@@ -87,13 +87,10 @@
 html, body {
 	margin: 0;
 	font-size: 16px;
-	background-color: var(--color-background);
-	scrollbar-color: var(--color-primary) var(--color-background);
-}
-
-body {
 	font-family: Arial, sans-serif;
 	color: var(--color-foreground);
+	background-color: var(--color-background);
+	scrollbar-color: var(--color-primary) var(--color-background);
 }
 
 h1 {
