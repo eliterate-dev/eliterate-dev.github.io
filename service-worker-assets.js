@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "cYZbzuyE",
+  "version": "1JtyZzcp",
   "assets": [
     {
       "hash": "sha256-Tp5DMyNGSdN59rh4JSxgN4hxdNdoUukTyibnS+ajzT0=",
@@ -10,7 +10,7 @@ self.assetsManifest = {
       "url": "CNAME"
     },
     {
-      "hash": "sha256-6xzrmwlItX8szJdAYpoY+fLw322rQNK7N77pX7KIjrQ=",
+      "hash": "sha256-DW5yxWm7VH7foL8xMLLfd248yxZfRAHmzAQzqSKfStE=",
       "url": "Eliterate.WebAssembly.styles.css"
     },
     {
@@ -34,8 +34,8 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.VideoGames.MineSweeper.xf7qbegxc2.wasm"
     },
     {
-      "hash": "sha256-64wSbUAgTwLuQvZWB1iZq1oZT0gz3c+Jk4FDJkAkEuk=",
-      "url": "_framework/Eliterate.WebAssembly.5g9tyb777i.wasm"
+      "hash": "sha256-YnVZzE/YwEzy97dy8oQFHbetWFmNRKoeapD81yy9nHM=",
+      "url": "_framework/Eliterate.WebAssembly.qh6zj3mpbr.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
@@ -270,7 +270,7 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-kbdfjD8X0yJmWCwPOszSf13gSKB75qcac7b79Z9Vpzs=",
+      "hash": "sha256-z3w0ZvUFB4JjgNqPwcG/dqF7P8JcdYJfOnNzPDvH4+0=",
       "url": "_framework/dotnet.js"
     },
     {
@@ -298,7 +298,7 @@ self.assetsManifest = {
       "url": "_framework/icudt_no_CJK.lfu7j35m59.dat"
     },
     {
-      "hash": "sha256-0jkaRaVIBkczxQAyMhgTm/vScGoY9Vi4OCAcK0rNZZg=",
+      "hash": "sha256-mFqeWtPhGLI0MHqwVNCW6FehBwfaFayrQXwriuCjbt8=",
       "url": "css/app.css"
     },
     {
@@ -394,6 +394,10 @@ self.assetsManifest = {
       "url": "images/qrcodes/eliterate_patreon.svg"
     },
     {
+      "hash": "sha256-ARi5fsUiERnBx0uXf4JAmB+e+kEcN6CLETUORWIkdYA=",
+      "url": "images/stickers/JamLabNoAi.png"
+    },
+    {
       "hash": "sha256-ieXblNXTGpzEWU1Tg4e+q7Q7Zd5FQ15+FzLKeb0QteI=",
       "url": "images/textures/beige-paper.png"
     },
@@ -478,7 +482,7 @@ self.assetsManifest = {
       "url": "js/scripts.js"
     },
     {
-      "hash": "sha256-VEU0/oaMWzo34BIWDYM1CWNrLG0k4mpGODGC3Br/f10=",
+      "hash": "sha256-TZL19XvsjoznIHbCe4J2AjtShZzNIaUVCK+WwwOIspQ=",
       "url": "manifest.webmanifest"
     },
     {
@@ -498,7 +502,7 @@ self.assetsManifest = {
       "url": "posts/Design.md"
     },
     {
-      "hash": "sha256-kjOWB/of1Tcf4uSe5o9VD2J1cEe8wRUeP90lipcXjQM=",
+      "hash": "sha256-4ZFprC0kgNGuynQoFCtfamX/QO16elvl5lJ4BMlGcIk=",
       "url": "posts/Me.md"
     },
     {
