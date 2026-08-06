@@ -58,7 +58,9 @@ td:first-of-type {
 	right: 1rem;
 	max-width: 100px;
 	max-height: 100px;
+	user-select: none;
 }
 	.qr-code > img {
 		width: 100%;
+		user-select: none;
 	}

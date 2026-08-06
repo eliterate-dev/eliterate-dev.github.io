@@ -3,19 +3,27 @@
 	background-image: url(../images/textures/brick-wall-dark.png);
 	background-size: 300px 240px;
 	height: calc(100% - 5.5rem);
-	padding: 0.5rem;
-	padding-bottom: 5rem;
+	padding-bottom: 5.5rem;
 	min-width: var(--min-width);
+	overflow-y: hidden;
 }
 
 .corkboard {
-	width: calc(100% - 1rem);
-	height: calc(100% - 1rem);
+	width: max-content;
+	height: calc(100% - 2rem);
 	background-color: #4d2400;
 	background-image: url(../images/textures/wine-cork.png);
 	border: inset 0.5rem var(--color-wood);
 	box-shadow: 2px 2px 4px black;
+	padding: 0 0 0 0.5rem;
+	margin: 1rem 1rem 0 1rem;
 }
+	.corkboard > ::deep * {
+		vertical-align: top;
+		margin: 1rem 1rem 0 0;
+		display: inline-block;
+		height: calc(100% - 3rem);
+	}
 
 .image {
 	user-select: none;
@@ -23,7 +31,28 @@
 	max-width: 40%;
 	float: right;
 	margin: 1rem;
+	border: 1px solid var(--color-shadow);
 }
+	.image::before, .image::after {
+		content: '';
+		position: absolute;
+		width: 30%;
+		height: 12%;
+		top: -10px;
+		background-color: #333;
+		opacity: 0.4;
+		border: 1px solid var(--color-shadow);
+		border-left: 1px dotted var(--color-shadow);
+		border-right: 1px dotted var(--color-shadow);
+	}
+	.image::before {
+		left: -10px;
+		rotate: -8deg;
+	}
+	.image::after {
+		right: -10px;
+		rotate: 5deg;
+	}
 
 .polaroid {
 	padding: 1% 1% 7% 1%;
@@ -31,7 +60,6 @@
 	color: black;
 	text-align: center;
 	font-family: var(--font-handwritten);
-	filter: var(--sticker-outline-filter);
 }
 
 img {

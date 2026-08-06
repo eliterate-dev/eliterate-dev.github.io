@@ -1,11 +1,11 @@
 ﻿@inject IContentService ContentService
 @page "/plans"
-@using Eliterate.WebAssembly.Components.Generic
+@using Eliterate.WebAssembly.Components.Generic.Presentation
 <PageTitle>Eliterate - Plans & Ideas</PageTitle>
 
 <div class="brick-wall">
-    <div class="corkboard">
-        <HorizontalScroller>
+    <HorizontalScroller>
+        <div class="corkboard">
             @foreach (var idea in _ideas)
             {
                 <Paper Link="@idea.Link" LinkText="@idea.LinkText" Rotate="true" HasPins="true">
@@ -15,16 +15,17 @@
                     </p>
                     @if (!string.IsNullOrWhiteSpace(idea.Image))
                     {
-                        <div class="image polaroid" role="note" style="@($"rotate:{Random.Shared.Next(4) - 2}deg;")"><img loading="lazy" alt="@idea.ImageAlt" src="@idea.Image" /></div>
+                        <div class="image polaroid" role="note" style="@_rotate"><img loading="lazy" alt="@idea.ImageAlt" src="@idea.Image" />@idea.ImageText</div>
                     }
                 </Paper>
             }
-        </HorizontalScroller>
-    </div>
+        </div>
+    </HorizontalScroller>
 </div>
 
 @code {
     private IEnumerable<Plan> _ideas = [];
+    private string _rotate = $"rotate:{Random.Shared.Next(4) - 2}deg;";
 
     protected override async Task OnInitializedAsync()
     {

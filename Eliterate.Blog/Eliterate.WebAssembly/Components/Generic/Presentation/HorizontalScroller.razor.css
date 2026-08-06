@@ -1,0 +1,13 @@
+﻿.horizontal-scroller-container {
+	height: 100%;
+	width: 100%;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+.horizontal-scroller {
+	width: max-content;
+	white-space: nowrap;
+	height: calc(100% - 0.5rem);
+	padding-bottom: 0.5rem;
+}
