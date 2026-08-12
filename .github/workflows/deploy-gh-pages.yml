@@ -7,6 +7,8 @@ on:
 
 jobs:
   build-and-deploy:
+    env:
+      PROJECT_LOCATION: ./Eliterate.Blog/Eliterate.WebAssembly/Eliterate.WebAssembly.csproj
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -21,7 +23,7 @@ jobs:
           dotnet-version: '10.x'
 
       - name: Restore
-        run: dotnet restore ./Eliterate.Blog/Eliterate.WebAssembly/Eliterate.WebAssembly.csproj
+        run: dotnet restore $PROJECT_LOCATION
 
       - name: Set base href for GitHub Pages
         # Adjusts base href to "/<repo>/" so pages work at /repo/
@@ -34,7 +36,7 @@ jobs:
           fi
 
       - name: Publish
-        run: dotnet publish ./Eliterate.Blog/Eliterate.WebAssembly/Eliterate.WebAssembly.csproj -c Release -o publish
+        run: dotnet publish $PROJECT_LOCATION -c Release -o publish
 
       - name: Copy index to 404 for SPA routing
         run: |
