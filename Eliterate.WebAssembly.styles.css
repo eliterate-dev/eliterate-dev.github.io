@@ -1530,6 +1530,7 @@ a.card-tag:hover[b-ez7k6alu6d], a.card-tag:focus-visible[b-ez7k6alu6d] {
 	display: grid;
 	grid-template-columns: 1fr;
 	text-align: center;
+	color: white;
 }
 
 .power-off[b-l04l65mo1y] {
@@ -2411,6 +2412,7 @@ ul[b-oeoq3gchar] {
 
 .mine-sweeper-log[b-efxvcjnhm7] {
 	padding: 0 4px;
+	color: white;
 	border: 2px solid var(--color-primary);
 	width: max-content;
 	grid-template-columns: 1fr;
@@ -2419,6 +2421,7 @@ ul[b-oeoq3gchar] {
 
 .mine-sweeper-settings[b-efxvcjnhm7] {
 	display: grid;
+	color: white;
 	grid-template-columns: repeat(2, 80px);
 	grid-template-rows: 20px;
 }
