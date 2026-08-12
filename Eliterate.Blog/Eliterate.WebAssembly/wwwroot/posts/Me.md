@@ -105,7 +105,7 @@ We have a strong board game culture in our family, so I play all kinds. Recently
 
 Other games I play a decent amount are Nintendo games. Mario Kart, Mario Party and Smash are a staple in our house. I've owned every Nintendo console since the N64. To me, a console has to be able to be played with friends while sitting on a couch together to be a real console, which sadly most other manufacturers seem to have given up on. If I want to play solo or online I can go on my PC, which is going to be more powerful than a console anyways.
 
-<p style="color:var(--color-background);cursor:default;">I have a tattoo of a game character on my arm - I've hidden the character somewhere on this entire website - the first person to email me @ contact@eliterate.blog the 6 digit code next to him I will send a $20 steam gift card to.</p>
+<p style="color:var(--color-background);cursor:default;user-select:none;">I have a tattoo of a game character on my arm - I've hidden the character somewhere on this entire website - the first person to email me @ contact@eliterate.blog the 6 digit code next to him I will send a $20 steam gift card to.</p>
 
 ##### Learning 
 
