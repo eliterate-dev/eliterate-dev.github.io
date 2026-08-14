@@ -14,7 +14,7 @@
 
 ::deep .book-back, ::deep .book-spine, ::deep .book-top {
 	--color: var(--color-book-cover);
-	background-image: url(../images/textures/dark-leather.png);
+	background-image: url(../images/textures/leather.png);
 }
 
 ::deep .book-pages {

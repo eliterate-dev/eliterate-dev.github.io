@@ -1,5 +1,5 @@
 :root {
-	--min-width: 300px;
+	--min-width: 320px;
 	--navmenu-height: 40px;
 	--color-foreground: #eee;
 	--color-foreground-muted: #aaa;
@@ -91,6 +91,14 @@ html, body {
 	color: var(--color-foreground);
 	background-color: var(--color-background);
 	scrollbar-color: var(--color-primary) var(--color-background);
+	height: 100vh;
+	width: 100vw;
+	min-width: var(--min-width);
+}
+
+#app {
+	height: 100%;
+	width: 100%;
 }
 
 h1 {

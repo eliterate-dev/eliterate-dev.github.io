@@ -14,7 +14,7 @@
 
 ::deep .book-back, ::deep .book-spine, ::deep .book-top {
 	--color: var(--color-book-cover);
-	background-image: url(../images/textures/dark-leather.png);
+	background-image: url(../images/textures/leather.png);
 }
 
 ::deep .book-pages {
@@ -57,7 +57,7 @@
 	min-width: calc(var(--min-width) - 40px);
 	width: max-content;
 	position: absolute;
-	bottom: -9rem;
+	bottom: -10rem;
 	right: 0;
 }
 	.peek-card.showSource {
@@ -66,7 +66,7 @@
 	}
 	.peek-card.hideSource {
 		transition: bottom 0.5s;
-		bottom: -9rem;
+		bottom: -10rem;
 	}
 	.peek-card ::deep .card-tag {
 		color: white;

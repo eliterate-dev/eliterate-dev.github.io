@@ -4,6 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
     <PublishAot>False</PublishAot>
   </PropertyGroup>
@@ -15,22 +16,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <RunAOTCompilation>False</RunAOTCompilation>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="wwwroot\lib\**" />
-    <Compile Remove="wwwroot\post_metadata\**" />
-    <Content Remove="wwwroot\lib\**" />
-    <Content Remove="wwwroot\post_metadata\**" />
-    <EmbeddedResource Remove="wwwroot\lib\**" />
-    <EmbeddedResource Remove="wwwroot\post_metadata\**" />
-    <None Remove="wwwroot\lib\**" />
-    <None Remove="wwwroot\post_metadata\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="Components\_PostDetail.razor" />
-    <Content Remove="wwwroot\posts\posts.json" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Codespirals.Base.Shared" Version="1.1.2.26120" />
@@ -45,16 +30,6 @@
 
   <ItemGroup>
     <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\posts\Design.md" />
-    <None Include="wwwroot\posts\metadata.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\fonts\" />
-    <Folder Include="wwwroot\images\stickers\" />
   </ItemGroup>
 
   <ItemGroup>
