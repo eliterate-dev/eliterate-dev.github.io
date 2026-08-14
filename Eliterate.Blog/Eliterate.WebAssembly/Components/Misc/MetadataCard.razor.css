@@ -5,5 +5,5 @@
 .post-wrapper {
 	margin: 0 auto;
 	max-width: 380px;
-	min-width: var(--min-width);
+	min-width: calc(var(--min-width) - 20px);
 }
