@@ -709,7 +709,7 @@ table[b-yomjux826h], tr[b-yomjux826h], td[b-yomjux826h] {
 .post-wrapper[b-wzy9ekbzde] {
 	margin: 0 auto;
 	max-width: 380px;
-	min-width: var(--min-width);
+	min-width: calc(var(--min-width) - 20px);
 }
 /* /Components/Misc/Paper.razor.rz.scp.css */
 .paper-container[b-5yl3dqj43b] {
@@ -1645,17 +1645,9 @@ small[b-l04l65mo1y] {
 	}
 }
 /* /Layout/MainLayout.razor.rz.scp.css */
-.page[b-cafgmfpazb] {
-    --sidebar-height: 2.5rem;
-    display: block;
-    height: 100vh;
-    width: 100vw;
-    min-width: calc(var(--min-width) + 20);
-    background-color: var(--color-wood);
-    background-image: var(--background-image);
-}
 
 main[b-cafgmfpazb] {
+    --sidebar-height: 2.5rem;
     position: absolute;
     top: var(--sidebar-height);
     right: 0;
@@ -1663,6 +1655,8 @@ main[b-cafgmfpazb] {
     height: calc(100% - var(--sidebar-height) - 1px);
     overflow-x: hidden;
     overflow-y: auto;
+    background-color: var(--color-wood);
+    background-image: var(--background-image);
 }
 
 .sidebar[b-cafgmfpazb] {
@@ -1677,13 +1671,10 @@ main[b-cafgmfpazb] {
 }
 
 @media (min-width: 840px) {
-    .page[b-cafgmfpazb] {
-        
-    }
-
     main[b-cafgmfpazb] {
+        --sidebar-height: 0;
         top: 0;
-        height: 100vh;
+        height: 100%;
         width: calc(100% - 13.75rem);
     }
 
@@ -1791,7 +1782,7 @@ nav[b-3fzxegserq]  a {
 
 [b-kis47zz0cb] .book-back, [b-kis47zz0cb] .book-spine, [b-kis47zz0cb] .book-top {
 	--color: var(--color-book-cover);
-	background-image: url(../images/textures/dark-leather.png);
+	background-image: url(../images/textures/leather.png);
 }
 
 [b-kis47zz0cb] .book-pages {
@@ -1858,7 +1849,7 @@ td:first-of-type[b-kis47zz0cb] {
 
 [b-e5flhzutw9] .book-back, [b-e5flhzutw9] .book-spine, [b-e5flhzutw9] .book-top {
 	--color: var(--color-book-cover);
-	background-image: url(../images/textures/dark-leather.png);
+	background-image: url(../images/textures/leather.png);
 }
 
 [b-e5flhzutw9] .book-pages {
@@ -1901,7 +1892,7 @@ td:first-of-type[b-kis47zz0cb] {
 	min-width: calc(var(--min-width) - 40px);
 	width: max-content;
 	position: absolute;
-	bottom: -9rem;
+	bottom: -10rem;
 	right: 0;
 }
 	.peek-card.showSource[b-e5flhzutw9] {
@@ -1910,7 +1901,7 @@ td:first-of-type[b-kis47zz0cb] {
 	}
 	.peek-card.hideSource[b-e5flhzutw9] {
 		transition: bottom 0.5s;
-		bottom: -9rem;
+		bottom: -10rem;
 	}
 	.peek-card[b-e5flhzutw9]  .card-tag {
 		color: white;

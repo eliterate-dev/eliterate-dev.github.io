@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "ZGfRhgFX",
+  "version": "kTae738I",
   "assets": [
     {
       "hash": "sha256-Tp5DMyNGSdN59rh4JSxgN4hxdNdoUukTyibnS+ajzT0=",
@@ -10,7 +10,7 @@ self.assetsManifest = {
       "url": "CNAME"
     },
     {
-      "hash": "sha256-MxcvUr+zPxc0tquR7erhBsXmfbuCWKvtaqzyL1DBQLY=",
+      "hash": "sha256-PzrLpueJsZNAjW5ZDSXOd9qtQ/Q5XasvxrpcEBEUn88=",
       "url": "Eliterate.WebAssembly.styles.css"
     },
     {
@@ -34,8 +34,8 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.VideoGames.MineSweeper.xf7qbegxc2.wasm"
     },
     {
-      "hash": "sha256-KUcPTP4G1zaN1yfuip4qK10/n0aZBgIgraoycGgT53I=",
-      "url": "_framework/Eliterate.WebAssembly.7w5s0n7qwz.wasm"
+      "hash": "sha256-+4tA1Kc3UWt+dJHMYW4h12BrToXtLaS0yRdEH9BKkhI=",
+      "url": "_framework/Eliterate.WebAssembly.nhwqt2yn16.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
@@ -267,11 +267,11 @@ self.assetsManifest = {
     },
     {
       "hash": "sha256-lDXsDYFgm62F+YUvxES7IOTCXYpiHpU3uR45YdC6mq4=",
-      "url": "_framework/blazor.webassembly.js"
+      "url": "_framework/blazor.webassembly.w3qd1tpl0e.js"
     },
     {
-      "hash": "sha256-A1olNDv8I7CE34QQFpoVMkAQxkhSUyKZ828JVb7fyCg=",
-      "url": "_framework/dotnet.js"
+      "hash": "sha256-IiBMpWsB5RWlQ/xwFehw6fNepj/PHvEY9OahHFdRNS8=",
+      "url": "_framework/dotnet.2zvooghr8y.js"
     },
     {
       "hash": "sha256-hYigRhIZKHyCXxXWqL/yR3ZWzZhV2oSi+2N3/UPeoxk=",
@@ -298,7 +298,7 @@ self.assetsManifest = {
       "url": "_framework/icudt_no_CJK.lfu7j35m59.dat"
     },
     {
-      "hash": "sha256-IKEn2VcHNoXXuWNHlTvIpO1wRZZEdAdVAie20j04pVQ=",
+      "hash": "sha256-5YGZ6pM8gqp5UML5p+K9NpIsh7igrl30M1uZpaSTgDo=",
       "url": "css/app.css"
     },
     {
@@ -432,6 +432,10 @@ self.assetsManifest = {
     {
       "hash": "sha256-tCF78lP5NPxufO4g8H1YMZk8AMHpN5ARPzbk7lRGU0Y=",
       "url": "images/textures/handmade-paper.png"
+    },
+    {
+      "hash": "sha256-DhVPhkt8YL/BuO3FlvIvIHUz7ivlG2Masc+EXfKorNE=",
+      "url": "images/textures/leather.png"
     },
     {
       "hash": "sha256-o0CBSn+MOXLUgsva9CSNtKU8k1iOz6sNvCU6Jw1jKoY=",
