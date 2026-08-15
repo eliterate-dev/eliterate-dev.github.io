@@ -1,5 +1,6 @@
-﻿@page "/posts/tags/{id}"
+﻿@page "/posts/tags/{tag}"
 @inject IContentService ContentService
+@inject NavigationManager NavigationManager
 
 <PageTitle>Eliterate - Posts</PageTitle>
 
@@ -13,10 +14,11 @@
 @code
 {
     [Parameter]
-    public string Id { get; set; } = string.Empty;
+    public string Tag { get; set; } = string.Empty;
     public IEnumerable<PostMetadata> Posts { get; set; } = [];
     protected override async Task OnParametersSetAsync()
     {
-        Posts = await ContentService.GetMetadataByTag(Id);
+        var isDev = NavigationManager.BaseUri.Contains("localhost");
+        Posts = await ContentService.GetMetadataByTag(Tag, isDev);
     }
 }

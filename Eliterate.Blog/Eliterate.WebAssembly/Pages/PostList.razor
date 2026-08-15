@@ -1,5 +1,6 @@
 ﻿@page "/posts"
 @inject IContentService ContentService
+@inject NavigationManager NavigationManager
 
 <PageTitle>Eliterate - Posts</PageTitle>
 
@@ -15,6 +16,7 @@
     public IEnumerable<PostMetadata> Posts { get; set; } = [];
     protected override async Task OnInitializedAsync()
     {
-        Posts = await ContentService.GetMetadata();
+        var isDev = NavigationManager.BaseUri.Contains("localhost");
+        Posts = await ContentService.GetMetadata(isDev);
     }
 }

@@ -61,7 +61,7 @@
 		margin-bottom: 0.75rem;
 	}
 	.book-page-text ::deep p {
-		margin-bottom: 0.75rem;
+		margin-bottom: 0.5rem;
 	}
 
 	.book-page-text ::deep .image {
@@ -92,6 +92,10 @@
 		float: right;
 		box-shadow: 1px 1px black;
 	}
+	.book-page-text ::deep ul {
+		margin: 0;
+		padding-left: 1.5rem;
+	}
 
 	.book-page-text ::deep .sticker {
 		float: right;
@@ -108,10 +112,36 @@
 		border-collapse: collapse;
 	}
 
+	.book-page-text ::deep aside {
+		position: relative;
+		background-color: var(--color-background);
+		border: 1px solid var(--color-foreground);
+		border-radius: 0.25rem;
+		padding: 0.25rem;
+		margin-bottom: 0.5rem;
+	}
+		.book-page-text ::deep aside:before {
+			content: 'aside';
+			position: absolute;
+			background-color: var(--color-background);
+			font-size: 0.75rem;
+			color: var(--color-foreground);
+			top: -0.5rem;
+		}
+	.book-page-text ::deep aside:hover {
+		background-color: var(--color-contrast-0);
+	}
+
+	.book-page-text ::deep td, .book-page-text ::deep th {
+		border: 1px solid var(--color-foreground);
+		padding: 0 0.25rem;
+	}
+
 .book-tag-container {
 	position: absolute;
+	height: 2rem;
 	top: -1.75rem;
 	right: 0;
-	width: max-content;
+	width: 100%;
+	padding-right: 0.5rem;
 }
-

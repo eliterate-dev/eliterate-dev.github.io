@@ -4,8 +4,8 @@ namespace Eliterate.WebAssembly;
 
 public interface IContentService
 {
-    Task<IEnumerable<PostMetadata>> GetMetadata();
-    Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tag);
+    Task<IEnumerable<PostMetadata>> GetMetadata(bool getAll = false);
+    Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tag, bool getAll = false);
     Task<BlogPost?> GetPost(string title);
     Task<BlogPost?> GetLatest();
     Task<int> GetPostCount();
@@ -20,20 +20,18 @@ public class ContentService(HttpClient client) : IContentService
 {
     private readonly HttpClient _client = client;
 
-    public async Task<IEnumerable<PostMetadata>> GetMetadata()
+    public async Task<IEnumerable<PostMetadata>> GetMetadata(bool getAll = false)
     {
         var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"posts/metadata.json");
         if (metadata is null)
             return [];
-        return [.. metadata.Where(p => p.IsActive && p.ShowInList).OrderByDescending(p => p.Edited ?? p.Created)];
+        return [.. metadata.Where(p => getAll || (p.IsActive && p.ShowInList)).OrderByDescending(p => p.Edited ?? p.Created)];
     }
 
-    public async Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tagId)
+    public async Task<IEnumerable<PostMetadata>> GetMetadataByTag(string tagId, bool getAll = false)
     {
-        var metadata = await _client.GetFromJsonAsync<IEnumerable<PostMetadata>>($"posts/metadata.json");
-        if (metadata is null)
-            return [];
-        return [.. metadata.Where(p => p.IsActive && p.ShowInList && !p.Tags.Any(t => t.ToUrlSafeString() == tagId)).OrderByDescending(p => p.Edited ?? p.Created)];
+        var metadata = await GetMetadata(getAll);
+        return [.. metadata.Where(p => p.IsActive && p.ShowInList && p.Tags.Any(t => t.ToUrlSafeString() == tagId)).OrderByDescending(p => p.Edited ?? p.Created)];
     }
 
     public async Task<BlogPost?> GetPost(string title)
