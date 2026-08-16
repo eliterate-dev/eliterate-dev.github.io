@@ -54,3 +54,7 @@ As posts are static Markdown files, they're easy to change and reload - however 
 It's all here in the [GitHub](https://github.com/eliterate-dev/eliterate-dev.github.io) repo!
 
 Feel free to be "inspired by it"!
+
+### Template
+
+I have also created a [template of this website](https://github.com/Codespirals/Codespirals.Blazor.WebsiteTemplate) along a guide for setting it up, if you want to really make it your own.

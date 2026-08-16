@@ -6,6 +6,24 @@
 		"youtubelink": "https://youtu.be/5EHXxnj6mB8"
 	},
 	{
+		"artist": "Streetlight Manifesto",
+		"song": "All the Pieces",
+		"text": "And I just hope when they come for me, \nThat I'll be strong enough to defend what I've done",
+		"youtubelink": "https://youtu.be/3bSD7vT1Dvg"
+	},
+	{
+		"artist": "Streetlight Manifesto",
+		"song": "The Three of Us",
+		"text": "But if you reap the seeds you sow, you’ll see you’re really not alone",
+		"youtubelink": "https://youtu.be/ip3bRmsbtws"
+	},
+	{
+		"artist": "Streetlight Manifesto",
+		"song": "Here's to Life",
+		"text": "And I don't know much, but I do know this: With a golden heart comes a rebel fist",
+		"youtubelink": "https://youtu.be/5A--cP5Mh9c"
+	},
+	{
 		"artist": "Amigo the Devil",
 		"song": "Another man's grave",
 		"text": "Life is a lot like a sewer: \nWe get out of it what we put in",
@@ -18,6 +36,12 @@
 		"youtubelink": "https://youtu.be/xcEvNwQ7v-U"
 	},
 	{
+		"artist": "Brian David Gillbert",
+		"song": "Tiny Little Lip Balm",
+		"text": "Am I the circus?",
+		"youtubelink": "https://youtu.be/GCmsQeE2bQ8"
+	},
+	{
 		"artist": "Dawes",
 		"song": "From a window seat",
 		"text": "When you don't know where you're going, \nany road will take you there",
@@ -28,6 +52,12 @@
 		"song": "Route nine legends",
 		"text": "Sometimes it seems we're just spinning our wheels and then suddenly... \nwe move",
 		"youtubelink": "https://youtu.be/48dGn8oLo0A"
+	},
+	{
+		"artist": "Friends in real life",
+		"song": "Sing the news",
+		"text": "But there's no time for bullshit \nAt a time like this \nLove me like a poet \nNot a scientist",
+		"youtubelink": "https://www.youtube.com/watch?v=nusK8R-aiXQ"
 	},
 	{
 		"artist": "Monsters of Folk",
@@ -68,13 +98,19 @@
 	{
 		"artist": "Window Smashing Job Creators",
 		"song": "The Power of Friendship",
-		"text": "The ember of freedom will not bloom\n if we do not plant any seeds",
+		"text": "The embers of freedom will not bloom\n if we do not plant any seeds",
 		"youtubelink": "https://youtu.be/RAUf3Azw_cU"
 	},
 	{
 		"artist": "The Mountain Goats",
 		"song": "Broken to Begin With",
 		"text": "Well the first thing you learn \nis how far you can go with no gas in the tank",
+		"youtubelink": "https://youtu.be/dBpqyr_Iv-0"
+	},
+	{
+		"artist": "The Mountain Goats",
+		"song": "Cry for Judas",
+		"text": "Some things you do just to see \nHow bad they make you feel",
 		"youtubelink": "https://youtu.be/dBpqyr_Iv-0"
 	}
 ]
