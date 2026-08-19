@@ -890,7 +890,7 @@ table[b-yomjux826h], tr[b-yomjux826h], td[b-yomjux826h] {
 		margin-bottom: 0.75rem;
 	}
 	.book-page-text[b-5sqcv8zpn0]  p {
-		margin-bottom: 0.75rem;
+		margin-bottom: 0.5rem;
 	}
 
 	.book-page-text[b-5sqcv8zpn0]  .image {
@@ -921,6 +921,10 @@ table[b-yomjux826h], tr[b-yomjux826h], td[b-yomjux826h] {
 		float: right;
 		box-shadow: 1px 1px black;
 	}
+	.book-page-text[b-5sqcv8zpn0]  ul {
+		margin: 0;
+		padding-left: 1.5rem;
+	}
 
 	.book-page-text[b-5sqcv8zpn0]  .sticker {
 		float: right;
@@ -937,13 +941,39 @@ table[b-yomjux826h], tr[b-yomjux826h], td[b-yomjux826h] {
 		border-collapse: collapse;
 	}
 
+	.book-page-text[b-5sqcv8zpn0]  aside {
+		position: relative;
+		background-color: var(--color-background);
+		border: 1px solid var(--color-foreground);
+		border-radius: 0.25rem;
+		padding: 0.25rem;
+		margin-bottom: 0.5rem;
+	}
+		.book-page-text[b-5sqcv8zpn0]  aside:before {
+			content: 'aside';
+			position: absolute;
+			background-color: var(--color-background);
+			font-size: 0.75rem;
+			color: var(--color-foreground);
+			top: -0.5rem;
+		}
+	.book-page-text[b-5sqcv8zpn0]  aside:hover {
+		background-color: var(--color-contrast-0);
+	}
+
+	.book-page-text[b-5sqcv8zpn0]  td, .book-page-text[b-5sqcv8zpn0]  th {
+		border: 1px solid var(--color-foreground);
+		padding: 0 0.25rem;
+	}
+
 .book-tag-container[b-5sqcv8zpn0] {
 	position: absolute;
+	height: 2rem;
 	top: -1.75rem;
 	right: 0;
-	width: max-content;
+	width: 100%;
+	padding-right: 0.5rem;
 }
-
 /* /Components/Misc/ReadTime.razor.rz.scp.css */
 .read-time[b-m3tg99ft4p] {
 	position: absolute;
@@ -980,20 +1010,20 @@ table[b-yomjux826h], tr[b-yomjux826h], td[b-yomjux826h] {
 }
 
 .book-tag[b-n6ksulzrvs] {
+	float: right;
 	height: 1.25rem;
 	width: max-content;
-	display: inline-block;
 	padding: 0.125rem 0.5rem;
-	margin: 0.5rem 0.75rem 0 0;
+	margin-right: 0.5rem;
+	margin-top: 0.5rem;
 	color: black;
-	background-image: url(../images/textures/cream-paper.png);
-	border-radius: 0.125rem 0.125rem 0 0;
+	border-radius: 2px 2px 0 0;
 	box-shadow: 2px -1px var(--color-shadow), 2px 0px var(--color-shadow);
 }
 
 	.book-tag:hover[b-n6ksulzrvs], .book-tag:focus-visible[b-n6ksulzrvs] {
-		margin-top: 0;
-		padding-top: 0.25rem;
+		margin-top: 0.25rem;
+		height: 1.5rem;
 		color: var(--color-primary-shade);
 		box-shadow: 2px -3px var(--color-shadow), 2px 0px var(--color-shadow);
 	}

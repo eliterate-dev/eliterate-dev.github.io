@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "KmGtrdqx",
+  "version": "zzCzmN8i",
   "assets": [
     {
       "hash": "sha256-Tp5DMyNGSdN59rh4JSxgN4hxdNdoUukTyibnS+ajzT0=",
@@ -10,7 +10,7 @@ self.assetsManifest = {
       "url": "CNAME"
     },
     {
-      "hash": "sha256-PzrLpueJsZNAjW5ZDSXOd9qtQ/Q5XasvxrpcEBEUn88=",
+      "hash": "sha256-k7kVSUiUD2ODqKLkrmduXvY4DVtTPnFegMsSv0Tq1sA=",
       "url": "Eliterate.WebAssembly.styles.css"
     },
     {
@@ -34,8 +34,8 @@ self.assetsManifest = {
       "url": "_framework/Codespirals.VideoGames.MineSweeper.xf7qbegxc2.wasm"
     },
     {
-      "hash": "sha256-4OeO58+0kMchdaCeAwbvsq+mc6Fuy0nEVTjG6A3JE5E=",
-      "url": "_framework/Eliterate.WebAssembly.g0lmsyvq20.wasm"
+      "hash": "sha256-ZAUSro/AzJwDSoDhKGgudh7TLSk9kRgDjIYhWp0chWQ=",
+      "url": "_framework/Eliterate.WebAssembly.8b56pzcnsg.wasm"
     },
     {
       "hash": "sha256-Dh57L9nxu+ri9x4unzWqtqArq1FNLNpXHLdawKAE0i4=",
@@ -270,8 +270,8 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.w3qd1tpl0e.js"
     },
     {
-      "hash": "sha256-FYAtwtxLwApoOjWHBU8HzlKnQmnqertxIWqDi8rMzkw=",
-      "url": "_framework/dotnet.5449bu270f.js"
+      "hash": "sha256-e5gwLBsL8WHDpJLY1FB3P5Wo/ceRcLex71J31bBfqsc=",
+      "url": "_framework/dotnet.5sdbt4o4fh.js"
     },
     {
       "hash": "sha256-hYigRhIZKHyCXxXWqL/yR3ZWzZhV2oSi+2N3/UPeoxk=",
@@ -319,7 +319,7 @@ self.assetsManifest = {
     },
     {
       "hash": "sha256-sRcVJujiS9Fy+GfH+2ycmSncOqHREiK0tmGtlrVDV+k=",
-      "url": "images/icons/logo-126.png"
+      "url": "images/icons/logo-128.png"
     },
     {
       "hash": "sha256-TgKHM6tGSEVSX8R2fkdV58CNow7wPd1xnjazfJ52Gt4=",
@@ -478,7 +478,7 @@ self.assetsManifest = {
       "url": "images/textures/wood.png"
     },
     {
-      "hash": "sha256-KDFi5cDCKGMCtp+I0lTwM170fre5VpLHSHgorTJ3FKU=",
+      "hash": "sha256-IPcgW61DKqSCzyCopQ6Tw3DkDBOMbz2o4LCYNv67nN4=",
       "url": "index.html"
     },
     {
@@ -490,26 +490,6 @@ self.assetsManifest = {
       "url": "manifest.webmanifest"
     },
     {
-      "hash": "sha256-igylS/03933lZrdJrpQTMhXubPeacJIL9Gods8k/4Oc=",
-      "url": "posts/About.md"
-    },
-    {
-      "hash": "sha256-woQEpEpSVBSUfUGg1OO2azORcU1IE6lrKn1RAq73hlg=",
-      "url": "posts/AiStatement.md"
-    },
-    {
-      "hash": "sha256-djWT1roJEpfRoESHb8PkC0P89t1L7HnXzkS+/vBm5nc=",
-      "url": "posts/CV.md"
-    },
-    {
-      "hash": "sha256-/vbQlhLxMuP1E8lDpENXC58i543lUmePfgG269puQ8M=",
-      "url": "posts/Design.md"
-    },
-    {
-      "hash": "sha256-eDy7YXaERR6f17blCELFW4SjqVdpN6HqzRPkFN2BBSk=",
-      "url": "posts/Me.md"
-    },
-    {
       "hash": "sha256-aEzG0QK2G72ptOC9jyyGXg0sk/dmNi7TRwTpQLLDMm0=",
       "url": "posts/OnEffort.md"
     },
@@ -518,11 +498,35 @@ self.assetsManifest = {
       "url": "posts/Post_1.md"
     },
     {
-      "hash": "sha256-nXR3LtrzrnBdB8RuwmMmca/YgmGQHlMjl87KXuYFD+E=",
-      "url": "posts/QR.md"
+      "hash": "sha256-WEOy9Kk8VobmiLhCle8vwTp0Jw/KdPndVfERiBXQ3ww=",
+      "url": "posts/about/About.md"
     },
     {
-      "hash": "sha256-3eXQU6coBjd/NOLs4OuIt+yPdNcPaYFdQRkuGoLMCK4=",
+      "hash": "sha256-woQEpEpSVBSUfUGg1OO2azORcU1IE6lrKn1RAq73hlg=",
+      "url": "posts/about/AiStatement.md"
+    },
+    {
+      "hash": "sha256-djWT1roJEpfRoESHb8PkC0P89t1L7HnXzkS+/vBm5nc=",
+      "url": "posts/about/CV.md"
+    },
+    {
+      "hash": "sha256-/vbQlhLxMuP1E8lDpENXC58i543lUmePfgG269puQ8M=",
+      "url": "posts/about/Design.md"
+    },
+    {
+      "hash": "sha256-eDy7YXaERR6f17blCELFW4SjqVdpN6HqzRPkFN2BBSk=",
+      "url": "posts/about/Me.md"
+    },
+    {
+      "hash": "sha256-DOB0pUWcNwac5yhOuLuT228e3XJGFitjCKBAnajI7Yo=",
+      "url": "posts/learning/Binary.md"
+    },
+    {
+      "hash": "sha256-/WL2sP8Q7VDpvKRH2G3eXuQAkWHDD6rMMe/lmZA2cxo=",
+      "url": "posts/learning/QR.md"
+    },
+    {
+      "hash": "sha256-KR85wE+PdxadL7vaNUCeM5CY3iY6C/hVlfUq43Hja78=",
       "url": "posts/metadata.json"
     },
     {
@@ -542,7 +546,7 @@ self.assetsManifest = {
       "url": "resources/quotes.json"
     },
     {
-      "hash": "sha256-aFtsqEDO5BalfYW1tIvjqhKdNGiPRfuJc4pmIFGjk4c=",
+      "hash": "sha256-GyL30TB2xGm8GUbazsKSyDD8yOuXjgTY7jFKY8S9o3c=",
       "url": "resources/songquotes.json"
     },
     {
