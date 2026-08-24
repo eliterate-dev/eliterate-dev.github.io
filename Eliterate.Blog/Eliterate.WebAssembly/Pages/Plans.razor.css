@@ -2,15 +2,13 @@
 	background-color: #b42e22;
 	background-image: url(../images/textures/brick-wall-dark.png);
 	background-size: 300px 240px;
-	height: calc(100% - 5.5rem);
-	padding-bottom: 5.5rem;
+	height: 100%;
 	min-width: var(--min-width);
-	overflow-y: hidden;
 }
 
 .corkboard {
 	width: max-content;
-	height: calc(100% - 2rem);
+	height: 85vh;
 	background-color: #4d2400;
 	background-image: url(../images/textures/wine-cork.png);
 	border: inset 0.5rem var(--color-wood);
@@ -23,6 +21,7 @@
 		margin: 1rem 1rem 0 0;
 		display: inline-block;
 		height: calc(100% - 3rem);
+		white-space: nowrap;
 	}
 
 .image {

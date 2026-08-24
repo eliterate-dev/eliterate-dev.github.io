@@ -18,8 +18,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Codespirals.Base.Shared" Version="1.1.2.26120" />
-    <PackageReference Include="Codespirals.Blazor.Components" Version="1.0.0.26231" />
+    <PackageReference Include="Codespirals.Base.Shared" Version="1.2.0.26235" />
+    <PackageReference Include="Codespirals.Blazor.Components" Version="1.1.5.26235" />
     <PackageReference Include="Codespirals.CardGames.FlipSeven" Version="1.1.38.26163" />
     <PackageReference Include="Codespirals.CardGames.Poker" Version="1.1.34.26166" />
     <PackageReference Include="Codespirals.VideoGames.MineSweeper" Version="1.0.0.26183" />

@@ -1,0 +1,16 @@
+﻿.split {
+	background-color: grey;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: grid;
+	grid-template-rows: max-content auto;
+}
+.component-showcase {
+	height: calc(100% - 1rem);
+	width: calc(100% - 1rem);
+	border: inset 0.5rem #aaa;
+	position: relative;
+}

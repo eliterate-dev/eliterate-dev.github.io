@@ -2,12 +2,44 @@
 
 <PageTitle>Components</PageTitle>
 
-<ComponentShowcase InitialComponent="InitialComponent">
-</ComponentShowcase>
+@namespace Codespirals.Blazor.Pages
+@using Codespirals.Blazor.Components
+@using Eliterate.WebAssembly.Components.Constructs
+@using Microsoft.AspNetCore.Components.Forms
+
+<div class="split">
+    <div class="component-selection">
+        <InputSelect @bind-Value="_selected">
+            @foreach (var item in Enum.GetValues(typeof(Component)).Cast<Component>())
+            {
+                <option value="@item">@item</option>
+            }
+        </InputSelect>
+    </div>
+    <div class="component-showcase">
+        @switch (_selected)
+        {
+            case Component.PolaroidCamera:
+                <RotatableDisplay>
+                    <PolaroidCamera></PolaroidCamera>
+                </RotatableDisplay>
+                break;
+            default:
+                <div class="fill center-content">
+                    <p>Nothing selected</p>
+                </div>
+                break;
+        }
+    </div>
+</div>
 
 @code {
-    [SupplyParameterFromQuery]
-    [Parameter]
-    public int? InitialComponent { get; set; }
+    private Component _selected;
 
+    private enum Component
+    {
+        None,
+        PolaroidCamera
+    }
 }
+
