@@ -8,7 +8,7 @@
 
 .corkboard {
 	width: max-content;
-	height: 90vh;
+	height: 85vh;
 	background-color: #4d2400;
 	background-image: url(../images/textures/wine-cork.png);
 	border: inset 0.5rem var(--color-wood);
