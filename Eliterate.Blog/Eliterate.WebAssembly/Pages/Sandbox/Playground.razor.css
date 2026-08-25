@@ -4,6 +4,7 @@
 	height: 100%;
 	grid-template-columns: 1fr;
 	grid-template-rows: 70% 30%;
+	background-color: grey;
 }
 	.split > ::deep div {
 		position: relative;

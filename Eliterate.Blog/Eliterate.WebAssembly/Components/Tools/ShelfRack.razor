@@ -1,10 +1,35 @@
-﻿<div class="shelf-rack">
-    <Cuboid>
+﻿<div class="shelf-rack" style="@_size">
+    <Cuboid X="20" Y="Y" Z="40" MoveZ="5" ExtraClasses="left-front" Color="@ShelfColor">
         
+    </Cuboid>
+    <Cuboid X="20" Y="Y" Z="40" MoveZ="Z - 10" ExtraClasses="left-back" Color="@ShelfColor">
+
+    </Cuboid>
+    <Cuboid X="20" Y="Y" Z="40" MoveX="X - 10" MoveZ="5" ExtraClasses="right-front" Color="@ShelfColor">
+
+    </Cuboid>
+    <Cuboid X="20" Y="Y" Z="40" MoveX="X - 10" MoveZ="Z - 10" ExtraClasses="right-back" Color="@ShelfColor">
+
+    </Cuboid>
+    <Cuboid X="X" Y="Z" Z="20" RotateX="90" MoveX="5" MoveY="X * -0.3" MoveZ="(Z * 0.5) + 20" ExtraClasses="top-shelf" BackgroundImage="/images/textures/dark-wood.png" Color="#9c5525">
+    </Cuboid>
+    <Cuboid X="X" Y="Z" Z="20" RotateX="90" MoveX="5" MoveY="X * 0.3" MoveZ="(Z * 0.5) + 20" ExtraClasses="shelf" BackgroundImage="/images/textures/dark-wood.png" Color="#9c5525">
+        @ChildContent
     </Cuboid>
 </div>
 
 @code {
+    private string _size => $"width:{X}px;height:{Y}px;";
+
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public double X { get; set; } = 300;
+    [Parameter]
+    public double Y { get; set; } = 300;
+    [Parameter]
+    public double Z { get; set; } = 200;
+    [Parameter]
+    public string ShelfColor { get; set; } = "#111111";
 }

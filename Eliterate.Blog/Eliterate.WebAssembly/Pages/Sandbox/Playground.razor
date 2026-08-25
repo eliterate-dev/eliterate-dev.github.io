@@ -1,23 +1,20 @@
 ﻿@page "/playground"
+@using Eliterate.WebAssembly.Components.Constructs
+@using Eliterate.WebAssembly.Components.Tools
 <PageTitle>Playground</PageTitle>
 
 <div class="split">
-    <div style="width:100vw;height:100%;">
-        <HorizontalScroller>
-            <div class="scroller-content">
-                @for (int i = 0; i < 5; i++)
-                {
-                    var x = i + 1;
-                    <Paper Link="" LinkText="test">Test Page @x</Paper>
-                }
-            </div>
-        </HorizontalScroller>
+    <div style="width:100vw;height:100%;background-color:darkslategrey;">
+        <ShelfRack X="600" Y="400" Z="400">
+            <PolaroidCamera RotateZ="168"></PolaroidCamera>
+            <Paper></Paper>
+        </ShelfRack>
     </div>
     <div style="background-color:var(--color-background);padding:0.5rem 0.5rem 4rem 0.5rem;overflow-y:scroll;">
-        <p>I didn't like how my "plans" page looked, so i'm designing a component for horizontal scrolling.</p>
+        <p>Working on a nicer presentation for the tools page.</p>
     </div>
 </div>
 
 @code {
-    private string _input = "";
+
 }
