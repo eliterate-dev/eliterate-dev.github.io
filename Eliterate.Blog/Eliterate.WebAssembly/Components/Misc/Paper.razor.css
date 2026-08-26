@@ -11,7 +11,7 @@
 	min-width: calc(var(--min-width) - 4rem);
 	max-width: 500px;
 	border: 1px solid black;
-	box-shadow: 3px 2px 3px black;
+	box-shadow: 1px 1px black;
 	white-space: wrap;
 }
 

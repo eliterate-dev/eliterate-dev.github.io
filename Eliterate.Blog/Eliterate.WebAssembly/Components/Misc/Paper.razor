@@ -1,5 +1,5 @@
 ﻿
-<div class="paper-container" style="@_tearoffHeight">
+<div class="paper-container @_extraClasses" style="@_tearoffHeight">
     <div class="paper @(_hasTearoff ? "has-tearoffs" : "")" style="@_rotate">
         @if (HasPins)
         {
@@ -39,8 +39,19 @@
 </div>
 
 @code {
+
+    private decimal _rand => Random.Shared.Next(5) - 2;
+    private string _rotate => Rotate ? $"rotate:{_rand / 5}deg;" : "";
+    private int _skip = Random.Shared.Next(6);
+    private int _skip2 = Random.Shared.Next(6);
+    private bool _hasTearoff => Link is not null;
+    private string _tearoffHeight => _hasTearoff ? "--tearoff-height:8rem;" : "--tearoff-height:0rem;";
+    private string _extraClasses => ExtraClasses;
+
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public string ExtraClasses { get; set; } = "";
     [Parameter]
     public required string Link { get; set; }
     [Parameter]
@@ -49,11 +60,4 @@
     public bool HasPins { get; set; }
     [Parameter]
     public bool Rotate { get; set; }
-
-    private decimal _rand => Random.Shared.Next(5) - 2;
-    private string _rotate => Rotate ? $"rotate:{_rand / 5}deg;" : "";
-    private int _skip = Random.Shared.Next(6);
-    private int _skip2 = Random.Shared.Next(6);
-    private bool _hasTearoff => Link is not null;
-    private string _tearoffHeight => _hasTearoff ? "--tearoff-height:8rem;" : "--tearoff-height:0rem;";
 }

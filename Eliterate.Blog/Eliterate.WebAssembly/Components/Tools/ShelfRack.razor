@@ -1,4 +1,4 @@
-﻿<div class="shelf-rack" style="@_size">
+﻿<div class="shelf-rack" style="@_size @_position">
     <Cuboid X="20" Y="Y" Z="40" MoveZ="5" ExtraClasses="left-front" Color="@ShelfColor">
         
     </Cuboid>
@@ -11,15 +11,14 @@
     <Cuboid X="20" Y="Y" Z="40" MoveX="X - 10" MoveZ="Z - 10" ExtraClasses="right-back" Color="@ShelfColor">
 
     </Cuboid>
-    <Cuboid X="X" Y="Z" Z="20" RotateX="90" MoveX="5" MoveY="X * -0.3" MoveZ="(Z * 0.5) + 20" ExtraClasses="top-shelf" BackgroundImage="/images/textures/dark-wood.png" Color="#9c5525">
-    </Cuboid>
-    <Cuboid X="X" Y="Z" Z="20" RotateX="90" MoveX="5" MoveY="X * 0.3" MoveZ="(Z * 0.5) + 20" ExtraClasses="shelf" BackgroundImage="/images/textures/dark-wood.png" Color="#9c5525">
+    <Cuboid X="X" Y="Z" Z="20" RotateX="90" MoveX="5" MoveY="Y * 0.5" MoveZ="(Z * 0.5) + 20" ExtraClasses="shelf" BackgroundImage="/images/textures/dark-wood.png" Color="#9c5525">
         @ChildContent
     </Cuboid>
 </div>
 
 @code {
     private string _size => $"width:{X}px;height:{Y}px;";
+    private string _position => $"--move-x:{MoveX}px;--move-y:{MoveY}px;--move-z:{MoveZ}px;";
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
@@ -30,6 +29,12 @@
     public double Y { get; set; } = 300;
     [Parameter]
     public double Z { get; set; } = 200;
+    [Parameter]
+    public double MoveX { get; set; }
+    [Parameter]
+    public double MoveY { get; set; }
+    [Parameter]
+    public double MoveZ { get; set; }
     [Parameter]
     public string ShelfColor { get; set; } = "#111111";
 }
