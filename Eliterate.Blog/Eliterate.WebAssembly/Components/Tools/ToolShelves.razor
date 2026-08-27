@@ -1,33 +1,56 @@
 ﻿@using Eliterate.WebAssembly.Components.Constructs
 <HorizontalScroller>
-    <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveY="ShelfRackHeight * 0.5"></ShelfRack>
-    <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveY="ShelfRackHeight * -0.5">
-        <PolaroidCamera MoveX="65" RotateZ="168"></PolaroidCamera>
-        <Paper ExtraClasses="qr-text-paper">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis malesuada urna, a sollicitudin ante pulvinar et. Nam placerat, risus non auctor lacinia, risus nisi feugiat ipsum, aliquet pretium metus sem eu arcu. Suspendisse nec mi vitae diam malesuada efficitur ut a neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed vehicula tellus in interdum tincidunt. Praesent eu volutpat dolor. Morbi imperdiet, dui ac tincidunt maximus, augue velit convallis ante, ut aliquet mi eros sed nunc. Maecenas tortor ipsum, semper id est vitae, aliquet finibus tortor.
-            </p>
-            <p>
-                Donec porttitor nulla lectus, vitae sodales turpis aliquet in. Vestibulum id est ac nisi fermentum porttitor. In sem tellus, dignissim non magna at, cursus euismod augue. Nam non dui nunc. Fusce vel consequat nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean arcu leo, varius et condimentum nec, consectetur non dui. Phasellus cursus laoreet orci, vel porta risus cursus at. Donec purus lacus, consequat sit amet tristique ac, imperdiet nec est. Duis turpis risus, efficitur id purus accumsan, pellentesque vulputate eros. Donec interdum malesuada nisl efficitur auctor. Donec placerat erat lorem, ac eleifend elit accumsan non. Vivamus ut elit eget erat condimentum aliquet in sit amet magna.
-            </p>
-        </Paper>
-        <Paper ExtraClasses="qr-code-paper">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis malesuada urna, a sollicitudin ante pulvinar et. Nam placerat, risus non auctor lacinia, risus nisi feugiat ipsum, aliquet pretium metus sem eu arcu. Suspendisse nec mi vitae diam malesuada efficitur ut a neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed vehicula tellus in interdum tincidunt. Praesent eu volutpat dolor. Morbi imperdiet, dui ac tincidunt maximus, augue velit convallis ante, ut aliquet mi eros sed nunc. Maecenas tortor ipsum, semper id est vitae, aliquet finibus tortor.
-            </p>
-            <div class="polaroid">
-                <img src="/images/qrcodes/eliterate.svg" style="width:100px;height:100px;" />
-            </div>
-        </Paper>
-    </ShelfRack>
-    <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveY="ShelfRackHeight * -1.5"></ShelfRack>
+    <div class="shelf-container" style="@_height">
+        <div class="tool-shelves">
+            <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveY="ShelfRackHeight * 2" MoveZ="ShelfRackDepth * 0.5"></ShelfRack>
+            <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveY="ShelfRackHeight" MoveZ="ShelfRackDepth * 0.5">
+                <PolaroidCamera MoveX="65" RotateZ="168"></PolaroidCamera>
+                <Paper ExtraClasses="qr-text-paper">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis malesuada urna, a sollicitudin ante pulvinar et. Nam placerat, risus non auctor lacinia, risus nisi feugiat ipsum, aliquet pretium metus sem eu arcu. Suspendisse nec mi vitae diam malesuada efficitur ut a neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed vehicula tellus in interdum tincidunt. Praesent eu volutpat dolor. Morbi imperdiet, dui ac tincidunt maximus, augue velit convallis ante, ut aliquet mi eros sed nunc. Maecenas tortor ipsum, semper id est vitae, aliquet finibus tortor.
+                    </p>
+                    <p>
+                        Donec porttitor nulla lectus, vitae sodales turpis aliquet in. Vestibulum id est ac nisi fermentum porttitor. In sem tellus, dignissim non magna at, cursus euismod augue. Nam non dui nunc. Fusce vel consequat nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean arcu leo, varius et condimentum nec, consectetur non dui. Phasellus cursus laoreet orci, vel porta risus cursus at. Donec purus lacus, consequat sit amet tristique ac, imperdiet nec est. Duis turpis risus, efficitur id purus accumsan, pellentesque vulputate eros. Donec interdum malesuada nisl efficitur auctor. Donec placerat erat lorem, ac eleifend elit accumsan non. Vivamus ut elit eget erat condimentum aliquet in sit amet magna.
+                    </p>
+                </Paper>
+                <Paper ExtraClasses="qr-code-paper">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis malesuada urna, a sollicitudin ante pulvinar et. Nam placerat, risus non auctor lacinia, risus nisi feugiat ipsum, aliquet pretium metus sem eu arcu. Suspendisse nec mi vitae diam malesuada efficitur ut a neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed vehicula tellus in interdum tincidunt. Praesent eu volutpat dolor. Morbi imperdiet, dui ac tincidunt maximus, augue velit convallis ante, ut aliquet mi eros sed nunc. Maecenas tortor ipsum, semper id est vitae, aliquet finibus tortor.
+                    </p>
+                    <div class="polaroid">
+                        <img src="/images/qrcodes/eliterate.svg" style="width:100px;height:100px;" />
+                    </div>
+                </Paper>
+            </ShelfRack>
+            <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveZ="ShelfRackDepth * 0.5">
+            </ShelfRack>
+            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveZ="5" ExtraClasses="left-back" Color="@ShelfColor">
+
+            </Cuboid>
+            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveZ="ShelfRackWidth - 10" ExtraClasses="left-front" Color="@ShelfColor">
+
+            </Cuboid>
+            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveX="ShelfRackWidth - 10" MoveZ="5" ExtraClasses="right-back" Color="@ShelfColor">
+
+            </Cuboid>
+            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveX="ShelfRackWidth - 10" MoveZ="ShelfRackWidth - 10" ExtraClasses="right-front" Color="@ShelfColor">
+
+            </Cuboid>
+        </div>
+    </div>
 </HorizontalScroller>
 
 @code {
+    private string _height => $"--shelf-height:{ShelfHeight}px;";
+
+    [Parameter]
+    public double ShelfHeight { get; set; } = 900;
     [Parameter]
     public double ShelfRackHeight { get; set; } = 300;
     [Parameter]
-    public double ShelfRackWidth { get; set; } = 600;
+    public double ShelfRackWidth { get; set; } = 1000;
     [Parameter]
     public double ShelfRackDepth { get; set; } = 400;
+    [Parameter]
+    public string ShelfColor { get; set; } = "#111111";
 }

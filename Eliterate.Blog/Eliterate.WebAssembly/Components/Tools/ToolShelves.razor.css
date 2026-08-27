@@ -1,5 +1,13 @@
-﻿::deep .horizontal-scroller {
-	height: 100%;
+﻿.shelf-container {
+	height: var(--shelf-height);
+	width: 100%;
+	overflow-y: hidden;
+}
+
+.tool-shelves {
+	transform-style: preserve-3d;
+	transform: rotateX(-15deg);
+	translate: 0 -280px;
 }
 
 .polaroid {

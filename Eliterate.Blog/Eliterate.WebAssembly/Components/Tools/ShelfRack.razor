@@ -1,17 +1,5 @@
 ﻿<div class="shelf-rack" style="@_size @_position">
-    <Cuboid X="20" Y="Y" Z="40" MoveZ="5" ExtraClasses="left-front" Color="@ShelfColor">
-        
-    </Cuboid>
-    <Cuboid X="20" Y="Y" Z="40" MoveZ="Z - 10" ExtraClasses="left-back" Color="@ShelfColor">
-
-    </Cuboid>
-    <Cuboid X="20" Y="Y" Z="40" MoveX="X - 10" MoveZ="5" ExtraClasses="right-front" Color="@ShelfColor">
-
-    </Cuboid>
-    <Cuboid X="20" Y="Y" Z="40" MoveX="X - 10" MoveZ="Z - 10" ExtraClasses="right-back" Color="@ShelfColor">
-
-    </Cuboid>
-    <Cuboid X="X" Y="Z" Z="20" RotateX="90" MoveX="5" MoveY="Y * 0.5" MoveZ="(Z * 0.5) + 20" ExtraClasses="shelf" BackgroundImage="/images/textures/dark-wood.png" Color="#9c5525">
+    <Cuboid X="X" Y="Z" Z="20" RotateX="90" MoveX="5" MoveZ="Z * 0.5" ExtraClasses="shelf" BackgroundImage="/images/textures/dark-wood.png" Color="#9c5525">
         @ChildContent
     </Cuboid>
 </div>
@@ -35,6 +23,4 @@
     public double MoveY { get; set; }
     [Parameter]
     public double MoveZ { get; set; }
-    [Parameter]
-    public string ShelfColor { get; set; } = "#111111";
 }
