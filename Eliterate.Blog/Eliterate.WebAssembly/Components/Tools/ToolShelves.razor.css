@@ -1,19 +1,31 @@
-﻿.shelf-container {
+﻿.shelves {
 	height: var(--shelf-height);
-	width: 100%;
-	overflow-y: hidden;
+	width: max-content;
+	transform-style: preserve-3d;
+	transform: rotateY(5deg);
 }
 
-.tool-shelves {
+.shelf-unit {
+	height: var(--shelf-height);
+	width: var(--shelf-width);
+	display: inline-block;
 	transform-style: preserve-3d;
 	transform: rotateX(-15deg);
-	translate: 0 -280px;
+	translate: 0 -240px;
+	margin-right: 0.75rem;
+}
+
+.shelf-link {
+	position: absolute;
+	height: var(--shelf-depth);
+	width: calc(var(--shelf-width) / 2);
+	transform-style: preserve-3d;
 }
 
 .polaroid {
 	position: absolute;
-	bottom: 2rem;
-	right: 2rem;
+	bottom: 1rem;
+	right: 1rem;
 	width: max-content;
 	margin: 0 0 0.5rem 1rem;
 	padding: 0.25rem;
