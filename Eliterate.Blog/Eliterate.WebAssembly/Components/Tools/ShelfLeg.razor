@@ -1,0 +1,13 @@
+﻿<Cuboid X="20" Y="ShelfHeight" Z="20" MoveY="150" MoveZ="-10" ExtraClasses="left-back" Color="@ShelfColor"></Cuboid>
+
+@code {
+
+    [Parameter]
+    public double ShelfHeight { get; set; } = 700;
+    [Parameter]
+    public bool Left { get; set; }
+    [Parameter]
+    public bool Front { get; set; }
+    [Parameter]
+    public string ShelfColor { get; set; } = "#111111";
+}

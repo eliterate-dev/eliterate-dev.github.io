@@ -2,7 +2,8 @@
 	height: var(--shelf-height);
 	width: max-content;
 	transform-style: preserve-3d;
-	transform: rotateY(5deg);
+	transform: rotateY(4deg);
+	translate: 0 -240px;
 }
 
 .shelf-unit {
@@ -11,7 +12,6 @@
 	display: inline-block;
 	transform-style: preserve-3d;
 	transform: rotateX(-15deg);
-	translate: 0 -240px;
 	margin-right: 0.75rem;
 }
 

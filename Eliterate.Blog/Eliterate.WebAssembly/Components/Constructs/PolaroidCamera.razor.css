@@ -8,6 +8,7 @@
 	translate: var(--move-x) var(--move-y) var(--move-z);
 }
 .lens {
+	position: relative;
 	background-color: black;
 	width: calc(var(--x) / 3);
 	height: calc(var(--x) / 3);
@@ -21,7 +22,7 @@
 		position: absolute;
 		width: calc(var(--x) / 4);
 		height: calc(var(--x) / 4);
-		border: 8px double grey;
+		border: min(8px, calc(var(--x) / 20)) double grey;
 		border-radius: 50%;
 		background-color: black;
 	}
@@ -78,6 +79,7 @@
 	padding: 0.125rem;
 	text-align: center;
 	border: 1px solid #444;
+	font-size: calc(var(--x) * 0.05);
 }
 .print-slot {
 	position: relative;
