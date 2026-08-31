@@ -1,0 +1,16 @@
+﻿<h3>DraftingSequenceGenerator</h3>
+
+@code {
+    private int[] _order = [];
+
+    [Parameter]
+    public string[] Pickers { get; set; } = [];
+    [Parameter]
+    public int ItemsToPick { get; set; }
+
+    protected override void OnParametersSet()
+    {
+
+        base.OnParametersSet();
+    }
+}
