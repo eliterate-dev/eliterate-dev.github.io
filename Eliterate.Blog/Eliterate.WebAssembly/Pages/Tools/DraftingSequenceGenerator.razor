@@ -1,16 +1,69 @@
-﻿<h3>DraftingSequenceGenerator</h3>
+﻿@page "/tools/picker"
+@using Eliterate.WebAssembly.Tools
+
+<FlashCard>
+    <h3>Pickers</h3>
+    <ul>
+        @foreach (var picker in Pickers)
+        {
+            <li>
+                <InputText @bind-Value="picker.Name"></InputText><button @onclick="x => RemovePicker(picker.Id)">X</button>
+            </li>
+        }
+    </ul>
+    <button @onclick="AddPicker">Add Picker</button>
+</FlashCard>
+
+<div>
+    <label>Current Picker: @_currentPicker</label>
+    <button @onclick="x => CurrentPick++">Move To Next Picker</button>
+    <label>Jump to pick number:</label><InputNumber @bind-Value="@CurrentPick"></InputNumber>
+</div>
 
 @code {
     private int[] _order = [];
+    private string _currentPicker => GetPicker(CurrentPick);
+    private string _nextPicker => GetPicker(CurrentPick + 1);
 
     [Parameter]
-    public string[] Pickers { get; set; } = [];
+    public int CurrentPick { get; set; } = 0;
     [Parameter]
-    public int ItemsToPick { get; set; }
+    public List<Picker> Pickers { get; set; } = [];
 
-    protected override void OnParametersSet()
+    public string GetPicker(int number)
     {
+        if (_order.Length < 1)
+            RebuildOrder();
+        if (Pickers.Count < 1)
+            return "No picker's set.";
+        number = Math.Abs(number);
+        while (_order.Length < number + 1)
+        {
+            _order = [.. _order.Concat(_order.Reverse())];
+        }
+        return Pickers[_order[number]].Name;
+    }
 
-        base.OnParametersSet();
+    public void RebuildOrder()
+    {
+        if (Pickers.Count < 1)
+            return;
+        _order = [.. Pickers.Select(x => x.Id)];
+    }
+
+    public void AddPicker()
+    {
+        if (!Pickers.Any())
+            Pickers.Add(new() { Id = 0, Name = $"Picker 1" });
+        else
+            Pickers.Add(new() { Id = Pickers.Last().Id + 1, Name = $"Picker {Pickers.Last().Id + 2}" });
+    }
+
+    public void RemovePicker(int id)
+    {
+        if (id < 0 || id >= Pickers.Count)
+            return;
+        Pickers.RemoveAt(id);
+        RebuildOrder();
     }
 }
