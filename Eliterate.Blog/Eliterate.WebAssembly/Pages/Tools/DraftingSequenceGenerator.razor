@@ -1,69 +1,86 @@
 ﻿@page "/tools/picker"
 @using Eliterate.WebAssembly.Tools
 
-<FlashCard>
-    <h3>Pickers</h3>
-    <ul>
-        @foreach (var picker in Pickers)
-        {
-            <li>
-                <InputText @bind-Value="picker.Name"></InputText><button @onclick="x => RemovePicker(picker.Id)">X</button>
-            </li>
-        }
-    </ul>
-    <button @onclick="AddPicker">Add Picker</button>
-</FlashCard>
+<PageTitle>Eliterate - Tools - Picker</PageTitle>
 
-<div>
-    <label>Current Picker: @_currentPicker</label>
-    <button @onclick="x => CurrentPick++">Move To Next Picker</button>
-    <label>Jump to pick number:</label><InputNumber @bind-Value="@CurrentPick"></InputNumber>
+<div class="controls">
+    <FlashCard>
+        <div class="picker-controls">
+            <label>Current Picker: @_currentPicker.Name</label>
+            <button @onclick="x => CurrentPick--">Previous</button>
+            <button @onclick="x => CurrentPick++">Next</button>
+            <label>Jump to pick number:</label><InputNumber @bind-Value="@CurrentPick"></InputNumber>
+        </div>
+    </FlashCard>
+</div>
+
+<div class="pickers">
+    <FlashCard>
+        <h3>Pickers</h3>
+        <ul>
+            @foreach (var picker in _pickers)
+            {
+                <li>
+                    <div hidden="hidden">@picker.Id</div>
+                    <InputText @bind-Value="picker.Name"></InputText>
+                </li>
+            }
+        </ul>
+    </FlashCard>
+</div>
+
+<div class="settings">
+    <FlashCard>
+        <label>Set number of pickers:</label><InputNumber @bind-Value="@Pickers"></InputNumber><button @onclick="x => SetPickers(Pickers)">Set</button>
+    </FlashCard>
 </div>
 
 @code {
-    private int[] _order = [];
-    private string _currentPicker => GetPicker(CurrentPick);
-    private string _nextPicker => GetPicker(CurrentPick + 1);
+    private List<Picker> _pickers = [];
+    private Picker _currentPicker => GetPicker(_pickers, CurrentPick);
+    private string _errorMessage = "";
 
     [Parameter]
-    public int CurrentPick { get; set; } = 0;
+    [SupplyParameterFromQuery]
+    public int Pickers { get; set; } = 2;
     [Parameter]
-    public List<Picker> Pickers { get; set; } = [];
+    [SupplyParameterFromQuery]
+    public int CurrentPick { get; set; } = 1;
 
-    public string GetPicker(int number)
+    protected override void OnInitialized()
     {
-        if (_order.Length < 1)
-            RebuildOrder();
-        if (Pickers.Count < 1)
-            return "No picker's set.";
-        number = Math.Abs(number);
-        while (_order.Length < number + 1)
+        SetPickers(2);
+        base.OnInitialized();
+    }
+
+    public Picker GetPicker(IEnumerable<Picker> pickers, int pick)
+    {
+        if (_pickers.Count < 1)
+            return new() { Id = -1, Name = "No pickers set." };
+
+        pick = Math.Clamp(pick, 1, byte.MaxValue);
+        var order = _pickers.Select(x => x.Id);
+
+        while (order.Count() < pick + 1)
         {
-            _order = [.. _order.Concat(_order.Reverse())];
+            order = [.. order.Concat(order.Reverse())];
         }
-        return Pickers[_order[number]].Name;
+        var picker = Math.Clamp(order.ElementAt(pick - 1), 0, pickers.Count());
+        return _pickers[picker];
     }
 
-    public void RebuildOrder()
+    private void SetPickers(int number)
     {
-        if (Pickers.Count < 1)
+        CurrentPick = 1;
+        if (number < 2)
+        {
+            _errorMessage = "Can't have fewer than 2 pickers.";
             return;
-        _order = [.. Pickers.Select(x => x.Id)];
-    }
-
-    public void AddPicker()
-    {
-        if (!Pickers.Any())
-            Pickers.Add(new() { Id = 0, Name = $"Picker 1" });
-        else
-            Pickers.Add(new() { Id = Pickers.Last().Id + 1, Name = $"Picker {Pickers.Last().Id + 2}" });
-    }
-
-    public void RemovePicker(int id)
-    {
-        if (id < 0 || id >= Pickers.Count)
-            return;
-        Pickers.RemoveAt(id);
-        RebuildOrder();
+        }
+        _pickers = new List<Picker>();
+        for (int i = 0; i < number; i++)
+        {
+            _pickers.Add(new() { Id = i, Name = $"Picker {i+1}" });
+        }
     }
 }
