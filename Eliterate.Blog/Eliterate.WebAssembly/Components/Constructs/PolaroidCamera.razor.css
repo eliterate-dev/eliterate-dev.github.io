@@ -6,6 +6,7 @@
 	transform-origin: 50% 50%;
 	transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) rotateZ(var(--rotate-z));
 	translate: var(--move-x) var(--move-y) var(--move-z);
+	user-select: none;
 }
 .lens {
 	position: relative;
