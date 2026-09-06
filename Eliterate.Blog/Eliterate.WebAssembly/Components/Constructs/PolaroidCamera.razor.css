@@ -13,16 +13,17 @@
 	width: calc(var(--x) / 3);
 	height: calc(var(--x) / 3);
 	border-radius: 50%;
-	border: 5px solid white;
-	outline: 2px solid black;
-	z-index: 1;
+	border: calc(var(--x) / 25) solid white;
+	outline: calc(var(--x) / 50) solid black;
 }
 	.lens:before {
 		content: '';
 		position: absolute;
+		top: calc(var(--x) / -100);
+		right: calc(var(--x) / -100);
 		width: calc(var(--x) / 4);
 		height: calc(var(--x) / 4);
-		border: min(8px, calc(var(--x) / 20)) double grey;
+		border: calc(var(--x) / 20) double grey;
 		border-radius: 50%;
 		background-color: black;
 	}
@@ -46,25 +47,25 @@
 
 .viewfinder {
 	position: absolute;
-	width: calc(var(--x) / 6);
-	height: calc(var(--x) / 7);
-	border: 6px solid darkgrey;
+	width: calc(var(--x) / 8);
+	height: calc(var(--x) / 10);
+	border: calc(var(--x) / 30) solid darkgrey;
 	outline: 2px solid black;
 	border-radius: 10%;
 	background-color: #333;
-	bottom: 0.5rem;
+	bottom: 8px;
 	left: calc(var(--x) / 20);
 }
 .red-dot {
 	position: absolute;
-	width: calc(var(--x) / 8);
-	height: calc(var(--x) / 8);
-	border: 4px solid color-mix(in srgb, var(--color) 90%, #333333);
+	width: calc(var(--x) / 10);
+	height: calc(var(--x) / 10);
+	border: calc(var(--x) / 50) solid color-mix(in srgb, var(--color) 90%, #333333);
 	outline: 1px solid grey;
 	border-radius: 50%;
 	background-color: red;
-	top: 0.75rem;
-	right: 10%;
+	top: 30%;
+	right: calc(var(--x) * 0.05);
 }
 .camera-front {
 	width: 95%;
@@ -75,18 +76,17 @@
 }
 .logo {
 	color: white;
-	font-size: 0.5rem;
-	padding: 0.125rem;
+	padding: calc(var(--x) * 0.01);
 	text-align: center;
 	border: 1px solid #444;
-	font-size: calc(var(--x) * 0.05);
+	font-size: calc(var(--x) * 0.04);
 }
 .print-slot {
 	position: relative;
 	background-color: black;
-	margin-top: 4px;
+	margin-top: calc(var(--x) * 0.02);
 	height: 1px;
-	border: 5px double #444;
+	border: calc(var(--x) * 0.03) double #444;
 	transform-style: preserve-3d;
 }
 .printer {
@@ -105,22 +105,22 @@
 .polaroid {
 	position: relative;
 	background-color: white;
-	padding: 0.375rem;
-	padding-bottom: 2rem;
+	padding: 6px;
+	padding-bottom: 24px;
 }
 
 .polaroid-image {
 	position: absolute;
 	border: 1px solid var(--color-shadow);
-	width: calc(100% - 0.75rem);
+	width: calc(100% - 12px);
 	aspect-ratio: 1/1;
 	overflow: hidden;
 }
 .polaroid-image-content {
 	width: calc(var(--x) * 2);
 	height: calc(var(--x) * 2);
-	margin-top: calc((var(--x) * -0.5) - 0.375rem);
-	margin-left: calc((var(--x) * -0.5) - 0.375rem);
+	margin-top: calc((var(--x) * -0.5) - 6px);
+	margin-left: calc((var(--x) * -0.5) - 6px);
 	display: flex;
 	justify-content: center;
 	align-items: center;

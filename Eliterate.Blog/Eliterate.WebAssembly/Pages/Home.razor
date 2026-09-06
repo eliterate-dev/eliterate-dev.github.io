@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using Eliterate.WebAssembly.Components.Constructs
 @inject IContentService ContentService
 
 <PageTitle>Eliterate</PageTitle>
@@ -10,9 +11,9 @@
         {
             <p class="center-text" tabindex="0">@tagline.Text</p>
         }
-        <TextSticker Text="🔋" Right="1.5m" Top="0.5m" Rotate="-87" Scale="3"></TextSticker>
-        <TextSticker Text="🎮" Right="2" Top="8m" Rotate="5" Scale="4"></TextSticker>
-        <TextSticker Text="💻" Left="1" Bottom="1" Rotate="-9" Scale="4"></TextSticker>
+        <TextSticker Text="🔋" Right="24" Top="8" RotateX="-87" FontSize="48"></TextSticker>
+        <TextSticker Text="🎮" Right="2" Bottom="8" RotateX="5" FontSize="64"></TextSticker>
+        <TextSticker Text="💻" Left="1" Bottom="1" RotateX="-9" FontSize="64"></TextSticker>
     </Book>
     <div class="post-grid-cell">
         <div class="post-wrapper">
@@ -21,7 +22,7 @@
                     <div class="grid-container-dash-dot">
                         <h2 class="card-title" tabindex="0" role="heading">Hi! I'm Eli</h2>
                     </div>
-                    <TextSticker Text="🇨🇭" Top="0.5m" Right="0.5m" Rotate="3" Scale="2"></TextSticker>
+                    <TextSticker Text="🇨🇭" Top="8" Right="8" RotateX="3" FontSize="32"></TextSticker>
                 </div>
                 <div class="card-body">
                     <div class="card-text" tabindex="0" role="document">
@@ -50,7 +51,7 @@
                     <div class="card-header">
                         <div class="grid-container-dash-dot">
                             <h2 class="card-title" tabindex="0" role="heading">Tagline Source</h2>
-                            <TextSticker Text="💿" Top="0.25m" Right="0.5m" Rotate="3" Scale="1.5m"></TextSticker>
+                            <TextSticker Text="💿" Top="4" Right="8" RotateX="3" FontSize="24"></TextSticker>
                         </div>
                     </div>
                     <div class="card-body">

@@ -1,16 +1,18 @@
-﻿<div class="book" style="position:absolute;transform-style:preserve-3d;@_size @_rotation">
+﻿@inherits ThreeDimensionalShape
+
+<div class="book" style="position:absolute;transform-style:preserve-3d;@_size @_rotation">
     <!-- Back -->
-    <Cuboid X="X" Y="Y" Z="_coverThickness" ExtraClasses="book-back" Color="@_color">
+    <Cuboid X="X" Y="Y" Z="_coverThickness" CssClass="book-back" Color="@_color">
         <!-- Spine -->
-        <Cuboid X="Y" Y="Z + 2" Z="_coverThickness" MoveX="(Y / -2) + 1" MoveY="Math.Ceiling((Y - Z - _coverThickness) / 2) + 1" MoveZ="Math.Ceiling((Z - _coverThickness + 1) / 2)" RotateY="-90" RotateZ="90" ExtraClasses="book-spine" Color="@($"color-mix(in srgb, {_color} 90%, #000)")">
+        <Cuboid X="Y" Y="Z + 2" Z="_coverThickness" MoveX="(Y / -2) + 1" MoveY="Math.Ceiling((Y - Z - _coverThickness) / 2) + 1" MoveZ="Math.Ceiling((Z - _coverThickness + 1) / 2)" RotateY="-90" RotateZ="90" CssClass="book-spine" Color="@($"color-mix(in srgb, {_color} 90%, #000)")">
             <div class="fill center-content spine-text">
                 @SpineText
             </div>
         </Cuboid>
         <!-- Pages -->
-        <Cuboid X="X - _coverThickness" Y="Y - (_coverThickness * 2)" Z="Z - _coverThickness" MoveY="_coverThickness" ExtraClasses="book-pages">
+        <Cuboid X="X - _coverThickness" Y="Y - (_coverThickness * 2)" Z="Z - _coverThickness" MoveY="_coverThickness" CssClass="book-pages">
             <!-- Front -->
-            <Cuboid X="X" Y="Y" Z="_coverThickness" ExtraClasses="book-top" MoveY="-_coverThickness - 1" Color="@_color">
+            <Cuboid X="X" Y="Y" Z="_coverThickness" CssClass="book-top" MoveY="-_coverThickness - 1" Color="@_color">
                 <div class="book-cover">
                     @ChildContent
                 </div>
@@ -28,18 +30,6 @@
 
     [Parameter]
     public double CoverThickness { get; set; } = 5;
-    [Parameter]
-    public double X { get; set; } = 300;
-    [Parameter]
-    public double Y { get; set; } = 420;
-    [Parameter]
-    public double Z { get; set; } = 100;
-    [Parameter]
-    public double RotateX { get; set; }
-    [Parameter]
-    public double RotateY { get; set; }
-    [Parameter]
-    public double RotateZ { get; set; }
     [Parameter]
     public int Hue { get; set; } = 14;
     [Parameter]

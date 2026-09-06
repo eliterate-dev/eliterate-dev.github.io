@@ -1,10 +1,12 @@
 ﻿@page "/playground"
-@using Eliterate.WebAssembly.Components.Tools
+@using Eliterate.WebAssembly.Components.Constructs
 <PageTitle>Playground</PageTitle>
 
 <div class="split">
     <div style="width:100vw;height:100%;background-color:darkslategrey;">
-        <ToolShelves></ToolShelves>
+        <RotatableDisplay>
+            <PolaroidCamera X="100" Y="100" Z="100"></PolaroidCamera>
+        </RotatableDisplay>
     </div>
     <div style="background-color:var(--color-background);padding:0.5rem 0.5rem 4rem 0.5rem;overflow-y:scroll;">
         <p>Working on a nicer presentation for the tools page.</p>

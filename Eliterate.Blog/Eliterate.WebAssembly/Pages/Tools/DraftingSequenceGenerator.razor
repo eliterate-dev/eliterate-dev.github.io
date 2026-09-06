@@ -27,6 +27,10 @@
             }
         </ul>
     </FlashCard>
+    @if (!string.IsNullOrWhiteSpace(_errorMessage))
+    {
+        <div>@_errorMessage</div>
+    }
 </div>
 
 <div class="settings">

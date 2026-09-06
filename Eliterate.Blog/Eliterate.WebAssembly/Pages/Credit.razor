@@ -1,4 +1,5 @@
 ﻿@page "/credit"
+@using Eliterate.WebAssembly.Components.Constructs
 @inject IContentService ContentService
 
 <PageTitle>Eliterate - Credit</PageTitle>
@@ -21,8 +22,8 @@
         </div>
         <div class="copyright">&copy @DateTime.UtcNow.Year Eliterate</div>
 
-        <TextSticker Text="📱" Right="1.5m" Top="0.5m" Scale="3" Rotate="20"></TextSticker>
-        <TextSticker Text="🪫" Left="5" Bottom="0.875m" Scale="3" Rotate="80"></TextSticker>
+        <TextSticker Text="📱" Right="20" Top="8" FontSize="48" RotateX="20"></TextSticker>
+        <TextSticker Text="🪫" Left="25" Bottom="12" FontSize="48" RotateX="80"></TextSticker>
     </Book>
 </div>
 
