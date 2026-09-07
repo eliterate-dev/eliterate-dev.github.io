@@ -2,7 +2,16 @@
 <HorizontalScroller>
     <div class="shelves" style="@_height">
         <div class="shelf-unit shelf-1" style="@_width @_height @_depth">
-            <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveY="ShelfRackHeight * 2" MoveZ="ShelfRackDepth * 0.5"></ShelfRack>
+            <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveY="ShelfRackHeight * 2" MoveZ="ShelfRackDepth * 0.5">
+                <div class="shelf-top">
+                    <a class="shelf-link inactive">
+                        <CardboardBox X="220" Y="200" Z="120" MoveX="30" MoveY="30" RotateZ="-4"></CardboardBox>
+                    </a>
+                    <a class="shelf-link inactive">
+                        <CardboardBox X="220" Y="200" Z="120" MoveX="30" MoveY="30" RotateZ="2"></CardboardBox>
+                    </a>
+                </div>
+            </ShelfRack>
             <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveY="ShelfRackHeight" MoveZ="ShelfRackDepth * 0.5">
                 <div class="shelf-top">
                     <a class="shelf-link" href="/tools/qr">
@@ -26,36 +35,60 @@
                         <ToolSign Text="QR Code Generator"></ToolSign>
                     </a>
                     <a class="shelf-link" href="/tools/picker">
-                        <CardboardBox X="220" Y="160" Z="200" RotateX="-20" MoveX="350"></CardboardBox>
+                        <CardboardBox X="220" Y="160" Z="120" MoveX="30" MoveY="30" RotateZ="15"></CardboardBox>
                     </a>
                 </div>
-            </ShelfRack>
-            <ShelfRack X="ShelfRackWidth" Y="20" Z="ShelfRackDepth" MoveZ="ShelfRackDepth * 0.5">
-                <div class="shelf-top">
-                    <a class="shelf-link" href="/tools/qr">
-                        <CardboardBox X="220" Y="160" Z="200" RotateX="-20" MoveX="350"></CardboardBox>
-                    </a>
-                    <a class="shelf-link" href="/tools/picker">
-                        <CardboardBox X="220" Y="160" Z="200" RotateX="-20" MoveX="350"></CardboardBox>
-                    </a>
-                </div>
-            </ShelfRack>
-            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveY="150" MoveZ="-10" CssClass="left-back" Color="@ShelfColor"></Cuboid>
-            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveY="150" MoveZ="ShelfRackDepth - 10" CssClass="left-front" Color="@ShelfColor"></Cuboid>
-            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveX="ShelfRackWidth - 10" MoveY="150" MoveZ="-10" CssClass="right-back" Color="@ShelfColor"></Cuboid>
-            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveX="ShelfRackWidth - 10" MoveY="150" MoveZ="ShelfRackDepth - 10" CssClass="right-front" Color="@ShelfColor"></Cuboid>
-        </div>
-        <div class="shelf-unit shelf-1" style="@_width">
-            <ShelfRack X="ShelfRackWidth" Y="20" Z="ShelfRackDepth" MoveY="ShelfRackHeight * 2" MoveZ="ShelfRackDepth * 0.5"></ShelfRack>
-            <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveY="ShelfRackHeight" MoveZ="ShelfRackDepth * 0.5">
-                
             </ShelfRack>
             <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveZ="ShelfRackDepth * 0.5">
+                <div class="shelf-top">
+                    <a class="shelf-link inactive">
+                        <CardboardBox X="220" Y="200" Z="120" MoveX="30" MoveY="30" RotateZ="-1"></CardboardBox>
+                    </a>
+                    <a class="shelf-link inactive">
+                        <CardboardBox X="220" Y="200" Z="120" MoveX="30" MoveY="30" RotateZ="3"></CardboardBox>
+                    </a>
+                </div>
             </ShelfRack>
-            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveY="150" MoveZ="-10" CssClass="left-back" Color="@ShelfColor"></Cuboid>
-            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveY="150" MoveZ="ShelfRackDepth - 10" CssClass="left-front" Color="@ShelfColor"></Cuboid>
-            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveX="ShelfRackWidth - 10" MoveY="150" MoveZ="-10" CssClass="right-back" Color="@ShelfColor"></Cuboid>
-            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveX="ShelfRackWidth - 10" MoveY="150" MoveZ="ShelfRackDepth - 10" CssClass="right-front" Color="@ShelfColor"></Cuboid>
+            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveZ="-10" CssClass="left-back" Color="@ShelfColor"></Cuboid>
+            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveZ="ShelfRackDepth - 10" CssClass="left-front" Color="@ShelfColor"></Cuboid>
+            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveX="ShelfRackWidth - 10" MoveZ="-10" CssClass="right-back" Color="@ShelfColor"></Cuboid>
+            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveX="ShelfRackWidth - 10" MoveZ="ShelfRackDepth - 10" CssClass="right-front" Color="@ShelfColor"></Cuboid>
+        </div>
+        <div class="shelf-unit shelf-1" style="@_width">
+            <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveY="ShelfRackHeight * 2" MoveZ="ShelfRackDepth * 0.5">
+                <div class="shelf-top">
+                    <a class="shelf-link inactive">
+                        <CardboardBox X="220" Y="200" Z="120" MoveX="30" MoveY="30" RotateZ="-3"></CardboardBox>
+                    </a>
+                    <a class="shelf-link inactive">
+                        <CardboardBox X="220" Y="200" Z="120" MoveX="30" MoveY="30" RotateZ="1"></CardboardBox>
+                    </a>
+                </div>
+            </ShelfRack>
+            <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveY="ShelfRackHeight" MoveZ="ShelfRackDepth * 0.5">
+                <div class="shelf-top">
+                    <a class="shelf-link inactive">
+                        <CardboardBox X="220" Y="200" Z="120" MoveX="30" MoveY="30" RotateZ="0"></CardboardBox>
+                    </a>
+                    <a class="shelf-link inactive">
+                        <CardboardBox X="220" Y="200" Z="120" MoveX="30" MoveY="30" RotateZ="2"></CardboardBox>
+                    </a>
+                </div>
+            </ShelfRack>
+            <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveZ="ShelfRackDepth * 0.5">
+                <div class="shelf-top">
+                    <a class="shelf-link inactive">
+                        <CardboardBox X="220" Y="200" Z="120" MoveX="30" MoveY="30" RotateZ="-1"></CardboardBox>
+                    </a>
+                    <a class="shelf-link inactive">
+                        <CardboardBox X="220" Y="200" Z="120" MoveX="30" MoveY="30" RotateZ="-2"></CardboardBox>
+                    </a>
+                </div>
+            </ShelfRack>
+            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveZ="-10" CssClass="left-back" Color="@ShelfColor"></Cuboid>
+            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveZ="ShelfRackDepth - 10" CssClass="left-front" Color="@ShelfColor"></Cuboid>
+            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveX="ShelfRackWidth - 10" MoveZ="-10" CssClass="right-back" Color="@ShelfColor"></Cuboid>
+            <Cuboid X="20" Y="ShelfHeight" Z="20" MoveX="ShelfRackWidth - 10" MoveZ="ShelfRackDepth - 10" CssClass="right-front" Color="@ShelfColor"></Cuboid>
         </div>
     </div>
 </HorizontalScroller>
@@ -70,7 +103,7 @@
     [Parameter]
     public double ShelfHeight { get; set; } = 700;
     [Parameter]
-    public double ShelfRackHeight { get; set; } = 300;
+    public double ShelfRackHeight { get; set; } = 280;
     [Parameter]
     public double ShelfRackWidth { get; set; } = 600;
     [Parameter]

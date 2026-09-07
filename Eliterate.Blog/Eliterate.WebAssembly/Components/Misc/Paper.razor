@@ -1,5 +1,5 @@
 ﻿
-<div class="paper-container @_CssClass" style="@_tearoffHeight">
+<div class="paper-container @CssClass" style="@_tearoffHeight">
     <div class="paper @(_hasTearoff ? "has-tearoffs" : "")" style="@_rotate">
         @if (HasPins)
         {
@@ -46,7 +46,6 @@
     private int _skip2 = Random.Shared.Next(6);
     private bool _hasTearoff => Link is not null;
     private string _tearoffHeight => _hasTearoff ? "--tearoff-height:8rem;" : "--tearoff-height:0rem;";
-    private string _CssClass => CssClass;
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }

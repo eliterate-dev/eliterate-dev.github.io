@@ -1,7 +1,7 @@
 ﻿.shelf-rack {
 	height: var(--shelf-height);
 	transform-style: preserve-3d;
-	translate: var(--move-x) var(--move-y);
+	translate: var(--move-x) var(--move-y) var(--move-z);
 	position: absolute;
 }
 

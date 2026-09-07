@@ -1,5 +1,42 @@
-﻿.pickers {
-	max-width: 200px;
+﻿.active-pickers {
+	margin-top: 2rem;
+	display: grid;
+	grid-template-columns: 25% 50% 25%;
+}
+
+.picker {
+	color: black;
+	width: calc(100% - 4rem);
+	aspect-ratio: 141/100;
+	margin: 1rem auto;
+	padding: 1rem;
+	align-content: center;
+	text-align: center;
+}
+
+.picker-controls {
+	width: max-content;
+	margin: 0 auto;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	background-color: var(--color-background);
+	display: grid;
+	grid-template-columns: 70px auto 70px;
+}
+
+.settings {
+	width: max-content;
+	margin: 1rem auto;
+}
+.card-header {
+	padding: 0 0.25rem;
+}
+.card-footer {
+	padding: 0.5rem 0.25rem;
+}
+.card-body {
+	padding: 0 0.25rem;
+	margin-bottom: 0.75rem;
 }
 
 ul {
@@ -7,3 +44,9 @@ ul {
 	padding: 0;
 	margin: 0;
 }
+li {
+	margin: 0.125rem;
+}
+	li > ::deep input {
+		width: calc(100% - 0.5rem);
+	}

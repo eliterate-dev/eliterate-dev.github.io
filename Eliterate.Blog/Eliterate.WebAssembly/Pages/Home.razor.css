@@ -42,7 +42,7 @@
 
 .peek-card-container {
 	min-width: var(--min-width);
-	height: 12rem;
+	height: 14rem;
 	position: absolute;
 	bottom: 0;
 	right: 0;

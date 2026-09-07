@@ -2,8 +2,7 @@
 	height: var(--shelf-height);
 	width: max-content;
 	transform-style: preserve-3d;
-	transform: rotateY(4deg);
-	translate: 0 -240px;
+	overflow-y: hidden;
 }
 
 .shelf-unit {
@@ -13,14 +12,26 @@
 	transform-style: preserve-3d;
 	transform: rotateX(-15deg);
 	margin-right: 0.75rem;
+	margin-top: -130px;
+}
+
+.shelf-top {
+	transform-style: preserve-3d;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
 .shelf-link {
-	position: absolute;
 	height: var(--shelf-depth);
 	width: calc(var(--shelf-width) / 2);
 	transform-style: preserve-3d;
 }
+	.shelf-link:not(.inactive):hover {
+		translate: 0 0 4px;
+	}
+	.shelf-link > ::deep .cardboard-box {
+		box-shadow: 5px -10px 20px #000, 5px 0 5px #0008;
+	}
 
 .polaroid {
 	position: absolute;
@@ -33,4 +44,9 @@
 	color: black;
 	text-align: center;
 	filter: var(--sticker-outline-filter);
+}
+
+.inactive {
+	user-select: none;
+	cursor: auto;
 }
