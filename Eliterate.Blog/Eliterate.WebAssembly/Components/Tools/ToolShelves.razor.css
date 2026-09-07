@@ -1,0 +1,52 @@
+﻿.shelves {
+	height: var(--shelf-height);
+	width: max-content;
+	transform-style: preserve-3d;
+	overflow-y: hidden;
+}
+
+.shelf-unit {
+	height: var(--shelf-height);
+	width: var(--shelf-width);
+	display: inline-block;
+	transform-style: preserve-3d;
+	transform: rotateX(-15deg);
+	margin-right: 0.75rem;
+	margin-top: -130px;
+}
+
+.shelf-top {
+	transform-style: preserve-3d;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.shelf-link {
+	height: var(--shelf-depth);
+	width: calc(var(--shelf-width) / 2);
+	transform-style: preserve-3d;
+}
+	.shelf-link:not(.inactive):hover {
+		translate: 0 0 4px;
+	}
+	.shelf-link > ::deep .cardboard-box {
+		box-shadow: 5px -10px 20px #000, 5px 0 5px #0008;
+	}
+
+.polaroid {
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
+	width: max-content;
+	margin: 0 0 0.5rem 1rem;
+	padding: 0.25rem;
+	background-color: white;
+	color: black;
+	text-align: center;
+	filter: var(--sticker-outline-filter);
+}
+
+.inactive {
+	user-select: none;
+	cursor: auto;
+}

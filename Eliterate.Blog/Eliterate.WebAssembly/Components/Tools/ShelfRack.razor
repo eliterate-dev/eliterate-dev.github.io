@@ -1,10 +1,25 @@
-﻿<div class="shelf-rack">
-    <Cuboid>
-        
+﻿<div class="shelf-rack" style="@_position">
+    <Cuboid X="X" Y="Y" Z="20" RotateX="90" MoveX="5" BackgroundImage="/images/textures/dark-wood.png" Color="#9c5525">
+        @ChildContent
     </Cuboid>
 </div>
 
 @code {
+    private string _position => $"--move-x:{MoveX}px;--move-y:{MoveY}px;--move-z:{MoveZ}px;";
+
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public double X { get; set; } = 300;
+    [Parameter]
+    public double Y { get; set; } = 300;
+    [Parameter]
+    public double Z { get; set; } = 200;
+    [Parameter]
+    public double MoveX { get; set; }
+    [Parameter]
+    public double MoveY { get; set; }
+    [Parameter]
+    public double MoveZ { get; set; }
 }

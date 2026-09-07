@@ -14,7 +14,7 @@ else
                         <h2 class="card-title"><a @onclick="GoToPost" tabindex="0" role="heading">@Model.Title</a></h2>
                         <EditOrCreateDate Model="Model" Replace="true"></EditOrCreateDate>
                     </div>
-                    <TextSticker Text="@Model.StickerEmoji" Top="1.25m" Right="0.5m" Rotate="@_rotation" Scale="1.5m"></TextSticker>
+                    <TextSticker Text="@Model.StickerEmoji" Top="20" Right="8" RotateX="@_rotation" FontSize="24"></TextSticker>
                 </div>
                 <div class="card-body">
                     <div class="card-text" tabindex="0" role="document">
@@ -40,8 +40,8 @@ else
 @code {
     [Parameter]
     public PostMetadata? Model { get; set; }
-    private decimal _rotation => Model?.Title.GetRandomValueFromString(20) ?? 0;
-    private decimal _rotate => _rotation / 8;
+    private double _rotation => (double)(Model?.Title.GetRandomValueFromString(20) ?? 0);
+    private double _rotate => _rotation / 8;
 
     void GoToPost()
     {

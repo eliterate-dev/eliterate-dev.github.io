@@ -1,0 +1,25 @@
+﻿
+.cardboard-box-top {
+	height: 100%;
+	width: 100%;
+	border-bottom: 2px dotted black;
+}
+	.cardboard-box-top::before {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		right: 0;
+		content: '';
+		border-left: 4px double black;
+	}
+	.cardboard-box-top::after {
+		content: '';
+		position: absolute;
+		top: calc(50% - 40px);
+		left: calc(50% - 10px);
+		height: 80px;
+		width: 20px;
+		background-color: grey;
+		border: 1px solid black;
+	}

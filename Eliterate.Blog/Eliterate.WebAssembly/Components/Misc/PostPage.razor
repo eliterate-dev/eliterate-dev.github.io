@@ -15,7 +15,7 @@ else
                         <EditOrCreateDate Model="Model.Metadata"></EditOrCreateDate>
                     </div>
                 </div>
-                <TextSticker Text="@Model.Metadata.StickerEmoji" Top="0.5m" Right="5.5m" Scale="2" Rotate="@Model.Metadata.Title.GetRandomValueFromString(20)"></TextSticker>
+                <TextSticker Text="@Model.Metadata.StickerEmoji" Top="8" Right="88" FontSize="32" RotateX="@((double)Model.Metadata.Title.GetRandomValueFromString(20))"></TextSticker>
                 <div class="book-page-body">
                     <article id="top-of-page" class="book-page-text" tabindex="0">
                         @((MarkupString)_htmlFromMarkdown)
