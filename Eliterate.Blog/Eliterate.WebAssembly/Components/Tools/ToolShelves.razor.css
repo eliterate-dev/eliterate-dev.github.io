@@ -1,5 +1,5 @@
 ﻿.shelves {
-	height: var(--shelf-height);
+	height: calc(var(--shelf-height) - 60px);
 	width: max-content;
 	transform-style: preserve-3d;
 	overflow-y: hidden;
@@ -12,7 +12,7 @@
 	transform-style: preserve-3d;
 	transform: rotateX(-15deg);
 	margin-right: 0.75rem;
-	margin-top: -130px;
+	margin-top: -190px;
 }
 
 .shelf-top {

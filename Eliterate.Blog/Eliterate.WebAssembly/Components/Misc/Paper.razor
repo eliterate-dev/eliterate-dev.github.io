@@ -1,4 +1,8 @@
-﻿
+﻿@using Codespirals.Blazor.Components.Interfaces
+
+@implements IHasCssClass
+@implements IRotatable
+
 <div class="paper-container @CssClass" style="@_tearoffHeight">
     <div class="paper @(_hasTearoff ? "has-tearoffs" : "")" style="@_rotate">
         @if (HasPins)
@@ -8,7 +12,7 @@
                 <Pin Right="true" Top="true"></Pin>
             </div>
         }
-        <div class="paper-spacer@(_hasTearoff ? "-with-tearoffs" : "")"></div>
+        <div class="paper-spacer @(_hasTearoff ? "has-tearoffs" : "")"></div>
         <div class="paper-content">
             <div class="paper-text">
                 @ChildContent
@@ -39,13 +43,12 @@
 </div>
 
 @code {
-
-    private decimal _rand => Random.Shared.Next(5) - 2;
-    private string _rotate => Rotate ? $"rotate:{_rand / 5}deg;" : "";
+    private string _height => $"--height:{Height}px;";
+    private string _rotate => $"rotate:{RotateX}deg;";
     private int _skip = Random.Shared.Next(6);
     private int _skip2 = Random.Shared.Next(6);
     private bool _hasTearoff => Link is not null;
-    private string _tearoffHeight => _hasTearoff ? "--tearoff-height:8rem;" : "--tearoff-height:0rem;";
+    private string _tearoffHeight => _hasTearoff ? "--tearoff-height:10%;" : "--tearoff-height:0rem;";
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
@@ -56,7 +59,9 @@
     [Parameter]
     public required string LinkText { get; set; }
     [Parameter]
+    public int Height { get; set; }
+    [Parameter]
     public bool HasPins { get; set; }
     [Parameter]
-    public bool Rotate { get; set; }
+    public double RotateX { get; set; }
 }

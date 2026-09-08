@@ -1,7 +1,8 @@
 ﻿.paper-container {
+	height: var(--height);
+	aspect-ratio: 100/141;
 	margin: 0 auto;
 	padding-bottom: 2rem;
-	aspect-ratio: 100/141;
 }
 
 .paper {
@@ -14,7 +15,7 @@
 	white-space: wrap;
 }
 
-.has-tearoffs {
+paper.has-tearoffs {
 	border-bottom: 1px dashed grey;
 }
 
@@ -22,11 +23,11 @@
 	overflow-y: visible;
 }
 
-.paper-spacer {
+.paper-spacer:not(.has-tearoffs) {
 	margin-top: 141%;
 }
 
-.paper-spacer-with-tearoffs {
+.paper-spacer.has-tearoffs {
 	margin-top: calc(141% - var(--tearoff-height));
 }
 

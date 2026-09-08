@@ -15,25 +15,35 @@
 }
 
 .picker-controls {
-	width: max-content;
+	width: max-content;jhnjhzu
 	margin: 0 auto;
 	padding: 1rem;
 	border-radius: 0.5rem;
-	background-color: var(--color-background);
+	background-color: var(--color-contrast-2);
 	display: grid;
 	grid-template-columns: 70px auto 70px;
 }
+	.picker-controls > div {
+		margin: 0 0.25rem;
+	}
+	.picker-controls > button {
+		border-radius: 0.5rem;
+	}
 
 .settings {
 	width: max-content;
 	margin: 1rem auto;
 }
 .card-header {
-	padding: 0 0.25rem;
+	padding: 0 0.5rem;
 }
 .card-footer {
-	padding: 0.5rem 0.25rem;
+	padding: 0.25rem 0.25rem;
 }
+	.card-footer > ::deep input {
+		width: calc(100% - 3.5rem);
+	}
+
 .card-body {
 	padding: 0 0.25rem;
 	margin-bottom: 0.75rem;

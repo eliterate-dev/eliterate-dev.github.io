@@ -1,11 +1,16 @@
 ﻿@inherits ThreeDimensionalShape
 
-<Cuboid CssClass="cardboard-box" X="X" Y="Y" Z="Z" MoveX="MoveX" MoveY="MoveY" MoveZ="MoveZ" RotateX="RotateX" RotateY="RotateY" RotateZ="RotateZ" BackgroundImage="/images/textures/cardboard-flat.png" Color="#814521">
-    <div class="cardboard-box-top">
+<Cuboid CssClass="cardboard-box" X="X" Y="Y" Z="Z" MoveX="MoveX" MoveY="MoveY" MoveZ="MoveZ" RotateX="RotateX" RotateY="RotateY" RotateZ="RotateZ" BackgroundImage="/images/textures/cardboard-flat.png" Color="#814521" SideLabel="@Label">
+    <div class="cardboard-box-top @_isOpen">
 
     </div>
 </Cuboid>
 
 @code {
+    private string _isOpen => IsOpen ? "open" : "";
 
+    [Parameter]
+    public bool IsOpen { get; set; }
+    [Parameter]
+    public string Label { get; set; } = "";
 }
