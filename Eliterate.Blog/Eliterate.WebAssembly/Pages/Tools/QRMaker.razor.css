@@ -1,11 +1,20 @@
 ﻿.qr-generator {
 	display: grid;
-	grid-template-rows: auto auto;
+	grid-template-rows: 0 auto auto;
 }
 
+.papers {
+	margin-top: 3.5rem;
+	min-height: 800px;
+	width: 100%;
+}
+
+	.papers > ::deep div {
+		margin: 0 auto;
+	}
+
 .url-type-tags {
-	width: 95%;
-	max-width: 700px;
+	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -37,37 +46,12 @@ hr {
 	margin: 0.125rem 0 0 0;
 }
 
-::deep .paper-container {
-	margin-right: auto;
-	margin-left: auto;
-	width: 95%;
-	max-width: 700px;
-}
-
 ::deep .paper {
 	border: 1px solid black;
 }
 ::deep .paper-text {
 	max-height: 85%;
 	overflow-y: scroll;
-}
-
-.loose-paper {
-	background-color: var(--color-contrast-2);
-	background-image: var(--texture-paper);
-	border: 1px solid black;
-	box-shadow: 1px 1px 1px black;
-	background-size: 276px;
-	position: absolute;
-	margin-right: auto;
-	margin-left: auto;
-	width: 95%;
-	max-width: 700px;
-	aspect-ratio: 1/1.41;
-	top: 3.25rem;
-	right: 0;
-	left: 0;
-	z-index: 0;
 }
 
 .qr-data-form {

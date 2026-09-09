@@ -7,17 +7,17 @@
 <PageTitle>Eliterate - Tools - QR</PageTitle>
 
 <div class="fill qr-generator">
-    <div>
-        <div class="loose-paper" style="rotate:-1deg;"></div>
-        <div class="loose-paper" style="rotate:2deg;"></div>
-        <div class="loose-paper" style="rotate:-2deg;"></div>
-        <div class="url-type-tags">
-            @foreach (var item in _qrTypes.Reverse())
-            {
-                <div class="@(_selectedQRType == item.Key ? "active" : "")" @onclick="(x => SetQrType(item.Key))" style="@($"background-color:hsl({item.Value.GetIntFromString(360)}, 100%, 80%);rotate:{Random.Shared.Next(-4, 4)}deg;")">@item.Value</div>
-            }
-        </div>
-        <Paper>
+    <div class="url-type-tags">
+        @foreach (var item in _qrTypes.Reverse())
+        {
+            <div class="@(_selectedQRType == item.Key ? "active" : "")" @onclick="(x => SetQrType(item.Key))" style="@($"background-color:hsl({item.Value.GetIntFromString(360)}, 100%, 80%);rotate:{Random.Shared.Next(-4, 4)}deg;")">@item.Value</div>
+        }
+    </div>
+    <div class="papers">
+        <Paper RotateX="-1" UseHeightPercentage="true"></Paper>
+        <Paper RotateX="2" UseHeightPercentage="true"></Paper>
+        <Paper RotateX="-2" UseHeightPercentage="true"></Paper>
+        <Paper UseHeightPercentage="true">
             <h2>QR Code Generation Form - @_qrTypes.First(x => x.Key == _selectedQRType).Value</h2>
             <label>Please fill out the form:</label>
             <hr />

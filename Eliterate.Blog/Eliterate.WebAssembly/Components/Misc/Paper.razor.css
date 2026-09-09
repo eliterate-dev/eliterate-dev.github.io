@@ -2,7 +2,7 @@
 .paper {
 	height: var(--height);
 	aspect-ratio: 100/141;
-	position: relative;
+	position: absolute;
 	display: inline-block;
 }
 
