@@ -7,7 +7,7 @@
         <div class="corkboard">
             @foreach (var idea in _ideas)
             {
-                <Paper Link="@idea.Link" LinkText="@idea.LinkText" Rotate="true" HasPins="true">
+                <Paper Link="@idea.Link" Height="100" UseHeightPercentage="true" LinkText="@idea.LinkText" RotateX="_rotateDegree" HasPins="true">
                     <h2>@idea.Title</h2>
                     <p>
                         @((MarkupString)(idea.Description ?? "No text..."))
@@ -24,7 +24,8 @@
 
 @code {
     private IEnumerable<Plan> _ideas = [];
-    private string _rotate = $"rotate:{Random.Shared.Next(4) - 2}deg;";
+    private string _rotate => $"rotate:{_rotateDegree}deg;";
+    private int _rotateDegree => Random.Shared.Next(2) - 2;
 
     protected override async Task OnInitializedAsync()
     {
