@@ -7,7 +7,7 @@
         <div class="corkboard">
             @foreach (var idea in _ideas)
             {
-                <Paper Link="@idea.Link" Height="100" UseHeightPercentage="true" LinkText="@idea.LinkText" RotateX="_rotateDegree" HasPins="true">
+                <Paper Link="@idea.Link" FillHeight="true" LinkText="@idea.LinkText" RotateX="_rotateDegree" HasPins="true">
                     <h2>@idea.Title</h2>
                     <p>
                         @((MarkupString)(idea.Description ?? "No text..."))

@@ -1,9 +1,11 @@
 ﻿@using Codespirals.Blazor.Components.Interfaces
 
+@namespace Eliterate.WebAssembly.Components
+
 @implements IHasCssClass
 @implements IRotatable
 
-<div class="paper @CssClass @(_hasTearoff ? "has-tearoffs" : "")" style="@_rotate @_height @_tearoffHeight">
+<div class="paper @CssClass @(_hasTearoff ? "has-tearoffs" : "") @(FillWidth ? "fillWidth" : "") @(FillHeight ? "fillHeight" : "")" style="@_rotate @_tearoffHeight">
     @if (HasPins)
     {
         <div class="pins">
@@ -40,8 +42,6 @@
 </div>
 
 @code {
-    private string _height => $"--height:{Height}{_useHeightPercentage};";
-    private string _useHeightPercentage => UseHeightPercentage ? "%" : "px";
     private string _rotate => $"rotate:{RotateX}deg;";
     private int _skip = Random.Shared.Next(6);
     private int _skip2 = Random.Shared.Next(6);
@@ -51,9 +51,9 @@
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
     [Parameter]
-    public int Height { get; set; } = 100;
+    public bool FillHeight { get; set; }
     [Parameter]
-    public bool UseHeightPercentage { get; set; }
+    public bool FillWidth { get; set; }
     [Parameter]
     public string CssClass { get; set; } = "";
     [Parameter]

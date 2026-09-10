@@ -1,4 +1,5 @@
-﻿<div class="confetti-piece" style="@_position @_eccentricity @_duration @_color"></div>
+﻿@namespace Eliterate.WebAssembly.Components
+<div class="confetti-piece" style="@_position @_eccentricity @_duration @_color"></div>
 
 @code {
     private string _eccentricity = $"--eccentricity:{Random.Shared.Next(1, 50)}px;";

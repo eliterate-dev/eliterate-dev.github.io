@@ -1,5 +1,4 @@
-﻿@using Eliterate.WebAssembly.Components.Constructs
-@using QRCoder
+﻿@using QRCoder
 @inject IJSRuntime JS
 
 @page "/tools/qr"
@@ -14,10 +13,10 @@
         }
     </div>
     <div class="papers">
-        <Paper RotateX="-1" UseHeightPercentage="true"></Paper>
-        <Paper RotateX="2" UseHeightPercentage="true"></Paper>
-        <Paper RotateX="-2" UseHeightPercentage="true"></Paper>
-        <Paper UseHeightPercentage="true">
+        <Paper RotateX="-1" FillWidth="true"></Paper>
+        <Paper RotateX="2" FillWidth="true"></Paper>
+        <Paper RotateX="-2" FillWidth="true"></Paper>
+        <Paper FillWidth="true">
             <h2>QR Code Generation Form - @_qrTypes.First(x => x.Key == _selectedQRType).Value</h2>
             <label>Please fill out the form:</label>
             <hr />

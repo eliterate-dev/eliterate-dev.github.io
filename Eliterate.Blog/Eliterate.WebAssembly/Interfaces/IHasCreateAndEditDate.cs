@@ -1,8 +1,7 @@
 ﻿using Codespirals.Base;
 
-namespace Eliterate.WebAssembly
+namespace Eliterate.WebAssembly;
+
+public interface IHasCreateAndEditDate : ICreatable, IEditable
 {
-    public interface IHasCreateAndEditDate : ICreatable, IEditable
-    {
-    }
 }

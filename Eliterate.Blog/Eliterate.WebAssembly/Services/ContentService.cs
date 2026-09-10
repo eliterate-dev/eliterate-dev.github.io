@@ -12,7 +12,7 @@ public interface IContentService
     Task<SongQuote?> GetRandomSongQuote();
     Task<IEnumerable<LinkItem>> GetNavItems();
     Task<IEnumerable<LinkItem>> GetCredits();
-    Task<IEnumerable<Plan >> GetPlans();
+    Task<IEnumerable<Plan>> GetPlans();
     Task<IEnumerable<PostMetadata>> GetToys();
 }
 

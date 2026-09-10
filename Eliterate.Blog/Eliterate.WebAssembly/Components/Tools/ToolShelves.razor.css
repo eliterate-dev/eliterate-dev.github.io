@@ -19,11 +19,12 @@
 	transform-style: preserve-3d;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+	height: 100%;
 }
 
 .shelf-link {
-	height: var(--shelf-depth);
-	width: calc(var(--shelf-width) / 2);
+	height: 100%;
+	width: max-content;
 	transform-style: preserve-3d;
 }
 	.shelf-link:not(.inactive):hover {
@@ -32,6 +33,13 @@
 	.shelf-link > ::deep .cardboard-box {
 		box-shadow: 5px -10px 20px #000, 5px 0 5px #0008;
 	}
+
+.papers {
+	height: 80%;
+	width: 50%;
+	font-size: 12px;
+	margin-left: 50px;
+}
 
 .polaroid {
 	position: absolute;

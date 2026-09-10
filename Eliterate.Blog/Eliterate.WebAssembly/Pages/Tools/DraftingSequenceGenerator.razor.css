@@ -60,3 +60,9 @@ li {
 	li > ::deep input {
 		width: calc(100% - 0.5rem);
 	}
+
+.explanation {
+	width: 80%;
+	max-width: 700px;
+	margin: 0 auto;
+}
