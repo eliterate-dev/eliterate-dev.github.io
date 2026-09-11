@@ -6,16 +6,16 @@
 <PageTitle>Eliterate - Tools - QR</PageTitle>
 
 <div class="fill qr-generator">
-    <div class="url-type-tags">
-        @foreach (var item in _qrTypes.Reverse())
-        {
-            <div class="@(_selectedQRType == item.Key ? "active" : "")" @onclick="(x => SetQrType(item.Key))" style="@($"background-color:hsl({item.Value.GetIntFromString(360)}, 100%, 80%);rotate:{Random.Shared.Next(-4, 4)}deg;")">@item.Value</div>
-        }
-    </div>
     <div class="papers">
+        <Paper RotateX="1" FillWidth="true"></Paper>
         <Paper RotateX="-1" FillWidth="true"></Paper>
-        <Paper RotateX="2" FillWidth="true"></Paper>
         <Paper RotateX="-2" FillWidth="true"></Paper>
+        <div class="url-type-tags">
+            @foreach (var item in _qrTypes.Reverse())
+            {
+                <div class="@(_selectedQRType == item.Key ? "active" : "")" @onclick="(x => SetQrType(item.Key))" style="@($"background-color:hsl({item.Value.GetIntFromString(360)}, 100%, 80%);rotate:{Random.Shared.Next(-4, 4)}deg;")">@item.Value</div>
+            }
+        </div>
         <Paper FillWidth="true">
             <h2>QR Code Generation Form - @_qrTypes.First(x => x.Key == _selectedQRType).Value</h2>
             <label>Please fill out the form:</label>
@@ -109,7 +109,7 @@
                         <div class="grid-container-dash-dot">
                             <h2 class="card-title">Save this QR code?</h2>
                         </div>
-                        <TextSticker Text="💾" Top="20" Right="10" Rotate="3" Scale="1.5m"></TextSticker>
+                        <TextSticker Text="💾" Top="20" Right="10" RotateX="3" FontSize="42"></TextSticker>
                     </div>
                     <div class="card-body">
                         <div class="card-text">

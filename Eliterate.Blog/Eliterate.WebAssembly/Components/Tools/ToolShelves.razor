@@ -15,7 +15,7 @@
             <ShelfRack X="ShelfRackWidth" Y="ShelfRackHeight" Z="ShelfRackDepth" MoveY="ShelfRackHeight" MoveZ="ShelfRackDepth * 0.5">
                 <div class="shelf-top">
                     <a class="shelf-link" href="/tools/qr">
-                        <PolaroidCamera X="100" MoveX="65" RotateZ="168"></PolaroidCamera>
+                        <PolaroidCamera X="100" MoveX="40" RotateZ="168"></PolaroidCamera>
                         <div class="papers">
                             <Paper CssClass="qr-text-paper" FillHeight="true" RotateX="-2">
                                 <p>
@@ -31,10 +31,11 @@
                                 </div>
                             </Paper>
                         </div>
-                        <ToolSign Text="QR Code Generator"></ToolSign>
+                        <ToolSign Text="QR Code Generator" Left="20" Bottom="50"></ToolSign>
                     </a>
                     <a class="shelf-link" href="/tools/picker">
-                        <CardboardBox Label="Picker" IsOpen="true" X="220" Y="160" Z="120" MoveX="30" MoveY="30" RotateZ="15"></CardboardBox>
+                        <CardboardBox Label="Picker" IsOpen="true" X="220" Y="160" Z="120" MoveX="40" MoveY="30" RotateZ="10"></CardboardBox>
+                        <ToolSign Text="ABBA Draft Picker" Left="0" Bottom="25"></ToolSign>
                     </a>
                 </div>
             </ShelfRack>

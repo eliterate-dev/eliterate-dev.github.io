@@ -1,22 +1,23 @@
 ﻿.qr-generator {
+	min-width: var(--min-width);
 	display: grid;
-	grid-template-rows: 0 auto auto;
+	grid-template-rows: max(calc(90vw * 1.41), 420px) auto;
 }
 
 .papers {
-	margin-top: 3.5rem;
-	min-height: 800px;
-	width: 100%;
+	position: relative;
+	margin: 0 auto;
+	padding-top: 3rem;
+	width: 90%;
+	max-width: 700px;
 }
 
-	.papers > ::deep div {
-		margin: 0 auto;
-	}
-
 .url-type-tags {
-	width: 100%;
+	position: absolute;
+	width: 95%;
 	margin-right: auto;
 	margin-left: auto;
+	margin-top: -3rem;
 }
 	.url-type-tags > div {
 		color: black;
@@ -66,8 +67,11 @@ hr {
 }
 
 .qr-output {
+	margin: 0 auto;
+	padding-top: 3rem;
+	min-height: 800px;
 	width: 100%;
-	position: relative;
+	max-width: 700px;
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 440px;

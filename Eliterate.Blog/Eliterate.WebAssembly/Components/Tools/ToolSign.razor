@@ -1,19 +1,26 @@
 ﻿@namespace Eliterate.WebAssembly.Components
-<div class="tool-sign-card" style="@_position">
+@implements Codespirals.Blazor.Components.Interfaces.IAbsolutelyPositionable
+
+<div class="tool-sign-card" style="@_top @_right @_bottom @_left">
     <div class="tool-sign">
         @Text
     </div>
 </div>
 
 @code {
-    private string _position => $"--move-x:{MoveX}px;--move-y:{MoveY}px;--move-z:{MoveZ}px;";
+    private string _top => Top is null ? string.Empty : $"top:{Top}px;";
+    private string _right => Right is null ? string.Empty : $"right:{Right}px;";
+    private string _bottom => Bottom is null ? string.Empty : $"bottom:{Bottom}px;";
+    private string _left => Left is null ? string.Empty : $"left:{Left}px;";
 
     [Parameter]
     public string Text { get; set; } = "";
     [Parameter]
-    public double MoveX { get; set; }
+    public int? Top { get; set; }
     [Parameter]
-    public double MoveY { get; set; }
+    public int? Bottom { get; set; }
     [Parameter]
-    public double MoveZ { get; set; }
+    public int? Right { get; set; }
+    [Parameter]
+    public int? Left { get; set; }
 }

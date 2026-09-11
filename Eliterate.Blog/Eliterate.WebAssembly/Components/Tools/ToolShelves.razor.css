@@ -30,12 +30,16 @@
 	.shelf-link:not(.inactive):hover {
 		translate: 0 0 4px;
 	}
+	.shelf-link:hover > .papers {
+		color: var(--color-foreground);
+	}
 	.shelf-link > ::deep .cardboard-box {
 		box-shadow: 5px -10px 20px #000, 5px 0 5px #0008;
 	}
 
 .papers {
-	height: 80%;
+	position: relative;
+	height: 90%;
 	width: 50%;
 	font-size: 12px;
 	margin-left: 50px;
