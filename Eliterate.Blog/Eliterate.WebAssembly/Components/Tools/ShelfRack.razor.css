@@ -4,24 +4,3 @@
 	translate: var(--move-x) var(--move-y) var(--move-z);
 	position: absolute;
 }
-
-::deep .paper-container {
-	position: absolute;
-}
-
-::deep .paper{
-	width: 160px;
-	font-size: 0.5rem;
-	user-select: none;
-}
-
-::deep .qr-text-paper {
-	rotate: 15deg;
-	margin-top: 0.5rem;
-	margin-left: 2rem;
-}
-::deep .qr-code-paper {
-	rotate: -1deg;
-	margin-top: 1rem;
-	margin-left: 2rem;
-}

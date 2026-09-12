@@ -3,8 +3,12 @@
 	height: 100%;
 	width: 100%;
 	border-bottom: 2px dotted black;
+	transform-style: preserve-3d;
 }
-	.cardboard-box-top::before {
+	.cardboard-box-top.open {
+		background-color: #111;
+	}
+	.cardboard-box-top:not(.open)::before {
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -13,7 +17,7 @@
 		content: '';
 		border-left: 4px double black;
 	}
-	.cardboard-box-top::after {
+	.cardboard-box-top:not(.open)::after {
 		content: '';
 		position: absolute;
 		top: calc(50% - 40px);
@@ -22,4 +26,34 @@
 		width: 20px;
 		background-color: grey;
 		border: 1px solid black;
+	}
+	.cardboard-box-top.open::before {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		right: 0;
+		content: '';
+		border-left: 2px dotted black;
+		border-bottom: 2px dotted black;
+		background-image: url("/images/textures/cardboard-flat.png");
+		background-color: color-mix(in srgb, #814521 50%, #333333);
+		transform-style: preserve-3d;
+		transform-origin: right;
+		transform: rotateY(20deg);
+	}
+	.cardboard-box-top.open::after {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 50%;
+		content: '';
+		border-right: 2px dotted black;
+		border-bottom: 2px dotted black;
+		background-image: url("/images/textures/cardboard-flat.png");
+		background-color: color-mix(in srgb, #814521 50%, #333333);
+		transform-style: preserve-3d;
+		transform-origin: left;
+		transform: rotateY(-20deg);
 	}

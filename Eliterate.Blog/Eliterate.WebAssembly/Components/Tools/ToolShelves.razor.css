@@ -1,5 +1,5 @@
 ﻿.shelves {
-	height: var(--shelf-height);
+	height: calc(var(--shelf-height) - 60px);
 	width: max-content;
 	transform-style: preserve-3d;
 	overflow-y: hidden;
@@ -12,26 +12,41 @@
 	transform-style: preserve-3d;
 	transform: rotateX(-15deg);
 	margin-right: 0.75rem;
-	margin-top: -130px;
+	margin-top: -190px;
 }
 
 .shelf-top {
 	transform-style: preserve-3d;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+	height: 100%;
 }
 
 .shelf-link {
-	height: var(--shelf-depth);
-	width: calc(var(--shelf-width) / 2);
+	height: 100%;
+	width: max-content;
 	transform-style: preserve-3d;
 }
+
 	.shelf-link:not(.inactive):hover {
 		translate: 0 0 4px;
 	}
+
+	.shelf-link:hover > .papers, .shelf-link:hover > ::deep .cardboard-box {
+		color: var(--color-foreground);
+	}
+
 	.shelf-link > ::deep .cardboard-box {
 		box-shadow: 5px -10px 20px #000, 5px 0 5px #0008;
 	}
+
+.papers {
+	position: relative;
+	height: 90%;
+	width: 50%;
+	font-size: 12px;
+	margin-left: 50px;
+}
 
 .polaroid {
 	position: absolute;

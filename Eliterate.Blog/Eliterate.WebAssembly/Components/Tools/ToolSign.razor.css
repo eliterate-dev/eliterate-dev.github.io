@@ -1,12 +1,35 @@
 ﻿.tool-sign-card {
 	position: absolute;
-	translate: var(--move-x) var(--move-y) var(--move-z);
 	transform-style: preserve-3d;
+	display: block;
+	width: 80px;
+	height: 40px;
+	background-color: var(--color-contrast-1);
+	background-image: var(--texture-paper);
+	border: 1px solid black;
+	transform-origin: bottom;
+	transform: rotateX(-60deg);
+	rotate: -8deg;
 }
 
+	.tool-sign-card:after {
+		content: '';
+		transform-style: preserve-3d;
+		display: block;
+		width: 80px;
+		height: 40px;
+		background-color: inherit;
+		border: inherit;
+		transform-origin: top;
+		transform: rotateX(-60deg) rotateY(0deg) rotateZ(0deg);
+	}
+
 .tool-sign {
-	width: 80px;
-	background-color: red;
-	transform-style: preserve-3d;
-	transform: rotateX(45deg) rotateY(0deg) rotateZ(2deg);
+	position: absolute;
+	top: 0.25rem;
+	width: 100%;
+	white-space: wrap;
+	text-align: center;
+	display: block;
+	font-size: 0.75rem;
 }
