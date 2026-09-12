@@ -27,12 +27,15 @@
 	width: max-content;
 	transform-style: preserve-3d;
 }
+
 	.shelf-link:not(.inactive):hover {
 		translate: 0 0 4px;
 	}
-	.shelf-link:hover > .papers {
+
+	.shelf-link:hover > .papers, .shelf-link:hover > ::deep .cardboard-box {
 		color: var(--color-foreground);
 	}
+
 	.shelf-link > ::deep .cardboard-box {
 		box-shadow: 5px -10px 20px #000, 5px 0 5px #0008;
 	}

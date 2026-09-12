@@ -13,18 +13,21 @@
 	background-image: url(../images/textures/wine-cork.png);
 	border: inset 0.5rem var(--color-wood);
 	box-shadow: 2px 2px 4px black;
-	padding: 0 0 0 0.5rem;
+	padding: 0 0 0 1.5rem;
 	margin: 1rem 1rem 0 1rem;
 }
-	.corkboard > ::deep * {
-		vertical-align: top;
-		margin: 1rem 1rem 0 0;
-		display: inline-block;
-		height: calc(100% - 3rem);
-		white-space: nowrap;
-	}
+
+.idea {
+	position: relative;
+	height: calc(100% - 3rem);
+	aspect-ratio: 100/144;
+	margin: 1rem 2rem 0 0;
+	display: inline-block;
+	white-space: nowrap;
+}
 
 .image {
+	position: relative;
 	user-select: none;
 	min-width: calc(var(--min-width) / 4);
 	max-width: 40%;

@@ -3,6 +3,7 @@
 	color: var(--color-foreground);
 	margin: 2rem 0.25rem 0.25rem 0;
 	min-width: var(--min-width);
+	max-width: 750px;
 }
 
 	.book > h2 {

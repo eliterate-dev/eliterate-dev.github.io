@@ -7,16 +7,18 @@
         <div class="corkboard">
             @foreach (var idea in _ideas)
             {
-                <Paper Link="@idea.Link" FillHeight="true" LinkText="@idea.LinkText" RotateX="_rotateDegree" HasPins="true">
-                    <h2>@idea.Title</h2>
-                    <p>
-                        @((MarkupString)(idea.Description ?? "No text..."))
-                    </p>
-                    @if (!string.IsNullOrWhiteSpace(idea.Image))
-                    {
-                        <div class="image polaroid" role="note" style="@_rotate"><img loading="lazy" alt="@idea.ImageAlt" src="@idea.Image" />@idea.ImageText</div>
-                    }
-                </Paper>
+                <div class="idea">
+                    <Paper Link="@idea.Link" FillHeight="true" LinkText="@idea.LinkText" RotateX="GetRandom()" HasPins="true">
+                        <h2>@idea.Title</h2>
+                        <p>
+                            @((MarkupString)(idea.Description ?? "No text..."))
+                        </p>
+                        @if (!string.IsNullOrWhiteSpace(idea.Image))
+                        {
+                            <div class="image polaroid" role="note" style="@($"rotate:{GetRandom()}deg;")"><img loading="lazy" alt="@idea.ImageAlt" src="@idea.Image" />@idea.ImageText</div>
+                        }
+                    </Paper>
+                </div>
             }
         </div>
     </HorizontalScroller>
@@ -24,11 +26,11 @@
 
 @code {
     private IEnumerable<Plan> _ideas = [];
-    private string _rotate => $"rotate:{_rotateDegree}deg;";
-    private int _rotateDegree => Random.Shared.Next(2) - 2;
 
     protected override async Task OnInitializedAsync()
     {
         _ideas = [.. await ContentService.GetPlans()];
     }
+    private int GetRandom()
+        => Random.Shared.Next(-1, 1);
 }

@@ -3,10 +3,6 @@
 	position: absolute;
 }
 
-	.paper.has-tearoffs {
-		border-bottom: 1px dashed grey;
-	}
-
 	.paper.fillWidth {
 		width: 100%;
 		aspect-ratio: 100/141;
@@ -14,6 +10,9 @@
 	.paper.fillHeight {
 		height: 100%;
 		aspect-ratio: 100/141;
+	}
+	.paper.has-tearoffs > .paper-content {
+		border-bottom: 1px dashed grey;
 	}
 
 .pins {
@@ -29,7 +28,7 @@
 	overflow-y: scroll;
 	overflow-x: hidden;
 	border: 1px solid black;
-	box-shadow: 2px 1px 2px black;
+	box-shadow: 2px 2px 2px black; 
 }
 
 .paper-text {
