@@ -6,8 +6,19 @@
 <div class="active-pickers">
     @if (_lastPicker is not null && CurrentPick > 1)
     {
+        <div class="picker-title">Last Picker:</div>
+    }
+    else
+    {
+        <div></div>
+    }
+    <div class="picker-title">Current Picker:</div>
+    <div class="picker-title">Next Picker:</div>
+
+    @if (_lastPicker is not null && CurrentPick > 1)
+    {
         <div class="picker last" style="background-color:@_lastPicker?.Color">
-            <label>Last Picker:</label><h2>@_lastPicker?.Name</h2>
+            <h2>@_lastPicker?.Name</h2>
         </div>
     }
     else
@@ -15,10 +26,10 @@
         <div></div>
     }
     <div class="picker current" style="background-color:@_currentPicker!.Color">
-        <label>Current Picker:</label><h2>@_currentPicker!.Name</h2>
+        <h2>@_currentPicker!.Name</h2>
     </div>
     <div class="picker next" style="background-color:@_nextPicker!.Color">
-        <label>Next Picker:</label><h2>@_nextPicker!.Name</h2>
+        <h2>@_nextPicker!.Name</h2>
     </div>
 </div>
 
@@ -26,7 +37,7 @@
     <div class="picker-controls">
         <button @onclick="x => CurrentPick--">Previous</button>
         <div>
-            <label>Jump to pick number:</label><br />
+            <label>Current Pick Number:</label><br />
             <InputNumber @bind-Value="CurrentPick"></InputNumber>
         </div>
         <button @onclick="x => CurrentPick++">Next</button>
@@ -63,7 +74,9 @@
     <Paper FillWidth="true">
         <h3>What is this?</h3>
         <article>
-            <p></p>
+            <p>This tool is a "picking sequence" generator based on the <a href="https://en.wikipedia.org/wiki/Thue%E2%80%93Morse_sequence">Thue-Morse sequence</a>.</p>
+            <p>It lets a group of people pick from a common pool as fairly as possible.</p>
+            <p>Just set your number of pickers and name them if desired. Then the picker on the center card gets to choose their pick, after which you click "next".</p>
         </article>
     </Paper>
 </div>
@@ -92,14 +105,13 @@
 
     protected override void OnInitialized()
     {
-        CurrentPick = InitialPick;
         SetPickers(2);
-        base.OnInitialized();
     }
     protected override void OnParametersSet()
     {
+        SetPickers(Pickers);
+        CurrentPick = InitialPick;
         _errorMessage = "";
-        base.OnParametersSet();
     }
 
     public static Picker? GetPicker(IEnumerable<Picker> pickers, IEnumerable<int> currentSequence, int pick)
@@ -142,10 +154,17 @@
             return;
         }
         number = Math.Clamp(number, 2, byte.MaxValue);
-        _pickers = new List<Picker>();
-        for (int i = 0; i < number; i++)
+        if (_pickers.Count > number)
         {
-            _pickers.Add(new() { Id = i, Name = $"Picker {i+1}", Color = $"hsl({(360 / number) * i}, 100%, 80%);" });
+            _pickers = [.. _pickers.Take(number)];
+            return;
+        }
+        else
+        {
+            for (int i = _pickers.Count; i < number; i++)
+            {
+                _pickers.Add(new() { Id = i, Name = $"Picker {i + 1}", Color = $"hsl({(360 / number) * i}, 100%, 80%);" });
+            }
         }
     }
 }
