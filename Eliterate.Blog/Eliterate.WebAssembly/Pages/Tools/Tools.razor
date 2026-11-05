@@ -3,7 +3,7 @@
 
 <div class="tool-shelves" style="@_height">
     <div class="wall">
-        <ToolShelves></ToolShelves>
+        <ToolShelves ShelfHeight="ShelfHeight" ShelfRackHeight="310"></ToolShelves>
     </div>
     <div class="floor">
     </div>
@@ -13,5 +13,5 @@
     private string _height => $"--shelf-height:{ShelfHeight}px;";
 
     [Parameter]
-    public double ShelfHeight { get; set; } = 700;
+    public double ShelfHeight { get; set; } = 800;
 }

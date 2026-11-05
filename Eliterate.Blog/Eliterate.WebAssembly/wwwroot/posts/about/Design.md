@@ -96,11 +96,11 @@ Minor playing around with rotations so that I can write on the spine.
 
 #### Flashcards
 
-Flashcards were initially just a way to have multiple links to posts on one webpage.
+Flashcards were initially just a way to have multiple links to posts on one webpage. A navigation element for posts.
 
-Should it be a chapter page? It would make sense, but I already used that for the navigation.
+Should it have been a "chapter" page instead? It would make sense, but I already used that for the general navigation.
 
-Besides, a post selection should have more info than just the name of the post. Maybe a short description? Tags?
+Besides, a post selection should have more info than just the name of the post, which would not fit the "chapter" page style. Maybe a short description? Tags?
 
 No, a chapter selection would be too limited.
 
@@ -232,9 +232,9 @@ It was a tad tedious to have to place the tags at the bottom of the post (you ca
 
 #### The Idea Board
 
-The spark for the ["plans"](/plans) page came partially from real world post boards in my area, and partially again from [Evelyn Woods](https://eev.ee/), who's whole home page is basically that concept. Though as before, the implementation is entirely my own.
+The spark for the ["plans"](/plans) page came partially from real world post boards in my area, and partially again from [Evelyn Woods](https://eev.ee/), who's whole home page is basically that concept. Though as usual, the implementation is entirely my own.
 
-Brick, cork and paper textures are, like all my textures, from [Transparent Textures](https://www.transparenttextures.com/), wheras the pins are just a repurposed form of the "emojis as stickers" concept - they're pin emojis.
+Brick, cork and paper textures are, like all my textures, from [Transparent Textures](https://www.transparenttextures.com/) (who I found through Evelyn), wheras the pins are just a repurposed form of the "emojis as stickers" concept - they're pin emojis.
 
 ### Any questions? Anything unclear?
 
@@ -254,7 +254,7 @@ Let's make the web weird again.
 
 ### WIP
 
-Ohhh hey, perceptive, aren't you?
+Ohhh hey, perceptive, aren't you? (Or you're using a screen reader... sorry, I didn't know how to properly hide this from screen readers)
 
 You found one of the easter eggs I've hidden on the site!
 
