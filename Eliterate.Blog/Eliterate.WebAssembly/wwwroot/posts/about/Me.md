@@ -85,9 +85,9 @@ My taste in music is weird. I listen to a lot of different genres mixed together
 
 I have a special fondness for Ska. I know it ain't hip, but I am a sucker for a good horn section.
 
-[Streetlight Manifesto](https://music.youtube.com/watch?v=A-UTPKL-UGY) is the GOAT. I'm so hyped for the new album ~~that~~ whose second half will be released shortly after the heat death of the universe. (Halfway there!!)
+[Streetlight Manifesto](https://music.youtube.com/watch?v=A-UTPKL-UGY) is the GOAT. I'm so hyped for the new album whose second half will be released shortly after the heat death of the universe. (Halfway there!!)
 
-<div class="image polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="A concert " src="../images/photos/BOTAR.jpg" />BOTAR 2023</div>
+<div class="image polaroid" style="rotate:-2deg;" role="note"><img loading="lazy" alt="A concert" src="../images/photos/BOTAR.jpg" />BOTAR 2023</div>
 
 I have seen them live multiple times now, even though I had to fly to the states to do so.
 
@@ -102,6 +102,8 @@ I'm sure with the rest of my background, it's entirely unsurprising that I like 
 Both physical and digital games are very important to me. They are my way to unwind and / or socialize.
 
 We have a strong board game culture in our family, so I play all kinds. Recently I've really fallen in love with the game [Flip 7](https://theop.games/pages/flip-7). I love games with simple rules that yet involve a lot of calculating and card counting to win at. Obviously I had to digitally recreate the game - it's playable in the Toy Box.
+
+<img class="gif" style="width:20%;float:right;" loading="lazy" alt="A sleeping pokemon" src="../images/gifs/pokemon_sleeping_totodile.gif" />
 
 Other games I play a decent amount are Nintendo games. Mario Kart, Mario Party and Smash are a staple in our house. I've owned every Nintendo console since the N64. To me, a console has to be able to be played with friends while sitting on a couch together to be a real console, which sadly most other manufacturers seem to have given up on. If I want to play solo or online I can go on my PC, which is going to be more powerful than a console anyways.
 

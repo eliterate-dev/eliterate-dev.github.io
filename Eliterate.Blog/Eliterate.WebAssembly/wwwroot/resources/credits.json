@@ -26,7 +26,12 @@
 	},
 	{
 		"Description": "Hidden art",
-		"Name": "ASCII Art",
+		"Name": "Created with: ASCII Art",
 		"Link": "https://www.asciiart.eu"
+	},
+	{
+		"Description": "Pixel Art & Gifs",
+		"Name": "Created with: Spearite",
+		"Link": "https://spearite.com/"
 	}
 ]

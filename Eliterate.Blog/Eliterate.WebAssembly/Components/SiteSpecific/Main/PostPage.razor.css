@@ -89,7 +89,13 @@
 		border: 1px solid var(--color-shadow);
 	}
 
+	.book-page-text ::deep table {
+		margin-top: 0.5rem;
+		margin-bottom: 1rem;
+	}
+
 	.book-page-text ::deep .paper {
+		max-width: 50%;
 		margin-left: 1rem;
 		float: right;
 		box-shadow: 1px 1px black;
@@ -151,4 +157,16 @@
 	right: 0;
 	width: 100%;
 	padding-right: 0.5rem;
+}
+
+::deep .gif {
+}
+
+::deep .spoiler {
+	color: var(--color-foreground);
+	background-color: var(--color-foreground);
+}
+
+::deep .spoiler:hover {
+	background-color: var(--color-background);
 }

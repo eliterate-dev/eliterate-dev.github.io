@@ -178,8 +178,156 @@ Let's once again take the number we constructed above.
 - 1 * 4 = 4
 - 1 * 2 = 2
 - 1 * 1 = 1
-- Total: 207
+
+Total: 207
 
 And that easily we have our decimal number back!
 
-Hope this helped.
+### How do computers use this?
+
+At the very bottom, digital information transmission is just "electricity".
+
+Imagine the simplest electrical circuit - a power source, a simple push button and a small LED.
+
+You push the button, electricity flows, the LED lights up. It is now "on".
+
+You let go of the button, the circuit is broken, the LED goes dark, leaving it "off".
+
+With this system alone, you can technically transmit any information you want. All you need is a *consensus*, a standard, for how to encode that data.
+
+<img class="paper" style="rotate:1deg" loading="lazy" alt="A short comic on how creating a new standard usually doesn't unify any standards, but just increases the number of standards." src="../images/memes/standards_2x.png" />
+
+For example:
+
+You and a friend want to transmit data without speaking.
+
+You tell that friend that every *second* you give them a "signal" by pressing or NOT pressing your button. 
+
+Your friend can look at a clock and every second make a note of whether the light is on or off.
+
+Their notess might end up looking a little like this:
+
+    Off On Off Off On Off Off Off
+    Off On Off Off Off On Off On
+    Off On Off Off On On Off Off
+    Off On Off Off On On Off Off
+    Off On Off Off On On On On
+
+...right. There's not quite enough of a consensus yet to decipher that.
+
+All we have for now is "On" and "Off" - that alone is of course not human readable information.
+
+So we have some defining to to.
+
+Let's go back to our binary numbers: if we define one of these "on or off"s as... let's call it a "bit", we can take a bunch of them together to make a number larger than 0 or 1.
+
+In that spirit, let's define 8 of these "bits" together as a unit of information. We'll call that a "byte".
+
+The maximum number such a "byte" can hold is 255 - including 0 that's 256 different arrangements of "bits".
+
+That's plenty for assigning a number to each of the 26 letters of the english alphabet.
+
+We'll leave some initial slack for other symbols (don't worry about it for now) and start assigning the letters from number 65 up.
+
+So our letters will be assigned like this:
+
+<table>
+    <tr style="font-size:9px;">
+        <td>65</td>
+        <td>66</td>
+        <td>67</td>
+        <td>68</td>
+        <td>69</td>
+        <td>70</td>
+        <td>71</td>
+        <td>72</td>
+        <td>73</td>
+        <td>74</td>
+        <td>75</td>
+        <td>76</td>
+        <td>77</td>
+        <td>78</td>
+        <td>79</td>
+        <td>80</td>
+        <td>81</td>
+        <td>82</td>
+        <td>83</td>
+        <td>84</td>
+        <td>85</td>
+        <td>86</td>
+        <td>87</td>
+        <td>88</td>
+        <td>89</td>
+        <td>90</td>
+    </tr>
+    <tr style="font-size:12px;text-align:center;">
+        <td>A</td>
+        <td>B</td>
+        <td>C</td>
+        <td>D</td>
+        <td>E</td>
+        <td>F</td>
+        <td>G</td>
+        <td>H</td>
+        <td>I</td>
+        <td>Y</td>
+        <td>K</td>
+        <td>L</td>
+        <td>M</td>
+        <td>N</td>
+        <td>O</td>
+        <td>P</td>
+        <td>Q</td>
+        <td>R</td>
+        <td>S</td>
+        <td>T</td>
+        <td>U</td>
+        <td>V</td>
+        <td>W</td>
+        <td>X</td>
+        <td>Y</td>
+        <td>Z</td>
+    </tr>
+</table>
+
+That's our "consensus".
+
+Now let's translate the first line of our message again:
+
+    Off On Off Off On Off Off Off
+
+Would give us
+
+    0 1 0 0 1 0 0 0
+
+Run that back through our deconversion algorithm and we get:
+
+- 0 * 128 = 0
+- 1 * 64 = 64
+- 0 * 32 = 0
+- 0 * 16 = 0
+- 1 * 8 = 8
+- 0 * 4 = 0
+- 0 * 2 = 0
+- 0 * 1 = 0
+
+Total: 72
+
+In our table, "72" corresponds to "H", so that's our first letter!
+
+Can you translate the rest of the message?
+
+Solution:
+<span class="spoiler">72 69 76 76 79 -> H e l l o</span>
+
+Now a computer doesn't need a button to press, and it doesn't need a to observe a light, but that aside, they do basically the same thing - just much, much faster.
+
+Instead of "a light", a digital input simply measures if there **IS** electricity or none.
+
+No electricity gets registered as a 0 or "low", and when there is a voltage over a certain threshold, it registers a 1 or "high".
+
+That's it. That's the basics of how a computer turns information into ones and zeroes, sends them to another computer, which then turns it back into human readable information.
+
+The "consensus table" we used above is called [ASCII](https://en.wikipedia.org/wiki/ASCII) - it's an old standard based on 8 bits, but it's still useable.
+
+Congrats. You know this now.
