@@ -5,19 +5,20 @@
 	},
 	{
 		"Title": "A pixel drawing tool",
-		"Description": "I plan to add a pixel drawing tool to this site, because it would fit the style of this site and I frequently use them and want one I can trust.",
-		"Image": "/images/photos/Cat_drinking.jpg",
-		"ImageAlt": "A cat drinking"
+		"Description": "I plan to add a pixel drawing tool to this site, because it would fit the style of this site and I frequently use them and want one I can trust."
 	},
 	{
 		"Title": "Zine Site?",
 		"Description": "A website in this style where people can post zines. <br>I had images of zines in mind a lot while making this site. <br>I think it would fit quite well.",
 		"Link": "mailto:contact@eliterate.blog",
-		"LinkText": "I'd be interested in that"
+		"LinkText": "I'd be interested in that",
+		"Image": "/images/memes/Bender_Zine_Website.jpg",
+		"ImageAlt": "Bender from Futurama saying he's going to make his own zine website",
+		"ImageText": "With pictures and tape"
 	},
 	{
 		"Title": "Have a great Idea?",
-		"Description": "If YOU have a great idea you think I should make, feel free to send me an email!<br><br>As mentioned I do my best work in C#/.Net, so it should be compatible with that.",
+		"Description": "If YOU have a great idea for a tool, a toy or a page, that you think I should make, feel free to send me an email!<br><br>As mentioned I do my best work in C#/.Net, so it should be compatible with that.",
 		"Link": "mailto:contact@eliterate.blog",
 		"LinkText": "Send an Email"
 	}

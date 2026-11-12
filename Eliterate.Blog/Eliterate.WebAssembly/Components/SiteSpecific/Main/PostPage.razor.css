@@ -83,7 +83,7 @@
 		filter: var(--sticker-outline-filter);
 	}
 
-	.book-page-text ::deep img {
+	.book-page-text ::deep img, .book-page-text ::deep iframe {
 		width: 100%;
 		display: block;
 		border: 1px solid var(--color-shadow);

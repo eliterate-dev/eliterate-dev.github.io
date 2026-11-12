@@ -155,6 +155,17 @@ The actual math is fascinating, but a bit outside the scope of this post (and, t
 If I were to abstract it to the point that a proper mathematician would probably like to strangle me, I like to imagine it a bit like a [Nonogram](https://en.wikipedia.org/wiki/Nonogram).
 
 
+### Further learning
+
+This is a rather shallow dive into  
+
+Here's a video that gives a more mathematically accurate explanation of how the error correction actually works - with physical props!
+
+<div class="image polaroid" style="rotate:-2deg;" role="note">
+    <iframe src="https://www.youtube.com/embed/RYqX8CNgzwM" title="how to read QR codes by hand (and make bad ones that work)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    A video about QR codes
+</div>
+
 ### Make your own QR codes!
 
 This is a companion piece to the QR generator tool I have added to this site!
