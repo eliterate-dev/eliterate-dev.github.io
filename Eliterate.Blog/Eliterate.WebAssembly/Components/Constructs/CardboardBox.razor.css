@@ -2,7 +2,7 @@
 .cardboard-box-top {
 	height: 100%;
 	width: 100%;
-	border-bottom: 2px dotted black;
+	border-bottom: 4px dotted black;
 	transform-style: preserve-3d;
 }
 	.cardboard-box-top.open {
@@ -15,8 +15,9 @@
 		left: 50%;
 		right: 0;
 		content: '';
-		border-left: 4px double black;
+		border-left: 1px dashed black;
 	}
+	/* tape */
 	.cardboard-box-top:not(.open)::after {
 		content: '';
 		position: absolute;
