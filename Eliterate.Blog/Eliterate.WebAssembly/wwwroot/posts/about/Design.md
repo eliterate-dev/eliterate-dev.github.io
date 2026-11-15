@@ -160,6 +160,13 @@ However, just having a consistent number of characters does not mean every line 
 
 Thankfully, there are [monospace fonts](https://en.wikipedia.org/wiki/List_of_monospaced_typefaces), which, as their name suggests, exist exactly to fix this problem. They make sure every character used in the font has the same width. So I applied one of those to the nav links and now all my lines (which all have the same amount of characters thanks to `.PadRight(20, '.')`) are of equal width.
 
+Comparison of a "regular" font to a monospace one:
+
+- <span>the quick brown fox jumps over the lazy dog</span>
+- <span style="font-family:monospace;">the quick brown fox jumps over the lazy dog</span>
+
+As you see, monospace fonts usually take up more space, as every letter has to take up as much space as the biggest one, which is why they're not used by default. However, for usecases like mine they're perfect.
+
 #### Posts (Book "Pages")
 
 <div class="sticker" style="rotate:-8deg;" role="presentation">📝</div>
@@ -250,11 +257,11 @@ Can't promise I'll reply right away, but I'll get to it eventually.
 
 Let's make the web weird again.
 
-<div style="color:var(--color-background);cursor:default;">
+<div style="color:var(--color-background);cursor:default;" aria-hidden="true">
 
 ### WIP
 
-Ohhh hey, perceptive, aren't you? (Or you're using a screen reader... sorry, I didn't know how to properly hide this from screen readers)
+Ohhh hey, perceptive, aren't you?
 
 You found one of the easter eggs I've hidden on the site!
 

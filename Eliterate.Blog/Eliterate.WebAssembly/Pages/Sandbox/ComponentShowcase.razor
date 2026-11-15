@@ -23,6 +23,16 @@
                     <PolaroidCamera></PolaroidCamera>
                 </RotatableDisplay>
                 break;
+            case Component.CardboardBox:
+                <RotatableDisplay>
+                    <CardboardBox></CardboardBox>
+                </RotatableDisplay>
+                break;
+            case Component.Cartridge:
+                <RotatableDisplay>
+                    <Cartridge></Cartridge>
+                </RotatableDisplay>
+                break;
             default:
                 <div class="fill center-content">
                     <p>Nothing selected</p>
@@ -38,7 +48,9 @@
     private enum Component
     {
         None,
-        PolaroidCamera
+        PolaroidCamera,
+        CardboardBox,
+        Cartridge
     }
 }
 

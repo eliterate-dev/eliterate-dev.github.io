@@ -2,12 +2,10 @@
 .cardboard-box-top {
 	height: 100%;
 	width: 100%;
-	border-bottom: 4px dotted black;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
 	transform-style: preserve-3d;
 }
-	.cardboard-box-top.open {
-		background-color: #111;
-	}
 	.cardboard-box-top:not(.open)::before {
 		position: absolute;
 		top: 0;
@@ -21,12 +19,15 @@
 	.cardboard-box-top:not(.open)::after {
 		content: '';
 		position: absolute;
-		top: calc(50% - 40px);
-		left: calc(50% - 10px);
-		height: 80px;
+		top: calc(10% - 1px);
+		left: calc(50% - 11px);
+		height: 80%;
 		width: 20px;
 		background-color: grey;
 		border: 1px solid black;
+	}
+	.cardboard-box-top.open {
+		background-color: #111;
 	}
 	.cardboard-box-top.open::before {
 		position: absolute;
