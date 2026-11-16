@@ -1,31 +1,23 @@
-﻿.active-pickers {
-	margin-top: 2rem;
+﻿
+.picker-decks {
+	min-width: var(--min-width);
+	margin-top: 0.5rem;
 	display: grid;
-	grid-template-columns: 25% 50% 25%;
-	min-width: 300px;
-	overflow: hidden;
+	grid-template-columns: 50% 50%;
 }
 
-.picker {
-	color: black;
-	width: calc(100% - 4rem);
-	min-width: 120px;
-	max-width: 220px;
+.deck {
+	position: relative;
+	width: 100%;
+	max-width: 250px;
+	margin: 0 auto;
 	aspect-ratio: 141/100;
-	margin: 1rem auto;
-	padding: 1rem;
-	align-content: center;
-	text-align: center;
-	text-overflow: ellipsis;
-	box-shadow: 2px 2px black;
-	border: 1px solid var(--color-shadow);
 }
-	.picker > h2 {
-		font-size: 1.5rem;
-	}
-	.picker.current > h2 {
-		font-size: 2.5rem;
-	}
+
+.deck > .picker {
+	position: absolute;
+	width: 90%;
+}
 
 .picker-title {
 	text-align: center;
@@ -34,9 +26,39 @@
 	background-image: url(../images/textures/notebook.png);
 	width: max-content;
 	margin: auto;
-	padding: 4px 20px;
+	padding: 4px 12px;
 	box-shadow: 2px 2px black;
 	border: 1px solid var(--color-shadow);
+}
+
+.active-picker {
+	min-width: var(--min-width);
+	width: 90%;
+	max-width: 500px;
+	aspect-ratio: 141/100;
+	display: grid;
+	grid-template-columns: 1fr;
+	margin: 0 auto;
+}
+
+.picker {
+	background-color: #ddd;
+	color: black;
+	aspect-ratio: 141/100;
+	margin: 0.5rem 5%;
+	align-content: center;
+	text-align: center;
+	box-shadow: 1px 1px black;
+	border: 1px solid var(--color-shadow);
+}
+
+	.picker.current > h2 {
+		font-size: 3.5rem;
+	}
+
+::deep input {
+	width: calc(100% - 1rem);
+	margin: 0.125rem 0.25rem;
 }
 
 .picker-controls {
@@ -62,33 +84,35 @@
 .card-header {
 	padding: 0 0.5rem;
 }
-.card-footer {
-	padding: 0.25rem 0.25rem;
-}
-	.card-footer > ::deep input {
-		width: calc(100% - 3.5rem);
-	}
 
 .card-body {
-	padding: 0 0.25rem;
 	margin-bottom: 0.75rem;
 }
+
+.card-footer {
+	width: 100%;
+	display: grid;
+	grid-template-columns: auto min-content;
+}
+
+	.card-footer > ::deep input {
+		margin: 0.375rem 0.25rem;
+	}
+	.card-footer > button {
+		width: 50px;
+		margin: 0.25rem 0.25rem;
+	}
 
 ul {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
 }
-li {
-	margin: 0.125rem;
-}
-	li > ::deep input {
-		width: calc(100% - 0.5rem);
-	}
 
 .explanation {
 	position: relative;
 	width: 80%;
+	min-width: var(--min-width);
 	max-width: 500px;
 	margin: 0 auto;
 }

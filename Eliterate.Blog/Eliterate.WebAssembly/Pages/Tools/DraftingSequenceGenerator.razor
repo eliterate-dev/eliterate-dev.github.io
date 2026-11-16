@@ -2,8 +2,7 @@
 @using Eliterate.WebAssembly.Tools
 
 <PageTitle>Eliterate - Tools - Picker</PageTitle>
-
-<div class="active-pickers">
+<div class="picker-decks">
     @if (_lastPicker is not null && CurrentPick > 1)
     {
         <div class="picker-title">Last Picker:</div>
@@ -12,24 +11,38 @@
     {
         <div></div>
     }
-    <div class="picker-title">Current Picker:</div>
     <div class="picker-title">Next Picker:</div>
-
     @if (_lastPicker is not null && CurrentPick > 1)
     {
-        <div class="picker last" style="background-color:@_lastPicker?.Color">
-            <h2>@_lastPicker?.Name</h2>
+        <div class="deck discard-pile">
+            @foreach (var item in Enumerable.Range(1, Math.Min(CurrentPick, 7)))
+            {
+                <div class="picker" style="rotate:@(Random.Shared.Next(0, 5) - 3)deg;"></div>
+            }
+            <div class="picker" style="background-color:@_lastPicker?.Color">
+                <h2>@_lastPicker?.Name</h2>
+            </div>
         </div>
     }
     else
     {
         <div></div>
     }
+    <div class="deck">
+        @foreach (var item in Enumerable.Range(0, 4))
+        {
+            <div class="picker" style="rotate:@(Random.Shared.Next(0, 5) - 3)deg;"></div>
+        }
+        <div class="picker" style="background-color:@_nextPicker!.Color">
+            <h2>@_nextPicker!.Name</h2>
+        </div>
+    </div>
+</div>
+
+<div class="active-picker">
+    <div class="picker-title">Current Picker:</div>
     <div class="picker current" style="background-color:@_currentPicker!.Color">
         <h2>@_currentPicker!.Name</h2>
-    </div>
-    <div class="picker next" style="background-color:@_nextPicker!.Color">
-        <h2>@_nextPicker!.Name</h2>
     </div>
 </div>
 
@@ -65,7 +78,9 @@
             </ul>
         </div>
         <div class="card-footer">
-            <label>Reset number of pickers:</label><InputNumber @bind-Value="Pickers"></InputNumber><button @onclick="x => SetPickers(Pickers)">Set</button>
+            <label style="grid-column:span 2;">Reset number of pickers:</label>
+            <InputNumber @bind-Value="Pickers"></InputNumber>
+            <button @onclick="x => SetPickers(Pickers)">Set</button>
         </div>
     </FlashCard>
 </div>
@@ -163,8 +178,14 @@
         {
             for (int i = _pickers.Count; i < number; i++)
             {
-                _pickers.Add(new() { Id = i, Name = $"Picker {i + 1}", Color = $"hsl({(360 / number) * i}, 100%, 80%);" });
+                _pickers.Add(new() { Id = i, Name = $"Picker {i + 1}", Color = $"#ddd;" });
             }
+        }
+        var j = 0;
+        foreach (var picker in _pickers)
+        {
+            picker.Color = $"hsl({(360 / number) * j}, 100%, 80%);";
+            j++;
         }
     }
 }

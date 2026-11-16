@@ -24,7 +24,7 @@
 
 .shelf-link {
 	height: 100%;
-	width: max-content;
+	width: 100%;
 	transform-style: preserve-3d;
 }
 
@@ -42,8 +42,8 @@
 
 .papers {
 	position: relative;
-	height: 90%;
-	width: 50%;
+	height: calc(var(--shelf-depth) * 0.6);
+	aspect-ratio: 1/1.41;
 	font-size: 12px;
 	margin-left: 50px;
 }
@@ -53,12 +53,8 @@
 	bottom: 1rem;
 	right: 1rem;
 	width: max-content;
-	margin: 0 0 0.5rem 1rem;
-	padding: 0.25rem;
 	background-color: white;
 	color: black;
-	text-align: center;
-	filter: var(--sticker-outline-filter);
 }
 
 .inactive {
