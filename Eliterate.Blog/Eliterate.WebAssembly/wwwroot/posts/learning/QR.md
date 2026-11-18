@@ -130,19 +130,56 @@ The length of a side of a QR code square is simply 4 * "Version Number" + 17.
     </tr>
 </table>
 
+<img class="paper image" style="rotate:1deg;width:120px;" loading="lazy" alt="A QR code with the position detection patterns marked" src="../images/qrcodes/eliterate_version_information.png" />
+
+While it would be entirely possible to derive all the version data simply by decoding the QR code itself, as a safeguard against "false decoding", the version information is additionally encoded next to two of the position detection patterns we cover below.
+
 #### QR's "Guard patterns"
 
-Now, if we again approach this naively, it would seem that the total information in bits in a square is simply that side length... well squared. So for a version 1 QR code that would be 441 (21x21), for a version 40 QR code it would be 31329 (177x177)!
+Now, if we again approach this naively, at this point it would seem that the total information in bits in a square is simply that side length... well squared. So for a version 1 QR code that would be 441 (21x21), for a version 40 QR code it would be 31329 (177x177)!
 
 However, just like with the barcode's guard patterns, we need to give the scanners a way to recognize where they should start scanning and decoding the data.
 
-If you've ever looked at a QR code, I'm sure you have noticed the big ▣ looking blocks in the corners. That's what they are for. They tell your scanner "Hey, this is really a QR code and you can scan between these squares."
+##### Position Detection Patterns
 
-All QR codes have the 3 obvious squares in the top right, top left and bottom left corners. However higher version QR codes also have additional, smaller such "guard pattern squares" further inside the code, to make sure your scanner gets all the data.
+If you've ever looked at a QR code, I'm sure you have noticed the big ▣ looking blocks in the corners. That's what they are for.
+
+In QR codes they're called "position detection patterns" or "finder patterns".
+
+They tell your scanner "Hey, this is really a QR code and you can scan between these squares."
+
+All QR codes have the 3 obvious squares in the top right, top left and bottom left corners. However higher version QR codes also have additional, smaller such "squares" in a grid formation inside the code, to make sure your scanner gets all the data.
+
+##### Timing patterns & the "dark module"
+
+<img class="paper image" style="rotate:-2deg;width:120px;" loading="lazy" alt="A QR code with the timing patterns and the dark module marked" src="../images/qrcodes/eliterate_timing_pattern.png" />
+
+Additionally, every QR Code has two lines of alternating black and white squares. 
+
+Those serve as an aditional help for decoders to calculate the size (version) of the code.
+
+In larger codes with additional position detection patterns, the leftmost and topmost row of those patterns intersect the timing pattern lines, however they do not break it, because they match the pattern.
+
+<br/>
+
+Every QR code *also* has a single black square next to the bottom left position detection pattern.
+
+I have read that this is also for validation, but to be honest I could not find out what benefit it would bring that isn't covered by the timing pattern.
+
+Some say it's to prevent there being a "blank" zone next to the bottom left position detection pattern, but I'd argue that in that case there should have also been one below the top right position detection pattern.
+
+Either way, it's there, so don't forget it.
+
+##### Format "pattern"
+
+<img class="paper image" style="rotate:-2deg;width:120px;" loading="lazy" alt="A QR code with the timing patterns and the format marked" src="../images/qrcodes/eliterate_format.png" />
+
+<br/>
+<br/>
 
 So with these guard patterns taking up some space, what's the *actual* amount of data you can store in a QR code?
 
-Well, there's still one more caveat we have to get to before that.
+Well, there's still one more caveat we have to get to before that:
 
 #### Error Correction
 
@@ -152,19 +189,24 @@ The actual math is fascinating, but a bit outside the scope of this post (and, t
 
 <img class="paper image" style="rotate:1deg" loading="lazy" alt="A nonogram number puzzle and its solution." src="../images/misc/nonogram.png" />
 
-If I were to abstract it to the point that a proper mathematician would probably like to strangle me, I like to imagine it a bit like a [Nonogram](https://en.wikipedia.org/wiki/Nonogram).
+If I were to abstract it to the point that a proper mathematician would probably like to strangle me, I like to imagine it a bit like a [Nonogram](https://en.wikipedia.org/wiki/Nonogram):
 
+Although the numbers in the margins are technically not part of the image - they are redundant information - they allow you to reconstruct the image in the grid.
+
+Error correction works with much a similar concept.
+
+We add a bit of redundant data 
 
 ### Further learning
 
-This is a rather shallow dive into  
+This is a rather shallow dive into the general topic of QR codes. Much more can be learned if you're interested.
 
 Here's a video that gives a more mathematically accurate explanation of how the error correction actually works - with physical props!
 
 <div class="image polaroid" style="rotate:-2deg;" role="note">
     <iframe src="https://www.youtube.com/embed/RYqX8CNgzwM" title="how to read QR codes by hand (and make bad ones that work)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     A video about QR codes
-</div>
+</div> 
 
 ### Make your own QR codes!
 
